@@ -71,6 +71,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="formRelatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formRelatorios.Designer.cs">
+      <DependentUpon>formRelatorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs" />
     <Compile Include="PIMIIIDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formRelatorios.resx">
+      <DependentUpon>formRelatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
