@@ -63,9 +63,29 @@ namespace PIM_IV.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PHOTO_2023_04_26_19_33_45 {
             get {
                 object obj = ResourceManager.GetObject("PHOTO-2023-04-26-19-33-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wp2497661_calculator_wallpapers {
+            get {
+                object obj = ResourceManager.GetObject("wp2497661-calculator-wallpapers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -88,6 +88,7 @@
             this.txtBoxPassword.PasswordChar = '*';
             this.txtBoxPassword.Size = new System.Drawing.Size(207, 20);
             this.txtBoxPassword.TabIndex = 2;
+            this.txtBoxPassword.Text = "123456";
             this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
             // txtBoxLogin
@@ -96,6 +97,7 @@
             this.txtBoxLogin.Name = "txtBoxLogin";
             this.txtBoxLogin.Size = new System.Drawing.Size(207, 20);
             this.txtBoxLogin.TabIndex = 1;
+            this.txtBoxLogin.Text = "123456";
             // 
             // label2
             // 
@@ -123,7 +125,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PIM_IV.Properties.Resources.PHOTO_2023_04_26_19_33_45;
+            this.pictureBox1.Image = global::PIM_IV.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(498, 426);

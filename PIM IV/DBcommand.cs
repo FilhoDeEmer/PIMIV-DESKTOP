@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections.Specialized;
 using static System.Net.Mime.MediaTypeNames;
+using System.Data;
 
 namespace PIM_IV
 {
@@ -16,7 +17,7 @@ namespace PIM_IV
         SqlConnection connection;
         SqlCommand cmd;
 
-        
+
         string strCmd;
 
         public void Connection()
@@ -42,7 +43,6 @@ namespace PIM_IV
             string login = username;
             string senha = password;
             string result;
-            string nomeUser, senhaUser;
 
 
             connection = new SqlConnection(@"Server=EMERSON\SQLEXPRESS;Database=PIMIII;User Id=sa;Password='Eme13081998';");
@@ -52,79 +52,114 @@ namespace PIM_IV
             SqlParameter paramLogin = new SqlParameter();
             paramLogin.ParameterName = "@Login";
             paramLogin.Value = login;
-
-            SqlParameter paramSenha = new SqlParameter();
-            paramSenha.ParameterName = "@Senha";
-            paramSenha.Value = senha;
+                       
 
             // Criando o SqlCommand com um parâmetro
-             cmd = new SqlCommand(
-            "select login, senha from teste where login= @Login and senha = @Senha", connection);
-               
-            
+            cmd = new SqlCommand(
+           "select * from teste where login= @Login ", connection);
+            // adiciona o parametro ao comando 
+            cmd.Parameters.AddWithValue("@login", login);
+
             // Criar um objeto SqlCommand e associá-lo com a conexão e a consulta
             using (connection)
             {
                 using (cmd)
                 {
-                    // Adicionar os parâmetros ao comando
-                    cmd.Parameters.Add(paramLogin);
-                    cmd.Parameters.Add(paramSenha);
 
-                    // Abrir a conexão e executar a consulta
                     try
                     {
                         connection.Open();
-                         reader = cmd.ExecuteReader();
-
-                        // Processar os resultados
-                        while (reader.Read())
+                        using (reader = cmd.ExecuteReader())
                         {
-                            // Acessar os dados recuperados
-                            Console.WriteLine("{0},{1}",
-                                reader["Login"],
-                                reader["Senha"]);
-                            //nomeUser = reader["Login"];
-                            //senhaUser = reader["Senha"];
-
-                            // Realizar alguma ação com os dados
-                            
+                            if (reader.Read())
+                            {
+                                if (reader["senha"].ToString() == senha)
+                                {
+                                    return reader["login"].ToString();
+                                }
+                                else
+                                {
+                                    return result = "Senha inválida!";
+                                }
+                            }
+                            else
+                            {
+                                result = "Usuário não encontrado!";
+                                return result;
+                            }
                         }
-                        result = (string)reader["Login"];
-                        MessageBox.Show(result);
-                        return result;
-                        
+                     }catch (Exception ex)
+                        {
+                                MessageBox.Show(ex.Message);
+                    
+                                  return "false";
+                         }
+                     finally
+                     { // Fecha o datareader
+                                if (reader != null)
+                                {
+                                    reader.Close();
+                                }
+
+                                // Fecha a conexão
+                                if (connection != null)
+                                {
+                                    connection.Close();
+                                }
+                     }
+
+                }
+            }
+        }// fecha o metodo CmdLogin
 
 
+        public void cadFuncionario(string nome, string cpf)
+        {
+            connection = new SqlConnection(@"Server=EMERSON\SQLEXPRESS;Database=PIMIII;User Id=sa;Password='Eme13081998';");
+            SqlDataReader reader = null;
+
+            // Criar objetos SqlParameter para cada parâmetro
+            SqlParameter paramNome = new SqlParameter();
+            paramNome.ParameterName = "@Nome";
+            paramNome.Value = nome;
+
+            SqlParameter paramCPF = new SqlParameter();
+            paramCPF.ParameterName = "@cpf";
+            paramCPF.Value = cpf;
+
+            // Criando o SqlCommand com um parâmetro
+            cmd = new SqlCommand(
+           "insert into FUNCIONARIOS_teste (nome, CPF) values (@Nome, @CPF) ", connection);
+            // adiciona o parametro ao comando 
+            cmd.Parameters.AddWithValue("@Nome", nome);
+            cmd.Parameters.AddWithValue("@CPF", cpf);
+
+            // Criar um objeto SqlCommand e associá-lo com a conexão e a consulta
+            using (connection)
+            {
+                using (cmd)
+                {
+
+                    try
+                    {
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Cadastro Realizado com Sucesso");
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                        return "false";
+
                     }
                     finally
-                    { // Fecha o datareader
-                        if (reader != null)
-                        {
-                            reader.Close();
-                        }
-
-                        // Fecha a conexão
-                        if (connection != null)
-                        {
-                            connection.Close();
-                        }
+                    { 
+                        connection.Close();
+                        
                     }
-                    
-                    
+
                 }
             }
-
-
-           
-
         }
-
-
-    }
+      
+    } 
 }

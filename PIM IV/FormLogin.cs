@@ -13,14 +13,17 @@ namespace PIM_IV
 
     public partial class FormLogin : Form
     {
+
         //variaveis da tela de login
         string comNome, comPassword;
+        
         public FormLogin()
         {
             InitializeComponent();
 
         }
 
+        
         private void button1_Click(object sender, EventArgs e)
         {
            comNome = txtBoxLogin.Text;
@@ -31,7 +34,7 @@ namespace PIM_IV
             if(teste == comNome)
             {
                 MessageBox.Show("Bem Vindo! " + comNome);
-                FormHome home = new FormHome();
+                FormHome home = new FormHome( comNome);
                 home.Show();
                 Hide();
             }

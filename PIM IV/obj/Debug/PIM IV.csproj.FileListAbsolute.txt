@@ -9,3 +9,16 @@ C:\Users\eme_s\OneDrive\Área de Trabalho\PIMIV\desktop c#\PIM IV\PIM IV\obj\Deb
 C:\Users\eme_s\OneDrive\Área de Trabalho\PIMIV\desktop c#\PIM IV\PIM IV\obj\Debug\PIM IV.pdb
 C:\Users\eme_s\OneDrive\Área de Trabalho\PIMIV\desktop c#\PIM IV\PIM IV\obj\Debug\PIM_IV.FormHome.resources
 C:\Users\eme_s\OneDrive\Área de Trabalho\PIMIV\desktop c#\PIM IV\PIM IV\obj\Debug\PIM_IV.FormLogin.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\PIM IV.exe.config
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\PIM IV.exe
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\PIM IV.pdb
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.csproj.AssemblyReference.cache
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.FormHome.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.FormLogin.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.Properties.Resources.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.csproj.GenerateResource.cache
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.csproj.CoreCompileInputs.cache
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.exe
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.pdb
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.FormFuncionarios.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.cdFuncionario.resources

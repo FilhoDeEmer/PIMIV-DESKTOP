@@ -46,8 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CdFuncionario.cs" />
+    <Compile Include="cdFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cdFuncionario.Designer.cs">
+      <DependentUpon>cdFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBcommand.cs" />
+    <Compile Include="FormFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFuncionarios.Designer.cs">
+      <DependentUpon>FormFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,8 +72,24 @@
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
+    <Compile Include="PIMIIIDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMIIIDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PIMIIIDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMIIIDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="cdFuncionario.resx">
+      <DependentUpon>cdFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFuncionarios.resx">
+      <DependentUpon>FormFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,6 +106,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="PIMIIIDataSet.xsc">
+      <DependentUpon>PIMIIIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PIMIIIDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PIMIIIDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PIMIIIDataSet.xss">
+      <DependentUpon>PIMIIIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PIMIIIDataSet1.xsc">
+      <DependentUpon>PIMIIIDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PIMIIIDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PIMIIIDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PIMIIIDataSet1.xss">
+      <DependentUpon>PIMIIIDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PHOTO-2023-04-26-19-33-45.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\wp2497661-calculator-wallpapers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
