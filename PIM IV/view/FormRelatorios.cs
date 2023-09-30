@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PIM_IV
 {
-    public partial class formRelatorios : Form
+    public partial class FormRelatorios : Form
     {
-        public formRelatorios()
+        public FormRelatorios()
         {
             InitializeComponent();
         }

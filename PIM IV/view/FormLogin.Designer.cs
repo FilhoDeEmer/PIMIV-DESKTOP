@@ -51,6 +51,7 @@
             this.groupBox1.Controls.Add(this.txtBoxLogin);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(516, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(309, 426);
@@ -61,19 +62,21 @@
             // linkSenha
             // 
             this.linkSenha.AutoSize = true;
+            this.linkSenha.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkSenha.LinkColor = System.Drawing.Color.Red;
-            this.linkSenha.Location = new System.Drawing.Point(49, 226);
+            this.linkSenha.Location = new System.Drawing.Point(45, 195);
             this.linkSenha.Name = "linkSenha";
-            this.linkSenha.Size = new System.Drawing.Size(113, 13);
+            this.linkSenha.Size = new System.Drawing.Size(214, 22);
             this.linkSenha.TabIndex = 3;
             this.linkSenha.TabStop = true;
             this.linkSenha.Text = "Esqueceu sua senha?";
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(113, 264);
+            this.btnLogin.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(69, 234);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(129, 41);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Entrar";
             this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -83,37 +86,39 @@
             // txtBoxPassword
             // 
             this.txtBoxPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBoxPassword.Location = new System.Drawing.Point(49, 203);
+            this.txtBoxPassword.Location = new System.Drawing.Point(39, 163);
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.PasswordChar = '*';
-            this.txtBoxPassword.Size = new System.Drawing.Size(207, 20);
+            this.txtBoxPassword.Size = new System.Drawing.Size(207, 29);
             this.txtBoxPassword.TabIndex = 2;
             this.txtBoxPassword.Text = "123456";
             this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
             // txtBoxLogin
             // 
-            this.txtBoxLogin.Location = new System.Drawing.Point(49, 154);
+            this.txtBoxLogin.Location = new System.Drawing.Point(39, 106);
             this.txtBoxLogin.Name = "txtBoxLogin";
-            this.txtBoxLogin.Size = new System.Drawing.Size(207, 20);
+            this.txtBoxLogin.Size = new System.Drawing.Size(207, 29);
             this.txtBoxLogin.TabIndex = 1;
             this.txtBoxLogin.Text = "123456";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 187);
+            this.label2.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(100, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(71, 22);
             this.label2.TabIndex = 10;
             this.label2.Text = "Senha";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 138);
+            this.label1.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(77, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(130, 22);
             this.label1.TabIndex = 20;
             this.label1.Text = "E-mail ou ID:";
             // 

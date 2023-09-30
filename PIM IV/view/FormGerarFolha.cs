@@ -8,22 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PIM_IV
+namespace PIM_IV.view
 {
-    public partial class cdFuncionario : Form
+    public partial class FormGerarFolha : Form
     {
-        public cdFuncionario()
+        public FormGerarFolha()
         {
             InitializeComponent();
         }
 
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string nome = txtNome.Text;
-            string cpf = txtCPF.Text;
-            DBcommand cadastra = new DBcommand();
-            cadastra.cadFuncionario(nome, cpf);
-            Close();
+            FormFolha novaFolha = new FormFolha();
+            novaFolha.ShowDialog();
+
         }
     }
 }

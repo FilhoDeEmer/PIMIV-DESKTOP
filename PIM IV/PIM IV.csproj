@@ -46,38 +46,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cdFuncionario.cs">
+    <Compile Include="model\CreateDataBase.cs" />
+    <Compile Include="model\DBcommand.cs" />
+    <Compile Include="view\FormCargos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cdFuncionario.Designer.cs">
-      <DependentUpon>cdFuncionario.cs</DependentUpon>
+    <Compile Include="view\FormCargos.Designer.cs">
+      <DependentUpon>FormCargos.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBcommand.cs" />
-    <Compile Include="FormFuncionarios.cs">
+    <Compile Include="view\FormCRUDUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFuncionarios.Designer.cs">
+    <Compile Include="view\FormCRUDUsers.Designer.cs">
+      <DependentUpon>FormCRUDUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormEmpresas.Designer.cs">
+      <DependentUpon>FormEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormFolha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormFolha.Designer.cs">
+      <DependentUpon>FormFolha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormFuncionarios.Designer.cs">
       <DependentUpon>FormFuncionarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHome.cs">
+    <Compile Include="view\FormGerarFolha.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHome.Designer.cs">
+    <Compile Include="view\FormGerarFolha.Designer.cs">
+      <DependentUpon>FormGerarFolha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormGerEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormGerEmpresas.Designer.cs">
+      <DependentUpon>FormGerEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="view\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="view\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="formRelatorios.cs">
+    <Compile Include="view\FormRelatorios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formRelatorios.Designer.cs">
-      <DependentUpon>formRelatorios.cs</DependentUpon>
+    <Compile Include="view\FormRelatorios.Designer.cs">
+      <DependentUpon>FormRelatorios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs" />
+    <Compile Include="view\FormAdiFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormAdiFuncionario.Designer.cs">
+      <DependentUpon>FormAdiFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\Login.cs" />
     <Compile Include="PIMIIIDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,20 +127,44 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="cdFuncionario.resx">
-      <DependentUpon>cdFuncionario.cs</DependentUpon>
+    <Compile Include="view\FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormUsuarios.Designer.cs">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\FormCargos.resx">
+      <DependentUpon>FormCargos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFuncionarios.resx">
+    <EmbeddedResource Include="view\FormCRUDUsers.resx">
+      <DependentUpon>FormCRUDUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormEmpresas.resx">
+      <DependentUpon>FormEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormFolha.resx">
+      <DependentUpon>FormFolha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormFuncionarios.resx">
       <DependentUpon>FormFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormHome.resx">
+    <EmbeddedResource Include="view\FormGerarFolha.resx">
+      <DependentUpon>FormGerarFolha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormGerEmpresas.resx">
+      <DependentUpon>FormGerEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="view\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formRelatorios.resx">
-      <DependentUpon>formRelatorios.cs</DependentUpon>
+    <EmbeddedResource Include="view\FormRelatorios.resx">
+      <DependentUpon>FormRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormAdiFuncionario.resx">
+      <DependentUpon>FormAdiFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,6 +176,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="view\FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="PIMIIIDataSet.xsc">
       <DependentUpon>PIMIIIDataSet.xsd</DependentUpon>
     </None>
@@ -158,6 +222,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="control\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

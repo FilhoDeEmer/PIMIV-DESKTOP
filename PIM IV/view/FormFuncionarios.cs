@@ -28,9 +28,25 @@ namespace PIM_IV
 
         private void btnCadastrarFun_Click(object sender, EventArgs e)
         {
-            cdFuncionario cadastrar = new cdFuncionario();
-            cadastrar.Show();
+            FormAdiFuncionario addFuncionario = new FormAdiFuncionario();
+            addFuncionario.ShowDialog();
             dataGridView1.Refresh();
+        }
+
+        private void btnAlterarFun_Click(object sender, EventArgs e)
+        {
+            FormAdiFuncionario addFuncionario = new FormAdiFuncionario();
+            addFuncionario.Show();
+
+        }
+
+        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

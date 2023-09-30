@@ -21,4 +21,12 @@ C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.exe
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.pdb
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.FormFuncionarios.resources
-C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.cdFuncionario.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.formRelatorios.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormGerarFolha.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormFolha.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.FormAdiFuncionario.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormUsuarios.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormCRUDUsers.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormCargos.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormEmpresas.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormGerEmpresas.resources
