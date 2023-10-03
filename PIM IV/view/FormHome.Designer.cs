@@ -36,12 +36,12 @@
             this.btnAjuda = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnConfiguracao = new System.Windows.Forms.Button();
+            this.btnNotificacoes = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nomeUsuario = new System.Windows.Forms.Label();
             this.btnGerenciarEmpresas = new System.Windows.Forms.Button();
             this.panelHome = new System.Windows.Forms.Panel();
-            this.btnNotificacoes = new System.Windows.Forms.Button();
-            this.btnConfiguracao = new System.Windows.Forms.Button();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.panelHome.SuspendLayout();
@@ -163,6 +163,39 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // btnConfiguracao
+            // 
+            this.btnConfiguracao.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnConfiguracao.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnConfiguracao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnConfiguracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracao.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracao.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnConfiguracao.Location = new System.Drawing.Point(0, 526);
+            this.btnConfiguracao.Name = "btnConfiguracao";
+            this.btnConfiguracao.Size = new System.Drawing.Size(278, 63);
+            this.btnConfiguracao.TabIndex = 12;
+            this.btnConfiguracao.Text = "Configurações";
+            this.btnConfiguracao.UseVisualStyleBackColor = false;
+            this.btnConfiguracao.Click += new System.EventHandler(this.btnConfiguracao_Click);
+            // 
+            // btnNotificacoes
+            // 
+            this.btnNotificacoes.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnNotificacoes.FlatAppearance.BorderSize = 0;
+            this.btnNotificacoes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnNotificacoes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnNotificacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificacoes.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotificacoes.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnNotificacoes.Location = new System.Drawing.Point(0, 457);
+            this.btnNotificacoes.Name = "btnNotificacoes";
+            this.btnNotificacoes.Size = new System.Drawing.Size(278, 63);
+            this.btnNotificacoes.TabIndex = 11;
+            this.btnNotificacoes.Text = "Notificações";
+            this.btnNotificacoes.UseVisualStyleBackColor = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -208,39 +241,6 @@
             this.panelHome.TabIndex = 9;
             this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
             // 
-            // btnNotificacoes
-            // 
-            this.btnNotificacoes.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnNotificacoes.FlatAppearance.BorderSize = 0;
-            this.btnNotificacoes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnNotificacoes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.btnNotificacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificacoes.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotificacoes.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnNotificacoes.Location = new System.Drawing.Point(0, 457);
-            this.btnNotificacoes.Name = "btnNotificacoes";
-            this.btnNotificacoes.Size = new System.Drawing.Size(278, 63);
-            this.btnNotificacoes.TabIndex = 11;
-            this.btnNotificacoes.Text = "Notificações";
-            this.btnNotificacoes.UseVisualStyleBackColor = false;
-            // 
-            // btnConfiguracao
-            // 
-            this.btnConfiguracao.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnConfiguracao.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnConfiguracao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.btnConfiguracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracao.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracao.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnConfiguracao.Location = new System.Drawing.Point(0, 526);
-            this.btnConfiguracao.Name = "btnConfiguracao";
-            this.btnConfiguracao.Size = new System.Drawing.Size(278, 63);
-            this.btnConfiguracao.TabIndex = 12;
-            this.btnConfiguracao.Text = "Configurações";
-            this.btnConfiguracao.UseVisualStyleBackColor = false;
-            this.btnConfiguracao.Click += new System.EventHandler(this.btnConfiguracao_Click);
-            // 
             // pictureLogo
             // 
             this.pictureLogo.BackColor = System.Drawing.Color.AliceBlue;
@@ -261,6 +261,7 @@
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.panelHome);
             this.Controls.Add(this.groupBox1);
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHome";
             this.ShowIcon = false;

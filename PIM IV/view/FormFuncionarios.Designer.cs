@@ -35,7 +35,6 @@
             this.nOMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fUNCIONARIOStesteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pIMIIIDataSet1 = new PIM_IV.PIMIIIDataSet1();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CNPJ = new System.Windows.Forms.Label();
             this.txtCnpjBusca = new System.Windows.Forms.TextBox();
@@ -43,10 +42,7 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnAlterarFun = new System.Windows.Forms.Button();
             this.btnCadastrarFun = new System.Windows.Forms.Button();
-            this.pIMIIIDataSet = new PIM_IV.PIMIIIDataSet();
             this.fUNCIONARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fUNCIONARIOSTableAdapter = new PIM_IV.PIMIIIDataSetTableAdapters.FUNCIONARIOSTableAdapter();
-            this.fUNCIONARIOS_testeTableAdapter = new PIM_IV.PIMIIIDataSet1TableAdapters.FUNCIONARIOS_testeTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCpfBusca = new System.Windows.Forms.TextBox();
@@ -54,9 +50,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pIMIIIDataSet1)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pIMIIIDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -116,12 +110,8 @@
             // fUNCIONARIOStesteBindingSource
             // 
             this.fUNCIONARIOStesteBindingSource.DataMember = "FUNCIONARIOS_teste";
-            this.fUNCIONARIOStesteBindingSource.DataSource = this.pIMIIIDataSet1;
             // 
             // pIMIIIDataSet1
-            // 
-            this.pIMIIIDataSet1.DataSetName = "PIMIIIDataSet1";
-            this.pIMIIIDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox4
             // 
@@ -197,21 +187,16 @@
             // 
             // pIMIIIDataSet
             // 
-            this.pIMIIIDataSet.DataSetName = "PIMIIIDataSet";
-            this.pIMIIIDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fUNCIONARIOSBindingSource
             // 
             this.fUNCIONARIOSBindingSource.DataMember = "FUNCIONARIOS";
-            this.fUNCIONARIOSBindingSource.DataSource = this.pIMIIIDataSet;
             // 
             // fUNCIONARIOSTableAdapter
             // 
-            this.fUNCIONARIOSTableAdapter.ClearBeforeFill = true;
             // 
             // fUNCIONARIOS_testeTableAdapter
             // 
-            this.fUNCIONARIOS_testeTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox1
             // 
@@ -271,10 +256,8 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pIMIIIDataSet1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pIMIIIDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -289,12 +272,8 @@
         private System.Windows.Forms.Button btnAlterarFun;
         private System.Windows.Forms.Button btnCadastrarFun;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private PIMIIIDataSet pIMIIIDataSet;
         private System.Windows.Forms.BindingSource fUNCIONARIOSBindingSource;
-        private PIMIIIDataSetTableAdapters.FUNCIONARIOSTableAdapter fUNCIONARIOSTableAdapter;
-        private PIMIIIDataSet1 pIMIIIDataSet1;
         private System.Windows.Forms.BindingSource fUNCIONARIOStesteBindingSource;
-        private PIMIIIDataSet1TableAdapters.FUNCIONARIOS_testeTableAdapter fUNCIONARIOS_testeTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn cODFUNCIONARIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;

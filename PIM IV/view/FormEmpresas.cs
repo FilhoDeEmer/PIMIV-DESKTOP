@@ -19,8 +19,15 @@ namespace PIM_IV.view
 
         private void btnCadastrarEmpresa_Click(object sender, EventArgs e)
         {
-            FormGerEmpresas creudEmpresa = new FormGerEmpresas();   
-            creudEmpresa.ShowDialog();
+            FormGerEmpresas crudEmpresa = new FormGerEmpresas();   
+            crudEmpresa.ShowDialog();
+        }
+
+        private void FormEmpresas_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
+            this.empresasTableAdapter.Fill(this.hERMESDataSet.Empresas);
+
         }
     }
 }

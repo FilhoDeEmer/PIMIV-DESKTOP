@@ -30,3 +30,4 @@ C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormCargos.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormEmpresas.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormGerEmpresas.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormPrimeiroLogin.resources

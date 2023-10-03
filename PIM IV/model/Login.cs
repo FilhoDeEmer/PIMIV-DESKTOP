@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PIM_IV.control;
+using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -8,39 +9,42 @@ namespace PIM_IV
     {
 
 
-        private string login1 { get; set; }
-        private string senha { get; set; }
+        string login1;
+        string senhaVem;
 
         public bool CheckLogin(string getLogin, string getSenha)
         {
+            Criptografia conferirSenha = new Criptografia();
+
             login1 = getLogin;
-            senha = getSenha;
-            bool result = false;
+            senhaVem = getSenha;
+            bool result;
+            string senhaVai ="";
 
-            string connectionString = @"Data Source = EMERSON\SQLEXPRESS; Initial Catalog = PIMIII; User ID = EMERSON\eme_s; Password ='' ";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            conferirSenha.RetornaMD5(senhaVem);//transforma senha em um md5
+            string sqlLogin = "SELECT SenhaHash from Usuarios where nome = '" + login1 + "';";
+            string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            try
             {
-                try
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-
-                    SqlCommand sqlLogin = new SqlCommand("SELECT * from teste where login = '" + login1 + "'and senha= '" + senha + "';", connection);
                     connection.Open();
-                    SqlDataReader dados = sqlLogin.ExecuteReader();
-                    result = dados.HasRows;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
+                    using (SqlCommand command = new SqlCommand(sqlLogin, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader()) {
+                            while(reader.Read())
+                            {
+                                 senhaVai = reader["SenhaHash"].ToString();
+                            }                        
+                        }
+                    }
                 }
             }
-            return result;
-
-
-
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            result = conferirSenha.ComparaMD5(senhaVem, senhaVai);
+            if(result)
+            { return true; }
+            else { return false; }
         }
     }
 }

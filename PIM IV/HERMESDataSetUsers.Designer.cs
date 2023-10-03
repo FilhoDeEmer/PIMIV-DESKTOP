@@ -20,17 +20,17 @@ namespace PIM_IV {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("PIMIIIDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("HERMESDataSetUsers")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class PIMIIIDataSet : global::System.Data.DataSet {
+    public partial class HERMESDataSetUsers : global::System.Data.DataSet {
         
-        private FUNCIONARIOSDataTable tableFUNCIONARIOS;
+        private UsuariosDataTable tableUsuarios;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public PIMIIIDataSet() {
+        public HERMESDataSetUsers() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace PIM_IV {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected PIMIIIDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected HERMESDataSetUsers(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace PIM_IV {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["FUNCIONARIOS"] != null)) {
-                    base.Tables.Add(new FUNCIONARIOSDataTable(ds.Tables["FUNCIONARIOS"]));
+                if ((ds.Tables["Usuarios"] != null)) {
+                    base.Tables.Add(new UsuariosDataTable(ds.Tables["Usuarios"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace PIM_IV {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public FUNCIONARIOSDataTable FUNCIONARIOS {
+        public UsuariosDataTable Usuarios {
             get {
-                return this.tableFUNCIONARIOS;
+                return this.tableUsuarios;
             }
         }
         
@@ -127,7 +127,7 @@ namespace PIM_IV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            PIMIIIDataSet cln = ((PIMIIIDataSet)(base.Clone()));
+            HERMESDataSetUsers cln = ((HERMESDataSetUsers)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace PIM_IV {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["FUNCIONARIOS"] != null)) {
-                    base.Tables.Add(new FUNCIONARIOSDataTable(ds.Tables["FUNCIONARIOS"]));
+                if ((ds.Tables["Usuarios"] != null)) {
+                    base.Tables.Add(new UsuariosDataTable(ds.Tables["Usuarios"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace PIM_IV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableFUNCIONARIOS = ((FUNCIONARIOSDataTable)(base.Tables["FUNCIONARIOS"]));
+            this.tableUsuarios = ((UsuariosDataTable)(base.Tables["Usuarios"]));
             if ((initTable == true)) {
-                if ((this.tableFUNCIONARIOS != null)) {
-                    this.tableFUNCIONARIOS.InitVars();
+                if ((this.tableUsuarios != null)) {
+                    this.tableUsuarios.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace PIM_IV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "PIMIIIDataSet";
+            this.DataSetName = "HERMESDataSetUsers";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/PIMIIIDataSet.xsd";
+            this.Namespace = "http://tempuri.org/HERMESDataSetUsers.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableFUNCIONARIOS = new FUNCIONARIOSDataTable();
-            base.Tables.Add(this.tableFUNCIONARIOS);
+            this.tableUsuarios = new UsuariosDataTable();
+            base.Tables.Add(this.tableUsuarios);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeFUNCIONARIOS() {
+        private bool ShouldSerializeUsuarios() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace PIM_IV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            PIMIIIDataSet ds = new PIMIIIDataSet();
+            HERMESDataSetUsers ds = new HERMESDataSetUsers();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,27 @@ namespace PIM_IV {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void FUNCIONARIOSRowChangeEventHandler(object sender, FUNCIONARIOSRowChangeEvent e);
+        public delegate void UsuariosRowChangeEventHandler(object sender, UsuariosRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class FUNCIONARIOSDataTable : global::System.Data.TypedTableBase<FUNCIONARIOSRow> {
+        public partial class UsuariosDataTable : global::System.Data.TypedTableBase<UsuariosRow> {
             
-            private global::System.Data.DataColumn columnCOD_FUNCIONARIO;
+            private global::System.Data.DataColumn columncod_usuario;
             
-            private global::System.Data.DataColumn columnNOME;
+            private global::System.Data.DataColumn columnnome;
             
-            private global::System.Data.DataColumn columnCPF;
+            private global::System.Data.DataColumn columnSenhaHash;
+            
+            private global::System.Data.DataColumn columnNivel;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FUNCIONARIOSDataTable() {
-                this.TableName = "FUNCIONARIOS";
+            public UsuariosDataTable() {
+                this.TableName = "Usuarios";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +298,7 @@ namespace PIM_IV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal FUNCIONARIOSDataTable(global::System.Data.DataTable table) {
+            internal UsuariosDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +315,40 @@ namespace PIM_IV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected FUNCIONARIOSDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected UsuariosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn COD_FUNCIONARIOColumn {
+            public global::System.Data.DataColumn cod_usuarioColumn {
                 get {
-                    return this.columnCOD_FUNCIONARIO;
+                    return this.columncod_usuario;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NOMEColumn {
+            public global::System.Data.DataColumn nomeColumn {
                 get {
-                    return this.columnNOME;
+                    return this.columnnome;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CPFColumn {
+            public global::System.Data.DataColumn SenhaHashColumn {
                 get {
-                    return this.columnCPF;
+                    return this.columnSenhaHash;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NivelColumn {
+                get {
+                    return this.columnNivel;
                 }
             }
             
@@ -353,54 +363,55 @@ namespace PIM_IV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FUNCIONARIOSRow this[int index] {
+            public UsuariosRow this[int index] {
                 get {
-                    return ((FUNCIONARIOSRow)(this.Rows[index]));
+                    return ((UsuariosRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event FUNCIONARIOSRowChangeEventHandler FUNCIONARIOSRowChanging;
+            public event UsuariosRowChangeEventHandler UsuariosRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event FUNCIONARIOSRowChangeEventHandler FUNCIONARIOSRowChanged;
+            public event UsuariosRowChangeEventHandler UsuariosRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event FUNCIONARIOSRowChangeEventHandler FUNCIONARIOSRowDeleting;
+            public event UsuariosRowChangeEventHandler UsuariosRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event FUNCIONARIOSRowChangeEventHandler FUNCIONARIOSRowDeleted;
+            public event UsuariosRowChangeEventHandler UsuariosRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddFUNCIONARIOSRow(FUNCIONARIOSRow row) {
+            public void AddUsuariosRow(UsuariosRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FUNCIONARIOSRow AddFUNCIONARIOSRow(string NOME, int CPF) {
-                FUNCIONARIOSRow rowFUNCIONARIOSRow = ((FUNCIONARIOSRow)(this.NewRow()));
+            public UsuariosRow AddUsuariosRow(string nome, string SenhaHash, int Nivel) {
+                UsuariosRow rowUsuariosRow = ((UsuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        NOME,
-                        CPF};
-                rowFUNCIONARIOSRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowFUNCIONARIOSRow);
-                return rowFUNCIONARIOSRow;
+                        nome,
+                        SenhaHash,
+                        Nivel};
+                rowUsuariosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUsuariosRow);
+                return rowUsuariosRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FUNCIONARIOSRow FindByCOD_FUNCIONARIO(int COD_FUNCIONARIO) {
-                return ((FUNCIONARIOSRow)(this.Rows.Find(new object[] {
-                            COD_FUNCIONARIO})));
+            public UsuariosRow FindBycod_usuario(int cod_usuario) {
+                return ((UsuariosRow)(this.Rows.Find(new object[] {
+                            cod_usuario})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                FUNCIONARIOSDataTable cln = ((FUNCIONARIOSDataTable)(base.Clone()));
+                UsuariosDataTable cln = ((UsuariosDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,63 +419,67 @@ namespace PIM_IV {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new FUNCIONARIOSDataTable();
+                return new UsuariosDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnCOD_FUNCIONARIO = base.Columns["COD_FUNCIONARIO"];
-                this.columnNOME = base.Columns["NOME"];
-                this.columnCPF = base.Columns["CPF"];
+                this.columncod_usuario = base.Columns["cod_usuario"];
+                this.columnnome = base.Columns["nome"];
+                this.columnSenhaHash = base.Columns["SenhaHash"];
+                this.columnNivel = base.Columns["Nivel"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnCOD_FUNCIONARIO = new global::System.Data.DataColumn("COD_FUNCIONARIO", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOD_FUNCIONARIO);
-                this.columnNOME = new global::System.Data.DataColumn("NOME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNOME);
-                this.columnCPF = new global::System.Data.DataColumn("CPF", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCPF);
+                this.columncod_usuario = new global::System.Data.DataColumn("cod_usuario", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncod_usuario);
+                this.columnnome = new global::System.Data.DataColumn("nome", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnome);
+                this.columnSenhaHash = new global::System.Data.DataColumn("SenhaHash", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSenhaHash);
+                this.columnNivel = new global::System.Data.DataColumn("Nivel", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNivel);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnCOD_FUNCIONARIO}, true));
-                this.columnCOD_FUNCIONARIO.AutoIncrement = true;
-                this.columnCOD_FUNCIONARIO.AutoIncrementSeed = -1;
-                this.columnCOD_FUNCIONARIO.AutoIncrementStep = -1;
-                this.columnCOD_FUNCIONARIO.AllowDBNull = false;
-                this.columnCOD_FUNCIONARIO.ReadOnly = true;
-                this.columnCOD_FUNCIONARIO.Unique = true;
-                this.columnNOME.AllowDBNull = false;
-                this.columnNOME.MaxLength = 100;
-                this.columnCPF.AllowDBNull = false;
+                                this.columncod_usuario}, true));
+                this.columncod_usuario.AutoIncrement = true;
+                this.columncod_usuario.AutoIncrementSeed = -1;
+                this.columncod_usuario.AutoIncrementStep = -1;
+                this.columncod_usuario.AllowDBNull = false;
+                this.columncod_usuario.ReadOnly = true;
+                this.columncod_usuario.Unique = true;
+                this.columnnome.AllowDBNull = false;
+                this.columnnome.MaxLength = 255;
+                this.columnSenhaHash.AllowDBNull = false;
+                this.columnSenhaHash.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FUNCIONARIOSRow NewFUNCIONARIOSRow() {
-                return ((FUNCIONARIOSRow)(this.NewRow()));
+            public UsuariosRow NewUsuariosRow() {
+                return ((UsuariosRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new FUNCIONARIOSRow(builder);
+                return new UsuariosRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(FUNCIONARIOSRow);
+                return typeof(UsuariosRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.FUNCIONARIOSRowChanged != null)) {
-                    this.FUNCIONARIOSRowChanged(this, new FUNCIONARIOSRowChangeEvent(((FUNCIONARIOSRow)(e.Row)), e.Action));
+                if ((this.UsuariosRowChanged != null)) {
+                    this.UsuariosRowChanged(this, new UsuariosRowChangeEvent(((UsuariosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -472,8 +487,8 @@ namespace PIM_IV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.FUNCIONARIOSRowChanging != null)) {
-                    this.FUNCIONARIOSRowChanging(this, new FUNCIONARIOSRowChangeEvent(((FUNCIONARIOSRow)(e.Row)), e.Action));
+                if ((this.UsuariosRowChanging != null)) {
+                    this.UsuariosRowChanging(this, new UsuariosRowChangeEvent(((UsuariosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -481,8 +496,8 @@ namespace PIM_IV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.FUNCIONARIOSRowDeleted != null)) {
-                    this.FUNCIONARIOSRowDeleted(this, new FUNCIONARIOSRowChangeEvent(((FUNCIONARIOSRow)(e.Row)), e.Action));
+                if ((this.UsuariosRowDeleted != null)) {
+                    this.UsuariosRowDeleted(this, new UsuariosRowChangeEvent(((UsuariosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -490,14 +505,14 @@ namespace PIM_IV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.FUNCIONARIOSRowDeleting != null)) {
-                    this.FUNCIONARIOSRowDeleting(this, new FUNCIONARIOSRowChangeEvent(((FUNCIONARIOSRow)(e.Row)), e.Action));
+                if ((this.UsuariosRowDeleting != null)) {
+                    this.UsuariosRowDeleting(this, new UsuariosRowChangeEvent(((UsuariosRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveFUNCIONARIOSRow(FUNCIONARIOSRow row) {
+            public void RemoveUsuariosRow(UsuariosRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -506,7 +521,7 @@ namespace PIM_IV {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PIMIIIDataSet ds = new PIMIIIDataSet();
+                HERMESDataSetUsers ds = new HERMESDataSetUsers();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -524,7 +539,7 @@ namespace PIM_IV {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "FUNCIONARIOSDataTable";
+                attribute2.FixedValue = "UsuariosDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -568,48 +583,76 @@ namespace PIM_IV {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class FUNCIONARIOSRow : global::System.Data.DataRow {
+        public partial class UsuariosRow : global::System.Data.DataRow {
             
-            private FUNCIONARIOSDataTable tableFUNCIONARIOS;
+            private UsuariosDataTable tableUsuarios;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal FUNCIONARIOSRow(global::System.Data.DataRowBuilder rb) : 
+            internal UsuariosRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableFUNCIONARIOS = ((FUNCIONARIOSDataTable)(this.Table));
+                this.tableUsuarios = ((UsuariosDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int COD_FUNCIONARIO {
+            public int cod_usuario {
                 get {
-                    return ((int)(this[this.tableFUNCIONARIOS.COD_FUNCIONARIOColumn]));
+                    return ((int)(this[this.tableUsuarios.cod_usuarioColumn]));
                 }
                 set {
-                    this[this.tableFUNCIONARIOS.COD_FUNCIONARIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NOME {
-                get {
-                    return ((string)(this[this.tableFUNCIONARIOS.NOMEColumn]));
-                }
-                set {
-                    this[this.tableFUNCIONARIOS.NOMEColumn] = value;
+                    this[this.tableUsuarios.cod_usuarioColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int CPF {
+            public string nome {
                 get {
-                    return ((int)(this[this.tableFUNCIONARIOS.CPFColumn]));
+                    return ((string)(this[this.tableUsuarios.nomeColumn]));
                 }
                 set {
-                    this[this.tableFUNCIONARIOS.CPFColumn] = value;
+                    this[this.tableUsuarios.nomeColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SenhaHash {
+                get {
+                    return ((string)(this[this.tableUsuarios.SenhaHashColumn]));
+                }
+                set {
+                    this[this.tableUsuarios.SenhaHashColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Nivel {
+                get {
+                    try {
+                        return ((int)(this[this.tableUsuarios.NivelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Nivel\' na tabela \'Usuarios\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUsuarios.NivelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNivelNull() {
+                return this.IsNull(this.tableUsuarios.NivelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNivelNull() {
+                this[this.tableUsuarios.NivelColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -617,22 +660,22 @@ namespace PIM_IV {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class FUNCIONARIOSRowChangeEvent : global::System.EventArgs {
+        public class UsuariosRowChangeEvent : global::System.EventArgs {
             
-            private FUNCIONARIOSRow eventRow;
+            private UsuariosRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FUNCIONARIOSRowChangeEvent(FUNCIONARIOSRow row, global::System.Data.DataRowAction action) {
+            public UsuariosRowChangeEvent(UsuariosRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FUNCIONARIOSRow Row {
+            public UsuariosRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -648,7 +691,7 @@ namespace PIM_IV {
         }
     }
 }
-namespace PIM_IV.PIMIIIDataSetTableAdapters {
+namespace PIM_IV.HERMESDataSetUsersTableAdapters {
     
     
     /// <summary>
@@ -660,7 +703,7 @@ namespace PIM_IV.PIMIIIDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class FUNCIONARIOSTableAdapter : global::System.ComponentModel.Component {
+    public partial class UsuariosTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -674,7 +717,7 @@ namespace PIM_IV.PIMIIIDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public FUNCIONARIOSTableAdapter() {
+        public UsuariosTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -771,37 +814,53 @@ namespace PIM_IV.PIMIIIDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "FUNCIONARIOS";
-            tableMapping.ColumnMappings.Add("COD_FUNCIONARIO", "COD_FUNCIONARIO");
-            tableMapping.ColumnMappings.Add("NOME", "NOME");
-            tableMapping.ColumnMappings.Add("CPF", "CPF");
+            tableMapping.DataSetTable = "Usuarios";
+            tableMapping.ColumnMappings.Add("cod_usuario", "cod_usuario");
+            tableMapping.ColumnMappings.Add("nome", "nome");
+            tableMapping.ColumnMappings.Add("SenhaHash", "SenhaHash");
+            tableMapping.ColumnMappings.Add("Nivel", "Nivel");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[FUNCIONARIOS] WHERE (([COD_FUNCIONARIO] = @Original_COD_FUNCIO" +
-                "NARIO) AND ([NOME] = @Original_NOME) AND ([CPF] = @Original_CPF))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Usuarios] WHERE (([cod_usuario] = @Original_cod_usuario) AND (" +
+                "[nome] = @Original_nome) AND ([SenhaHash] = @Original_SenhaHash) AND ((@IsNull_N" +
+                "ivel = 1 AND [Nivel] IS NULL) OR ([Nivel] = @Original_Nivel)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_COD_FUNCIONARIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COD_FUNCIONARIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cod_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cod_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SenhaHash", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SenhaHash", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Nivel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nivel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nivel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nivel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Usuarios] ([nome], [SenhaHash], [Nivel]) VALUES (@nome, @Senha" +
+                "Hash, @Nivel);\r\nSELECT cod_usuario, nome, SenhaHash, Nivel FROM Usuarios WHERE (" +
+                "cod_usuario = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SenhaHash", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SenhaHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nivel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nivel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[FUNCIONARIOS] SET [NOME] = @NOME, [CPF] = @CPF WHERE (([COD_FUNCIONARIO] = @Original_COD_FUNCIONARIO) AND ([NOME] = @Original_NOME) AND ([CPF] = @Original_CPF));
-SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @COD_FUNCIONARIO)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Usuarios] SET [nome] = @nome, [SenhaHash] = @SenhaHash, [Nivel] = @Nivel WHERE (([cod_usuario] = @Original_cod_usuario) AND ([nome] = @Original_nome) AND ([SenhaHash] = @Original_SenhaHash) AND ((@IsNull_Nivel = 1 AND [Nivel] IS NULL) OR ([Nivel] = @Original_Nivel)));
+SELECT cod_usuario, nome, SenhaHash, Nivel FROM Usuarios WHERE (cod_usuario = @cod_usuario)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_COD_FUNCIONARIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COD_FUNCIONARIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CPF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COD_FUNCIONARIO", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "COD_FUNCIONARIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SenhaHash", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SenhaHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nivel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nivel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cod_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cod_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SenhaHash", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SenhaHash", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Nivel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nivel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nivel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nivel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cod_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "cod_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::PIM_IV.Properties.Settings.Default.PIMIIIConnectionString;
+            this._connection.ConnectionString = global::PIM_IV.Properties.Settings.Default.HERMESConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -810,7 +869,7 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT COD_FUNCIONARIO, NOME, CPF FROM dbo.FUNCIONARIOS";
+            this._commandCollection[0].CommandText = "SELECT cod_usuario, nome, SenhaHash, Nivel FROM dbo.Usuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -818,7 +877,7 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PIMIIIDataSet.FUNCIONARIOSDataTable dataTable) {
+        public virtual int Fill(HERMESDataSetUsers.UsuariosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -831,9 +890,9 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PIMIIIDataSet.FUNCIONARIOSDataTable GetData() {
+        public virtual HERMESDataSetUsers.UsuariosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PIMIIIDataSet.FUNCIONARIOSDataTable dataTable = new PIMIIIDataSet.FUNCIONARIOSDataTable();
+            HERMESDataSetUsers.UsuariosDataTable dataTable = new HERMESDataSetUsers.UsuariosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -841,15 +900,15 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PIMIIIDataSet.FUNCIONARIOSDataTable dataTable) {
+        public virtual int Update(HERMESDataSetUsers.UsuariosDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PIMIIIDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "FUNCIONARIOS");
+        public virtual int Update(HERMESDataSetUsers dataSet) {
+            return this.Adapter.Update(dataSet, "Usuarios");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -871,15 +930,28 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_COD_FUNCIONARIO, string Original_NOME, int Original_CPF) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_COD_FUNCIONARIO));
-            if ((Original_NOME == null)) {
-                throw new global::System.ArgumentNullException("Original_NOME");
+        public virtual int Delete(int Original_cod_usuario, string Original_nome, string Original_SenhaHash, global::System.Nullable<int> Original_Nivel) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_cod_usuario));
+            if ((Original_nome == null)) {
+                throw new global::System.ArgumentNullException("Original_nome");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_NOME));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_nome));
             }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_CPF));
+            if ((Original_SenhaHash == null)) {
+                throw new global::System.ArgumentNullException("Original_SenhaHash");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_SenhaHash));
+            }
+            if ((Original_Nivel.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Nivel.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -899,24 +971,87 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string nome, string SenhaHash, global::System.Nullable<int> Nivel) {
+            if ((nome == null)) {
+                throw new global::System.ArgumentNullException("nome");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(nome));
+            }
+            if ((SenhaHash == null)) {
+                throw new global::System.ArgumentNullException("SenhaHash");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(SenhaHash));
+            }
+            if ((Nivel.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Nivel.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NOME, int CPF, int Original_COD_FUNCIONARIO, string Original_NOME, int Original_CPF, int COD_FUNCIONARIO) {
-            if ((NOME == null)) {
-                throw new global::System.ArgumentNullException("NOME");
+        public virtual int Update(string nome, string SenhaHash, global::System.Nullable<int> Nivel, int Original_cod_usuario, string Original_nome, string Original_SenhaHash, global::System.Nullable<int> Original_Nivel, int cod_usuario) {
+            if ((nome == null)) {
+                throw new global::System.ArgumentNullException("nome");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NOME));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(nome));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CPF));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_COD_FUNCIONARIO));
-            if ((Original_NOME == null)) {
-                throw new global::System.ArgumentNullException("Original_NOME");
+            if ((SenhaHash == null)) {
+                throw new global::System.ArgumentNullException("SenhaHash");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_NOME));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(SenhaHash));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_CPF));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(COD_FUNCIONARIO));
+            if ((Nivel.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Nivel.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_cod_usuario));
+            if ((Original_nome == null)) {
+                throw new global::System.ArgumentNullException("Original_nome");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_nome));
+            }
+            if ((Original_SenhaHash == null)) {
+                throw new global::System.ArgumentNullException("Original_SenhaHash");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_SenhaHash));
+            }
+            if ((Original_Nivel.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Nivel.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(cod_usuario));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -937,8 +1072,8 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NOME, int CPF, int Original_COD_FUNCIONARIO, string Original_NOME, int Original_CPF) {
-            return this.Update(NOME, CPF, Original_COD_FUNCIONARIO, Original_NOME, Original_CPF, Original_COD_FUNCIONARIO);
+        public virtual int Update(string nome, string SenhaHash, global::System.Nullable<int> Nivel, int Original_cod_usuario, string Original_nome, string Original_SenhaHash, global::System.Nullable<int> Original_Nivel) {
+            return this.Update(nome, SenhaHash, Nivel, Original_cod_usuario, Original_nome, Original_SenhaHash, Original_Nivel, Original_cod_usuario);
         }
     }
     
@@ -954,7 +1089,7 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         
         private UpdateOrderOption _updateOrder;
         
-        private FUNCIONARIOSTableAdapter _fUNCIONARIOSTableAdapter;
+        private UsuariosTableAdapter _usuariosTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -976,12 +1111,12 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public FUNCIONARIOSTableAdapter FUNCIONARIOSTableAdapter {
+        public UsuariosTableAdapter UsuariosTableAdapter {
             get {
-                return this._fUNCIONARIOSTableAdapter;
+                return this._usuariosTableAdapter;
             }
             set {
-                this._fUNCIONARIOSTableAdapter = value;
+                this._usuariosTableAdapter = value;
             }
         }
         
@@ -1004,9 +1139,9 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._fUNCIONARIOSTableAdapter != null) 
-                            && (this._fUNCIONARIOSTableAdapter.Connection != null))) {
-                    return this._fUNCIONARIOSTableAdapter.Connection;
+                if (((this._usuariosTableAdapter != null) 
+                            && (this._usuariosTableAdapter.Connection != null))) {
+                    return this._usuariosTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1021,7 +1156,7 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._fUNCIONARIOSTableAdapter != null)) {
+                if ((this._usuariosTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1033,14 +1168,14 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(PIMIIIDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(HERMESDataSetUsers dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._fUNCIONARIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.FUNCIONARIOS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._usuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._fUNCIONARIOSTableAdapter.Update(updatedRows));
+                    result = (result + this._usuariosTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1052,13 +1187,13 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(PIMIIIDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(HERMESDataSetUsers dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._fUNCIONARIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.FUNCIONARIOS.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._usuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._fUNCIONARIOSTableAdapter.Update(addedRows));
+                    result = (result + this._usuariosTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1070,13 +1205,13 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(PIMIIIDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(HERMESDataSetUsers dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._fUNCIONARIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.FUNCIONARIOS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._usuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._fUNCIONARIOSTableAdapter.Update(deletedRows));
+                    result = (result + this._usuariosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1112,15 +1247,15 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(PIMIIIDataSet dataSet) {
+        public virtual int UpdateAll(HERMESDataSetUsers dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._fUNCIONARIOSTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._fUNCIONARIOSTableAdapter.Connection) == false))) {
+            if (((this._usuariosTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._usuariosTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
                         "cadeia de conexão.");
             }
@@ -1156,13 +1291,13 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._fUNCIONARIOSTableAdapter != null)) {
-                    revertConnections.Add(this._fUNCIONARIOSTableAdapter, this._fUNCIONARIOSTableAdapter.Connection);
-                    this._fUNCIONARIOSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._fUNCIONARIOSTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._fUNCIONARIOSTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._fUNCIONARIOSTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._fUNCIONARIOSTableAdapter.Adapter);
+                if ((this._usuariosTableAdapter != null)) {
+                    revertConnections.Add(this._usuariosTableAdapter, this._usuariosTableAdapter.Connection);
+                    this._usuariosTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._usuariosTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._usuariosTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._usuariosTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._usuariosTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1223,9 +1358,9 @@ SELECT COD_FUNCIONARIO, NOME, CPF FROM FUNCIONARIOS WHERE (COD_FUNCIONARIO = @CO
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._fUNCIONARIOSTableAdapter != null)) {
-                    this._fUNCIONARIOSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._fUNCIONARIOSTableAdapter]));
-                    this._fUNCIONARIOSTableAdapter.Transaction = null;
+                if ((this._usuariosTableAdapter != null)) {
+                    this._usuariosTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._usuariosTableAdapter]));
+                    this._usuariosTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

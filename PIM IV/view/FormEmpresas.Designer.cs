@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCadastrarEmpresa = new System.Windows.Forms.Button();
             this.btnAlterarEmpresa = new System.Windows.Forms.Button();
             this.btnVoltarUser = new System.Windows.Forms.Button();
@@ -38,9 +39,20 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnCargo = new System.Windows.Forms.Button();
+            this.hERMESDataSet = new PIM_IV.HERMESDataSet();
+            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresasTableAdapter = new PIM_IV.HERMESDataSetTableAdapters.EmpresasTableAdapter();
+            this.codigoempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNPJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeresponsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCadastrarEmpresa
@@ -127,9 +139,21 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoempresaDataGridViewTextBoxColumn,
+            this.nomeDataGridViewTextBoxColumn,
+            this.cNPJDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.telefoneDataGridViewTextBoxColumn,
+            this.nomeresponsavelDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.empresasBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 28);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1022, 439);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -142,6 +166,74 @@
             this.btnCargo.TabIndex = 18;
             this.btnCargo.Text = "Cargos";
             this.btnCargo.UseVisualStyleBackColor = true;
+            // 
+            // hERMESDataSet
+            // 
+            this.hERMESDataSet.DataSetName = "HERMESDataSet";
+            this.hERMESDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // empresasBindingSource
+            // 
+            this.empresasBindingSource.DataMember = "Empresas";
+            this.empresasBindingSource.DataSource = this.hERMESDataSet;
+            // 
+            // empresasTableAdapter
+            // 
+            this.empresasTableAdapter.ClearBeforeFill = true;
+            // 
+            // codigoempresaDataGridViewTextBoxColumn
+            // 
+            this.codigoempresaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.codigoempresaDataGridViewTextBoxColumn.DataPropertyName = "codigo_empresa";
+            this.codigoempresaDataGridViewTextBoxColumn.HeaderText = "Cod";
+            this.codigoempresaDataGridViewTextBoxColumn.Name = "codigoempresaDataGridViewTextBoxColumn";
+            this.codigoempresaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoempresaDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeDataGridViewTextBoxColumn.Width = 92;
+            // 
+            // cNPJDataGridViewTextBoxColumn
+            // 
+            this.cNPJDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cNPJDataGridViewTextBoxColumn.DataPropertyName = "CNPJ";
+            this.cNPJDataGridViewTextBoxColumn.HeaderText = "CNPJ";
+            this.cNPJDataGridViewTextBoxColumn.Name = "cNPJDataGridViewTextBoxColumn";
+            this.cNPJDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cNPJDataGridViewTextBoxColumn.Width = 87;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "E-mail";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Width = 94;
+            // 
+            // telefoneDataGridViewTextBoxColumn
+            // 
+            this.telefoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "telefone";
+            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
+            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.telefoneDataGridViewTextBoxColumn.Width = 119;
+            // 
+            // nomeresponsavelDataGridViewTextBoxColumn
+            // 
+            this.nomeresponsavelDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nomeresponsavelDataGridViewTextBoxColumn.DataPropertyName = "Nome_responsavel";
+            this.nomeresponsavelDataGridViewTextBoxColumn.HeaderText = "Responsavel";
+            this.nomeresponsavelDataGridViewTextBoxColumn.Name = "nomeresponsavelDataGridViewTextBoxColumn";
+            this.nomeresponsavelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeresponsavelDataGridViewTextBoxColumn.Width = 154;
             // 
             // FormEmpresas
             // 
@@ -157,10 +249,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEmpresas";
             this.Text = "FormEmpresas";
+            this.Load += new System.EventHandler(this.FormEmpresas_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,5 +272,14 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnCargo;
+        private HERMESDataSet hERMESDataSet;
+        private System.Windows.Forms.BindingSource empresasBindingSource;
+        private HERMESDataSetTableAdapters.EmpresasTableAdapter empresasTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoempresaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNPJDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeresponsavelDataGridViewTextBoxColumn;
     }
 }

@@ -70,6 +70,7 @@
             this.linkSenha.TabIndex = 3;
             this.linkSenha.TabStop = true;
             this.linkSenha.Text = "Esqueceu sua senha?";
+            this.linkSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSenha_LinkClicked);
             // 
             // btnLogin
             // 
@@ -100,7 +101,7 @@
             this.txtBoxLogin.Name = "txtBoxLogin";
             this.txtBoxLogin.Size = new System.Drawing.Size(207, 29);
             this.txtBoxLogin.TabIndex = 1;
-            this.txtBoxLogin.Text = "123456";
+            this.txtBoxLogin.Text = "Emerson";
             // 
             // label2
             // 

@@ -1,24 +1,15 @@
 ﻿using PIM_IV.view;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PIM_IV
 {
     public partial class FormHome : Form
     {
-        string username;
         public FormHome(string username)
         {
             InitializeComponent();
-            this.username = username;
             nomeUsuario.Text = username;
         }
         private void FormHome_Load(object sender, EventArgs e)
@@ -30,9 +21,7 @@ namespace PIM_IV
         {
             if (MessageBox.Show("Sair do programa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-               FormLogin login = new FormLogin();
-                Close();
-                
+                Application.Exit();
             }
             else
             {
@@ -60,7 +49,7 @@ namespace PIM_IV
 
         private void panelHome_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private Form formAtivo;
@@ -82,7 +71,7 @@ namespace PIM_IV
                 formAtivo.Close();
         }
 
-        private void AtivarBotao (Button formAtivo)
+        private void AtivarBotao(Button formAtivo)
         {
             //mudar
             foreach (Control control in groupBox1.Controls)
@@ -102,19 +91,19 @@ namespace PIM_IV
         private void btnRelatorioHoras_Click(object sender, EventArgs e)
         {
             //AtivarBotao(btnRelatorioHoras);
-           // FormAtivar(new FormFuncionarios());//mudar pro form correspondente
+            // FormAtivar(new FormFuncionarios());//mudar pro form correspondente
         }
 
         private void btnRelatoriosGerais_Click(object sender, EventArgs e)
         {
-           // AtivarBotao(btnRelatoriosGerais);
-           // FormAtivar(new FormFuncionarios());//mudar pro form correspondente
+            // AtivarBotao(btnRelatoriosGerais);
+            // FormAtivar(new FormFuncionarios());//mudar pro form correspondente
 
         }
 
         private void btnAjuda_Click(object sender, EventArgs e)
         {
-           // AtivarBotao(btnAjuda);
+            // AtivarBotao(btnAjuda);
             //FormAtivar(new FormFuncionarios());//mudar pro form correspondente
         }
 
@@ -133,5 +122,17 @@ namespace PIM_IV
         {
             MessageBox.Show("Aqui deve vir as configurações!");
         }
+
+        private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Você tem certeza que deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else { Application.Exit(); }
+        }
+
+
     }
 }

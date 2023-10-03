@@ -32,5 +32,15 @@ namespace PIM_IV.Properties {
                 return ((string)(this["PIMIIIConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True")]
+        public string HERMESConnectionString {
+            get {
+                return ((string)(this["HERMESConnectionString"]));
+            }
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCpfBusca = new System.Windows.Forms.TextBox();
@@ -41,10 +42,19 @@
             this.btnBuscaCNPJ = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.hERMESDataSetUsers = new PIM_IV.HERMESDataSetUsers();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usuariosTableAdapter = new PIM_IV.HERMESDataSetUsersTableAdapters.UsuariosTableAdapter();
+            this.codusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.senhaHashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nivelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -171,11 +181,73 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codusuarioDataGridViewTextBoxColumn,
+            this.nomeDataGridViewTextBoxColumn,
+            this.senhaHashDataGridViewTextBoxColumn,
+            this.nivelDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.usuariosBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 28);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1022, 439);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // hERMESDataSetUsers
+            // 
+            this.hERMESDataSetUsers.DataSetName = "HERMESDataSetUsers";
+            this.hERMESDataSetUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataMember = "Usuarios";
+            this.usuariosBindingSource.DataSource = this.hERMESDataSetUsers;
+            // 
+            // usuariosTableAdapter
+            // 
+            this.usuariosTableAdapter.ClearBeforeFill = true;
+            // 
+            // codusuarioDataGridViewTextBoxColumn
+            // 
+            this.codusuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.codusuarioDataGridViewTextBoxColumn.DataPropertyName = "cod_usuario";
+            this.codusuarioDataGridViewTextBoxColumn.HeaderText = "Cod";
+            this.codusuarioDataGridViewTextBoxColumn.Name = "codusuarioDataGridViewTextBoxColumn";
+            this.codusuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codusuarioDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeDataGridViewTextBoxColumn.Width = 92;
+            // 
+            // senhaHashDataGridViewTextBoxColumn
+            // 
+            this.senhaHashDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.senhaHashDataGridViewTextBoxColumn.DataPropertyName = "SenhaHash";
+            this.senhaHashDataGridViewTextBoxColumn.HeaderText = "Senha";
+            this.senhaHashDataGridViewTextBoxColumn.Name = "senhaHashDataGridViewTextBoxColumn";
+            this.senhaHashDataGridViewTextBoxColumn.ReadOnly = true;
+            this.senhaHashDataGridViewTextBoxColumn.Visible = false;
+            this.senhaHashDataGridViewTextBoxColumn.Width = 96;
+            // 
+            // nivelDataGridViewTextBoxColumn
+            // 
+            this.nivelDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nivelDataGridViewTextBoxColumn.DataPropertyName = "Nivel";
+            this.nivelDataGridViewTextBoxColumn.HeaderText = "Nivel";
+            this.nivelDataGridViewTextBoxColumn.Name = "nivelDataGridViewTextBoxColumn";
+            this.nivelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nivelDataGridViewTextBoxColumn.Width = 83;
             // 
             // FormUsuarios
             // 
@@ -191,12 +263,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormUsuarios";
             this.Text = "FormUsuarios";
+            this.Load += new System.EventHandler(this.FormUsuarios_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -216,5 +291,12 @@
         private System.Windows.Forms.Button btnBuscaCNPJ;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private HERMESDataSetUsers hERMESDataSetUsers;
+        private System.Windows.Forms.BindingSource usuariosBindingSource;
+        private HERMESDataSetUsersTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codusuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn senhaHashDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nivelDataGridViewTextBoxColumn;
     }
 }

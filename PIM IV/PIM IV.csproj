@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="control\Criptografia.cs" />
+    <Compile Include="control\CRUDEmpresas.cs" />
+    <Compile Include="HERMESDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HERMESDataSetUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>
+    </Compile>
     <Compile Include="model\CreateDataBase.cs" />
     <Compile Include="model\DBcommand.cs" />
     <Compile Include="view\FormCargos.cs">
@@ -102,6 +114,12 @@
     <Compile Include="view\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\FormPrimeiroLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormPrimeiroLogin.Designer.cs">
+      <DependentUpon>FormPrimeiroLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FormRelatorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,16 +133,6 @@
       <DependentUpon>FormAdiFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Login.cs" />
-    <Compile Include="PIMIIIDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PIMIIIDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="PIMIIIDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PIMIIIDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\FormUsuarios.cs">
@@ -160,6 +168,9 @@
     <EmbeddedResource Include="view\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\FormPrimeiroLogin.resx">
+      <DependentUpon>FormPrimeiroLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\FormRelatorios.resx">
       <DependentUpon>FormRelatorios.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,27 +190,27 @@
     <EmbeddedResource Include="view\FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="PIMIIIDataSet.xsc">
-      <DependentUpon>PIMIIIDataSet.xsd</DependentUpon>
+    <None Include="HERMESDataSet1.xsc">
+      <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="PIMIIIDataSet.xsd">
+    <None Include="HERMESDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PIMIIIDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>HERMESDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PIMIIIDataSet.xss">
-      <DependentUpon>PIMIIIDataSet.xsd</DependentUpon>
+    <None Include="HERMESDataSet1.xss">
+      <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="PIMIIIDataSet1.xsc">
-      <DependentUpon>PIMIIIDataSet1.xsd</DependentUpon>
+    <None Include="HERMESDataSetUsers.xsc">
+      <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>
     </None>
-    <None Include="PIMIIIDataSet1.xsd">
+    <None Include="HERMESDataSetUsers.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PIMIIIDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>HERMESDataSetUsers.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PIMIIIDataSet1.xss">
-      <DependentUpon>PIMIIIDataSet1.xsd</DependentUpon>
+    <None Include="HERMESDataSetUsers.xss">
+      <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -223,8 +234,6 @@
   <ItemGroup>
     <None Include="img\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="control\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
