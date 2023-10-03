@@ -15,10 +15,24 @@ namespace PIM_IV.view
     public partial class FormGerEmpresas : Form
     {
         string cod = null;
-        public FormGerEmpresas(string cnpj)
+        public FormGerEmpresas(string cod)
         {
             InitializeComponent();
-            this.cod = cnpj;
+            CRUDEmpresas pesquisa = new CRUDEmpresas();
+            pesquisa.BuscarEmpresa(cod);
+            txtNomeEmpresa.Text = Convert.ToString(pesquisa.Nome);
+            txtCNPJ.Text = Convert.ToString(pesquisa.Cnpj);
+            txtInscricao.Text = Convert.ToString(pesquisa.InscricaoEstadual);
+            txtResponsavel.Text = Convert.ToString(pesquisa.NomeResponsavel);
+            txtEndEmpresa.Text = Convert.ToString(pesquisa.Rua);
+            txtCidadeEmpresa.Text = Convert.ToString(pesquisa.Cidade);
+            txtNumEmpresa.Text = Convert.ToString(pesquisa.Numero);
+            txtCepEmpresa.Text = Convert.ToString(pesquisa.Cep);
+            txtUfEmpresa.Text = Convert.ToString(pesquisa.Estado);
+            txtTelefone.Text = Convert.ToString(pesquisa.Telefone);
+            txtEmail.Text = Convert.ToString(pesquisa.Email);
+            this.cod = cod;
+
         }
         public FormGerEmpresas()
         {
@@ -49,8 +63,6 @@ namespace PIM_IV.view
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            
-            
             CRUDEmpresas empresa1 = new CRUDEmpresas();
             empresa1.Nome = txtNomeEmpresa.Text;
             empresa1.Cnpj = txtCNPJ.Text;
@@ -72,13 +84,8 @@ namespace PIM_IV.view
             {
                 empresa1.Codigo = this.cod;
                 empresa1.AlterarEmpresa(cod);
+                Close();
             }
-
-            
-            
-            
-      
-           
         }
     }
 }

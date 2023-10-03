@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerEmpresas));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtPaisEmpresa = new System.Windows.Forms.TextBox();
             this.txtCidadeEmpresa = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -46,6 +44,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -57,8 +57,6 @@
             this.txtInscricao = new System.Windows.Forms.TextBox();
             this.txtResponsavel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -80,8 +78,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.txtPaisEmpresa);
             this.groupBox2.Controls.Add(this.txtCidadeEmpresa);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
@@ -100,35 +96,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Endereço";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(430, 88);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 18);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Pais:";
-            // 
-            // txtPaisEmpresa
-            // 
-            this.txtPaisEmpresa.Location = new System.Drawing.Point(433, 104);
-            this.txtPaisEmpresa.Name = "txtPaisEmpresa";
-            this.txtPaisEmpresa.Size = new System.Drawing.Size(150, 29);
-            this.txtPaisEmpresa.TabIndex = 6;
-            // 
             // txtCidadeEmpresa
             // 
-            this.txtCidadeEmpresa.Location = new System.Drawing.Point(235, 104);
+            this.txtCidadeEmpresa.Location = new System.Drawing.Point(270, 104);
             this.txtCidadeEmpresa.Name = "txtCidadeEmpresa";
-            this.txtCidadeEmpresa.Size = new System.Drawing.Size(176, 29);
+            this.txtCidadeEmpresa.Size = new System.Drawing.Size(313, 29);
             this.txtCidadeEmpresa.TabIndex = 5;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(232, 88);
+            this.label11.Location = new System.Drawing.Point(267, 88);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 18);
             this.label11.TabIndex = 9;
@@ -138,7 +117,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(124, 88);
+            this.label10.Location = new System.Drawing.Point(159, 88);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 18);
             this.label10.TabIndex = 8;
@@ -146,7 +125,7 @@
             // 
             // txtUfEmpresa
             // 
-            this.txtUfEmpresa.Location = new System.Drawing.Point(127, 104);
+            this.txtUfEmpresa.Location = new System.Drawing.Point(162, 104);
             this.txtUfEmpresa.Name = "txtUfEmpresa";
             this.txtUfEmpresa.Size = new System.Drawing.Size(92, 29);
             this.txtUfEmpresa.TabIndex = 4;
@@ -155,7 +134,7 @@
             // 
             this.txtCepEmpresa.Location = new System.Drawing.Point(6, 104);
             this.txtCepEmpresa.Name = "txtCepEmpresa";
-            this.txtCepEmpresa.Size = new System.Drawing.Size(100, 29);
+            this.txtCepEmpresa.Size = new System.Drawing.Size(147, 29);
             this.txtCepEmpresa.TabIndex = 3;
             // 
             // label9
@@ -235,6 +214,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Contato";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 22);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "E-Mail:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(10, 107);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(424, 29);
+            this.txtEmail.TabIndex = 2;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -248,7 +243,7 @@
             // 
             this.txtTelefone.Location = new System.Drawing.Point(10, 50);
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(136, 29);
+            this.txtTelefone.Size = new System.Drawing.Size(209, 29);
             this.txtTelefone.TabIndex = 1;
             // 
             // groupBox1
@@ -334,22 +329,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Inscrição Estadual";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(155, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 22);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "E-Mail:";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(159, 50);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(222, 29);
-            this.txtEmail.TabIndex = 2;
-            // 
             // FormGerEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,8 +368,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtPaisEmpresa;
         private System.Windows.Forms.TextBox txtCidadeEmpresa;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
