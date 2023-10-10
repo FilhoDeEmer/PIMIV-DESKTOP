@@ -237,6 +237,7 @@
             this.btnCargo.TabIndex = 18;
             this.btnCargo.Text = "Cargos";
             this.btnCargo.UseVisualStyleBackColor = true;
+            this.btnCargo.Click += new System.EventHandler(this.btnCargo_Click);
             // 
             // empresasTableAdapter
             // 

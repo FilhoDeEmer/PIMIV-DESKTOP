@@ -24,14 +24,14 @@ namespace PIM_IV
 
         private void btnCadastrarFun_Click(object sender, EventArgs e)
         {
-            FormAdiFuncionario addFuncionario = new FormAdiFuncionario();
+            FormCRUDFuncionario addFuncionario = new FormCRUDFuncionario();
             addFuncionario.ShowDialog();
             dataGridView1.Refresh();
         }
 
         private void btnAlterarFun_Click(object sender, EventArgs e)
         {
-            FormAdiFuncionario addFuncionario = new FormAdiFuncionario();
+            FormCRUDFuncionario addFuncionario = new FormCRUDFuncionario();
             addFuncionario.Show();
 
         }

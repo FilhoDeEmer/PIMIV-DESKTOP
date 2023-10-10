@@ -24,10 +24,21 @@ C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.formRelatorios.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormGerarFolha.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormFolha.resources
-C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.FormAdiFuncionario.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormUsuarios.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormCRUDUsers.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormCargos.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormEmpresas.resources
-C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormGerEmpresas.resources
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormPrimeiroLogin.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormCRUDEEmpresas.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.FormCRUDFuncionario.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\Newtonsoft.Json.dll
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.AccessControl.dll
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.Permissions.dll
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\Newtonsoft.Json.xml
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.AccessControl.xml
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.Permissions.xml
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.csproj.CopyComplete

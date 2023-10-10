@@ -1,15 +1,19 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
 using PIM_IV.control;
 using PIM_IV.view;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PIM_IV.model
@@ -19,7 +23,7 @@ namespace PIM_IV.model
         private void CrearDB()//cria o banco de dados 
         {
             string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"; 
-
+            //string connectionString = ObterStringConexao();
             string nomeBancoDeDados = "HERMES";
 
             string createDatabaseSql = $"CREATE DATABASE {nomeBancoDeDados}";
@@ -33,8 +37,9 @@ namespace PIM_IV.model
                     // Cria o banco de dados
                     using (SqlCommand command = new SqlCommand(createDatabaseSql, connection))
                     {
+                        MessageBox.Show(connectionString);
                         command.ExecuteNonQuery();
-                        MessageBox.Show($"Banco de dados '{nomeBancoDeDados}' criado com sucesso.");
+                        //MessageBox.Show($"Banco de dados '{nomeBancoDeDados}' criado com sucesso.");
                         CrearTableEmpresa();
                         CrearTableCargos();
                         CrearTableUsuarios();
@@ -58,6 +63,17 @@ namespace PIM_IV.model
                 
             }
                         
+        }
+        static string ObterStringConexao()
+        {
+            string nomeServidor = ConfigurationManager.AppSettings["ServerName"];
+            string nomeBD = ConfigurationManager.AppSettings["DatabaseName"];
+            string nomeUser = ConfigurationManager.AppSettings["UserName"];
+            string senha = ConfigurationManager.AppSettings["Password"];
+            string conexaoNova = $"Data Source={nomeServidor};Initial Catalog={nomeBD};User ID={nomeUser};Password={senha};";
+            MessageBox.Show(conexaoNova);
+
+            return $"Data Source={nomeServidor};Initial Catalog={nomeBD};User ID={nomeUser};Password={senha};";
         }
 
 
@@ -412,6 +428,64 @@ namespace PIM_IV.model
                 }
             }
 
+        }
+
+        static string ObterStringConexaoNaousado()
+        {
+            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string configFilePath = Path.Combine(appDataFolder, "config.json"); // Caminho do arquivo de configuração na pasta AppData.
+
+            //string configFilePath = "BDconfig.json";
+            // Tente obter a string de conexão a partir das configurações.
+            //string connectionString = ConfigurationManager.ConnectionStrings["ConexaoPadrao"].ConnectionString;
+
+            if (File.Exists(configFilePath))
+            {
+                try
+                {
+                    string json = File.ReadAllText(configFilePath);
+                    dynamic config = JObject.Parse(json);
+
+                    string serverName = config.ServerName;
+                    string databaseName = config.DatabaseName;
+                    string userName = config.UserName;
+                    string password = config.Password;
+
+                    return $"Data Source={serverName};Initial Catalog={databaseName};User ID={userName};Password={password};";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao ler o arquivo de configuração: {ex.Message}");
+                    return "";
+                }
+            }
+            else
+            {
+                // Se não houver uma configuração padrão, solicite as informações ao usuário.
+                string serverName = "HermesDB";
+
+                string databaseName = "Hermes";
+
+                string userName = "User8";
+
+                string password = "8888";
+
+                JObject configObject = new JObject(
+                new JProperty("ServerName", serverName),
+                new JProperty("DatabaseName", databaseName),
+                new JProperty("UserName", userName),
+                new JProperty("Password", password));
+                string connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={userName};Password={password};";
+
+                File.WriteAllText(configFilePath, configObject.ToString());
+                // Crie a string de conexão com base nas informações fornecidas pelo usuário.
+                //connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={userName};Password={password};";
+
+                // Salve a string de conexão nas configurações para uso futuro.
+                ConfigurationManager.ConnectionStrings.Add(new ConnectionStringSettings("ConexaoPadrao", connectionString));
+
+                return connectionString;
+            }
         }
 
     }

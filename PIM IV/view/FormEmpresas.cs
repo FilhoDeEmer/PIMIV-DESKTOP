@@ -13,7 +13,7 @@ namespace PIM_IV.view
         string cod;
         private void btnCadastrarEmpresa_Click(object sender, EventArgs e)
         {
-            FormGerEmpresas crudEmpresa = new FormGerEmpresas();   
+            FormCRUDEEmpresas crudEmpresa = new FormCRUDEEmpresas();   
             crudEmpresa.ShowDialog();
         }
 
@@ -28,7 +28,7 @@ namespace PIM_IV.view
         {
             if (cod != null)
             {
-                FormGerEmpresas crudEmpresa = new FormGerEmpresas(cod);
+                FormCRUDEEmpresas crudEmpresa = new FormCRUDEEmpresas(cod);
                 crudEmpresa.ShowDialog();
             }
             else { MessageBox.Show("Selecione uma Empresa!"); };
@@ -69,16 +69,13 @@ namespace PIM_IV.view
             {
                 if (cod != null)
                 {
-                    CRUDEmpresas deletar = new CRUDEmpresas();
+                    CrudEmpresas deletar = new CrudEmpresas();
                     deletar.DeletarEmpresa(cod);
                 }
                 else { MessageBox.Show("Selecione uma Empresa!"); };
 
             }
-            else
-            {
-
-            }
+           
             
         }
 
@@ -86,11 +83,11 @@ namespace PIM_IV.view
         {
             if (txtCnpjBusca.TextLength >0)
             {
-                CRUDEmpresas pesquisa = new CRUDEmpresas();
+                CrudEmpresas pesquisa = new CrudEmpresas();
                 string retorno = pesquisa.BuscarEmpresaCnpj(txtCnpjBusca.Text);
                 if(retorno != null)
                 {
-                    FormGerEmpresas crudEmpresa = new FormGerEmpresas(retorno);
+                    FormCRUDEEmpresas crudEmpresa = new FormCRUDEEmpresas(retorno);
                     crudEmpresa.ShowDialog();
                 }
                 else { MessageBox.Show("CNPJ digitado não encontrado!"); };
@@ -98,6 +95,12 @@ namespace PIM_IV.view
             }
             else { MessageBox.Show("O campo não pode estar vazio!"); };
             
+        }
+
+        private void btnCargo_Click(object sender, EventArgs e)
+        {
+            FormCargos cargo = new FormCargos();
+            cargo.ShowDialog();
         }
     }
 }

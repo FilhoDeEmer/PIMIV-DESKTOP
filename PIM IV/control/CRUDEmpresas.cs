@@ -8,35 +8,21 @@ using System.Windows.Forms;
 
 namespace PIM_IV.control
 {
-    internal class CRUDEmpresas
+    internal class CrudEmpresas
     {
-        private string codigo;
-        private string cnpj;
-        private string nome;
-        private string inscricaoEstadual;
-        private string rua;
-        private string cep;
-        private int numero;
-        private string cidade;
-        private string estado;
-        private string telefone;
-        private string email;
-        private string nomeResponsavel;
 
-        
-
-        public string Codigo { get => codigo; set => codigo = value; }
-        public string Cnpj { get => cnpj; set => cnpj = value; }
-        public string Nome { get => nome; set => nome = value; }
-        public string InscricaoEstadual { get => inscricaoEstadual; set => inscricaoEstadual = value; }
-        public string Rua { get => rua; set => rua = value; }
-        public string Cep { get => cep; set => cep = value; }
-        public int Numero { get => numero; set => numero = value; }
-        public string Cidade { get => cidade; set => cidade = value; }
-        public string Estado { get => estado; set => estado = value; }
-        public string Telefone { get => telefone; set => telefone = value; }
-        public string Email { get => email; set => email = value; }
-        public string NomeResponsavel { get => nomeResponsavel; set => nomeResponsavel = value; }
+        public string Codigo { get; set; }
+        public string Cnpj { get; set; }
+        public string Nome { get; set; }
+        public string InscricaoEstadual { get; set; }
+        public string Rua { get; set; }
+        public string Cep { get; set; }
+        public int Numero { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+        public string Telefone { get; set; }
+        public string Email { get; set; }
+        public string NomeResponsavel { get; set; }
 
         public void CadastraEmpresa()
         {
@@ -44,47 +30,47 @@ namespace PIM_IV.control
             {
                 SqlParameter paramNome = new SqlParameter();
                 paramNome.ParameterName = "@Nome";
-                paramNome.Value = nome;
+                paramNome.Value = Nome;
 
                 SqlParameter paramCnpj = new SqlParameter();
                 paramCnpj.ParameterName = "@CNPJ";
-                paramCnpj.Value = cnpj;
+                paramCnpj.Value = Cnpj;
 
                 SqlParameter paramIncricao = new SqlParameter();
                 paramIncricao.ParameterName = "@Inscricao";
-                paramIncricao.Value = inscricaoEstadual;
+                paramIncricao.Value = InscricaoEstadual;
 
                 SqlParameter paramRua = new SqlParameter();
                 paramRua.ParameterName = "@Rua";
-                paramRua.Value = rua;
+                paramRua.Value = Rua;
 
                 SqlParameter paramCep = new SqlParameter();
                 paramCep.ParameterName = "@Cep";
-                paramCep.Value = cep;
+                paramCep.Value = Cep;
 
                 SqlParameter paramNumero = new SqlParameter();
                 paramNumero.ParameterName = "@Numero";
-                paramNumero.Value = numero;
+                paramNumero.Value = Numero;
 
                 SqlParameter paramCidade = new SqlParameter();
                 paramCidade.ParameterName = "@Cidade";
-                paramCidade.Value = cidade;
+                paramCidade.Value = Cidade;
 
                 SqlParameter paramEstado = new SqlParameter();
                 paramEstado.ParameterName = "@Estado";
-                paramEstado.Value = estado;
+                paramEstado.Value = Estado;
 
                 SqlParameter paramTelefone = new SqlParameter();
                 paramTelefone.ParameterName = "@Telefone";
-                paramTelefone.Value = telefone;
+                paramTelefone.Value = Telefone;
 
                 SqlParameter paramEmail = new SqlParameter();
                 paramEmail.ParameterName = "@Email";
-                paramEmail.Value = email;
+                paramEmail.Value = Email;
 
                 SqlParameter paramResponsavel = new SqlParameter();
                 paramResponsavel.ParameterName = "@Responsavel";
-                paramResponsavel.Value = nomeResponsavel;
+                paramResponsavel.Value = NomeResponsavel;
 
 
 
@@ -100,17 +86,17 @@ namespace PIM_IV.control
                         using (SqlCommand cmd = new SqlCommand(comando,connection))
                         {
                             connection.Open();
-                            cmd.Parameters.AddWithValue("@Nome", nome);
-                            cmd.Parameters.AddWithValue("@CNPJ", cnpj);
-                            cmd.Parameters.AddWithValue("@Inscricao", inscricaoEstadual);
-                            cmd.Parameters.AddWithValue("@Rua", rua);
-                            cmd.Parameters.AddWithValue("@Cep", cep);
-                            cmd.Parameters.AddWithValue("@Numero", (int)numero);
-                            cmd.Parameters.AddWithValue("@Cidade", cidade);
-                            cmd.Parameters.AddWithValue("@Estado", estado);
-                            cmd.Parameters.AddWithValue("@Telefone", telefone);
-                            cmd.Parameters.AddWithValue("@Email", email);
-                            cmd.Parameters.AddWithValue("@Responsavel", nomeResponsavel);
+                            cmd.Parameters.AddWithValue("@Nome", Nome);
+                            cmd.Parameters.AddWithValue("@CNPJ", Cnpj);
+                            cmd.Parameters.AddWithValue("@Inscricao", InscricaoEstadual);
+                            cmd.Parameters.AddWithValue("@Rua", Rua);
+                            cmd.Parameters.AddWithValue("@Cep", Cep);
+                            cmd.Parameters.AddWithValue("@Numero", Numero);
+                            cmd.Parameters.AddWithValue("@Cidade", Cidade);
+                            cmd.Parameters.AddWithValue("@Estado", Estado);
+                            cmd.Parameters.AddWithValue("@Telefone", Telefone);
+                            cmd.Parameters.AddWithValue("@Email", Email);
+                            cmd.Parameters.AddWithValue("@Responsavel", NomeResponsavel);
 
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Cadastro realizado com sucesso!");
@@ -140,47 +126,47 @@ namespace PIM_IV.control
 
                 SqlParameter paramNome = new SqlParameter();
                 paramNome.ParameterName = "@Nome";
-                paramNome.Value = nome;
+                paramNome.Value = Nome;
 
                 SqlParameter paramCnpj = new SqlParameter();
                 paramCnpj.ParameterName = "@CNPJ";
-                paramCnpj.Value = cnpj;
+                paramCnpj.Value = Cnpj;
 
                 SqlParameter paramIncricao = new SqlParameter();
                 paramIncricao.ParameterName = "@Inscricao";
-                paramIncricao.Value = inscricaoEstadual;
+                paramIncricao.Value = InscricaoEstadual;
 
                 SqlParameter paramRua = new SqlParameter();
                 paramRua.ParameterName = "@Rua";
-                paramRua.Value = rua;
+                paramRua.Value = Rua;
 
                 SqlParameter paramCep = new SqlParameter();
                 paramCep.ParameterName = "@Cep";
-                paramCep.Value = cep;
+                paramCep.Value = Cep;
 
                 SqlParameter paramNumero = new SqlParameter();
                 paramNumero.ParameterName = "@Numero";
-                paramNumero.Value = numero;
+                paramNumero.Value = Numero;
 
                 SqlParameter paramCidade = new SqlParameter();
                 paramCidade.ParameterName = "@Cidade";
-                paramCidade.Value = cidade;
+                paramCidade.Value = Cidade;
 
                 SqlParameter paramEstado = new SqlParameter();
                 paramEstado.ParameterName = "@Estado";
-                paramEstado.Value = estado;
+                paramEstado.Value = Estado;
 
                 SqlParameter paramTelefone = new SqlParameter();
                 paramTelefone.ParameterName = "@Telefone";
-                paramTelefone.Value = telefone;
+                paramTelefone.Value = Telefone;
 
                 SqlParameter paramEmail = new SqlParameter();
                 paramEmail.ParameterName = "@Email";
-                paramEmail.Value = email;
+                paramEmail.Value = Email;
 
                 SqlParameter paramResponsavel = new SqlParameter();
                 paramResponsavel.ParameterName = "@Responsavel";
-                paramResponsavel.Value = nomeResponsavel;
+                paramResponsavel.Value = NomeResponsavel;
 
 
 
@@ -206,17 +192,17 @@ namespace PIM_IV.control
                         using (SqlCommand cmd = new SqlCommand(comando, connection))
                         {
                             
-                            cmd.Parameters.AddWithValue("@Nome", nome);
-                            cmd.Parameters.AddWithValue("@CNPJ", cnpj);
-                            cmd.Parameters.AddWithValue("@Inscricao", inscricaoEstadual);
-                            cmd.Parameters.AddWithValue("@Rua", rua);
-                            cmd.Parameters.AddWithValue("@Cep", cep);
-                            cmd.Parameters.AddWithValue("@Numero", (int)numero);
-                            cmd.Parameters.AddWithValue("@Cidade", cidade);
-                            cmd.Parameters.AddWithValue("@Estado", estado);
-                            cmd.Parameters.AddWithValue("@Telefone", telefone);
-                            cmd.Parameters.AddWithValue("@Email", email);
-                            cmd.Parameters.AddWithValue("@Responsavel", nomeResponsavel);
+                            cmd.Parameters.AddWithValue("@Nome", Nome);
+                            cmd.Parameters.AddWithValue("@CNPJ", Cnpj);
+                            cmd.Parameters.AddWithValue("@Inscricao", InscricaoEstadual);
+                            cmd.Parameters.AddWithValue("@Rua", Rua);
+                            cmd.Parameters.AddWithValue("@Cep", Cep);
+                            cmd.Parameters.AddWithValue("@Numero", Numero);
+                            cmd.Parameters.AddWithValue("@Cidade", Cidade);
+                            cmd.Parameters.AddWithValue("@Estado", Estado);
+                            cmd.Parameters.AddWithValue("@Telefone", Telefone);
+                            cmd.Parameters.AddWithValue("@Email", Email);
+                            cmd.Parameters.AddWithValue("@Responsavel", NomeResponsavel);
                             cmd.Parameters.AddWithValue("@Cod", cod);
                             connection.Open();
                             cmd.ExecuteNonQuery();
@@ -283,7 +269,7 @@ namespace PIM_IV.control
 
                 SqlParameter paramCnpj = new SqlParameter();
                 paramCnpj.ParameterName = "@CNPJ";
-                paramCnpj.Value = cnpj;
+                paramCnpj.Value = Cnpj;
 
                 
 
@@ -316,17 +302,17 @@ namespace PIM_IV.control
                             SqlDataReader data = cmd.ExecuteReader();
                             if(data.Read())
                             {
-                              cnpj = Convert.ToString(data["CNPJ"]);
-                              nome = Convert.ToString(data["Nome"]);
-                              inscricaoEstadual = Convert.ToString(data["Inscricao_estadual"]);
-                              rua = Convert.ToString(data["rua"]);
-                              cep = Convert.ToString(data["cep"]);
-                              numero = (int)(data["numero"]);
-                              cidade = Convert.ToString(data["cidade"]);
-                              estado = Convert.ToString(data["estado"]);
-                              telefone = Convert.ToString(data["telefone"]);
-                              email = Convert.ToString(data["email"]);
-                              nomeResponsavel = Convert.ToString(data["Nome_responsavel"]);
+                              Cnpj = Convert.ToString(data["CNPJ"]);
+                              Nome = Convert.ToString(data["Nome"]);
+                              InscricaoEstadual = Convert.ToString(data["Inscricao_estadual"]);
+                              Rua = Convert.ToString(data["rua"]);
+                              Cep = Convert.ToString(data["cep"]);
+                              Numero = (int)(data["numero"]);
+                              Cidade = Convert.ToString(data["cidade"]);
+                              Estado = Convert.ToString(data["estado"]);
+                              Telefone = Convert.ToString(data["telefone"]);
+                              Email = Convert.ToString(data["email"]);
+                              NomeResponsavel = Convert.ToString(data["Nome_responsavel"]);
                             }
 
                         }
@@ -372,8 +358,8 @@ namespace PIM_IV.control
                             SqlDataReader data = cmd.ExecuteReader();
                             if (data.Read())
                             {
-                                codigo = Convert.ToString(data["codigo_empresa"]);
-                                return codigo;
+                                Codigo = Convert.ToString(data["codigo_empresa"]);
+                                return Codigo;
                             }
                             else { return null; }
 
@@ -396,7 +382,7 @@ namespace PIM_IV.control
 
         public bool VerificarEmpresa()
         {
-            string comando = "SELECT count(*) from Empresas where CNPJ = '" + cnpj + "';";
+            string comando = "SELECT count(*) from Empresas where CNPJ = '" + Cnpj + "';";
             string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
@@ -429,7 +415,44 @@ namespace PIM_IV.control
             }
         }
 
+        public string BuscarEmpresaNome()
+        {
+                string comando = "SELECT nome from Empresas ";
+                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+
+                        using (SqlCommand cmd = new SqlCommand(comando, connection))
+                        {
+
+                            connection.Open();
+
+                            SqlDataReader data = cmd.ExecuteReader();
+                            if (data.Read())
+                            {
+                                Nome = Convert.ToString(data["nome"]);
+                                return Nome;
+                            }
+                            else { return null; }
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro: {ex.Message}");
+                    return null;
+                }
+                finally
+                {
+                    SqlConnection con = new SqlConnection(connectionString);
+                    con.Close();
+                }
+            
+        }
 
 
     }
