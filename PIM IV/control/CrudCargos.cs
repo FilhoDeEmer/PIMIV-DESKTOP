@@ -8,12 +8,18 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Security.Policy;
 
 namespace PIM_IV.control
 {
     internal class CrudCargos
     {
+        public string NomeCargo { get; set; }
+        public string SalarioBase { get; set; }
+
+        //static string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
         public void CadastrarCargo(string nome, decimal salario, int cod)
         {
             if (VerificarCargo(nome))
@@ -35,7 +41,9 @@ namespace PIM_IV.control
 
                 string comando = "INSERT into Cargos (nome,salario_base,codigo_empresa) values " +
                                                       "(@Nome,@Salario,@CodEmpresa)";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                 try
                 {
@@ -68,8 +76,11 @@ namespace PIM_IV.control
         }
         public bool VerificarCargo(string nome)
         {
-            string comando = "SELECT count(*) from Cargos where nome = '" + nome + "';";
-            string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string comando = "SELECT count(*) from Cargos where nome = @Nome;";
+
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
             try
             {
@@ -78,6 +89,7 @@ namespace PIM_IV.control
 
                     using (SqlCommand cmd = new SqlCommand(comando, connection))
                     {
+                        cmd.Parameters.AddWithValue("@Nome", nome);
                         connection.Open();
                         int count = (int)cmd.ExecuteScalar();
 
@@ -110,7 +122,9 @@ namespace PIM_IV.control
                 paramCod.Value = cod;
 
                 string comando = "DELETE FROM Cargos WHERE codigo_cargo = @Cod ;";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                 try
                 {
@@ -166,7 +180,9 @@ namespace PIM_IV.control
                         "Salario_base=@Salario " +
                         "codigo_empresa=@CodEmpresa " +
                         " WHERE codigo_cargo = @CodCargo ;";
-                    string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                    PegaNome nomeServer = new PegaNome();
+                    string nomeServidor = nomeServer.Pegar();
+                    string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                     try
                     {
@@ -198,6 +214,120 @@ namespace PIM_IV.control
             }
         }
 
-        
+        public bool ContaCargo()
+        {
+            string comando = "SELECT count(*) from Cargos;";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+                        connection.Open();
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            return true;
+                        }
+                        else { return false; }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Close();
+            }
+        }
+
+        public class Codigos
+        {
+            public int CodCargo { get; set; }
+            public string NomeCargo { get; set; }
+        }
+
+        public List<Codigos> GetListCod(string empresa)
+        {
+            List<Codigos> codigos = new List<Codigos>();
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = "SELECT codigo_cargo, nome FROM Cargos WHERE codigo_empresa = @empresa";
+                using (SqlCommand cmd = new SqlCommand(command, connection))
+                {
+                    cmd.Parameters.AddWithValue("@empresa", empresa);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Codigos codigo = new Codigos
+                            {
+                                CodCargo = Convert.ToInt32(reader["codigo_cargo"]),
+                                NomeCargo = reader["nome"].ToString()
+                            };
+                            codigos.Add(codigo);
+                        }
+
+
+                    }
+                }
+                return codigos;
+            }
+        }
+        public void BuscaCargo(string cod)
+        {
+            string comando = "SELECT nome, salario_base from Cargos where codigo_cargo = @cod";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@cod", cod);
+                        connection.Open();
+                        SqlDataReader data = cmd.ExecuteReader();
+                        if (data.Read())
+                        {
+                            NomeCargo = Convert.ToString(data["nome"]);
+                            SalarioBase = Convert.ToString(data["salario_base"]);
+                            
+                        }
+                        
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+                
+            }
+            finally
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Close();
+            }
+        }
     }
 }

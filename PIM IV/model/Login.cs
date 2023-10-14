@@ -7,8 +7,6 @@ namespace PIM_IV
 {
     internal class Login
     {
-
-
         string login1;
         string senhaVem;
 
@@ -23,7 +21,9 @@ namespace PIM_IV
 
             conferirSenha.RetornaMD5(senhaVem);//transforma senha em um md5
             string sqlLogin = "SELECT SenhaHash from Usuarios where nome = '" + login1 + "';";
-            string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))

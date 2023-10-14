@@ -76,7 +76,9 @@ namespace PIM_IV.control
 
                 string comando = "INSERT into Empresas (CNPJ,Inscricao_estadual,Nome,Rua,CEP,Numero,Cidade,Estado,Telefone,Email,Nome_responsavel) values " +
                                                       "(@CNPJ, @Inscricao,@Nome,@Rua,@Cep,@Numero,@Cidade,@Estado,@Telefone,@Email,@Responsavel)";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                 try
                 {
@@ -182,7 +184,9 @@ namespace PIM_IV.control
                     "Email = @Email," +
                     "Nome_responsavel = @Responsavel " +
                     " WHERE codigo_empresa = @Cod ;";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                 try
                 {
@@ -231,7 +235,9 @@ namespace PIM_IV.control
                 paramCod.Value = cod;
                                 
                 string comando = "DELETE FROM Empresas WHERE codigo_empresa = @Cod ;";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                 try
                 {
@@ -286,7 +292,9 @@ namespace PIM_IV.control
                     "Nome_responsavel " +
                     " FROM Empresas " +
                     " WHERE codigo_empresa = @Cod ";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                 try
                 {
@@ -382,7 +390,7 @@ namespace PIM_IV.control
 
         public bool VerificarEmpresa()
         {
-            string comando = "SELECT count(*) from Empresas where CNPJ = '" + Cnpj + "';";
+            string comando = "SELECT count(*) from Empresas where CNPJ = @Cnpj';";
             string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
@@ -392,6 +400,7 @@ namespace PIM_IV.control
                     
                     using (SqlCommand cmd = new SqlCommand(comando,connection))
                     {
+                        cmd.Parameters.AddWithValue("@Cnpj", Cnpj);
                         connection.Open();
                         int count = (int)cmd.ExecuteScalar();
 
@@ -418,10 +427,12 @@ namespace PIM_IV.control
         public string BuscarEmpresaNome()
         {
                 string comando = "SELECT nome from Empresas ";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
-                try
-                {
+            try
+            {
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
 
@@ -453,7 +464,85 @@ namespace PIM_IV.control
                 }
             
         }
+        public string BuscarEmpresaNomeById(int cod)
+        {
+            string comando = "SELECT nome,cnpj from Empresas where codigo_empresa = @cod";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@cod", cod);
+                        connection.Open();
+
+                        SqlDataReader data = cmd.ExecuteReader();
+                        if (data.Read())
+                        {
+                            Nome = Convert.ToString(data["nome"]);
+                            Cnpj = Convert.ToString(data["cnpj"]);
+                            return Nome;
+                        }
+                        else { return null; }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+                return null;
+            }
+            finally
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Close();
+            }
+
+        }
+
+
+        public bool ContaEmpresa()
+        {
+            string comando = "SELECT count(*) from Empresas ;";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+                        connection.Open();
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            return true;
+                        }
+                        else { return false; }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Close();
+            }
+        }
 
     }
 }

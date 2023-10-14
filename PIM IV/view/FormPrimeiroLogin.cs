@@ -42,10 +42,7 @@ namespace PIM_IV.view
                 Application.Exit();
 
             }
-            else
-            {
-
-            }
+            
         }
     }
 }

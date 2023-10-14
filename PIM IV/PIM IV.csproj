@@ -72,10 +72,22 @@
     <Compile Include="control\CrudCargos.cs" />
     <Compile Include="control\CrudEmpresas.cs" />
     <Compile Include="control\CrudFuncionario.cs" />
+    <Compile Include="control\CrudUser.cs" />
+    <Compile Include="control\PegaNome.cs" />
     <Compile Include="HERMESDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HERMESDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HERMESDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HERMESDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="HERMESDataSetUsers.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -225,6 +237,28 @@
     </None>
     <None Include="HERMESDataSet1.xss">
       <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet11.xsc">
+      <DependentUpon>HERMESDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HERMESDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HERMESDataSet11.xss">
+      <DependentUpon>HERMESDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet2.xsc">
+      <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HERMESDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HERMESDataSet2.xss">
+      <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
     </None>
     <None Include="HERMESDataSetUsers.xsc">
       <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>

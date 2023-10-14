@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PIM_IV.control
 {
@@ -38,6 +41,8 @@ namespace PIM_IV.control
         public string NomeBanco { get; set; }
         public string AgenciaBanco { get; set; }
         public string NConta { get; set; }
+        public string Nivel {  get; set; }
+        public string Cod_User { get; set; }
 
         public void CadastrarFuncionario()
         {
@@ -88,7 +93,7 @@ namespace PIM_IV.control
                 paramCodCargo.Value = Cod_cargo;
 
                 SqlParameter paramSalario = new SqlParameter();
-                paramSalario.ParameterName = "@CodCargo";
+                paramSalario.ParameterName = "@Salario";
                 paramSalario.Value = Salario;
 
                 SqlParameter paramRg = new SqlParameter();
@@ -132,7 +137,7 @@ namespace PIM_IV.control
                 paramNoturno.Value = AddNoturno;
 
                 SqlParameter paramInss = new SqlParameter();
-                paramInss.ParameterName = "@Noturno";
+                paramInss.ParameterName = "@INSS";
                 paramInss.Value = Inss;
 
                 SqlParameter paramCodBanco = new SqlParameter();
@@ -151,48 +156,76 @@ namespace PIM_IV.control
                 paramNumConta.ParameterName = "@NumConta";
                 paramNumConta.Value = NConta;
 
-                string comando = "INSERT into Funcionarios " +
-                                  "(Cpf," +
-                                  "RG," +
-                                  "Nome," +
-                                  "Rua," +
-                                  "CEP," +
-                                  "Numero," +
-                                  "Cidade," +
-                                  "Estado," +
-                                  "Telefone," +
-                                  "Email," +
-                                  "Cod,"+
-                                  "Data," +
-                                  "Nome," +
-                                  "Rua," +
-                                  "CEP," +
-                                  "Numero," +
-                                  "Cidade," +
-                                  "Estado," +
-                                  "Telefone," +
-                                  "Email," +
-                                  "Cod," +
-                                  "RG," +
-                                  "Nome," +
-                                  "Rua," +
-                                  "CEP," +
-                                  "Numero," +
-                                  "Cidade," +
-                                  "values " +
-                                  "(@CNPJ," +
-                                  " @Inscricao," +
-                                  "@Nome," +
-                                  "@Rua," +
-                                  "@Cep," +
-                                  "@Numero," +
-                                  "@Cidade," +
-                                  "@Estado," +
-                                  "@Telefone," +
-                                  "@Email," +
-                                  "@Responsavel)";
+                SqlParameter paramSindical = new SqlParameter();
+                paramSindical.ParameterName = "@Sindical";
+                paramSindical.Value = DescontoSindical;
 
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                SqlParameter paramCodUser = new SqlParameter();
+                paramCodUser.ParameterName = "@CodUser";
+                paramCodUser.Value = Cod_User;
+
+                string comando = "INSERT into Funcionarios " +
+                                  "(nome" +
+                                  ",cpf " +
+                                  ",rg " +
+                                  ",data_nascimento " +
+                                  ",rua " +
+                                  ",cep " +
+                                  ",numero " +
+                                  ",estado " +
+                                  ",cidade " +
+                                  ",codigo_empresa " +
+                                  ",codigo_cargo " +
+                                  ",salario " +
+                                  ",data_adimicao " +
+                                  ",vale_transporte " +
+                                  ",vale_alimentacao " +
+                                  ",vale_refeicao " +
+                                  ",PLANO_DE_SAUDE " +
+                                  ",add_notuno " +
+                                  ",add_perigo " +
+                                  ",INSS " +
+                                  ",DESCONTO_SINDICAL " +
+                                  ",cod_banco " +
+                                  ",nome_banco " +
+                                  ",agencia " +
+                                  ",n_conta " +
+                                  ",telefone " +
+                                  ",codigo_usuario"+
+                                  ",email )" +
+                                  "values " +
+                                  "(@Nome" +
+                                  ",@Cpf " +
+                                  ",@RG " +
+                                  ",@Aniversasrio " +
+                                  ",@Rua " +
+                                  ",@Cep " +
+                                  ",@Numero " +
+                                  ",@Estado " +
+                                  ",@Cidade " +
+                                  ",@CodEmpresa " +
+                                  ",@CodCargo " +
+                                  ",@Salario " +
+                                  ",@Adimicao " +
+                                  ",@Transporte " +
+                                  ",@Alimentacao " +
+                                  ",@Refeicao " +
+                                  ",@Saude " +
+                                  ",@Notuno " +
+                                  ",@Periculosidade " +
+                                  ",@INSS " +
+                                  ",@Sindical " +
+                                  ",@CodBanco " +
+                                  ",@NomeBanco" +
+                                  ",@Agencia " +
+                                  ",@NumConta " +
+                                  ",@Telefone " +
+                                  ",@CodUser" +
+                                  ",@Email )";
+
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
                 try
                 {
@@ -203,13 +236,34 @@ namespace PIM_IV.control
                         {
                             connection.Open();
                             cmd.Parameters.AddWithValue("@Nome", Nome);
+                            cmd.Parameters.AddWithValue("@Cpf", Cpf);
+                            cmd.Parameters.AddWithValue("@RG", RG);
                             cmd.Parameters.AddWithValue("@Rua", Rua);
                             cmd.Parameters.AddWithValue("@Cep", Cep);
-                            cmd.Parameters.AddWithValue("@Numero", Numero);
+                            cmd.Parameters.AddWithValue("@Numero", Convert.ToInt32(Numero));
                             cmd.Parameters.AddWithValue("@Cidade", Cidade);
                             cmd.Parameters.AddWithValue("@Estado", Estado);
                             cmd.Parameters.AddWithValue("@Telefone", Telefone);
                             cmd.Parameters.AddWithValue("@Email", Email);
+                            cmd.Parameters.AddWithValue("@Aniversasrio", DataNascimento);
+                            cmd.Parameters.AddWithValue("@CodEmpresa", Convert.ToInt32(Cod_empresa));
+                            cmd.Parameters.AddWithValue("@CodCargo", Convert.ToInt32(Cod_cargo));
+                            cmd.Parameters.AddWithValue("@Salario", Convert.ToDecimal(Salario));
+                            cmd.Parameters.AddWithValue("@Adimicao", DataAdimicao);
+                            cmd.Parameters.AddWithValue("@Transporte", Convert.ToDecimal(VTransporte));
+                            cmd.Parameters.AddWithValue("@Alimentacao", Convert.ToDecimal(VAlimentacao));
+                            cmd.Parameters.AddWithValue("@Refeicao", Convert.ToDecimal(VRefeicao));
+                            cmd.Parameters.AddWithValue("@Saude", Convert.ToDecimal(PlanoSaude));
+                            cmd.Parameters.AddWithValue("@Notuno", Convert.ToDecimal(AddNoturno));
+                            cmd.Parameters.AddWithValue("@Periculosidade", Convert.ToDecimal(AddPericulosidade));
+                            cmd.Parameters.AddWithValue("@INSS", Convert.ToDecimal(Inss));
+                            cmd.Parameters.AddWithValue("@Sindical", Convert.ToDecimal(DescontoSindical));
+                            cmd.Parameters.AddWithValue("@CodBanco", Convert.ToInt32(Cod_banco));
+                            cmd.Parameters.AddWithValue("@NomeBanco", NomeBanco);
+                            cmd.Parameters.AddWithValue("@Agencia", Convert.ToInt32(AgenciaBanco));
+                            cmd.Parameters.AddWithValue("@NumConta", Convert.ToInt32(NConta));
+                            cmd.Parameters.AddWithValue("@CodUser", Convert.ToInt32(Cod_User));
+
 
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Cadastro realizado com sucesso!");
@@ -225,13 +279,16 @@ namespace PIM_IV.control
                     SqlConnection con = new SqlConnection(connectionString);
                     con.Close();
                 }
+                
 
             }
         }
         public bool VerificaFuncionarios()
         {
-            string comando = "SELECT count(*) from Funcionario where CPF = '" + Cpf + "';";
-            string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string comando = "SELECT count(*) from Funcionarios where CPF = @Cpf;";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
             try
             {
@@ -240,6 +297,7 @@ namespace PIM_IV.control
 
                     using (SqlCommand cmd = new SqlCommand(comando, connection))
                     {
+                        cmd.Parameters.AddWithValue("@Cpf", Cpf);
                         connection.Open();
                         int count = (int)cmd.ExecuteScalar();
 
@@ -266,6 +324,110 @@ namespace PIM_IV.control
         public void AlterarFuncionario(string cod)
         {
 
+        }
+        public void CriarUsuario(string nome, string senha, string nivel)
+        {
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+
+            string name = nome;
+            int level = Convert.ToInt16(nivel);
+            Criptografia md5 = new Criptografia();
+            string password = md5.RetornaMD5(senha);
+
+            // Criar objetos SqlParameter para cada parâmetro
+            SqlParameter paramNome = new SqlParameter();
+            paramNome.ParameterName = "@Name";
+            paramNome.Value = name;
+
+            SqlParameter paramSenha = new SqlParameter();
+            paramSenha.ParameterName = "@Senha";
+            paramSenha.Value = password;
+
+            SqlParameter paramNivel = new SqlParameter();
+            paramNivel.ParameterName = "@Nivel";
+            paramNivel.Value = level;
+
+            // Criando o SqlCommand com um parâmetro
+            string cmd = "insert into Usuarios (Nome, SenhaHash, Nivel) values (@Name, @Senha, @Nivel) ";
+            // adiciona o parametro ao comando 
+            
+            // Criar um objeto SqlCommand e associá-lo com a conexão e a consulta
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(cmd, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", nome);
+                    command.Parameters.AddWithValue("@Senha", password);
+                    command.Parameters.AddWithValue("@Nivel", level);
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+
+                }
+            }
+
+        }
+
+        public void BuscarUser(string cpf)
+        {
+            if (cpf != null)
+            {
+                
+                SqlParameter paramCpf = new SqlParameter();
+                paramCpf.ParameterName = "@Cpf";
+                paramCpf.Value = Cpf;
+
+                string comando = "SELECT cod_usuario," +
+                    " FROM Usuarios " +
+                    " WHERE nome = @Cpf ";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+
+                        using (SqlCommand cmd = new SqlCommand(comando, connection))
+                        {
+
+                            cmd.Parameters.AddWithValue("@Cpf", Cpf);
+                            connection.Open();
+
+                            SqlDataReader data = cmd.ExecuteReader();
+                            if (data.Read())
+                            {
+                                Cod_User = Convert.ToString(data["cod_usuario"]);
+                                
+                            }
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro: {ex.Message}");
+                }
+                finally
+                {
+                    SqlConnection con = new SqlConnection(connectionString);
+                    con.Close();
+                }
+            }
         }
     }
 

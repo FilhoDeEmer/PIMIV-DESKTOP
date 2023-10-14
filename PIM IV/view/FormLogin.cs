@@ -1,4 +1,5 @@
-﻿using PIM_IV.model;
+﻿using PIM_IV.control;
+using PIM_IV.model;
 using PIM_IV.view;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,10 @@ namespace PIM_IV
 
         private void linkSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            MessageBox.Show(connectionString);
         }
 
         private void Form1_Load(object sender, EventArgs e)

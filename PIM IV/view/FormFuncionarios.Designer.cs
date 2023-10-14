@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cODFUNCIONARIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fUNCIONARIOStesteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CNPJ = new System.Windows.Forms.Label();
@@ -47,12 +44,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCpfBusca = new System.Windows.Forms.TextBox();
             this.btnPesquisaFuncionario = new System.Windows.Forms.Button();
+            this.hERMESDataSet2 = new PIM_IV.HERMESDataSet2();
+            this.funcionariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionariosTableAdapter = new PIM_IV.HERMESDataSet2TableAdapters.FuncionariosTableAdapter();
+            this.codigo_funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigocargoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataadimicaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigousuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).BeginInit();
+            this.fillByToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -73,10 +88,17 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cODFUNCIONARIODataGridViewTextBoxColumn,
-            this.nOMEDataGridViewTextBoxColumn,
-            this.cPFDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.fUNCIONARIOStesteBindingSource;
+            this.codigo_funcionario,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn1,
+            this.codigoempresaDataGridViewTextBoxColumn,
+            this.codigocargoDataGridViewTextBoxColumn,
+            this.salarioDataGridViewTextBoxColumn,
+            this.dataadimicaoDataGridViewTextBoxColumn,
+            this.telefoneDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.codigousuarioDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.funcionariosBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
@@ -87,31 +109,9 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
-            // cODFUNCIONARIODataGridViewTextBoxColumn
-            // 
-            this.cODFUNCIONARIODataGridViewTextBoxColumn.DataPropertyName = "COD_FUNCIONARIO";
-            this.cODFUNCIONARIODataGridViewTextBoxColumn.HeaderText = "COD.";
-            this.cODFUNCIONARIODataGridViewTextBoxColumn.Name = "cODFUNCIONARIODataGridViewTextBoxColumn";
-            this.cODFUNCIONARIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOMEDataGridViewTextBoxColumn
-            // 
-            this.nOMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nOMEDataGridViewTextBoxColumn.DataPropertyName = "NOME";
-            this.nOMEDataGridViewTextBoxColumn.HeaderText = "NOME";
-            this.nOMEDataGridViewTextBoxColumn.Name = "nOMEDataGridViewTextBoxColumn";
-            // 
-            // cPFDataGridViewTextBoxColumn
-            // 
-            this.cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
-            this.cPFDataGridViewTextBoxColumn.HeaderText = "CPF";
-            this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
-            // 
             // fUNCIONARIOStesteBindingSource
             // 
             this.fUNCIONARIOStesteBindingSource.DataMember = "FUNCIONARIOS_teste";
-            // 
-            // pIMIIIDataSet1
             // 
             // groupBox4
             // 
@@ -185,18 +185,9 @@
             this.btnCadastrarFun.UseVisualStyleBackColor = true;
             this.btnCadastrarFun.Click += new System.EventHandler(this.btnCadastrarFun_Click);
             // 
-            // pIMIIIDataSet
-            // 
-            // 
             // fUNCIONARIOSBindingSource
             // 
             this.fUNCIONARIOSBindingSource.DataMember = "FUNCIONARIOS";
-            // 
-            // fUNCIONARIOSTableAdapter
-            // 
-            // 
-            // fUNCIONARIOS_testeTableAdapter
-            // 
             // 
             // groupBox1
             // 
@@ -238,11 +229,114 @@
             this.btnPesquisaFuncionario.Text = "Pesquisar";
             this.btnPesquisaFuncionario.UseVisualStyleBackColor = true;
             // 
+            // hERMESDataSet2
+            // 
+            this.hERMESDataSet2.DataSetName = "HERMESDataSet2";
+            this.hERMESDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // funcionariosBindingSource1
+            // 
+            this.funcionariosBindingSource1.DataMember = "Funcionarios";
+            this.funcionariosBindingSource1.DataSource = this.hERMESDataSet2;
+            // 
+            // funcionariosTableAdapter
+            // 
+            this.funcionariosTableAdapter.ClearBeforeFill = true;
+            // 
+            // codigo_funcionario
+            // 
+            this.codigo_funcionario.DataPropertyName = "codigo_funcionario";
+            this.codigo_funcionario.HeaderText = "cod";
+            this.codigo_funcionario.Name = "codigo_funcionario";
+            this.codigo_funcionario.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "cpf";
+            this.dataGridViewTextBoxColumn2.HeaderText = "cpf";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "nome";
+            this.dataGridViewTextBoxColumn1.HeaderText = "nome";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // codigoempresaDataGridViewTextBoxColumn
+            // 
+            this.codigoempresaDataGridViewTextBoxColumn.DataPropertyName = "codigo_empresa";
+            this.codigoempresaDataGridViewTextBoxColumn.HeaderText = "codigo_empresa";
+            this.codigoempresaDataGridViewTextBoxColumn.Name = "codigoempresaDataGridViewTextBoxColumn";
+            this.codigoempresaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codigocargoDataGridViewTextBoxColumn
+            // 
+            this.codigocargoDataGridViewTextBoxColumn.DataPropertyName = "codigo_cargo";
+            this.codigocargoDataGridViewTextBoxColumn.HeaderText = "codigo_cargo";
+            this.codigocargoDataGridViewTextBoxColumn.Name = "codigocargoDataGridViewTextBoxColumn";
+            this.codigocargoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // salarioDataGridViewTextBoxColumn
+            // 
+            this.salarioDataGridViewTextBoxColumn.DataPropertyName = "salario";
+            this.salarioDataGridViewTextBoxColumn.HeaderText = "salario";
+            this.salarioDataGridViewTextBoxColumn.Name = "salarioDataGridViewTextBoxColumn";
+            this.salarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataadimicaoDataGridViewTextBoxColumn
+            // 
+            this.dataadimicaoDataGridViewTextBoxColumn.DataPropertyName = "data_adimicao";
+            this.dataadimicaoDataGridViewTextBoxColumn.HeaderText = "data_adimicao";
+            this.dataadimicaoDataGridViewTextBoxColumn.Name = "dataadimicaoDataGridViewTextBoxColumn";
+            this.dataadimicaoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefoneDataGridViewTextBoxColumn
+            // 
+            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "telefone";
+            this.telefoneDataGridViewTextBoxColumn.HeaderText = "telefone";
+            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codigousuarioDataGridViewTextBoxColumn
+            // 
+            this.codigousuarioDataGridViewTextBoxColumn.DataPropertyName = "codigo_usuario";
+            this.codigousuarioDataGridViewTextBoxColumn.HeaderText = "codigo_usuario";
+            this.codigousuarioDataGridViewTextBoxColumn.Name = "codigousuarioDataGridViewTextBoxColumn";
+            this.codigousuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fillByToolStrip
+            // 
+            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton});
+            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillByToolStrip.Name = "fillByToolStrip";
+            this.fillByToolStrip.Size = new System.Drawing.Size(111, 25);
+            this.fillByToolStrip.TabIndex = 6;
+            this.fillByToolStrip.Text = "fillByToolStrip";
+            // 
+            // fillByToolStripButton
+            // 
+            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton.Name = "fillByToolStripButton";
+            this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
+            this.fillByToolStripButton.Text = "FillBy";
+            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            // 
             // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1072, 729);
+            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCadastrarFun);
             this.Controls.Add(this.btnAlterarFun);
@@ -261,7 +355,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).EndInit();
+            this.fillByToolStrip.ResumeLayout(false);
+            this.fillByToolStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,5 +383,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCpfBusca;
         private System.Windows.Forms.Button btnPesquisaFuncionario;
+        private HERMESDataSet2 hERMESDataSet2;
+        private System.Windows.Forms.BindingSource funcionariosBindingSource1;
+        private HERMESDataSet2TableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_funcionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoempresaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigocargoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataadimicaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigousuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStrip fillByToolStrip;
+        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
     }
 }

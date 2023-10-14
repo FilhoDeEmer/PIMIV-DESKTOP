@@ -1,4 +1,5 @@
 ﻿using PIM_IV.control;
+using PIM_IV.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace PIM_IV
     public partial class FormCRUDFuncionario : Form
     {
         string cod;
+        private List<string> codList;
         public FormCRUDFuncionario()
         {
             InitializeComponent();
@@ -45,114 +47,88 @@ namespace PIM_IV
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            CrudFuncionario salvarFuncionario = new CrudFuncionario();
-            salvarFuncionario.Nome = txtNomeEmpresa.Text;
-            salvarFuncionario.DataNascimento = txtDataNascimento.Text;
-            salvarFuncionario.DataAdimicao = txtDataAdmi.Text;
-            salvarFuncionario.RG = txtRgFun.Text;
-            salvarFuncionario.Rua = txtEndFun.Text;
-            salvarFuncionario.Cep = txtCepFun.Text;
-            salvarFuncionario.Numero = txtNumFun.Text;
-            salvarFuncionario.Cidade = txtCidadeFun.Text;
-            salvarFuncionario.Estado = txtUfFun.Text;
-            salvarFuncionario.Telefone = txtTelefone.Text;
-            salvarFuncionario.Email = txtEmail.Text;
-            salvarFuncionario.Cod_empresa = boxCodEmpresa.Text;
-            salvarFuncionario.Cod_cargo = boxCodCargo.Text;
-            salvarFuncionario.Salario = txtSalarioFun.Text;
-            salvarFuncionario.VTransporte = txtTransporte.Text;
-            salvarFuncionario.VAlimentacao = txtAlimentacao.Text;
-            salvarFuncionario.VRefeicao = txtRefeicao.Text;
-            salvarFuncionario.PlanoSaude =txtPlanoSaude.Text;
-            salvarFuncionario.AddPericulosidade = txtPericulosidae.Text;
-            salvarFuncionario.AddNoturno = txtNoturno.Text;
-            salvarFuncionario.DescontoSindical = txtSindical.Text;
-            salvarFuncionario.Cod_banco = txtCodBanco.Text;
-            salvarFuncionario.NomeBanco = txtBanco.Text;
-            salvarFuncionario.AgenciaBanco = txtAgencia.Text;
-            salvarFuncionario.NConta = txtConta.Text;
-
-            if (this.cod == null)
+            CrudUser criarUser = new CrudUser();
+            if(criarUser.CriarNovoUsuario(txtCPF.Text, txtCPF.Text, Convert.ToInt32(txtNivel.Text)))
             {
-                salvarFuncionario.CadastrarFuncionario();
-                Close();
+                CrudFuncionario salvarFuncionario = new CrudFuncionario();
+                salvarFuncionario.Cod_User = criarUser.BuscarUser(txtCPF.Text);
+                salvarFuncionario.Nome = txtNomeFun.Text;
+                salvarFuncionario.Cpf = txtCPF.Text;
+                salvarFuncionario.DataNascimento = txtDataNascimento.Text;
+                salvarFuncionario.DataAdimicao = txtDataAdmi.Text;
+                salvarFuncionario.RG = txtRgFun.Text;
+                salvarFuncionario.Rua = txtEndFun.Text;
+                salvarFuncionario.Cep = txtCepFun.Text;
+                salvarFuncionario.Numero = txtNumFun.Text;
+                salvarFuncionario.Cidade = txtCidadeFun.Text;
+                salvarFuncionario.Estado = txtUfFun.Text;
+                salvarFuncionario.Telefone = txtTelefone.Text;
+                salvarFuncionario.Email = txtEmail.Text;
+                salvarFuncionario.Cod_empresa = boxCodEmpresa.Text;
+                salvarFuncionario.Cod_cargo = boxCodCargo.Text;
+                salvarFuncionario.Salario = txtSalarioFun.Text;
+                salvarFuncionario.VTransporte = txtTransporte.Text;
+                salvarFuncionario.VAlimentacao = txtAlimentacao.Text;
+                salvarFuncionario.VRefeicao = txtRefeicao.Text;
+                salvarFuncionario.PlanoSaude =txtPlanoSaude.Text;
+                salvarFuncionario.AddPericulosidade = txtPericulosidae.Text;
+                salvarFuncionario.AddNoturno = txtNoturno.Text;
+                salvarFuncionario.DescontoSindical = txtSindical.Text;
+                salvarFuncionario.Cod_banco = txtCodBanco.Text;
+                salvarFuncionario.NomeBanco = txtBanco.Text;
+                salvarFuncionario.AgenciaBanco = txtAgencia.Text;
+                salvarFuncionario.NConta = txtConta.Text;
+                salvarFuncionario.Nivel = txtNivel.Text;
+            
+                if (this.cod == null)
+                {
+                    salvarFuncionario.CadastrarFuncionario();
+                    Close();
+                }
+                else
+                {
+                    salvarFuncionario.Codigo = this.cod;
+                    salvarFuncionario.AlterarFuncionario(cod);
+                    Close();
+                }
             }
-            else
-            {
-                salvarFuncionario.Codigo = this.cod;
-                salvarFuncionario.AlterarFuncionario(cod);
-                Close();
-            }
         }
-
-        private void textBox10_TextChanged(object sender, EventArgs e)
+        private void FormCRUDFuncionario_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
+            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet1.Cargos'. Você pode movê-la ou removê-la conforme necessário.
+            this.cargosTableAdapter.Fill(this.hERMESDataSet1.Cargos);
+            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
+            this.empresasTableAdapter.Fill(this.hERMESDataSet.Empresas);
+            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSetUsers.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
+            this.usuariosTableAdapter.Fill(this.hERMESDataSetUsers.Usuarios);
 
         }
 
-        private void label24_Click(object sender, EventArgs e)
+        private void boxCodEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CrudEmpresas nomeEmpresa = new CrudEmpresas();
+            CrudCargos pesquisaCargos = new CrudCargos();
+            txtNomeEmpresa.Text = nomeEmpresa.BuscarEmpresaNomeById(Convert.ToInt16(boxCodEmpresa.Text));
+            txtCnpjEmpresa.Text = nomeEmpresa.Cnpj;
+            boxCodCargo.DisplayMember = "CodCargo";
+            boxCodCargo.ValueMember = "CodCargo";
+            boxCodCargo.DataSource = pesquisaCargos.GetListCod(boxCodEmpresa.Text);
 
+            
         }
 
-        private void label30_Click(object sender, EventArgs e)
+        private void boxCodCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            CrudCargos pesquisaCargos = new CrudCargos();
+            pesquisaCargos.BuscaCargo(boxCodCargo.Text);
+            txtNomeCargo.Text = pesquisaCargos.NomeCargo;
+            txtSalarioFun.Text = pesquisaCargos.SalarioBase;
         }
 
-        private void textBox8_TextChanged(object sender, EventArgs e)
+        private void txtCPF_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void label28_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSalarioFun_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCodFun_TextChanged(object sender, EventArgs e)
-        {
-
+            txtLogin.Text = txtCPF.Text;
+            txtSenha.Text = txtCPF.Text;
         }
     }
 }

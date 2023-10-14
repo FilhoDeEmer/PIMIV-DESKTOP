@@ -20,33 +20,35 @@ namespace PIM_IV.model
 {
     internal class CreateDataBase
     {
+       
+        
         private void CrearDB()//cria o banco de dados 
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"; 
-            //string connectionString = ObterStringConexao();
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" +nomeServidor+ "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"; 
             string nomeBancoDeDados = "HERMES";
-
+            
             string createDatabaseSql = $"CREATE DATABASE {nomeBancoDeDados}";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
+                    
                     connection.Open();
 
                     // Cria o banco de dados
                     using (SqlCommand command = new SqlCommand(createDatabaseSql, connection))
                     {
-                        MessageBox.Show(connectionString);
                         command.ExecuteNonQuery();
-                        //MessageBox.Show($"Banco de dados '{nomeBancoDeDados}' criado com sucesso.");
                         CrearTableEmpresa();
                         CrearTableCargos();
                         CrearTableUsuarios();
                         CrearTableFuncionarios();
                         CrearTableFolha();
-                        CrearTableNotificacao();
-                        CrearTableHolerite();
+                        //CrearTableNotificacao();
+                        //CrearTableHolerite();
                         FormPrimeiroLogin init = new FormPrimeiroLogin();
                         init.ShowDialog();
                     }
@@ -58,25 +60,10 @@ namespace PIM_IV.model
                 Console.WriteLine($"Erro ao criar o banco de dados: {ex.Message}");
                
             }
-            finally
-            {
-                
-            }
+            
                         
         }
-        static string ObterStringConexao()
-        {
-            string nomeServidor = ConfigurationManager.AppSettings["ServerName"];
-            string nomeBD = ConfigurationManager.AppSettings["DatabaseName"];
-            string nomeUser = ConfigurationManager.AppSettings["UserName"];
-            string senha = ConfigurationManager.AppSettings["Password"];
-            string conexaoNova = $"Data Source={nomeServidor};Initial Catalog={nomeBD};User ID={nomeUser};Password={senha};";
-            MessageBox.Show(conexaoNova);
-
-            return $"Data Source={nomeServidor};Initial Catalog={nomeBD};User ID={nomeUser};Password={senha};";
-        }
-
-
+       
         public void VerificaDB() 
         {
             string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Integrated Security=True"; 
@@ -121,26 +108,34 @@ namespace PIM_IV.model
 
             string nomeTabela = "Funcionarios";
             string cmd = "(codigo_funcionario INT PRIMARY KEY NOT NULL IDENTITY(1, 1), "+
-                         "codigo_empresa INT," +
                          "nome VARCHAR(255) NOT NULL," +
                          "cpf VARCHAR(14) NOT NULL," +
                          "rg VARCHAR(20)," +
+                         "data_nascimento varchar(10)," +
                          "rua VARCHAR(255)," +
                          "cep VARCHAR(9)," +
-                         "cidade VARCHAR(100)," +
                          "numero INT," +
                          "estado CHAR(2)," +
-                         "email VARCHAR(255)," +
-                         "telefone VARCHAR(15)," +
-                         "vale_alimentacao DECIMAL(5, 2)," +
-                         "vale_transporte DECIMAL(5, 2)," +
-                         "vale_refeicao DECIMAL(5, 2)," +
-                         "INSS DECIMAL(5, 2)," +
-                         "PLANO_DE_SAUDE DECIMAL(5, 2)," +
-                         "DESCONTO_SINDICAL DECIMAL(5, 2)," +
-                         "salario DECIMAL(10,2)," +
-                         "codigo_usuario INT," +
+                         "cidade VARCHAR(100)," +
+                         "codigo_empresa INT," +
                          "codigo_cargo INT," +
+                         "salario DECIMAL(10,2)," +
+                         "data_adimicao varchar(10)," +
+                         "vale_transporte DECIMAL(5, 2)," +
+                         "vale_alimentacao DECIMAL(5, 2)," +
+                         "vale_refeicao DECIMAL(5, 2)," +
+                         "PLANO_DE_SAUDE DECIMAL(5, 2)," +
+                         "add_notuno DECIMAL (5,2)," +
+                         "add_perigo DECIMAL (5,2)," +
+                         "INSS DECIMAL(5, 2)," +
+                         "DESCONTO_SINDICAL DECIMAL(5, 2)," +
+                         "cod_banco INT," +
+                         "nome_banco varchar(255)," +
+                         "agencia INT," +
+                         "n_conta INT," +
+                         "telefone VARCHAR(15)," +
+                         "email VARCHAR(255)," +
+                         "codigo_usuario INT," +
                          "FOREIGN KEY (codigo_empresa) REFERENCES Empresas(codigo_empresa)," +
                          "FOREIGN KEY (codigo_usuario) REFERENCES Usuarios(cod_usuario)," +
                          "FOREIGN KEY (codigo_cargo) REFERENCES Cargos(codigo_cargo),)";
@@ -243,8 +238,8 @@ namespace PIM_IV.model
         //alterar
         private void CrearTableHolerite()//Cria a tabela de referencias de holerite
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
-
+            string connectionString = "Data Source=@NomeServidor\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            
             string nomeTabela = "Holerite";
             string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
                            "nome NVARCHAR(255) NOT NULL," +
@@ -430,63 +425,8 @@ namespace PIM_IV.model
 
         }
 
-        static string ObterStringConexaoNaousado()
-        {
-            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string configFilePath = Path.Combine(appDataFolder, "config.json"); // Caminho do arquivo de configuração na pasta AppData.
-
-            //string configFilePath = "BDconfig.json";
-            // Tente obter a string de conexão a partir das configurações.
-            //string connectionString = ConfigurationManager.ConnectionStrings["ConexaoPadrao"].ConnectionString;
-
-            if (File.Exists(configFilePath))
-            {
-                try
-                {
-                    string json = File.ReadAllText(configFilePath);
-                    dynamic config = JObject.Parse(json);
-
-                    string serverName = config.ServerName;
-                    string databaseName = config.DatabaseName;
-                    string userName = config.UserName;
-                    string password = config.Password;
-
-                    return $"Data Source={serverName};Initial Catalog={databaseName};User ID={userName};Password={password};";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Erro ao ler o arquivo de configuração: {ex.Message}");
-                    return "";
-                }
-            }
-            else
-            {
-                // Se não houver uma configuração padrão, solicite as informações ao usuário.
-                string serverName = "HermesDB";
-
-                string databaseName = "Hermes";
-
-                string userName = "User8";
-
-                string password = "8888";
-
-                JObject configObject = new JObject(
-                new JProperty("ServerName", serverName),
-                new JProperty("DatabaseName", databaseName),
-                new JProperty("UserName", userName),
-                new JProperty("Password", password));
-                string connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={userName};Password={password};";
-
-                File.WriteAllText(configFilePath, configObject.ToString());
-                // Crie a string de conexão com base nas informações fornecidas pelo usuário.
-                //connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={userName};Password={password};";
-
-                // Salve a string de conexão nas configurações para uso futuro.
-                ConfigurationManager.ConnectionStrings.Add(new ConnectionStringSettings("ConexaoPadrao", connectionString));
-
-                return connectionString;
-            }
-        }
+       
+        
 
     }
 }

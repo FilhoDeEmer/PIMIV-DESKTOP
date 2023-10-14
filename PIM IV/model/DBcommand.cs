@@ -9,10 +9,12 @@ using System.Data.SqlClient;
 using System.Collections.Specialized;
 using static System.Net.Mime.MediaTypeNames;
 using System.Data;
+using PIM_IV.control;
 //lembrar de excluir isso aqui
 
 namespace PIM_IV
 {
+    //acho que não esta sendo usado, foi só para testes
     internal class DBcommand
     {
         SqlConnection connection;
@@ -23,7 +25,9 @@ namespace PIM_IV
 
         public void Connection()
         {
-            connection = new SqlConnection(@"Server=EMERSON\SQLEXPRESS;Database=PIMIII;User Id=sa;Password='Eme13081998';");
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
             try
             {
                 connection.Open();
@@ -116,7 +120,9 @@ namespace PIM_IV
 
         public void cadFuncionario(string nome, string cpf)
         {
-            connection = new SqlConnection(@"Server=EMERSON\SQLEXPRESS;Database=PIMIII;User Id=sa;Password='Eme13081998';");
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
             SqlDataReader reader = null;
 
             // Criar objetos SqlParameter para cada parâmetro
