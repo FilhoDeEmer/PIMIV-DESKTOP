@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PIM_IV.model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -327,57 +328,8 @@ namespace PIM_IV.control
         }
         public void CriarUsuario(string nome, string senha, string nivel)
         {
-            PegaNome nomeServer = new PegaNome();
-            string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
-
-            string name = nome;
-            int level = Convert.ToInt16(nivel);
-            Criptografia md5 = new Criptografia();
-            string password = md5.RetornaMD5(senha);
-
-            // Criar objetos SqlParameter para cada parâmetro
-            SqlParameter paramNome = new SqlParameter();
-            paramNome.ParameterName = "@Name";
-            paramNome.Value = name;
-
-            SqlParameter paramSenha = new SqlParameter();
-            paramSenha.ParameterName = "@Senha";
-            paramSenha.Value = password;
-
-            SqlParameter paramNivel = new SqlParameter();
-            paramNivel.ParameterName = "@Nivel";
-            paramNivel.Value = level;
-
-            // Criando o SqlCommand com um parâmetro
-            string cmd = "insert into Usuarios (Nome, SenhaHash, Nivel) values (@Name, @Senha, @Nivel) ";
-            // adiciona o parametro ao comando 
-            
-            // Criar um objeto SqlCommand e associá-lo com a conexão e a consulta
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(cmd, connection))
-                {
-                    command.Parameters.AddWithValue("@Name", nome);
-                    command.Parameters.AddWithValue("@Senha", password);
-                    command.Parameters.AddWithValue("@Nivel", level);
-                    try
-                    {
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
-
-                }
-            }
+            CreateDataBase init = new CreateDataBase();
+            init.CriarNovoUsuario(nome, senha, Convert.ToInt32(nivel));
 
         }
 

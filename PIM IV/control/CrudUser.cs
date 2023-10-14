@@ -18,62 +18,36 @@ namespace PIM_IV.control
         {
             if (VerificarUser(nome))
             {
+                // Gere o hash da senha usando BCrypt
+                string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
                 string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
-                string name = nome;
-                int level = nivel;
-                Criptografia md5 = new Criptografia();
-                string password = md5.RetornaMD5(senha);
-
-                // Criar objetos SqlParameter para cada parâmetro
-                SqlParameter paramNome = new SqlParameter();
-                paramNome.ParameterName = "@Name";
-                paramNome.Value = name;
-
-                SqlParameter paramSenha = new SqlParameter();
-                paramSenha.ParameterName = "@Senha";
-                paramSenha.Value = password;
-
-                SqlParameter paramNivel = new SqlParameter();
-                paramNivel.ParameterName = "@Nivel";
-                paramNivel.Value = level;
-
-                // Criando o SqlCommand com um parâmetro
-                string comando ="insert into Usuarios (Nome, SenhaHash, Nivel) values (@Name, @Senha, @Nivel) ";
-                // adiciona o parametro ao comando 
-                
-                // Criar um objeto SqlCommand e associá-lo com a conexão e a consulta
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                try
                 {
-
-                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        cmd.Parameters.AddWithValue("@Name", nome);
-                        cmd.Parameters.AddWithValue("@Senha", password);
-                        cmd.Parameters.AddWithValue("@Nivel", level);
-                        try
-                        {
-                            connection.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cadastro Realizado com Sucesso");//Lembrar de apagar
-                            return true;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                            return false;
+                        connection.Open();
 
-                        }
-                        finally
+                        string sqlInsert = "INSERT INTO Usuarios (nome, SenhaHash, Nivel) VALUES (@nome, @senhaHash, @Nivel)";
+                        using (SqlCommand command = new SqlCommand(sqlInsert, connection))
                         {
-                            connection.Close();
-                        }
+                            command.Parameters.AddWithValue("@nome", nome);
+                            command.Parameters.AddWithValue("@senhaHash", senhaHash);
+                            command.Parameters.AddWithValue("@Nivel", nivel);
 
+                            command.ExecuteNonQuery();
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao registrar novo usuário: " + ex.Message);
+                }
+                return true;
+
             }
             else { return false; }
 

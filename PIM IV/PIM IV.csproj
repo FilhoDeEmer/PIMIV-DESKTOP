@@ -74,7 +74,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="control\Criptografia.cs" />
     <Compile Include="control\CrudCargos.cs" />
     <Compile Include="control\CrudEmpresas.cs" />
     <Compile Include="control\CrudFuncionario.cs" />
