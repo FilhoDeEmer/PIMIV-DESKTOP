@@ -42,3 +42,7 @@ C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.Permissions.xml
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM IV.csproj.CopyComplete
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\BCrypt.Net.dll
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\BCrypt.Net.xml
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\BouncyCastle.Crypto.xml

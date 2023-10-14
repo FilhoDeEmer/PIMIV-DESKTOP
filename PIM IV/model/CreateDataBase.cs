@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,7 +67,9 @@ namespace PIM_IV.model
        
         public void VerificaDB() 
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Integrated Security=True"; 
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
             // Nome do banco de dados que você deseja verificar
             string nomeBancoDeDados = "HERMES";
@@ -104,7 +107,9 @@ namespace PIM_IV.model
 
         private void CrearTableFuncionarios()//Cria a tabela Funcionarios
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Funcionarios";
             string cmd = "(codigo_funcionario INT PRIMARY KEY NOT NULL IDENTITY(1, 1), "+
@@ -163,7 +168,9 @@ namespace PIM_IV.model
 
         private void CrearTableEmpresa()//Cria a tabela Empresas
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Empresas";
             string cmd = "  (codigo_empresa INT PRIMARY KEY IDENTITY(1,1),"+
@@ -202,7 +209,9 @@ namespace PIM_IV.model
 
         private void CrearTableUsuarios()//Cria a tabela Usuarios
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True"; 
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Usuarios";
             string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
@@ -238,8 +247,10 @@ namespace PIM_IV.model
         //alterar
         private void CrearTableHolerite()//Cria a tabela de referencias de holerite
         {
-            string connectionString = "Data Source=@NomeServidor\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
-            
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+
             string nomeTabela = "Holerite";
             string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
                            "nome NVARCHAR(255) NOT NULL," +
@@ -270,7 +281,9 @@ namespace PIM_IV.model
 
         private void CrearTableFolha()//Cria a tabela Folha de pagamentos
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "FolhaPagamentos";
             string cmd = "(codigo_folha INT PRIMARY KEY," +
@@ -303,7 +316,9 @@ namespace PIM_IV.model
 
         private void CrearTableCargos()//Cria a tabela cargos
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Cargos";
             string cmd = "(codigo_cargo INT PRIMARY KEY IDENTITY(1,1)," +
@@ -339,7 +354,9 @@ namespace PIM_IV.model
         private void CrearTableNotificacao()//Cria a tabela de notificações
 
         {
-            string connectionString = "Data Source=EMERSON\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Notificacao";
             string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
@@ -372,61 +389,77 @@ namespace PIM_IV.model
 
         public void CriarNovoUsuario(string nome, string senha, int nivel)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True");
-            
-            string name = nome;
-            int level = nivel;
-            Criptografia md5 = new Criptografia();
-            string password = md5.RetornaMD5(senha);
+            // Gere o hash da senha usando BCrypt
+            string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
 
-            // Criar objetos SqlParameter para cada parâmetro
-            SqlParameter paramNome = new SqlParameter();
-            paramNome.ParameterName = "@Name";
-            paramNome.Value = name;
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
-            SqlParameter paramSenha = new SqlParameter();
-            paramSenha.ParameterName = "@Senha";
-            paramSenha.Value = password;
-
-            SqlParameter paramNivel = new SqlParameter();
-            paramNivel.ParameterName = "@Nivel";
-            paramNivel.Value = level;
-
-            // Criando o SqlCommand com um parâmetro
-            SqlCommand cmd = new SqlCommand("insert into Usuarios (Nome, SenhaHash, Nivel) values (@Name, @Senha, @Nivel) ", connection);
-            // adiciona o parametro ao comando 
-            cmd.Parameters.AddWithValue("@Name", nome);
-            cmd.Parameters.AddWithValue("@Senha", password);
-            cmd.Parameters.AddWithValue("@Nivel", level);
-            // Criar um objeto SqlCommand e associá-lo com a conexão e a consulta
-            using (connection)
+            try
             {
-                using (cmd)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
+                    connection.Open();
 
-                    try
+                    string sqlInsert = "INSERT INTO Usuarios (nome, SenhaHash, Nivel) VALUES (@nome, @senhaHash, @Nivel)";
+                    using (SqlCommand command = new SqlCommand(sqlInsert, connection))
                     {
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Cadastro Realizado com Sucesso");//Lembrar de apagar
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        command.Parameters.AddWithValue("@nome", nome);
+                        command.Parameters.AddWithValue("@senhaHash", senhaHash);
+                        command.Parameters.AddWithValue("@Nivel", nivel);
 
+                        command.ExecuteNonQuery();
                     }
-                    finally
-                    {
-                        connection.Close();
-                    }
-
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao registrar novo usuário: " + ex.Message);
             }
 
         }
 
-       
-        
+        public void DeletarDB()
+        {
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string nomeBancoDeDados = "HERMES";
+
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    connection.Open();
+
+                    string sqlDesconectarSessoes = $"ALTER DATABASE [{nomeBancoDeDados}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                    using (SqlCommand cmdDesconectarSessoes = new SqlCommand(sqlDesconectarSessoes, connection))
+                    {
+                        cmdDesconectarSessoes.ExecuteNonQuery();
+                    }
+
+                    // Exclua o banco de dados
+                    string sqlExcluirBanco = $"DROP DATABASE [{nomeBancoDeDados}]";
+                    using (SqlCommand cmdExcluirBanco = new SqlCommand(sqlExcluirBanco, connection))
+                    {
+                        cmdExcluirBanco.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Banco de Dados não foi criado");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao criar o banco de dados: {ex.Message}");
+
+            }
+
+        }
+
+
+
 
     }
 }

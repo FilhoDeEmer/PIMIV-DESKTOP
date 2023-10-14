@@ -36,8 +36,10 @@ namespace PIM_IV.view
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("O usuário não sera criado e vocÊ não poderar acessar o sistema. Deseja continuar?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("O usuário não sera criado e você não poderar acessar o sistema. Deseja continuar?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                CreateDataBase init = new CreateDataBase();
+                init.DeletarDB();
                 Close();
                 Application.Exit();
 

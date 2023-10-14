@@ -21,7 +21,7 @@ namespace PIM_IV.control
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                 string name = nome;
                 int level = nivel;
@@ -84,7 +84,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Usuarios where nome = @Nome;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -123,7 +123,7 @@ namespace PIM_IV.control
             string comando = "SELECT cod_usuario from Usuarios where nome = @Nome;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {

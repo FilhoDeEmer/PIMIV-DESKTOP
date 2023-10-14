@@ -28,66 +28,20 @@ namespace PIM_IV.control
         {
             if(VerificarEmpresa())
             {
-                SqlParameter paramNome = new SqlParameter();
-                paramNome.ParameterName = "@Nome";
-                paramNome.Value = Nome;
-
-                SqlParameter paramCnpj = new SqlParameter();
-                paramCnpj.ParameterName = "@CNPJ";
-                paramCnpj.Value = Cnpj;
-
-                SqlParameter paramIncricao = new SqlParameter();
-                paramIncricao.ParameterName = "@Inscricao";
-                paramIncricao.Value = InscricaoEstadual;
-
-                SqlParameter paramRua = new SqlParameter();
-                paramRua.ParameterName = "@Rua";
-                paramRua.Value = Rua;
-
-                SqlParameter paramCep = new SqlParameter();
-                paramCep.ParameterName = "@Cep";
-                paramCep.Value = Cep;
-
-                SqlParameter paramNumero = new SqlParameter();
-                paramNumero.ParameterName = "@Numero";
-                paramNumero.Value = Numero;
-
-                SqlParameter paramCidade = new SqlParameter();
-                paramCidade.ParameterName = "@Cidade";
-                paramCidade.Value = Cidade;
-
-                SqlParameter paramEstado = new SqlParameter();
-                paramEstado.ParameterName = "@Estado";
-                paramEstado.Value = Estado;
-
-                SqlParameter paramTelefone = new SqlParameter();
-                paramTelefone.ParameterName = "@Telefone";
-                paramTelefone.Value = Telefone;
-
-                SqlParameter paramEmail = new SqlParameter();
-                paramEmail.ParameterName = "@Email";
-                paramEmail.Value = Email;
-
-                SqlParameter paramResponsavel = new SqlParameter();
-                paramResponsavel.ParameterName = "@Responsavel";
-                paramResponsavel.Value = NomeResponsavel;
-
-
-
-                string comando = "INSERT into Empresas (CNPJ,Inscricao_estadual,Nome,Rua,CEP,Numero,Cidade,Estado,Telefone,Email,Nome_responsavel) values " +
-                                                      "(@CNPJ, @Inscricao,@Nome,@Rua,@Cep,@Numero,@Cidade,@Estado,@Telefone,@Email,@Responsavel)";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
+                string comando = "INSERT INTO Empresas (CNPJ,Inscricao_estadual,Nome,Rua,CEP,Numero,Cidade,Estado,Telefone,Email,Nome_responsavel)" +
+                                " VALUES (@CNPJ, @Inscricao,@Nome,@Rua,@Cep,@Numero,@Cidade,@Estado,@Telefone,@Email,@Responsavel);";
 
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        
+                        connection.Open();
                         using (SqlCommand cmd = new SqlCommand(comando,connection))
                         {
-                            connection.Open();
+                            
                             cmd.Parameters.AddWithValue("@Nome", Nome);
                             cmd.Parameters.AddWithValue("@CNPJ", Cnpj);
                             cmd.Parameters.AddWithValue("@Inscricao", InscricaoEstadual);
@@ -109,12 +63,7 @@ namespace PIM_IV.control
                 {
                     MessageBox.Show($"Erro: {ex.Message}");
                 }
-                finally
-                {
-                    SqlConnection con = new SqlConnection(connectionString);
-                    con.Close();
-                }
-               
+                               
             }
         }
 
@@ -122,56 +71,6 @@ namespace PIM_IV.control
         {
             if (cod!=null)
             {
-                SqlParameter paramCod = new SqlParameter();
-                paramCod.ParameterName = "@Cod";
-                paramCod.Value = cod;
-
-                SqlParameter paramNome = new SqlParameter();
-                paramNome.ParameterName = "@Nome";
-                paramNome.Value = Nome;
-
-                SqlParameter paramCnpj = new SqlParameter();
-                paramCnpj.ParameterName = "@CNPJ";
-                paramCnpj.Value = Cnpj;
-
-                SqlParameter paramIncricao = new SqlParameter();
-                paramIncricao.ParameterName = "@Inscricao";
-                paramIncricao.Value = InscricaoEstadual;
-
-                SqlParameter paramRua = new SqlParameter();
-                paramRua.ParameterName = "@Rua";
-                paramRua.Value = Rua;
-
-                SqlParameter paramCep = new SqlParameter();
-                paramCep.ParameterName = "@Cep";
-                paramCep.Value = Cep;
-
-                SqlParameter paramNumero = new SqlParameter();
-                paramNumero.ParameterName = "@Numero";
-                paramNumero.Value = Numero;
-
-                SqlParameter paramCidade = new SqlParameter();
-                paramCidade.ParameterName = "@Cidade";
-                paramCidade.Value = Cidade;
-
-                SqlParameter paramEstado = new SqlParameter();
-                paramEstado.ParameterName = "@Estado";
-                paramEstado.Value = Estado;
-
-                SqlParameter paramTelefone = new SqlParameter();
-                paramTelefone.ParameterName = "@Telefone";
-                paramTelefone.Value = Telefone;
-
-                SqlParameter paramEmail = new SqlParameter();
-                paramEmail.ParameterName = "@Email";
-                paramEmail.Value = Email;
-
-                SqlParameter paramResponsavel = new SqlParameter();
-                paramResponsavel.ParameterName = "@Responsavel";
-                paramResponsavel.Value = NomeResponsavel;
-
-
-
                 string comando = "UPDATE  Empresas set CNPJ = @CNPJ," +
                     "Inscricao_estadual = @Inscricao," +
                     "Nome = @Nome," +
@@ -186,7 +85,7 @@ namespace PIM_IV.control
                     " WHERE codigo_empresa = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -218,11 +117,7 @@ namespace PIM_IV.control
                 {
                     MessageBox.Show($"Erro: {ex.Message}");
                 }
-                finally
-                {
-                    SqlConnection con = new SqlConnection(connectionString);
-                    con.Close();
-                }
+                
             }
         }
 
@@ -237,7 +132,7 @@ namespace PIM_IV.control
                 string comando = "DELETE FROM Empresas WHERE codigo_empresa = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -257,11 +152,7 @@ namespace PIM_IV.control
                 {
                     MessageBox.Show($"Erro: {ex.Message}");
                 }
-                finally
-                {
-                    SqlConnection con = new SqlConnection(connectionString);
-                    con.Close();
-                }
+                
             }
         }
 
@@ -291,10 +182,10 @@ namespace PIM_IV.control
                     "Email," +
                     "Nome_responsavel " +
                     " FROM Empresas " +
-                    " WHERE codigo_empresa = @Cod ";
+                    " WHERE codigo_empresa = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
 
                 try
                 {
@@ -330,11 +221,7 @@ namespace PIM_IV.control
                 {
                     MessageBox.Show($"Erro: {ex.Message}");
                 }
-                finally
-                {
-                    SqlConnection con = new SqlConnection(connectionString);
-                    con.Close();
-                }
+               
             }
         }
 
@@ -350,7 +237,9 @@ namespace PIM_IV.control
 
                 
                 string comando = "SELECT codigo_empresa from Empresas WHERE CNPJ = @CNPJ ";
-                string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
 
                 try
                 {
@@ -390,18 +279,19 @@ namespace PIM_IV.control
 
         public bool VerificarEmpresa()
         {
-            string comando = "SELECT count(*) from Empresas where CNPJ = @Cnpj';";
-            string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string comando = "SELECT count(*) from Empresas where CNPJ = @Cnpj;";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    
+                    connection.Open();
                     using (SqlCommand cmd = new SqlCommand(comando,connection))
                     {
                         cmd.Parameters.AddWithValue("@Cnpj", Cnpj);
-                        connection.Open();
                         int count = (int)cmd.ExecuteScalar();
 
                         if (count> 0)
@@ -429,7 +319,7 @@ namespace PIM_IV.control
                 string comando = "SELECT nome from Empresas ";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
 
             try
             {
@@ -469,7 +359,7 @@ namespace PIM_IV.control
             string comando = "SELECT nome,cnpj from Empresas where codigo_empresa = @cod";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -512,7 +402,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Empresas ;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {

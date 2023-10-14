@@ -225,7 +225,7 @@ namespace PIM_IV.control
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -288,7 +288,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Funcionarios where CPF = @Cpf;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -329,7 +329,7 @@ namespace PIM_IV.control
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string name = nome;
             int level = Convert.ToInt16(nivel);
@@ -395,7 +395,7 @@ namespace PIM_IV.control
                     " WHERE nome = @Cpf ";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {

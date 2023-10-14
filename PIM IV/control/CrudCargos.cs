@@ -43,7 +43,7 @@ namespace PIM_IV.control
                                                       "(@Nome,@Salario,@CodEmpresa)";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -80,7 +80,7 @@ namespace PIM_IV.control
 
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -124,7 +124,7 @@ namespace PIM_IV.control
                 string comando = "DELETE FROM Cargos WHERE codigo_cargo = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -182,7 +182,7 @@ namespace PIM_IV.control
                         " WHERE codigo_cargo = @CodCargo ;";
                     PegaNome nomeServer = new PegaNome();
                     string nomeServidor = nomeServer.Pegar();
-                    string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+                    string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
                     try
                     {
@@ -219,7 +219,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Cargos;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -262,7 +262,7 @@ namespace PIM_IV.control
             List<Codigos> codigos = new List<Codigos>();
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -295,7 +295,7 @@ namespace PIM_IV.control
             string comando = "SELECT nome, salario_base from Cargos where codigo_cargo = @cod";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
