@@ -37,7 +37,8 @@
             this.txtCnpjBusca = new System.Windows.Forms.TextBox();
             this.btnBuscaCNPJ = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnCargo = new System.Windows.Forms.Button();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNPJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,12 +47,10 @@
             this.nomeresponsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hERMESDataSet = new PIM_IV.HERMESDataSet();
-            this.btnCargo = new System.Windows.Forms.Button();
             this.empresasTableAdapter = new PIM_IV.HERMESDataSetTableAdapters.EmpresasTableAdapter();
-            this.btnDeletar = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).BeginInit();
             this.SuspendLayout();
@@ -131,38 +130,49 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(11, 139);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1034, 473);
+            this.groupBox3.Size = new System.Drawing.Size(1048, 474);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Empresas:";
             // 
-            // dataGridView1
+            // dataGridView2
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
             this.nomeDataGridViewTextBoxColumn,
             this.cNPJDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.telefoneDataGridViewTextBoxColumn,
             this.nomeresponsavelDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.empresasBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 28);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1022, 439);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView2.DataSource = this.empresasBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 28);
+            this.dataGridView2.MultiSelect = false;
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(1022, 439);
+            this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // btnCargo
+            // 
+            this.btnCargo.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargo.Location = new System.Drawing.Point(17, 619);
+            this.btnCargo.Name = "btnCargo";
+            this.btnCargo.Size = new System.Drawing.Size(150, 54);
+            this.btnCargo.TabIndex = 18;
+            this.btnCargo.Text = "Cargos";
+            this.btnCargo.UseVisualStyleBackColor = true;
+            this.btnCargo.Click += new System.EventHandler(this.btnCargo_Click);
             // 
             // codigo
             // 
@@ -228,38 +238,15 @@
             this.hERMESDataSet.DataSetName = "HERMESDataSet";
             this.hERMESDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnCargo
-            // 
-            this.btnCargo.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargo.Location = new System.Drawing.Point(17, 619);
-            this.btnCargo.Name = "btnCargo";
-            this.btnCargo.Size = new System.Drawing.Size(150, 54);
-            this.btnCargo.TabIndex = 18;
-            this.btnCargo.Text = "Cargos";
-            this.btnCargo.UseVisualStyleBackColor = true;
-            this.btnCargo.Click += new System.EventHandler(this.btnCargo_Click);
-            // 
             // empresasTableAdapter
             // 
             this.empresasTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnDeletar
-            // 
-            this.btnDeletar.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.Location = new System.Drawing.Point(427, 618);
-            this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(150, 54);
-            this.btnDeletar.TabIndex = 19;
-            this.btnDeletar.Text = "Excluir";
-            this.btnDeletar.UseVisualStyleBackColor = true;
-            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // FormEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 690);
-            this.Controls.Add(this.btnDeletar);
+            this.ClientSize = new System.Drawing.Size(1059, 690);
             this.Controls.Add(this.btnCargo);
             this.Controls.Add(this.btnCadastrarEmpresa);
             this.Controls.Add(this.btnAlterarEmpresa);
@@ -273,7 +260,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -290,7 +277,7 @@
         private System.Windows.Forms.TextBox txtCnpjBusca;
         private System.Windows.Forms.Button btnBuscaCNPJ;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnCargo;
         private HERMESDataSet hERMESDataSet;
         private System.Windows.Forms.BindingSource empresasBindingSource;
@@ -301,6 +288,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeresponsavelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnDeletar;
     }
 }

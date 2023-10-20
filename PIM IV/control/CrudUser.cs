@@ -92,9 +92,9 @@ namespace PIM_IV.control
             }
         }
 
-        public string BuscarUser(string cpf)
+        public void BuscarLogin(string cod)
         {
-            string comando = "SELECT cod_usuario from Usuarios where nome = @Nome;";
+            string comando = "SELECT nome from Usuarios where cod_usuario = @Cod;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
@@ -106,7 +106,39 @@ namespace PIM_IV.control
 
                     using (SqlCommand cmd = new SqlCommand(comando, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Nome", cpf);
+                        cmd.Parameters.AddWithValue("@Cod", cod);
+                        connection.Open();
+                        SqlDataReader data = cmd.ExecuteReader();
+                        if (data.Read())
+                        {
+                            Nome = Convert.ToString(data["nome"]);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
+
+        }
+
+        public string BuscarUser(string cod)
+        {
+            string comando = "SELECT cod_usuario from Usuarios where nome = @Cod;";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Cod", cod);
                         connection.Open();
                         SqlDataReader data = cmd.ExecuteReader();
                         if (data.Read())
@@ -124,10 +156,39 @@ namespace PIM_IV.control
                 MessageBox.Show($"Erro: {ex.Message}");
                 return null;
             }
-            finally
+
+        }
+        public void AlterarSenha(string nome, string novaSenha)
+        {
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlConnection con = new SqlConnection(connectionString);
-                con.Close();
+                connection.Open();
+
+                string novoHashSenha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+
+                // Comando SQL para atualizar a senha do usuário
+                string sql = "UPDATE Usuarios SET SenhaHash = @NovaSenha WHERE nome = @Nome";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@NovaSenha", novoHashSenha);
+                    command.Parameters.AddWithValue("@Nome", nome);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected == 1)
+                    {
+                        MessageBox.Show("Senha alterada com sucesso.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao alterar a senha.");
+                    }
+                }
             }
         }
     }

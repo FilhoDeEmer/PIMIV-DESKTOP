@@ -148,6 +148,10 @@ namespace PIM_IV.control
                         }
                     }
                 }
+                catch(SqlException)//0x80131904
+                {
+                    MessageBox.Show("Não é possível excluir esta empresa, pois existem cargos associados a ela.");
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Erro: {ex.Message}");
@@ -160,16 +164,6 @@ namespace PIM_IV.control
         {
             if (cod != null)
             {
-                SqlParameter paramCod = new SqlParameter();
-                paramCod.ParameterName = "@Cod";
-                paramCod.Value = cod;
-
-                SqlParameter paramCnpj = new SqlParameter();
-                paramCnpj.ParameterName = "@CNPJ";
-                paramCnpj.Value = Cnpj;
-
-                
-
                 string comando = "SELECT CNPJ," +
                     "Inscricao_estadual," +
                     "Nome," +
@@ -354,7 +348,7 @@ namespace PIM_IV.control
                 }
             
         }
-        public string BuscarEmpresaNomeById(int cod)
+        public string BuscarEmpresaNomeById(string cod)
         {
             string comando = "SELECT nome,cnpj from Empresas where codigo_empresa = @cod";
             PegaNome nomeServer = new PegaNome();

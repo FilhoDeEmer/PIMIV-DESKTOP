@@ -31,7 +31,7 @@ namespace PIM_IV.view
                 FormCRUDEEmpresas crudEmpresa = new FormCRUDEEmpresas(cod);
                 crudEmpresa.ShowDialog();
             }
-            else { MessageBox.Show("Selecione uma Empresa!"); };
+            else { MessageBox.Show("Selecione uma Empresa!"); }
 
         }
 
@@ -45,7 +45,7 @@ namespace PIM_IV.view
             }
             else
             {
-                cod = dataGridView1["codigo", e.RowIndex].Value.ToString();
+                cod = dataGridView2["codigo", e.RowIndex].Value.ToString();
 
             }
         }
@@ -58,26 +58,12 @@ namespace PIM_IV.view
             }
             else
             {
-               cod = dataGridView1["codigo", e.RowIndex].Value.ToString();
+               cod = dataGridView2["codigo", e.RowIndex].Value.ToString();
 
             }
         }
 
-        private void btnDeletar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("A empresa selecionada sera deletada do sistema. Deseja continuar?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (cod != null)
-                {
-                    CrudEmpresas deletar = new CrudEmpresas();
-                    deletar.DeletarEmpresa(cod);
-                }
-                else { MessageBox.Show("Selecione uma Empresa!"); };
-
-            }
-           
-            
-        }
+        
 
         private void btnBuscaCNPJ_Click(object sender, EventArgs e)
         {
@@ -99,8 +85,11 @@ namespace PIM_IV.view
 
         private void btnCargo_Click(object sender, EventArgs e)
         {
-            FormCargos cargo = new FormCargos();
-            cargo.ShowDialog();
+            FormCRUDCargos cargos = new FormCRUDCargos();
+            cargos.ShowDialog();
+            
         }
+
+        
     }
 }

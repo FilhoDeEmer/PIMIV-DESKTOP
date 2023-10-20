@@ -40,12 +40,7 @@ namespace PIM_IV
 
         }
 
-        private void btnGerenciarUsuarios_Click(object sender, EventArgs e)
-        {
-            AtivarBotao(btnGerenciarUsuarios);
-            FormAtivar(new FormUsuarios());//mudar pro form correspondente
-
-        }
+        
 
         private void panelHome_Paint(object sender, PaintEventArgs e)
         {
@@ -118,10 +113,7 @@ namespace PIM_IV
             FormAtivar(new FormEmpresas());
         }
 
-        private void btnConfiguracao_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Aqui deve vir as configurações!");
-        }
+       
 
         private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
         {

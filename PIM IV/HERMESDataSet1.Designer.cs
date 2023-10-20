@@ -1263,12 +1263,24 @@ SELECT codigo_empresa, CNPJ, Inscricao_estadual, Nome, rua, cep, cidade, numero,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT codigo_empresa, CNPJ, Inscricao_estadual, Nome, rua, cep, cidade, numero, " +
                 "estado, email, telefone, Nome_responsavel FROM dbo.Empresas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT codigo_empresa, CNPJ, Inscricao_estadual, Nome, rua, cep, cidade, numero, " +
+                "estado, email, telefone, Nome_responsavel FROM dbo.Empresas";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        codigo_empresa, CNPJ, Inscricao_estadual, Nome, rua, cep, cidade, n" +
+                "umero, estado, email, telefone, Nome_responsavel\r\nFROM            Empresas\r\nWHER" +
+                "E        (CNPJ = @CNPJ)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CNPJ", global::System.Data.SqlDbType.VarChar, 18, global::System.Data.ParameterDirection.Input, 0, 0, "CNPJ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1293,6 +1305,38 @@ SELECT codigo_empresa, CNPJ, Inscricao_estadual, Nome, rua, cep, cidade, numero,
             HERMESDataSet.EmpresasDataTable dataTable = new HERMESDataSet.EmpresasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(HERMESDataSet.EmpresasDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(HERMESDataSet.EmpresasDataTable dataTable, string CNPJ) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((CNPJ == null)) {
+                throw new global::System.ArgumentNullException("CNPJ");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CNPJ));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

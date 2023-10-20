@@ -18,26 +18,14 @@ namespace PIM_IV.control
     {
         public string NomeCargo { get; set; }
         public string SalarioBase { get; set; }
+        public string Codigo { get; set; }
+        public string CodEmpresa { get; set; }
 
         //static string connectionString = @"Data Source=EMERSON\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
         public void CadastrarCargo(string nome, decimal salario, int cod)
         {
             if (VerificarCargo(nome))
             {
-
-                SqlParameter paramNome = new SqlParameter();
-                paramNome.ParameterName = "@Nome";
-                paramNome.Value = nome;
-
-                SqlParameter paramSalario = new SqlParameter();
-                paramSalario.ParameterName = "@Salario";
-                paramSalario.Value = salario;
-
-                SqlParameter paramCodEmpresa = new SqlParameter();
-                paramCodEmpresa.ParameterName = "@CodEmpresa";
-                paramCodEmpresa.Value = cod;
-
-
 
                 string comando = "INSERT into Cargos (nome,salario_base,codigo_empresa) values " +
                                                       "(@Nome,@Salario,@CodEmpresa)";
@@ -113,14 +101,10 @@ namespace PIM_IV.control
                 con.Close();
             }
         }
-        public void DeletaCargo(string cod)
+        public void DeletaCargo()
         {
-            if (cod != null)
+            if (Codigo != null)
             {
-                SqlParameter paramCod = new SqlParameter();
-                paramCod.ParameterName = "@Cod";
-                paramCod.Value = cod;
-
                 string comando = "DELETE FROM Cargos WHERE codigo_cargo = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
@@ -133,10 +117,10 @@ namespace PIM_IV.control
 
                         using (SqlCommand cmd = new SqlCommand(comando, connection))
                         {
-                            cmd.Parameters.AddWithValue("@Cod", cod);
+                            cmd.Parameters.AddWithValue("@Cod", Codigo);
                             connection.Open();
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cargo DELETADA com sucesso!");
+                            MessageBox.Show("Cargo DELETADO com sucesso!");
                         }
                     }
                 }
@@ -151,30 +135,13 @@ namespace PIM_IV.control
                 }
             }
         }
-        public void AlteraCargo(string codCargo, string nome, decimal salario, int codEmpresa)
+        public void AlteraCargo(string codCargo)
         {
-            if (VerificarCargo(nome))
+            if (VerificarCargo(NomeCargo))
             {
                 if (codCargo != null)
                 {
-                    SqlParameter paramCod = new SqlParameter();
-                    paramCod.ParameterName = "@CodCargo";
-                    paramCod.Value = codCargo;
-
-                    SqlParameter paramNome = new SqlParameter();
-                    paramNome.ParameterName = "@Nome";
-                    paramNome.Value = nome;
-
-                    SqlParameter paramSalario = new SqlParameter();
-                    paramSalario.ParameterName = "@Salario";
-                    paramSalario.Value = salario;
-
-                    SqlParameter paramCodEmpresa = new SqlParameter();
-                    paramCodEmpresa.ParameterName = "@CodEmpresa";
-                    paramCodEmpresa.Value = codEmpresa;
-
-
-
+                   
                     string comando = "UPDATE  Cargos set cod = @CodCargo," +
                         "Nome = @Nome," +
                         "Salario_base=@Salario " +
@@ -191,9 +158,9 @@ namespace PIM_IV.control
 
                             using (SqlCommand cmd = new SqlCommand(comando, connection))
                             {
-                                cmd.Parameters.AddWithValue("@Nome", nome);
-                                cmd.Parameters.AddWithValue("@Salario", salario);
-                                cmd.Parameters.AddWithValue("@CodEmpresa", codEmpresa);
+                                cmd.Parameters.AddWithValue("@Nome", NomeCargo);
+                                cmd.Parameters.AddWithValue("@Salario", SalarioBase);
+                                cmd.Parameters.AddWithValue("@CodEmpresa", CodEmpresa);
                                 cmd.Parameters.AddWithValue("@CodCargo", codCargo);
                                 connection.Open();
                                 cmd.ExecuteNonQuery();
@@ -292,7 +259,8 @@ namespace PIM_IV.control
         }
         public void BuscaCargo(string cod)
         {
-            string comando = "SELECT nome, salario_base from Cargos where codigo_cargo = @cod";
+            Codigo = cod;
+            string comando = "SELECT nome, salario_base, codigo_empresa from Cargos where codigo_cargo = @cod";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
@@ -311,7 +279,8 @@ namespace PIM_IV.control
                         {
                             NomeCargo = Convert.ToString(data["nome"]);
                             SalarioBase = Convert.ToString(data["salario_base"]);
-                            
+                            CodEmpresa = Convert.ToString(data["codigo_empresa"]);
+
                         }
                         
 

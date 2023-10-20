@@ -29,41 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
-            this.btnGerarFolha = new System.Windows.Forms.Button();
             this.btnGerenciarFuncionarios = new System.Windows.Forms.Button();
-            this.btnGerenciarUsuarios = new System.Windows.Forms.Button();
             this.btnRelatoriosGerais = new System.Windows.Forms.Button();
             this.btnAjuda = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnConfiguracao = new System.Windows.Forms.Button();
             this.btnNotificacoes = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nomeUsuario = new System.Windows.Forms.Label();
             this.btnGerenciarEmpresas = new System.Windows.Forms.Button();
             this.panelHome = new System.Windows.Forms.Panel();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnGerarFolha = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnGerarFolha
-            // 
-            this.btnGerarFolha.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnGerarFolha.FlatAppearance.BorderSize = 0;
-            this.btnGerarFolha.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnGerarFolha.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.btnGerarFolha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerarFolha.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerarFolha.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerarFolha.Location = new System.Drawing.Point(0, 112);
-            this.btnGerarFolha.Name = "btnGerarFolha";
-            this.btnGerarFolha.Size = new System.Drawing.Size(278, 63);
-            this.btnGerarFolha.TabIndex = 0;
-            this.btnGerarFolha.Text = "Gerar Folha de Pagamentos";
-            this.btnGerarFolha.UseVisualStyleBackColor = false;
-            this.btnGerarFolha.Click += new System.EventHandler(this.btnGerarFolha_Click);
             // 
             // btnGerenciarFuncionarios
             // 
@@ -72,28 +55,13 @@
             this.btnGerenciarFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerenciarFuncionarios.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerenciarFuncionarios.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerenciarFuncionarios.Location = new System.Drawing.Point(0, 181);
+            this.btnGerenciarFuncionarios.Location = new System.Drawing.Point(0, 69);
             this.btnGerenciarFuncionarios.Name = "btnGerenciarFuncionarios";
             this.btnGerenciarFuncionarios.Size = new System.Drawing.Size(278, 63);
             this.btnGerenciarFuncionarios.TabIndex = 1;
             this.btnGerenciarFuncionarios.Text = "Gerenciar Funcionários";
             this.btnGerenciarFuncionarios.UseVisualStyleBackColor = false;
             this.btnGerenciarFuncionarios.Click += new System.EventHandler(this.btnGerenciarFuncionarios_Click);
-            // 
-            // btnGerenciarUsuarios
-            // 
-            this.btnGerenciarUsuarios.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnGerenciarUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnGerenciarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerenciarUsuarios.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerenciarUsuarios.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerenciarUsuarios.Location = new System.Drawing.Point(0, 319);
-            this.btnGerenciarUsuarios.Name = "btnGerenciarUsuarios";
-            this.btnGerenciarUsuarios.Size = new System.Drawing.Size(278, 63);
-            this.btnGerenciarUsuarios.TabIndex = 2;
-            this.btnGerenciarUsuarios.Text = "Gerenciar Usuários";
-            this.btnGerenciarUsuarios.UseVisualStyleBackColor = false;
-            this.btnGerenciarUsuarios.Click += new System.EventHandler(this.btnGerenciarUsuarios_Click);
             // 
             // btnRelatoriosGerais
             // 
@@ -102,7 +70,7 @@
             this.btnRelatoriosGerais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelatoriosGerais.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelatoriosGerais.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnRelatoriosGerais.Location = new System.Drawing.Point(0, 388);
+            this.btnRelatoriosGerais.Location = new System.Drawing.Point(0, 207);
             this.btnRelatoriosGerais.Name = "btnRelatoriosGerais";
             this.btnRelatoriosGerais.Size = new System.Drawing.Size(278, 63);
             this.btnRelatoriosGerais.TabIndex = 4;
@@ -118,7 +86,7 @@
             this.btnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAjuda.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnAjuda.Location = new System.Drawing.Point(13, 650);
+            this.btnAjuda.Location = new System.Drawing.Point(6, 37);
             this.btnAjuda.Name = "btnAjuda";
             this.btnAjuda.Size = new System.Drawing.Size(81, 41);
             this.btnAjuda.TabIndex = 5;
@@ -134,7 +102,7 @@
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSair.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnSair.Location = new System.Drawing.Point(191, 650);
+            this.btnSair.Location = new System.Drawing.Point(185, 37);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(81, 41);
             this.btnSair.TabIndex = 6;
@@ -145,51 +113,25 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.groupBox1.Controls.Add(this.btnConfiguracao);
             this.groupBox1.Controls.Add(this.btnNotificacoes);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.nomeUsuario);
             this.groupBox1.Controls.Add(this.btnGerenciarEmpresas);
             this.groupBox1.Controls.Add(this.btnGerarFolha);
-            this.groupBox1.Controls.Add(this.btnSair);
             this.groupBox1.Controls.Add(this.btnGerenciarFuncionarios);
-            this.groupBox1.Controls.Add(this.btnAjuda);
-            this.groupBox1.Controls.Add(this.btnGerenciarUsuarios);
             this.groupBox1.Controls.Add(this.btnRelatoriosGerais);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(0, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 729);
+            this.groupBox1.Size = new System.Drawing.Size(278, 339);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            // 
-            // btnConfiguracao
-            // 
-            this.btnConfiguracao.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnConfiguracao.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnConfiguracao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.btnConfiguracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracao.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracao.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnConfiguracao.Location = new System.Drawing.Point(0, 526);
-            this.btnConfiguracao.Name = "btnConfiguracao";
-            this.btnConfiguracao.Size = new System.Drawing.Size(278, 63);
-            this.btnConfiguracao.TabIndex = 12;
-            this.btnConfiguracao.Text = "Configurações";
-            this.btnConfiguracao.UseVisualStyleBackColor = false;
-            this.btnConfiguracao.Click += new System.EventHandler(this.btnConfiguracao_Click);
             // 
             // btnNotificacoes
             // 
             this.btnNotificacoes.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnNotificacoes.FlatAppearance.BorderSize = 0;
-            this.btnNotificacoes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnNotificacoes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnNotificacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotificacoes.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotificacoes.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnNotificacoes.Location = new System.Drawing.Point(0, 457);
+            this.btnNotificacoes.Location = new System.Drawing.Point(0, 276);
             this.btnNotificacoes.Name = "btnNotificacoes";
             this.btnNotificacoes.Size = new System.Drawing.Size(278, 63);
             this.btnNotificacoes.TabIndex = 11;
@@ -200,7 +142,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 33);
+            this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 24);
             this.label1.TabIndex = 7;
@@ -210,7 +152,7 @@
             // 
             this.nomeUsuario.AutoSize = true;
             this.nomeUsuario.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomeUsuario.Location = new System.Drawing.Point(153, 33);
+            this.nomeUsuario.Location = new System.Drawing.Point(113, 28);
             this.nomeUsuario.Name = "nomeUsuario";
             this.nomeUsuario.Size = new System.Drawing.Size(72, 24);
             this.nomeUsuario.TabIndex = 8;
@@ -223,7 +165,7 @@
             this.btnGerenciarEmpresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerenciarEmpresas.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerenciarEmpresas.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerenciarEmpresas.Location = new System.Drawing.Point(0, 250);
+            this.btnGerenciarEmpresas.Location = new System.Drawing.Point(0, 138);
             this.btnGerenciarEmpresas.Name = "btnGerenciarEmpresas";
             this.btnGerenciarEmpresas.Size = new System.Drawing.Size(278, 63);
             this.btnGerenciarEmpresas.TabIndex = 10;
@@ -234,7 +176,6 @@
             // panelHome
             // 
             this.panelHome.Controls.Add(this.pictureLogo);
-            this.panelHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHome.Location = new System.Drawing.Point(278, 0);
             this.panelHome.Name = "panelHome";
             this.panelHome.Size = new System.Drawing.Size(1072, 729);
@@ -253,35 +194,61 @@
             this.pictureLogo.TabIndex = 0;
             this.pictureLogo.TabStop = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnAjuda);
+            this.groupBox2.Controls.Add(this.btnSair);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Location = new System.Drawing.Point(0, 617);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(278, 100);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnGerarFolha
+            // 
+            this.btnGerarFolha.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnGerarFolha.FlatAppearance.BorderSize = 0;
+            this.btnGerarFolha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarFolha.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerarFolha.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnGerarFolha.Location = new System.Drawing.Point(0, 0);
+            this.btnGerarFolha.Name = "btnGerarFolha";
+            this.btnGerarFolha.Size = new System.Drawing.Size(278, 63);
+            this.btnGerarFolha.TabIndex = 0;
+            this.btnGerarFolha.Text = "Gerar Folha de Pagamentos";
+            this.btnGerarFolha.UseVisualStyleBackColor = false;
+            this.btnGerarFolha.Click += new System.EventHandler(this.btnGerarFolha_Click);
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelHome);
+            this.Controls.Add(this.nomeUsuario);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHome";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panelHome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGerarFolha;
         private System.Windows.Forms.Button btnGerenciarFuncionarios;
-        private System.Windows.Forms.Button btnGerenciarUsuarios;
         private System.Windows.Forms.Button btnRelatoriosGerais;
         private System.Windows.Forms.Button btnAjuda;
         private System.Windows.Forms.Button btnSair;
@@ -292,6 +259,7 @@
         private System.Windows.Forms.PictureBox pictureLogo;
         private System.Windows.Forms.Button btnGerenciarEmpresas;
         private System.Windows.Forms.Button btnNotificacoes;
-        private System.Windows.Forms.Button btnConfiguracao;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnGerarFolha;
     }
 }

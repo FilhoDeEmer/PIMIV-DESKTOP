@@ -31,12 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCRUDFuncionario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExcluirFun = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.txtNivel = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
@@ -72,7 +74,6 @@
             this.txtRefeicao = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtNomeCargo = new System.Windows.Forms.TextBox();
-            this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.boxCodCargo = new System.Windows.Forms.ComboBox();
             this.boxCodEmpresa = new System.Windows.Forms.ComboBox();
@@ -118,7 +119,7 @@
             this.usuariosTableAdapter = new PIM_IV.HERMESDataSetUsersTableAdapters.UsuariosTableAdapter();
             this.empresasTableAdapter = new PIM_IV.HERMESDataSetTableAdapters.EmpresasTableAdapter();
             this.cargosTableAdapter = new PIM_IV.HERMESDataSet1TableAdapters.CargosTableAdapter();
-            this.label35 = new System.Windows.Forms.Label();
+            this.txtNomeEmpresa = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -138,6 +139,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExcluirFun);
             this.groupBox1.Controls.Add(this.groupBox9);
             this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.btnSalvar);
@@ -152,6 +154,17 @@
             this.groupBox1.Size = new System.Drawing.Size(1147, 705);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnExcluirFun
+            // 
+            this.btnExcluirFun.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnExcluirFun.Location = new System.Drawing.Point(899, 592);
+            this.btnExcluirFun.Name = "btnExcluirFun";
+            this.btnExcluirFun.Size = new System.Drawing.Size(170, 44);
+            this.btnExcluirFun.TabIndex = 33;
+            this.btnExcluirFun.Text = "Excluir";
+            this.btnExcluirFun.UseVisualStyleBackColor = true;
+            this.btnExcluirFun.Click += new System.EventHandler(this.btnExcluirFun_Click);
             // 
             // groupBox9
             // 
@@ -216,6 +229,15 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Dados de Login";
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(88, 196);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(103, 66);
+            this.label35.TabIndex = 6;
+            this.label35.Text = "1 - Padrão\r\n2- RH\r\n3- Gestor";
+            // 
             // txtNivel
             // 
             this.txtNivel.FormattingEnabled = true;
@@ -274,7 +296,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(899, 585);
+            this.btnSalvar.Location = new System.Drawing.Point(899, 542);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(170, 44);
             this.btnSalvar.TabIndex = 29;
@@ -532,8 +554,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtNomeCargo);
             this.groupBox4.Controls.Add(this.txtNomeEmpresa);
+            this.groupBox4.Controls.Add(this.txtNomeCargo);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.boxCodCargo);
             this.groupBox4.Controls.Add(this.boxCodEmpresa);
@@ -561,14 +583,6 @@
             this.txtNomeCargo.Name = "txtNomeCargo";
             this.txtNomeCargo.Size = new System.Drawing.Size(212, 29);
             this.txtNomeCargo.TabIndex = 20;
-            // 
-            // txtNomeEmpresa
-            // 
-            this.txtNomeEmpresa.Enabled = false;
-            this.txtNomeEmpresa.Location = new System.Drawing.Point(82, 46);
-            this.txtNomeEmpresa.Name = "txtNomeEmpresa";
-            this.txtNomeEmpresa.Size = new System.Drawing.Size(324, 29);
-            this.txtNomeEmpresa.TabIndex = 19;
             // 
             // label12
             // 
@@ -955,14 +969,17 @@
             // 
             this.cargosTableAdapter.ClearBeforeFill = true;
             // 
-            // label35
+            // txtNomeEmpresa
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(88, 196);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(103, 66);
-            this.label35.TabIndex = 6;
-            this.label35.Text = "1 - Padrão\r\n2- RH\r\n3- Gestor";
+            this.txtNomeEmpresa.DataSource = this.empresasBindingSource;
+            this.txtNomeEmpresa.DisplayMember = "Nome";
+            this.txtNomeEmpresa.FormattingEnabled = true;
+            this.txtNomeEmpresa.Location = new System.Drawing.Point(85, 45);
+            this.txtNomeEmpresa.Name = "txtNomeEmpresa";
+            this.txtNomeEmpresa.Size = new System.Drawing.Size(336, 30);
+            this.txtNomeEmpresa.TabIndex = 21;
+            this.txtNomeEmpresa.ValueMember = "Nome";
+            this.txtNomeEmpresa.SelectedIndexChanged += new System.EventHandler(this.txtNomeEmpresa_SelectedIndexChanged);
             // 
             // FormCRUDFuncionario
             // 
@@ -1089,7 +1106,8 @@
         private System.Windows.Forms.BindingSource cargosBindingSource;
         private HERMESDataSet1TableAdapters.CargosTableAdapter cargosTableAdapter;
         private System.Windows.Forms.TextBox txtNomeCargo;
-        private System.Windows.Forms.TextBox txtNomeEmpresa;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button btnExcluirFun;
+        private System.Windows.Forms.ComboBox txtNomeEmpresa;
     }
 }

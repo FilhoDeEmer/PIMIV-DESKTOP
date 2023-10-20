@@ -57,6 +57,7 @@
             this.txtInscricao = new System.Windows.Forms.TextBox();
             this.txtResponsavel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnExcluirEmpresa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnExcluirEmpresa);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnSalvar);
@@ -193,7 +195,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(13, 548);
+            this.btnSalvar.Location = new System.Drawing.Point(344, 548);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(103, 36);
             this.btnSalvar.TabIndex = 4;
@@ -329,14 +331,24 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Inscrição Estadual";
             // 
-            // FormGerEmpresas
+            // btnExcluirEmpresa
+            // 
+            this.btnExcluirEmpresa.Location = new System.Drawing.Point(453, 548);
+            this.btnExcluirEmpresa.Name = "btnExcluirEmpresa";
+            this.btnExcluirEmpresa.Size = new System.Drawing.Size(103, 36);
+            this.btnExcluirEmpresa.TabIndex = 6;
+            this.btnExcluirEmpresa.Text = "Excluir";
+            this.btnExcluirEmpresa.UseVisualStyleBackColor = true;
+            this.btnExcluirEmpresa.Click += new System.EventHandler(this.btnExcluirEmpresa_Click);
+            // 
+            // FormCRUDEEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 603);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormGerEmpresas";
+            this.Name = "FormCRUDEEmpresas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empresas";
             this.panel1.ResumeLayout(false);
@@ -380,5 +392,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnExcluirEmpresa;
     }
 }

@@ -84,5 +84,19 @@ namespace PIM_IV.view
                 Close();
             }
         }
+
+        private void btnExcluirEmpresa_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("A empresa selecionada será deletada do sistema. Deseja continuar?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (cod != null)
+                {
+                    CrudEmpresas deletar = new CrudEmpresas();
+                    deletar.DeletarEmpresa(cod);
+                }
+                else { MessageBox.Show("Selecione uma Empresa!"); };
+
+            }
+        }
     }
 }

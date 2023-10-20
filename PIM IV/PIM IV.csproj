@@ -94,6 +94,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HERMESDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="HERMESDataSetUsers.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +110,12 @@
     </Compile>
     <Compile Include="view\FormCargos.Designer.cs">
       <DependentUpon>FormCargos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormCRUDCargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormCRUDCargos.Designer.cs">
+      <DependentUpon>FormCRUDCargos.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FormCRUDUsers.cs">
       <SubType>Form</SubType>
@@ -183,6 +194,9 @@
     </Compile>
     <EmbeddedResource Include="view\FormCargos.resx">
       <DependentUpon>FormCargos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormCRUDCargos.resx">
+      <DependentUpon>FormCRUDCargos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormCRUDUsers.resx">
       <DependentUpon>FormCRUDUsers.cs</DependentUpon>
@@ -263,6 +277,17 @@
     </None>
     <None Include="HERMESDataSet2.xss">
       <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet3.xsc">
+      <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HERMESDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HERMESDataSet3.xss">
+      <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
     </None>
     <None Include="HERMESDataSetUsers.xsc">
       <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>

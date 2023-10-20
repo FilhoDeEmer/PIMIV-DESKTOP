@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.codigo_funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fUNCIONARIOStesteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.CNPJ = new System.Windows.Forms.Label();
-            this.txtCnpjBusca = new System.Windows.Forms.TextBox();
-            this.btnBuscaCNPJ = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnAlterarFun = new System.Windows.Forms.Button();
             this.btnCadastrarFun = new System.Windows.Forms.Button();
@@ -44,10 +41,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCpfBusca = new System.Windows.Forms.TextBox();
             this.btnPesquisaFuncionario = new System.Windows.Forms.Button();
-            this.hERMESDataSet2 = new PIM_IV.HERMESDataSet2();
-            this.funcionariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionariosTableAdapter = new PIM_IV.HERMESDataSet2TableAdapters.FuncionariosTableAdapter();
-            this.codigo_funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CNPJ = new System.Windows.Forms.Label();
+            this.txtCnpjBusca = new System.Windows.Forms.TextBox();
+            this.btnBuscaCNPJ = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,17 +54,17 @@
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigousuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.funcionariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.hERMESDataSet2 = new PIM_IV.HERMESDataSet2();
+            this.funcionariosTableAdapter = new PIM_IV.HERMESDataSet2TableAdapters.FuncionariosTableAdapter();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).BeginInit();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).BeginInit();
-            this.fillByToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -105,53 +102,20 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1018, 448);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
+            // 
+            // codigo_funcionario
+            // 
+            this.codigo_funcionario.DataPropertyName = "codigo_funcionario";
+            this.codigo_funcionario.HeaderText = "cod";
+            this.codigo_funcionario.Name = "codigo_funcionario";
+            this.codigo_funcionario.ReadOnly = true;
             // 
             // fUNCIONARIOStesteBindingSource
             // 
             this.fUNCIONARIOStesteBindingSource.DataMember = "FUNCIONARIOS_teste";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.CNPJ);
-            this.groupBox4.Controls.Add(this.txtCnpjBusca);
-            this.groupBox4.Controls.Add(this.btnBuscaCNPJ);
-            this.groupBox4.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(36, 32);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(403, 116);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Empresa:";
-            // 
-            // CNPJ
-            // 
-            this.CNPJ.AutoSize = true;
-            this.CNPJ.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CNPJ.Location = new System.Drawing.Point(16, 24);
-            this.CNPJ.Name = "CNPJ";
-            this.CNPJ.Size = new System.Drawing.Size(67, 22);
-            this.CNPJ.TabIndex = 2;
-            this.CNPJ.Text = "CNPJ:";
-            // 
-            // txtCnpjBusca
-            // 
-            this.txtCnpjBusca.Location = new System.Drawing.Point(20, 49);
-            this.txtCnpjBusca.Name = "txtCnpjBusca";
-            this.txtCnpjBusca.Size = new System.Drawing.Size(208, 29);
-            this.txtCnpjBusca.TabIndex = 1;
-            // 
-            // btnBuscaCNPJ
-            // 
-            this.btnBuscaCNPJ.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscaCNPJ.Location = new System.Drawing.Point(246, 43);
-            this.btnBuscaCNPJ.Name = "btnBuscaCNPJ";
-            this.btnBuscaCNPJ.Size = new System.Drawing.Size(133, 41);
-            this.btnBuscaCNPJ.TabIndex = 0;
-            this.btnBuscaCNPJ.Text = "Pesquisar";
-            this.btnBuscaCNPJ.UseVisualStyleBackColor = true;
             // 
             // btnVoltar
             // 
@@ -170,7 +134,7 @@
             this.btnAlterarFun.Name = "btnAlterarFun";
             this.btnAlterarFun.Size = new System.Drawing.Size(150, 54);
             this.btnAlterarFun.TabIndex = 4;
-            this.btnAlterarFun.Text = "Alterar";
+            this.btnAlterarFun.Text = "Alterar/\r\nExcluir";
             this.btnAlterarFun.UseVisualStyleBackColor = true;
             this.btnAlterarFun.Click += new System.EventHandler(this.btnAlterarFun_Click);
             // 
@@ -228,27 +192,48 @@
             this.btnPesquisaFuncionario.TabIndex = 0;
             this.btnPesquisaFuncionario.Text = "Pesquisar";
             this.btnPesquisaFuncionario.UseVisualStyleBackColor = true;
+            this.btnPesquisaFuncionario.Click += new System.EventHandler(this.btnPesquisaFuncionario_Click);
             // 
-            // hERMESDataSet2
+            // groupBox4
             // 
-            this.hERMESDataSet2.DataSetName = "HERMESDataSet2";
-            this.hERMESDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.groupBox4.Controls.Add(this.CNPJ);
+            this.groupBox4.Controls.Add(this.txtCnpjBusca);
+            this.groupBox4.Controls.Add(this.btnBuscaCNPJ);
+            this.groupBox4.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(39, 32);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(403, 116);
+            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Empresa:";
             // 
-            // funcionariosBindingSource1
+            // CNPJ
             // 
-            this.funcionariosBindingSource1.DataMember = "Funcionarios";
-            this.funcionariosBindingSource1.DataSource = this.hERMESDataSet2;
+            this.CNPJ.AutoSize = true;
+            this.CNPJ.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CNPJ.Location = new System.Drawing.Point(16, 24);
+            this.CNPJ.Name = "CNPJ";
+            this.CNPJ.Size = new System.Drawing.Size(67, 22);
+            this.CNPJ.TabIndex = 2;
+            this.CNPJ.Text = "CNPJ:";
             // 
-            // funcionariosTableAdapter
+            // txtCnpjBusca
             // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
+            this.txtCnpjBusca.Location = new System.Drawing.Point(20, 49);
+            this.txtCnpjBusca.Name = "txtCnpjBusca";
+            this.txtCnpjBusca.Size = new System.Drawing.Size(208, 29);
+            this.txtCnpjBusca.TabIndex = 1;
             // 
-            // codigo_funcionario
+            // btnBuscaCNPJ
             // 
-            this.codigo_funcionario.DataPropertyName = "codigo_funcionario";
-            this.codigo_funcionario.HeaderText = "cod";
-            this.codigo_funcionario.Name = "codigo_funcionario";
-            this.codigo_funcionario.ReadOnly = true;
+            this.btnBuscaCNPJ.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscaCNPJ.Location = new System.Drawing.Point(246, 43);
+            this.btnBuscaCNPJ.Name = "btnBuscaCNPJ";
+            this.btnBuscaCNPJ.Size = new System.Drawing.Size(133, 41);
+            this.btnBuscaCNPJ.TabIndex = 0;
+            this.btnBuscaCNPJ.Text = "Pesquisar";
+            this.btnBuscaCNPJ.UseVisualStyleBackColor = true;
+            this.btnBuscaCNPJ.Click += new System.EventHandler(this.btnBuscaCNPJ_Click);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -313,35 +298,30 @@
             this.codigousuarioDataGridViewTextBoxColumn.Name = "codigousuarioDataGridViewTextBoxColumn";
             this.codigousuarioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // fillByToolStrip
+            // funcionariosBindingSource1
             // 
-            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(111, 25);
-            this.fillByToolStrip.TabIndex = 6;
-            this.fillByToolStrip.Text = "fillByToolStrip";
+            this.funcionariosBindingSource1.DataMember = "Funcionarios";
+            this.funcionariosBindingSource1.DataSource = this.hERMESDataSet2;
             // 
-            // fillByToolStripButton
+            // hERMESDataSet2
             // 
-            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
-            this.fillByToolStripButton.Text = "FillBy";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            this.hERMESDataSet2.DataSetName = "HERMESDataSet2";
+            this.hERMESDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // funcionariosTableAdapter
+            // 
+            this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
             // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1072, 729);
-            this.Controls.Add(this.fillByToolStrip);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCadastrarFun);
             this.Controls.Add(this.btnAlterarFun);
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormFuncionarios";
@@ -350,35 +330,27 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).EndInit();
-            this.fillByToolStrip.ResumeLayout(false);
-            this.fillByToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnAlterarFun;
         private System.Windows.Forms.Button btnCadastrarFun;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource fUNCIONARIOSBindingSource;
         private System.Windows.Forms.BindingSource fUNCIONARIOStesteBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cODFUNCIONARIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label CNPJ;
-        private System.Windows.Forms.TextBox txtCnpjBusca;
-        private System.Windows.Forms.Button btnBuscaCNPJ;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCpfBusca;
@@ -396,7 +368,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigousuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStrip fillByToolStrip;
-        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label CNPJ;
+        private System.Windows.Forms.TextBox txtCnpjBusca;
+        private System.Windows.Forms.Button btnBuscaCNPJ;
     }
 }
