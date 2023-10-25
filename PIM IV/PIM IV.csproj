@@ -105,6 +105,12 @@
       <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>
     </Compile>
     <Compile Include="model\CreateDataBase.cs" />
+    <Compile Include="view\FormSelecEpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormSelecEpresa.Designer.cs">
+      <DependentUpon>FormSelecEpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FormCargos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     <Compile Include="view\FormUsuarios.Designer.cs">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\FormSelecEpresa.resx">
+      <DependentUpon>FormSelecEpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\FormCargos.resx">
       <DependentUpon>FormCargos.cs</DependentUpon>
     </EmbeddedResource>

@@ -25,7 +25,7 @@ namespace PIM_IV.control
         public string Rua { get; set; }
         public string Cep { get; set; }
         public string Numero { get; set; }
-        public string Cidade {  get; set; }
+        public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
@@ -44,9 +44,10 @@ namespace PIM_IV.control
         public string NomeBanco { get; set; }
         public string AgenciaBanco { get; set; }
         public string NConta { get; set; }
-        public string Nivel {  get; set; }
+        public string Nivel { get; set; }
         public string Cod_User { get; set; }
         public string Login { get; set; }
+        public string NomeCargo { get; set; }
 
         public void CadastrarFuncionario()
         {
@@ -79,7 +80,7 @@ namespace PIM_IV.control
                                   ",agencia " +
                                   ",n_conta " +
                                   ",telefone " +
-                                  ",codigo_usuario"+
+                                  ",codigo_usuario" +
                                   ",email )" +
                                   "values " +
                                   "(@Nome" +
@@ -168,7 +169,7 @@ namespace PIM_IV.control
                     SqlConnection con = new SqlConnection(connectionString);
                     con.Close();
                 }
-                
+
 
             }
         }
@@ -294,7 +295,7 @@ namespace PIM_IV.control
             {
                 MessageBox.Show($"Erro: {ex.Message}");
             }
-            
+
         }
         public void CriarUsuario(string nome, string senha, string nivel)
         {
@@ -307,7 +308,7 @@ namespace PIM_IV.control
         {
             if (cpf != null)
             {
-                
+
                 SqlParameter paramCpf = new SqlParameter();
                 paramCpf.ParameterName = "@Cpf";
                 paramCpf.Value = Cpf;
@@ -334,7 +335,7 @@ namespace PIM_IV.control
                             if (data.Read())
                             {
                                 Cod_User = Convert.ToString(data["cod_usuario"]);
-                                
+
                             }
 
                         }
@@ -388,10 +389,12 @@ namespace PIM_IV.control
                                 F.[email],
                                 F.[codigo_usuario],
                                 U.[nome] AS [nomeUsuario],
-                                U.[Nivel]
+                                U.[Nivel],
+	                            C.[nome] as [nome_cargo]
                             FROM [HERMES].[dbo].[Funcionarios] F
                             INNER JOIN [HERMES].[dbo].[Usuarios] U ON F.[codigo_usuario] = U.[cod_usuario]
-                            where codigo_funcionario= @Cod;";
+                            INNER JOIN [HERMES].[dbo].[Cargos] C ON F.[codigo_cargo] = C.[codigo_cargo] 
+                            where codigo_funcionario=@Cod;";
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
@@ -442,8 +445,9 @@ namespace PIM_IV.control
                                 Nivel = Convert.ToString(data["Nivel"]);
                                 Cod_User = Convert.ToString(data["codigo_usuario"]);
                                 Login = Convert.ToString(data["nomeUsuario"]);
-                                
-                               
+                                NomeCargo = Convert.ToString(data["nome_cargo"]);
+
+
                                 /*query
                                 SELECT
                                 Funcionarios.nome AS Funcionario_nome,
@@ -510,7 +514,7 @@ namespace PIM_IV.control
             }
             return null;
         }
-        
+
         public bool DeletarFuncionario(string cod, string user)
         {
             string mensagem = "O funcionário escolhido será excluido da base de dados permanentemente, como conseguência, o usuário correspondente a esse funcionário também será perdido, deseja continuar? ";
@@ -553,7 +557,7 @@ namespace PIM_IV.control
                                 transaction.Rollback();//em caso de erro recupera os dados excluidos
                                 MessageBox.Show($"Erro:{ex.Message}");
                             }
-                            
+
                         }
                     }
                 }
@@ -565,11 +569,49 @@ namespace PIM_IV.control
                 {
                     MessageBox.Show($"Erro: {ex.Message}");
                 }
-                
+
             }
             return false;
         }
-    
+
+        public class Codigos
+        {
+            public int CodFun { get; set; }
+            public string CpfFun { get; set; }
+        }
+        public List<Codigos> GetListCpf(string empresa)
+        {
+            List<Codigos> codigos = new List<Codigos>();
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = "SELECT codigo_funcionario, cpf FROM Funcionarios WHERE codigo_empresa = @empresa";
+                using (SqlCommand cmd = new SqlCommand(command, connection))
+                {
+                    cmd.Parameters.AddWithValue("@empresa", empresa);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Codigos codigo = new Codigos
+                            {
+                                CodFun = Convert.ToInt32(reader["codigo_funcionario"]),
+                                CpfFun = reader["cpf"].ToString()
+                            };
+                            codigos.Add(codigo);
+                        }
+
+
+                    }
+                }
+                return codigos;
+            }
+        }
     }
 
 }

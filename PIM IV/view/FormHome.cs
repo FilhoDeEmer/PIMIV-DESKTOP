@@ -16,7 +16,7 @@ namespace PIM_IV
         {
 
         }
-
+        string codEmpresa = null;
         private void btnSair_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Sair do programa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -31,8 +31,14 @@ namespace PIM_IV
 
         private void btnGerarFolha_Click(object sender, EventArgs e)
         {
-            AtivarBotao(btnGerarFolha);
-            FormAtivar(new FormGerarFolha());//mudar pro form correspondente
+            FormSelecEpresa empresa = new FormSelecEpresa();
+            empresa.ShowDialog();
+            codEmpresa = empresa.CodEmpresa;
+            if (codEmpresa != null)
+            {
+                AtivarBotao(btnGerarFolha);
+                FormAtivar(new FormGerarFolha(codEmpresa));
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

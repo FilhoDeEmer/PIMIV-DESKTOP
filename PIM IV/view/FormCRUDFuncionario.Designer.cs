@@ -73,12 +73,13 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtRefeicao = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtNomeEmpresa = new System.Windows.Forms.ComboBox();
+            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hERMESDataSet = new PIM_IV.HERMESDataSet();
             this.txtNomeCargo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.boxCodCargo = new System.Windows.Forms.ComboBox();
             this.boxCodEmpresa = new System.Windows.Forms.ComboBox();
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSet = new PIM_IV.HERMESDataSet();
             this.txtDataAdmi = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -119,7 +120,6 @@
             this.usuariosTableAdapter = new PIM_IV.HERMESDataSetUsersTableAdapters.UsuariosTableAdapter();
             this.empresasTableAdapter = new PIM_IV.HERMESDataSetTableAdapters.EmpresasTableAdapter();
             this.cargosTableAdapter = new PIM_IV.HERMESDataSet1TableAdapters.CargosTableAdapter();
-            this.txtNomeEmpresa = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -222,7 +222,7 @@
             this.groupBox8.Controls.Add(this.label31);
             this.groupBox8.Controls.Add(this.label26);
             this.groupBox8.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(807, 27);
+            this.groupBox8.Location = new System.Drawing.Point(807, 16);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(322, 277);
             this.groupBox8.TabIndex = 31;
@@ -576,6 +576,28 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Empresa";
             // 
+            // txtNomeEmpresa
+            // 
+            this.txtNomeEmpresa.DataSource = this.empresasBindingSource;
+            this.txtNomeEmpresa.DisplayMember = "Nome";
+            this.txtNomeEmpresa.FormattingEnabled = true;
+            this.txtNomeEmpresa.Location = new System.Drawing.Point(85, 45);
+            this.txtNomeEmpresa.Name = "txtNomeEmpresa";
+            this.txtNomeEmpresa.Size = new System.Drawing.Size(336, 30);
+            this.txtNomeEmpresa.TabIndex = 21;
+            this.txtNomeEmpresa.ValueMember = "Nome";
+            this.txtNomeEmpresa.SelectedIndexChanged += new System.EventHandler(this.txtNomeEmpresa_SelectedIndexChanged);
+            // 
+            // empresasBindingSource
+            // 
+            this.empresasBindingSource.DataMember = "Empresas";
+            this.empresasBindingSource.DataSource = this.hERMESDataSet;
+            // 
+            // hERMESDataSet
+            // 
+            this.hERMESDataSet.DataSetName = "HERMESDataSet";
+            this.hERMESDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtNomeCargo
             // 
             this.txtNomeCargo.Enabled = false;
@@ -616,16 +638,6 @@
             this.boxCodEmpresa.Text = "0";
             this.boxCodEmpresa.ValueMember = "codigo_empresa";
             this.boxCodEmpresa.SelectedIndexChanged += new System.EventHandler(this.boxCodEmpresa_SelectedIndexChanged);
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "Empresas";
-            this.empresasBindingSource.DataSource = this.hERMESDataSet;
-            // 
-            // hERMESDataSet
-            // 
-            this.hERMESDataSet.DataSetName = "HERMESDataSet";
-            this.hERMESDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtDataAdmi
             // 
@@ -968,18 +980,6 @@
             // cargosTableAdapter
             // 
             this.cargosTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtNomeEmpresa
-            // 
-            this.txtNomeEmpresa.DataSource = this.empresasBindingSource;
-            this.txtNomeEmpresa.DisplayMember = "Nome";
-            this.txtNomeEmpresa.FormattingEnabled = true;
-            this.txtNomeEmpresa.Location = new System.Drawing.Point(85, 45);
-            this.txtNomeEmpresa.Name = "txtNomeEmpresa";
-            this.txtNomeEmpresa.Size = new System.Drawing.Size(336, 30);
-            this.txtNomeEmpresa.TabIndex = 21;
-            this.txtNomeEmpresa.ValueMember = "Nome";
-            this.txtNomeEmpresa.SelectedIndexChanged += new System.EventHandler(this.txtNomeEmpresa_SelectedIndexChanged);
             // 
             // FormCRUDFuncionario
             // 

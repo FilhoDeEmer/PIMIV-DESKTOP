@@ -47,3 +47,4 @@ C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\BouncyC
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\BCrypt.Net.xml
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormCRUDCargos.resources
+C:\Users\eme_s\OneDrive\Documentos\GitHub\PIMIV-DESKTOP\PIM IV\obj\Debug\PIM_IV.view.FormSelecEpresa.resources
