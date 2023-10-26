@@ -35,13 +35,13 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnNotificacoes = new System.Windows.Forms.Button();
+            this.btnGerenciarEmpresas = new System.Windows.Forms.Button();
+            this.btnGerarFolha = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nomeUsuario = new System.Windows.Forms.Label();
-            this.btnGerenciarEmpresas = new System.Windows.Forms.Button();
             this.panelHome = new System.Windows.Forms.Panel();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnGerarFolha = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
@@ -138,6 +138,36 @@
             this.btnNotificacoes.Text = "Notificações";
             this.btnNotificacoes.UseVisualStyleBackColor = false;
             // 
+            // btnGerenciarEmpresas
+            // 
+            this.btnGerenciarEmpresas.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnGerenciarEmpresas.FlatAppearance.BorderSize = 0;
+            this.btnGerenciarEmpresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerenciarEmpresas.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerenciarEmpresas.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnGerenciarEmpresas.Location = new System.Drawing.Point(0, 138);
+            this.btnGerenciarEmpresas.Name = "btnGerenciarEmpresas";
+            this.btnGerenciarEmpresas.Size = new System.Drawing.Size(278, 63);
+            this.btnGerenciarEmpresas.TabIndex = 10;
+            this.btnGerenciarEmpresas.Text = "Gerenciar Empresas";
+            this.btnGerenciarEmpresas.UseVisualStyleBackColor = false;
+            this.btnGerenciarEmpresas.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnGerarFolha
+            // 
+            this.btnGerarFolha.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnGerarFolha.FlatAppearance.BorderSize = 0;
+            this.btnGerarFolha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarFolha.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerarFolha.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnGerarFolha.Location = new System.Drawing.Point(0, 0);
+            this.btnGerarFolha.Name = "btnGerarFolha";
+            this.btnGerarFolha.Size = new System.Drawing.Size(278, 63);
+            this.btnGerarFolha.TabIndex = 0;
+            this.btnGerarFolha.Text = "Gerar Folha de Pagamentos";
+            this.btnGerarFolha.UseVisualStyleBackColor = false;
+            this.btnGerarFolha.Click += new System.EventHandler(this.btnGerarFolha_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -157,21 +187,6 @@
             this.nomeUsuario.Size = new System.Drawing.Size(72, 24);
             this.nomeUsuario.TabIndex = 8;
             this.nomeUsuario.Text = "NONE";
-            // 
-            // btnGerenciarEmpresas
-            // 
-            this.btnGerenciarEmpresas.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnGerenciarEmpresas.FlatAppearance.BorderSize = 0;
-            this.btnGerenciarEmpresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerenciarEmpresas.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerenciarEmpresas.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerenciarEmpresas.Location = new System.Drawing.Point(0, 138);
-            this.btnGerenciarEmpresas.Name = "btnGerenciarEmpresas";
-            this.btnGerenciarEmpresas.Size = new System.Drawing.Size(278, 63);
-            this.btnGerenciarEmpresas.TabIndex = 10;
-            this.btnGerenciarEmpresas.Text = "Gerenciar Empresas";
-            this.btnGerenciarEmpresas.UseVisualStyleBackColor = false;
-            this.btnGerenciarEmpresas.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelHome
             // 
@@ -199,26 +214,11 @@
             this.groupBox2.Controls.Add(this.btnAjuda);
             this.groupBox2.Controls.Add(this.btnSair);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(0, 617);
+            this.groupBox2.Location = new System.Drawing.Point(0, 629);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(278, 100);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            // 
-            // btnGerarFolha
-            // 
-            this.btnGerarFolha.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnGerarFolha.FlatAppearance.BorderSize = 0;
-            this.btnGerarFolha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerarFolha.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerarFolha.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerarFolha.Location = new System.Drawing.Point(0, 0);
-            this.btnGerarFolha.Name = "btnGerarFolha";
-            this.btnGerarFolha.Size = new System.Drawing.Size(278, 63);
-            this.btnGerarFolha.TabIndex = 0;
-            this.btnGerarFolha.Text = "Gerar Folha de Pagamentos";
-            this.btnGerarFolha.UseVisualStyleBackColor = false;
-            this.btnGerarFolha.Click += new System.EventHandler(this.btnGerarFolha_Click);
             // 
             // FormHome
             // 
