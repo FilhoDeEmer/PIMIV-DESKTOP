@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HERMESDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HERMESDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="HERMESDataSetUsers.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -297,6 +302,17 @@
     </None>
     <None Include="HERMESDataSet3.xss">
       <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet4.xsc">
+      <DependentUpon>HERMESDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="HERMESDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HERMESDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HERMESDataSet4.xss">
+      <DependentUpon>HERMESDataSet4.xsd</DependentUpon>
     </None>
     <None Include="HERMESDataSetUsers.xsc">
       <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>

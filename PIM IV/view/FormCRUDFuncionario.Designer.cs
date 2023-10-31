@@ -628,15 +628,11 @@
             // 
             // boxCodEmpresa
             // 
-            this.boxCodEmpresa.DataSource = this.empresasBindingSource;
-            this.boxCodEmpresa.DisplayMember = "codigo_empresa";
             this.boxCodEmpresa.FormattingEnabled = true;
             this.boxCodEmpresa.Location = new System.Drawing.Point(9, 45);
             this.boxCodEmpresa.Name = "boxCodEmpresa";
             this.boxCodEmpresa.Size = new System.Drawing.Size(67, 30);
             this.boxCodEmpresa.TabIndex = 16;
-            this.boxCodEmpresa.Text = "0";
-            this.boxCodEmpresa.ValueMember = "codigo_empresa";
             this.boxCodEmpresa.SelectedIndexChanged += new System.EventHandler(this.boxCodEmpresa_SelectedIndexChanged);
             // 
             // txtDataAdmi

@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,8 +49,9 @@ namespace PIM_IV.model
                         CrearTableUsuarios();
                         CrearTableFuncionarios();
                         CrearTableFolha();
-                        //CrearTableNotificacao();
-                        //CrearTableHolerite();
+                        Referencias();
+                        CrearTableNotificacao();
+                        CrearTableHolerite();
                         FormPrimeiroLogin init = new FormPrimeiroLogin();
                         init.ShowDialog();
                     }
@@ -162,7 +164,7 @@ namespace PIM_IV.model
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar/criar a tabela: {ex.Message}");
+                MessageBox.Show($"Erro ao verificar/criar a tabela Funcionarios: {ex.Message}");
             }
         }
 
@@ -203,7 +205,7 @@ namespace PIM_IV.model
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar/criar a tabela: {ex.Message}");
+                MessageBox.Show($"Erro ao verificar/criar a tabela Empresas: {ex.Message}");
             }
         }
 
@@ -215,7 +217,7 @@ namespace PIM_IV.model
 
             string nomeTabela = "Usuarios";
             string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
-                           "nome VARCHAR(255) NOT NULL," +
+                           "login VARCHAR(255) NOT NULL," +
                            "SenhaHash VARCHAR(255) NOT NULL," +
                            "Nivel INT DEFAULT 1);";
 
@@ -237,7 +239,7 @@ namespace PIM_IV.model
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar/criar a tabela: {ex.Message}");
+                MessageBox.Show($"Erro ao verificar/criar a tabela Usuarios: {ex.Message}");
             }
 
            
@@ -245,17 +247,21 @@ namespace PIM_IV.model
 
 
         //alterar
-        private void CrearTableHolerite()//Cria a tabela de referencias de holerite
+        public void CrearTableHolerite()//Cria a tabela de referencias de holerite
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Holerite";
-            string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
-                           "nome NVARCHAR(255) NOT NULL," +
-                           "SenhaHash VARBINARY(255) NOT NULL," +
-                           "Nivel INT DEFAULT 1);";
+            string cmd = @"(COD_FOLHA INT PRIMARY KEY NOT NULL IDENTITY(1,1),
+                            COD_EMPRESA INT NOT NULL,
+                            COD_FUNCIONARIO INT NOT NULL,
+	                        REFERENCIA NVARCHAR(255),
+	                        MENSAGEM NVARCHAR(255),
+                            FOREIGN KEY (COD_EMPRESA) REFERENCES Empresas(codigo_empresa),
+                            FOREIGN KEY (COD_FUNCIONARIO) REFERENCES FUNCIONARIOS(codigo_funcionario)
+	                        );";
 
             string query = $"IF OBJECT_ID('{nomeTabela}', 'U') IS NULL CREATE TABLE {nomeTabela} {cmd}";
 
@@ -275,7 +281,7 @@ namespace PIM_IV.model
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar/criar a tabela: {ex.Message}");
+                MessageBox.Show($"Erro ao verificar/criar a tabela Holerite: {ex.Message}");
             }
         }
 
@@ -310,7 +316,7 @@ namespace PIM_IV.model
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar/criar a tabela: {ex.Message}");
+                MessageBox.Show($"Erro ao verificar/criar a tabela FolhaPagamentos: {ex.Message}");
             }
         }
 
@@ -345,13 +351,13 @@ namespace PIM_IV.model
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar/criar a tabela: {ex.Message}");
+                MessageBox.Show($"Erro ao verificar/criar a tabela Cargos: {ex.Message}");
             }
         }
 
 
         //alterar
-        private void CrearTableNotificacao()//Cria a tabela de notificações
+        public void CrearTableNotificacao()//Cria a tabela de notificações
 
         {
             PegaNome nomeServer = new PegaNome();
@@ -359,10 +365,11 @@ namespace PIM_IV.model
             string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Notificacao";
-            string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
+            string cmd = "(COD_FUNCIONARIO INT IDENTITY(1,1) PRIMARY KEY," +
                            "nome NVARCHAR(255) NOT NULL," +
-                           "SenhaHash VARBINARY(255) NOT NULL," +
-                           "Nivel INT DEFAULT 1);";
+                           "Mensagem NVARCHAR(255) NOT NULL," +
+                           "Data DATETIME  NOT NULL DEFAULT GETDATE()," +
+                           "FOREIGN KEY (COD_FUNCIONARIO) REFERENCES FUNCIONARIOS(codigo_funcionario));";
 
             string query = $"IF OBJECT_ID('{nomeTabela}', 'U') IS NULL CREATE TABLE {nomeTabela} {cmd}";
 
@@ -382,7 +389,7 @@ namespace PIM_IV.model
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar/criar a tabela: {ex.Message}");
+                MessageBox.Show($"Erro ao verificar/criar a tabela Notificacao: {ex.Message}");
             }
         }
 
@@ -458,7 +465,72 @@ namespace PIM_IV.model
 
         }
 
+        public void Referencias()
+        {
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            
+            string ciar = @"IF OBJECT_ID ('Referencias', 'U') IS NULL CREATE TABLE[dbo].[Referencias] (
+                            [codigo][varchar](4) NOT NULL,
+                            [descricao] [varchar] (255) NULL
+                            ) ON[PRIMARY]";
 
+            string inserir = @"INSERT INTO Referencias(codigo, Descricao)
+                                VALUES
+                                (1001, 'Adiantamento de salário'),
+                                (1002, 'Salário mensalista'),
+                                (1003, 'Férias'),
+                                (1004, 'Décimo Terceiro '),
+                                (1005, 'Adiantamento_13º'),
+                                (1006, 'Aviso previo'),
+                                (1007, 'Insalubridade'),
+                                (1008, 'FGTS'),
+                                (1009, 'Vale transporte'),
+                                (1010, 'Vale alimentacao'),
+                                (1011, 'Adicional noturno'),
+                                (1012, 'Hora extra 50%'),
+                                (1013, 'Horaextra 100%'),
+                                (1014, 'Periculosidade'),
+                                (1015, 'Premiacao'),
+                                (1016, 'Participação nos lucros'),
+                                (1017, 'Abono salarial'),
+                                (1018, 'Antecipação salarial'),
+                                (1019, 'Plano de saúde'),
+                                (2001, 'IRRF'),
+                                (2002, 'Desconto INSS'),
+                                (2003, 'Desconto de ferias'),
+                                (2004, 'Desconto sindical'),
+                                (2005, 'Pensão alimenticia'),
+                                (2006, 'Pagamento de faltas justificadas'),
+                                (2007, 'Previdência');";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(ciar, connection))
+                    {
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd2 = new SqlCommand(inserir, connection))
+                        {
+                            cmd2.ExecuteNonQuery();
+                            MessageBox.Show("Tabela Criada");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
+            finally
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Close();
+            }
+        }
 
 
     }

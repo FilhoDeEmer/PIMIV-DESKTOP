@@ -49,7 +49,8 @@ namespace PIM_IV
 
         private void linkSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            CreateDataBase vai = new CreateDataBase();
+            vai.CrearTableHolerite();
         }
 
         private void Form1_Load(object sender, EventArgs e)

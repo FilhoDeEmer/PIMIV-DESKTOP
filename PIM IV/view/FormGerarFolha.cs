@@ -74,6 +74,8 @@ namespace PIM_IV.view
 
         private void FormGerarFolha_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet4.Referencias'. Você pode movê-la ou removê-la conforme necessário.
+            this.referenciasTableAdapter.Fill(this.hERMESDataSet4.Referencias);
             // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet2.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
             this.funcionariosTableAdapter.Fill(this.hERMESDataSet2.Funcionarios);
 
