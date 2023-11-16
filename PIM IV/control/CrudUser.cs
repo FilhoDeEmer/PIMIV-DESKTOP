@@ -23,7 +23,7 @@ namespace PIM_IV.control
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -31,7 +31,7 @@ namespace PIM_IV.control
                     {
                         connection.Open();
 
-                        string sqlInsert = "INSERT INTO Usuarios (nome, SenhaHash, Nivel) VALUES (@nome, @senhaHash, @Nivel)";
+                        string sqlInsert = "INSERT INTO Usuarios (login, SenhaHash, Nivel) VALUES (@nome, @senhaHash, @Nivel)";
                         using (SqlCommand command = new SqlCommand(sqlInsert, connection))
                         {
                             command.Parameters.AddWithValue("@nome", nome);
@@ -55,7 +55,7 @@ namespace PIM_IV.control
 
         public bool VerificarUser(string cpf)
         {
-            string comando = "SELECT count(*) from Usuarios where nome = @Nome;";
+            string comando = "SELECT count(*) from Usuarios where login = @Nome;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
@@ -94,7 +94,7 @@ namespace PIM_IV.control
 
         public void BuscarLogin(string cod)
         {
-            string comando = "SELECT nome from Usuarios where cod_usuario = @Cod;";
+            string comando = "SELECT login from Usuarios where cod_usuario = @Cod;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
@@ -111,7 +111,7 @@ namespace PIM_IV.control
                         SqlDataReader data = cmd.ExecuteReader();
                         if (data.Read())
                         {
-                            Nome = Convert.ToString(data["nome"]);
+                            Nome = Convert.ToString(data["login"]);
                         }
 
                     }
@@ -126,7 +126,7 @@ namespace PIM_IV.control
 
         public string BuscarUser(string cod)
         {
-            string comando = "SELECT cod_usuario from Usuarios where nome = @Cod;";
+            string comando = "SELECT cod_usuario from Usuarios where login = @Cod;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
@@ -170,7 +170,7 @@ namespace PIM_IV.control
                 string novoHashSenha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
 
                 // Comando SQL para atualizar a senha do usuário
-                string sql = "UPDATE Usuarios SET SenhaHash = @NovaSenha WHERE nome = @Nome";
+                string sql = "UPDATE Usuarios SET SenhaHash = @NovaSenha WHERE login = @Nome";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {

@@ -294,5 +294,49 @@ namespace PIM_IV.control
                 con.Close();
             }
         }
+        public class Cargos
+        {
+            public string  Nome { get; set; }
+            public string Salario_Base { get; set; }
+            public string Cod_Empresa { get; set; }
+            public string Cod_Cargo { get; set; }
+
+        }
+        public List<Cargos> BuscaCargos()
+        {
+            List<Cargos> cargos = new List<Cargos>();
+
+            string comando = "SELECT nome, salario_base, codigo_empresa, codigo_cargo from Cargos ;";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+            
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader data = cmd.ExecuteReader();
+                        while (data.Read())
+                        {
+                            Cargos cargo = new Cargos
+                            {
+                                Nome = Convert.ToString(data["nome"]),
+                                Salario_Base = Convert.ToString(data["salario_base"]),
+                                Cod_Empresa = Convert.ToString(data["codigo_empresa"]),
+                                Cod_Cargo = Convert.ToString(data["codigo_cargo"])
+
+                            };
+                            cargos.Add(cargo);
+                        }
+
+
+                    }
+                }
+               return cargos;
+            
+            
+        }
     }
 }

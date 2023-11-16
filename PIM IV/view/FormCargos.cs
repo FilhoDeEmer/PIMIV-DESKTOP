@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PIM_IV.view
 {
@@ -28,7 +29,9 @@ namespace PIM_IV.view
             cargo.BuscaCargo(cod);
             txtNome.Text = cargo.NomeCargo;
             txtSalarioBase.Text = cargo.SalarioBase;
+            comboCod.Text = cargo.CodEmpresa.ToString();
             comboBox1_SelectedIndexChanged(null, null);
+
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -111,9 +114,18 @@ namespace PIM_IV.view
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.SelectedItem = cod;
+            int config = comboBox1.SelectedIndex;
+            AtualizaComboCod(config);
         }
-        
+        public void AtualizaComboCod(int indice)
+        {
+            if (indice >= 0 && indice < comboCod.Items.Count)
+            {
+                comboCod.SelectedItem = comboCod.Items[indice];
+            }
+        }
+
+
         public void LoadEmpresas()
         {
             CrudEmpresas loadEmpresas = new CrudEmpresas();
@@ -124,6 +136,18 @@ namespace PIM_IV.view
             comboCod.ValueMember = "CodEmpresa";
             comboCod.DataSource = loadEmpresas.BuscarEmpresas();
         }
-       
+
+        private void comboCod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int config = comboCod.SelectedIndex;
+            AtualizaCombobox(config);
+        }
+        public void AtualizaCombobox(int indice)
+        {
+            if (indice >= 0 && indice < comboBox1.Items.Count)
+            {
+                comboBox1.SelectedItem = comboBox1.Items[indice];
+            }
+        }
     }
 }

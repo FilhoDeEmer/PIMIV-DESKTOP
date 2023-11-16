@@ -31,27 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCRUDCargos));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEmpresas = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.byEmpresasToolStrip = new System.Windows.Forms.ToolStrip();
             this.codEmpresaToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.codEmpresaToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.byEmpresasToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.txtEmpresas = new System.Windows.Forms.TextBox();
-            this.cod_cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salariobaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.byEmpresasToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.byEmpresasToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -60,11 +56,6 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cod_cargo,
-            this.nomeDataGridViewTextBoxColumn,
-            this.salariobaseDataGridViewTextBoxColumn,
-            this.codigoempresaDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.cargosBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 177);
             this.dataGridView1.Name = "dataGridView1";
@@ -72,7 +63,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 257);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // cargosBindingSource
+            // 
+            this.cargosBindingSource.DataMember = "Cargos";
+            this.cargosBindingSource.CurrentChanged += new System.EventHandler(this.cargosBindingSource_CurrentChanged);
             // 
             // panel1
             // 
@@ -86,6 +82,64 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 560);
             this.panel1.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtEmpresas);
+            this.groupBox1.Controls.Add(this.btnPesquisar);
+            this.groupBox1.Location = new System.Drawing.Point(27, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(321, 100);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar Empresas";
+            // 
+            // txtEmpresas
+            // 
+            this.txtEmpresas.Location = new System.Drawing.Point(6, 44);
+            this.txtEmpresas.Name = "txtEmpresas";
+            this.txtEmpresas.Size = new System.Drawing.Size(169, 26);
+            this.txtEmpresas.TabIndex = 1;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(191, 38);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(107, 37);
+            this.btnPesquisar.TabIndex = 0;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(482, 474);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(100, 47);
+            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.Text = "Alterar/\r\nExcluir\r\n";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(694, 474);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(100, 47);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Location = new System.Drawing.Point(588, 474);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(100, 47);
+            this.btnCadastrar.TabIndex = 1;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // byEmpresasToolStrip
             // 
@@ -121,102 +175,6 @@
             this.byEmpresasToolStripButton.Text = "ByEmpresas";
             this.byEmpresasToolStripButton.Click += new System.EventHandler(this.byEmpresasToolStripButton_Click);
             // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.Location = new System.Drawing.Point(588, 474);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(100, 47);
-            this.btnCadastrar.TabIndex = 1;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(694, 474);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 47);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Location = new System.Drawing.Point(482, 474);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(100, 47);
-            this.btnAlterar.TabIndex = 3;
-            this.btnAlterar.Text = "Alterar/\r\nExcluir\r\n";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // cargosBindingSource
-            // 
-            this.cargosBindingSource.DataMember = "Cargos";
-            // 
-            // hERMESDataSet3
-            // 
-            // 
-            // cargosTableAdapter
-            // 
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtEmpresas);
-            this.groupBox1.Controls.Add(this.btnPesquisar);
-            this.groupBox1.Location = new System.Drawing.Point(27, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(321, 100);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pesquisar Empresas";
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Location = new System.Drawing.Point(191, 38);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(107, 37);
-            this.btnPesquisar.TabIndex = 0;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // txtEmpresas
-            // 
-            this.txtEmpresas.Location = new System.Drawing.Point(6, 44);
-            this.txtEmpresas.Name = "txtEmpresas";
-            this.txtEmpresas.Size = new System.Drawing.Size(169, 26);
-            this.txtEmpresas.TabIndex = 1;
-            // 
-            // cod_cargo
-            // 
-            this.cod_cargo.DataPropertyName = "codigo_cargo";
-            this.cod_cargo.HeaderText = "codigo_cargo";
-            this.cod_cargo.Name = "cod_cargo";
-            this.cod_cargo.ReadOnly = true;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // salariobaseDataGridViewTextBoxColumn
-            // 
-            this.salariobaseDataGridViewTextBoxColumn.DataPropertyName = "salario_base";
-            this.salariobaseDataGridViewTextBoxColumn.HeaderText = "salario_base";
-            this.salariobaseDataGridViewTextBoxColumn.Name = "salariobaseDataGridViewTextBoxColumn";
-            this.salariobaseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codigoempresaDataGridViewTextBoxColumn
-            // 
-            this.codigoempresaDataGridViewTextBoxColumn.DataPropertyName = "codigo_empresa";
-            this.codigoempresaDataGridViewTextBoxColumn.HeaderText = "codigo_empresa";
-            this.codigoempresaDataGridViewTextBoxColumn.Name = "codigoempresaDataGridViewTextBoxColumn";
-            this.codigoempresaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // FormCRUDCargos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,12 +188,12 @@
             this.Text = "Cargos";
             this.Load += new System.EventHandler(this.FormCRUDCargos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.byEmpresasToolStrip.ResumeLayout(false);
-            this.byEmpresasToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.byEmpresasToolStrip.ResumeLayout(false);
+            this.byEmpresasToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
