@@ -16,6 +16,7 @@ namespace PIM_IV.view
         public FormCargos()
         {
             InitializeComponent();
+            LoadEmpresas();
         }
         string cod;
         public FormCargos(string cod)
@@ -23,6 +24,7 @@ namespace PIM_IV.view
             this.cod = cod;
             InitializeComponent();
             CrudCargos cargo = new CrudCargos();
+            LoadEmpresas();
             cargo.BuscaCargo(cod);
             txtNome.Text = cargo.NomeCargo;
             txtSalarioBase.Text = cargo.SalarioBase;
@@ -35,10 +37,7 @@ namespace PIM_IV.view
 
         private void FormCargos_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet1.Cargos'. Você pode movê-la ou removê-la conforme necessário.
-            this.cargosTableAdapter.Fill(this.hERMESDataSet1.Cargos);
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
-            this.empresasTableAdapter.Fill(this.hERMESDataSet.Empresas);
+           
 
         }
 
@@ -86,7 +85,7 @@ namespace PIM_IV.view
                     {
                         string cargoNome = txtNome.Text;
                         decimal salarioBase = decimal.Parse(txtSalarioBase.Text);
-                        int empresa = (int)comboBox1.SelectedValue;
+                        string empresa = comboCod.Text;
                         CrudCargos novoCargo = new CrudCargos();
                         novoCargo.CadastrarCargo(cargoNome, salarioBase, empresa);
                         Close();
@@ -114,7 +113,17 @@ namespace PIM_IV.view
         {
             comboBox1.SelectedItem = cod;
         }
-
+        
+        public void LoadEmpresas()
+        {
+            CrudEmpresas loadEmpresas = new CrudEmpresas();
+            comboBox1.DisplayMember = "NomeEmpresa";
+            comboBox1.ValueMember = "CodEmpresa";
+            comboBox1.DataSource = loadEmpresas.BuscarEmpresas();
+            comboCod.DisplayMember = "CodEmpresa";
+            comboCod.ValueMember = "CodEmpresa";
+            comboCod.DataSource = loadEmpresas.BuscarEmpresas();
+        }
        
     }
 }

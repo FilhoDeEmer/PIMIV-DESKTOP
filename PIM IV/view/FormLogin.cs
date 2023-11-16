@@ -40,9 +40,9 @@ namespace PIM_IV
             {
                 FormHome home = new FormHome(comNome);
                 home.Show();
-               Hide();
+                Hide();
             }
-         else { MessageBox.Show("Usuário ou senha invalido"); }
+         else { MessageBox.Show("Usuário ou senha inválido"); }
 
 
         }

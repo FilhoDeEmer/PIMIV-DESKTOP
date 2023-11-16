@@ -39,7 +39,7 @@ namespace PIM_IV.control
         public string AddPericulosidade { get; set; }
         public string AddNoturno { get; set; }
         public string Inss { get; set; }
-        public string DescontoSindical { get; set; }
+        public string NDependentes { get; set; }
         public string Cod_banco { get; set; }
         public string NomeBanco { get; set; }
         public string AgenciaBanco { get; set; }
@@ -48,6 +48,9 @@ namespace PIM_IV.control
         public string Cod_User { get; set; }
         public string Login { get; set; }
         public string NomeCargo { get; set; }
+        public string SalarioHora { get; set; }
+        public string CalculoInss { get; set; }
+
 
         public void CadastrarFuncionario()
         {
@@ -74,7 +77,7 @@ namespace PIM_IV.control
                                   ",add_notuno " +
                                   ",add_perigo " +
                                   ",INSS " +
-                                  ",DESCONTO_SINDICAL " +
+                                  ",n_dependentes " +
                                   ",cod_banco " +
                                   ",nome_banco " +
                                   ",agencia " +
@@ -103,7 +106,7 @@ namespace PIM_IV.control
                                   ",@Notuno " +
                                   ",@Periculosidade " +
                                   ",@INSS " +
-                                  ",@Sindical " +
+                                  ",@NDependentes " +
                                   ",@CodBanco " +
                                   ",@NomeBanco" +
                                   ",@Agencia " +
@@ -114,7 +117,7 @@ namespace PIM_IV.control
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -146,7 +149,7 @@ namespace PIM_IV.control
                             cmd.Parameters.AddWithValue("@Notuno", Convert.ToDecimal(AddNoturno));
                             cmd.Parameters.AddWithValue("@Periculosidade", Convert.ToDecimal(AddPericulosidade));
                             cmd.Parameters.AddWithValue("@INSS", Convert.ToDecimal(Inss));
-                            cmd.Parameters.AddWithValue("@Sindical", Convert.ToDecimal(DescontoSindical));
+                            cmd.Parameters.AddWithValue("@NDependentes", Convert.ToDecimal(NDependentes));
                             cmd.Parameters.AddWithValue("@CodBanco", Convert.ToInt32(Cod_banco));
                             cmd.Parameters.AddWithValue("@NomeBanco", NomeBanco);
                             cmd.Parameters.AddWithValue("@Agencia", Convert.ToInt32(AgenciaBanco));
@@ -178,8 +181,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Funcionarios where CPF = @Cpf;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
-
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -234,7 +236,7 @@ namespace PIM_IV.control
                                  ,add_notuno =@Notuno 
                                  ,add_perigo =@Periculosidade 
                                  ,INSS =@INSS 
-                                 ,DESCONTO_SINDICAL =@Sindical 
+                                 ,n_dependentes =@NDependentes 
                                  ,cod_banco =@CodBanco 
                                  ,nome_banco =@NomeBanco
                                  ,agencia =@Agencia 
@@ -245,7 +247,7 @@ namespace PIM_IV.control
 
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -277,7 +279,7 @@ namespace PIM_IV.control
                         cmd.Parameters.AddWithValue("@Notuno", Convert.ToDecimal(AddNoturno));
                         cmd.Parameters.AddWithValue("@Periculosidade", Convert.ToDecimal(AddPericulosidade));
                         cmd.Parameters.AddWithValue("@INSS", Convert.ToDecimal(Inss));
-                        cmd.Parameters.AddWithValue("@Sindical", Convert.ToDecimal(DescontoSindical));
+                        cmd.Parameters.AddWithValue("@NDependentes", Convert.ToDecimal(NDependentes));
                         cmd.Parameters.AddWithValue("@CodBanco", Convert.ToInt32(Cod_banco));
                         cmd.Parameters.AddWithValue("@NomeBanco", NomeBanco);
                         cmd.Parameters.AddWithValue("@Agencia", Convert.ToInt32(AgenciaBanco));
@@ -318,7 +320,7 @@ namespace PIM_IV.control
                     " WHERE nome = @Cpf ";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -380,7 +382,7 @@ namespace PIM_IV.control
                                 F.[add_notuno],
                                 F.[add_perigo],
                                 F.[INSS],
-                                F.[DESCONTO_SINDICAL],
+                                F.[n_ependentes],
                                 F.[cod_banco],
                                 F.[nome_banco],
                                 F.[agencia],
@@ -398,7 +400,7 @@ namespace PIM_IV.control
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -437,7 +439,7 @@ namespace PIM_IV.control
                                 AddPericulosidade = Convert.ToString(data["add_perigo"]);
                                 AddNoturno = Convert.ToString(data["add_notuno"]);
                                 Inss = Convert.ToString(data["INSS"]);
-                                DescontoSindical = Convert.ToString(data["DESCONTO_SINDICAL"]);
+                                NDependentes = Convert.ToString(data["n_ependentes"]);
                                 Cod_banco = Convert.ToString(data["cod_banco"]);
                                 NomeBanco = Convert.ToString(data["nome_banco"]);
                                 AgenciaBanco = Convert.ToString(data["agencia"]);
@@ -481,8 +483,7 @@ namespace PIM_IV.control
 
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
-
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString))
@@ -524,7 +525,7 @@ namespace PIM_IV.control
                 string deleteUser = "DELETE FROM Usuarios WHERE nome = @Login;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -584,7 +585,7 @@ namespace PIM_IV.control
             List<Codigos> codigos = new List<Codigos>();
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -612,6 +613,13 @@ namespace PIM_IV.control
                 return codigos;
             }
         }
+    
+       
+        
+    
+    
+    
+    
     }
 
 }

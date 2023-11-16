@@ -25,8 +25,7 @@ namespace PIM_IV.view
 
         private void FormUsuarios_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSetUsers.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuariosTableAdapter.Fill(this.hERMESDataSetUsers.Usuarios);
+            
 
         }
     }

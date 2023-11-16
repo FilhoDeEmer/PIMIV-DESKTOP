@@ -58,7 +58,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Usuarios where nome = @Nome;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -97,7 +97,7 @@ namespace PIM_IV.control
             string comando = "SELECT nome from Usuarios where cod_usuario = @Cod;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -129,8 +129,7 @@ namespace PIM_IV.control
             string comando = "SELECT cod_usuario from Usuarios where nome = @Cod;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
-
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -162,7 +161,7 @@ namespace PIM_IV.control
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -77,38 +77,9 @@
     <Compile Include="control\CrudCargos.cs" />
     <Compile Include="control\CrudEmpresas.cs" />
     <Compile Include="control\CrudFuncionario.cs" />
+    <Compile Include="control\CRUDReferencias.cs" />
     <Compile Include="control\CrudUser.cs" />
     <Compile Include="control\PegaNome.cs" />
-    <Compile Include="HERMESDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HERMESDataSet11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HERMESDataSet11.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HERMESDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HERMESDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HERMESDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HERMESDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HERMESDataSetUsers.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>
-    </Compile>
     <Compile Include="model\CreateDataBase.cs" />
     <Compile Include="view\FormSelecEpresa.cs">
       <SubType>Form</SubType>
@@ -258,73 +229,6 @@
     <EmbeddedResource Include="view\FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AppDB.config" />
-    <None Include="HERMESDataSet1.xsc">
-      <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HERMESDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HERMESDataSet1.xss">
-      <DependentUpon>HERMESDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet11.xsc">
-      <DependentUpon>HERMESDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HERMESDataSet11.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HERMESDataSet11.xss">
-      <DependentUpon>HERMESDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet2.xsc">
-      <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HERMESDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HERMESDataSet2.xss">
-      <DependentUpon>HERMESDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet3.xsc">
-      <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HERMESDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HERMESDataSet3.xss">
-      <DependentUpon>HERMESDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet4.xsc">
-      <DependentUpon>HERMESDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HERMESDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HERMESDataSet4.xss">
-      <DependentUpon>HERMESDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSetUsers.xsc">
-      <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>
-    </None>
-    <None Include="HERMESDataSetUsers.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HERMESDataSetUsers.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HERMESDataSetUsers.xss">
-      <DependentUpon>HERMESDataSetUsers.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

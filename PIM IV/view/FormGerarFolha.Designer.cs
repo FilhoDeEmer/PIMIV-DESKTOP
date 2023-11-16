@@ -33,7 +33,14 @@
             this.boxCPFFUn = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.c = new System.Windows.Forms.GroupBox();
+            this.referencia7 = new System.Windows.Forms.ComboBox();
+            this.referencia6 = new System.Windows.Forms.ComboBox();
+            this.referencia5 = new System.Windows.Forms.ComboBox();
+            this.referencia4 = new System.Windows.Forms.ComboBox();
+            this.referencia3 = new System.Windows.Forms.ComboBox();
+            this.referencia2 = new System.Windows.Forms.ComboBox();
+            this.referencia1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,14 +67,15 @@
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.referencia7Nome = new System.Windows.Forms.TextBox();
+            this.referencia6Nome = new System.Windows.Forms.TextBox();
+            this.referencia5Nome = new System.Windows.Forms.TextBox();
+            this.referencia4Nome = new System.Windows.Forms.TextBox();
+            this.referencia3Nome = new System.Windows.Forms.TextBox();
+            this.referencia2Nome = new System.Windows.Forms.TextBox();
+            this.referencia1Nome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.referenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -95,29 +103,15 @@
             this.labBases = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.hERMESDataSet2 = new PIM_IV.HERMESDataSet2();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionariosTableAdapter = new PIM_IV.HERMESDataSet2TableAdapters.FuncionariosTableAdapter();
-            this.referencia1 = new System.Windows.Forms.ComboBox();
-            this.referencia2 = new System.Windows.Forms.ComboBox();
-            this.referencia3 = new System.Windows.Forms.ComboBox();
-            this.referencia4 = new System.Windows.Forms.ComboBox();
-            this.referencia5 = new System.Windows.Forms.ComboBox();
-            this.referencia6 = new System.Windows.Forms.ComboBox();
-            this.referencia7 = new System.Windows.Forms.ComboBox();
-            this.hERMESDataSet4 = new PIM_IV.HERMESDataSet4();
-            this.referenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.referenciasTableAdapter = new PIM_IV.HERMESDataSet4TableAdapters.ReferenciasTableAdapter();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.c.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.referenciasBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.referenciasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -160,56 +154,120 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // groupBox2
+            // c
             // 
-            this.groupBox2.Controls.Add(this.referencia7);
-            this.groupBox2.Controls.Add(this.referencia6);
-            this.groupBox2.Controls.Add(this.referencia5);
-            this.groupBox2.Controls.Add(this.referencia4);
-            this.groupBox2.Controls.Add(this.referencia3);
-            this.groupBox2.Controls.Add(this.referencia2);
-            this.groupBox2.Controls.Add(this.referencia1);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox30);
-            this.groupBox2.Controls.Add(this.textBox31);
-            this.groupBox2.Controls.Add(this.textBox32);
-            this.groupBox2.Controls.Add(this.textBox33);
-            this.groupBox2.Controls.Add(this.textBox34);
-            this.groupBox2.Controls.Add(this.textBox35);
-            this.groupBox2.Controls.Add(this.textBox36);
-            this.groupBox2.Controls.Add(this.textBox23);
-            this.groupBox2.Controls.Add(this.textBox24);
-            this.groupBox2.Controls.Add(this.textBox25);
-            this.groupBox2.Controls.Add(this.textBox26);
-            this.groupBox2.Controls.Add(this.textBox27);
-            this.groupBox2.Controls.Add(this.textBox28);
-            this.groupBox2.Controls.Add(this.textBox29);
-            this.groupBox2.Controls.Add(this.textBox16);
-            this.groupBox2.Controls.Add(this.textBox17);
-            this.groupBox2.Controls.Add(this.textBox18);
-            this.groupBox2.Controls.Add(this.textBox19);
-            this.groupBox2.Controls.Add(this.textBox20);
-            this.groupBox2.Controls.Add(this.textBox21);
-            this.groupBox2.Controls.Add(this.textBox22);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.textBox13);
-            this.groupBox2.Controls.Add(this.textBox14);
-            this.groupBox2.Controls.Add(this.textBox15);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(7, 134);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1032, 295);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Mês de Referência";
+            this.c.Controls.Add(this.referencia7);
+            this.c.Controls.Add(this.referencia6);
+            this.c.Controls.Add(this.referencia5);
+            this.c.Controls.Add(this.referencia4);
+            this.c.Controls.Add(this.referencia3);
+            this.c.Controls.Add(this.referencia2);
+            this.c.Controls.Add(this.referencia1);
+            this.c.Controls.Add(this.label9);
+            this.c.Controls.Add(this.label7);
+            this.c.Controls.Add(this.label6);
+            this.c.Controls.Add(this.label5);
+            this.c.Controls.Add(this.label4);
+            this.c.Controls.Add(this.textBox30);
+            this.c.Controls.Add(this.textBox31);
+            this.c.Controls.Add(this.textBox32);
+            this.c.Controls.Add(this.textBox33);
+            this.c.Controls.Add(this.textBox34);
+            this.c.Controls.Add(this.textBox35);
+            this.c.Controls.Add(this.textBox36);
+            this.c.Controls.Add(this.textBox23);
+            this.c.Controls.Add(this.textBox24);
+            this.c.Controls.Add(this.textBox25);
+            this.c.Controls.Add(this.textBox26);
+            this.c.Controls.Add(this.textBox27);
+            this.c.Controls.Add(this.textBox28);
+            this.c.Controls.Add(this.textBox29);
+            this.c.Controls.Add(this.textBox16);
+            this.c.Controls.Add(this.textBox17);
+            this.c.Controls.Add(this.textBox18);
+            this.c.Controls.Add(this.textBox19);
+            this.c.Controls.Add(this.textBox20);
+            this.c.Controls.Add(this.textBox21);
+            this.c.Controls.Add(this.textBox22);
+            this.c.Controls.Add(this.referencia7Nome);
+            this.c.Controls.Add(this.referencia6Nome);
+            this.c.Controls.Add(this.referencia5Nome);
+            this.c.Controls.Add(this.referencia4Nome);
+            this.c.Controls.Add(this.referencia3Nome);
+            this.c.Controls.Add(this.referencia2Nome);
+            this.c.Controls.Add(this.referencia1Nome);
+            this.c.Controls.Add(this.label3);
+            this.c.Enabled = false;
+            this.c.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c.Location = new System.Drawing.Point(7, 134);
+            this.c.Name = "c";
+            this.c.Size = new System.Drawing.Size(1032, 295);
+            this.c.TabIndex = 2;
+            this.c.TabStop = false;
+            this.c.Text = "Mês de Referência";
+            // 
+            // referencia7
+            // 
+            this.referencia7.FormattingEnabled = true;
+            this.referencia7.Location = new System.Drawing.Point(12, 255);
+            this.referencia7.Name = "referencia7";
+            this.referencia7.Size = new System.Drawing.Size(73, 30);
+            this.referencia7.TabIndex = 46;
+            this.referencia7.SelectedIndexChanged += new System.EventHandler(this.referencia7_SelectedIndexChanged);
+            // 
+            // referencia6
+            // 
+            this.referencia6.FormattingEnabled = true;
+            this.referencia6.Location = new System.Drawing.Point(12, 219);
+            this.referencia6.Name = "referencia6";
+            this.referencia6.Size = new System.Drawing.Size(73, 30);
+            this.referencia6.TabIndex = 45;
+            this.referencia6.SelectedIndexChanged += new System.EventHandler(this.referencia6_SelectedIndexChanged);
+            // 
+            // referencia5
+            // 
+            this.referencia5.FormattingEnabled = true;
+            this.referencia5.Location = new System.Drawing.Point(12, 183);
+            this.referencia5.Name = "referencia5";
+            this.referencia5.Size = new System.Drawing.Size(73, 30);
+            this.referencia5.TabIndex = 44;
+            this.referencia5.SelectedIndexChanged += new System.EventHandler(this.referencia5_SelectedIndexChanged);
+            // 
+            // referencia4
+            // 
+            this.referencia4.FormattingEnabled = true;
+            this.referencia4.Location = new System.Drawing.Point(12, 147);
+            this.referencia4.Name = "referencia4";
+            this.referencia4.Size = new System.Drawing.Size(73, 30);
+            this.referencia4.TabIndex = 43;
+            this.referencia4.SelectedIndexChanged += new System.EventHandler(this.referencia4_SelectedIndexChanged);
+            // 
+            // referencia3
+            // 
+            this.referencia3.FormattingEnabled = true;
+            this.referencia3.Location = new System.Drawing.Point(12, 111);
+            this.referencia3.Name = "referencia3";
+            this.referencia3.Size = new System.Drawing.Size(73, 30);
+            this.referencia3.TabIndex = 42;
+            this.referencia3.SelectedIndexChanged += new System.EventHandler(this.referencia3_SelectedIndexChanged);
+            // 
+            // referencia2
+            // 
+            this.referencia2.FormattingEnabled = true;
+            this.referencia2.Location = new System.Drawing.Point(12, 75);
+            this.referencia2.Name = "referencia2";
+            this.referencia2.Size = new System.Drawing.Size(73, 30);
+            this.referencia2.TabIndex = 41;
+            this.referencia2.SelectedIndexChanged += new System.EventHandler(this.referencia2_SelectedIndexChanged);
+            // 
+            // referencia1
+            // 
+            this.referencia1.FormattingEnabled = true;
+            this.referencia1.Location = new System.Drawing.Point(12, 39);
+            this.referencia1.Name = "referencia1";
+            this.referencia1.Size = new System.Drawing.Size(73, 30);
+            this.referencia1.TabIndex = 40;
+            this.referencia1.SelectedIndexChanged += new System.EventHandler(this.referencia1_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -408,54 +466,54 @@
             this.textBox22.Size = new System.Drawing.Size(85, 29);
             this.textBox22.TabIndex = 15;
             // 
-            // textBox9
+            // referencia7Nome
             // 
-            this.textBox9.Location = new System.Drawing.Point(91, 256);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(385, 29);
-            this.textBox9.TabIndex = 14;
+            this.referencia7Nome.Location = new System.Drawing.Point(91, 256);
+            this.referencia7Nome.Name = "referencia7Nome";
+            this.referencia7Nome.Size = new System.Drawing.Size(385, 29);
+            this.referencia7Nome.TabIndex = 14;
             // 
-            // textBox10
+            // referencia6Nome
             // 
-            this.textBox10.Location = new System.Drawing.Point(92, 220);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(385, 29);
-            this.textBox10.TabIndex = 13;
+            this.referencia6Nome.Location = new System.Drawing.Point(92, 220);
+            this.referencia6Nome.Name = "referencia6Nome";
+            this.referencia6Nome.Size = new System.Drawing.Size(385, 29);
+            this.referencia6Nome.TabIndex = 13;
             // 
-            // textBox11
+            // referencia5Nome
             // 
-            this.textBox11.Location = new System.Drawing.Point(92, 184);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(385, 29);
-            this.textBox11.TabIndex = 12;
+            this.referencia5Nome.Location = new System.Drawing.Point(92, 184);
+            this.referencia5Nome.Name = "referencia5Nome";
+            this.referencia5Nome.Size = new System.Drawing.Size(385, 29);
+            this.referencia5Nome.TabIndex = 12;
             // 
-            // textBox12
+            // referencia4Nome
             // 
-            this.textBox12.Location = new System.Drawing.Point(92, 148);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(385, 29);
-            this.textBox12.TabIndex = 11;
+            this.referencia4Nome.Location = new System.Drawing.Point(92, 148);
+            this.referencia4Nome.Name = "referencia4Nome";
+            this.referencia4Nome.Size = new System.Drawing.Size(385, 29);
+            this.referencia4Nome.TabIndex = 11;
             // 
-            // textBox13
+            // referencia3Nome
             // 
-            this.textBox13.Location = new System.Drawing.Point(91, 112);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(385, 29);
-            this.textBox13.TabIndex = 10;
+            this.referencia3Nome.Location = new System.Drawing.Point(91, 112);
+            this.referencia3Nome.Name = "referencia3Nome";
+            this.referencia3Nome.Size = new System.Drawing.Size(385, 29);
+            this.referencia3Nome.TabIndex = 10;
             // 
-            // textBox14
+            // referencia2Nome
             // 
-            this.textBox14.Location = new System.Drawing.Point(91, 76);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(385, 29);
-            this.textBox14.TabIndex = 9;
+            this.referencia2Nome.Location = new System.Drawing.Point(91, 76);
+            this.referencia2Nome.Name = "referencia2Nome";
+            this.referencia2Nome.Size = new System.Drawing.Size(385, 29);
+            this.referencia2Nome.TabIndex = 9;
             // 
-            // textBox15
+            // referencia1Nome
             // 
-            this.textBox15.Location = new System.Drawing.Point(92, 40);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(385, 29);
-            this.textBox15.TabIndex = 8;
+            this.referencia1Nome.Location = new System.Drawing.Point(92, 40);
+            this.referencia1Nome.Name = "referencia1Nome";
+            this.referencia1Nome.Size = new System.Drawing.Size(385, 29);
+            this.referencia1Nome.TabIndex = 8;
             // 
             // label3
             // 
@@ -466,6 +524,13 @@
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "Cod.";
+            // 
+            // referenciasBindingSource
+            // 
+            this.referenciasBindingSource.DataMember = "Referencias";
+            // 
+            // hERMESDataSet4
+            // 
             // 
             // groupBox3
             // 
@@ -751,90 +816,16 @@
             // 
             // hERMESDataSet2
             // 
-            this.hERMESDataSet2.DataSetName = "HERMESDataSet2";
-            this.hERMESDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // funcionariosBindingSource
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
-            this.funcionariosBindingSource.DataSource = this.hERMESDataSet2;
             // 
             // funcionariosTableAdapter
             // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
-            // 
-            // referencia1
-            // 
-            this.referencia1.DataSource = this.referenciasBindingSource;
-            this.referencia1.DisplayMember = "codigo";
-            this.referencia1.FormattingEnabled = true;
-            this.referencia1.Location = new System.Drawing.Point(12, 39);
-            this.referencia1.Name = "referencia1";
-            this.referencia1.Size = new System.Drawing.Size(73, 30);
-            this.referencia1.TabIndex = 40;
-            this.referencia1.ValueMember = "codigo";
-            // 
-            // referencia2
-            // 
-            this.referencia2.FormattingEnabled = true;
-            this.referencia2.Location = new System.Drawing.Point(12, 75);
-            this.referencia2.Name = "referencia2";
-            this.referencia2.Size = new System.Drawing.Size(73, 30);
-            this.referencia2.TabIndex = 41;
-            // 
-            // referencia3
-            // 
-            this.referencia3.FormattingEnabled = true;
-            this.referencia3.Location = new System.Drawing.Point(12, 111);
-            this.referencia3.Name = "referencia3";
-            this.referencia3.Size = new System.Drawing.Size(73, 30);
-            this.referencia3.TabIndex = 42;
-            // 
-            // referencia4
-            // 
-            this.referencia4.FormattingEnabled = true;
-            this.referencia4.Location = new System.Drawing.Point(12, 147);
-            this.referencia4.Name = "referencia4";
-            this.referencia4.Size = new System.Drawing.Size(73, 30);
-            this.referencia4.TabIndex = 43;
-            // 
-            // referencia5
-            // 
-            this.referencia5.FormattingEnabled = true;
-            this.referencia5.Location = new System.Drawing.Point(12, 183);
-            this.referencia5.Name = "referencia5";
-            this.referencia5.Size = new System.Drawing.Size(73, 30);
-            this.referencia5.TabIndex = 44;
-            // 
-            // referencia6
-            // 
-            this.referencia6.FormattingEnabled = true;
-            this.referencia6.Location = new System.Drawing.Point(12, 219);
-            this.referencia6.Name = "referencia6";
-            this.referencia6.Size = new System.Drawing.Size(73, 30);
-            this.referencia6.TabIndex = 45;
-            // 
-            // referencia7
-            // 
-            this.referencia7.FormattingEnabled = true;
-            this.referencia7.Location = new System.Drawing.Point(12, 255);
-            this.referencia7.Name = "referencia7";
-            this.referencia7.Size = new System.Drawing.Size(73, 30);
-            this.referencia7.TabIndex = 46;
-            // 
-            // hERMESDataSet4
-            // 
-            this.hERMESDataSet4.DataSetName = "HERMESDataSet4";
-            this.hERMESDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // referenciasBindingSource
-            // 
-            this.referenciasBindingSource.DataMember = "Referencias";
-            this.referenciasBindingSource.DataSource = this.hERMESDataSet4;
             // 
             // referenciasTableAdapter
             // 
-            this.referenciasTableAdapter.ClearBeforeFill = true;
             // 
             // FormGerarFolha
             // 
@@ -847,7 +838,7 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.c);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGerarFolha";
@@ -855,8 +846,9 @@
             this.Load += new System.EventHandler(this.FormGerarFolha_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.c.ResumeLayout(false);
+            this.c.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.referenciasBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -865,10 +857,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.referenciasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -878,7 +867,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox c;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -913,13 +902,13 @@
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox referencia7Nome;
+        private System.Windows.Forms.TextBox referencia6Nome;
+        private System.Windows.Forms.TextBox referencia5Nome;
+        private System.Windows.Forms.TextBox referencia4Nome;
+        private System.Windows.Forms.TextBox referencia3Nome;
+        private System.Windows.Forms.TextBox referencia2Nome;
+        private System.Windows.Forms.TextBox referencia1Nome;
         private System.Windows.Forms.Label labCalculo;
         private System.Windows.Forms.Label labBases;
         private System.Windows.Forms.Label label9;
@@ -941,9 +930,7 @@
         private System.Windows.Forms.Label labelSalarioBase;
         private System.Windows.Forms.Label labelDadosFuncionarios;
         private System.Windows.Forms.ComboBox boxCPFFUn;
-        private HERMESDataSet2 hERMESDataSet2;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
-        private HERMESDataSet2TableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
         private System.Windows.Forms.ComboBox referencia1;
         private System.Windows.Forms.ComboBox referencia7;
         private System.Windows.Forms.ComboBox referencia6;
@@ -951,8 +938,6 @@
         private System.Windows.Forms.ComboBox referencia4;
         private System.Windows.Forms.ComboBox referencia3;
         private System.Windows.Forms.ComboBox referencia2;
-        private HERMESDataSet4 hERMESDataSet4;
         private System.Windows.Forms.BindingSource referenciasBindingSource;
-        private HERMESDataSet4TableAdapters.ReferenciasTableAdapter referenciasTableAdapter;
     }
 }

@@ -67,7 +67,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.txtTransporte = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.txtSindical = new System.Windows.Forms.TextBox();
+            this.txtDependentes = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtNoturno = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -75,7 +75,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtNomeEmpresa = new System.Windows.Forms.ComboBox();
             this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSet = new PIM_IV.HERMESDataSet();
             this.txtNomeCargo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.boxCodCargo = new System.Windows.Forms.ComboBox();
@@ -113,13 +112,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSet1 = new PIM_IV.HERMESDataSet1();
-            this.hERMESDataSetUsers = new PIM_IV.HERMESDataSetUsers();
             this.hERMESDataSetUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuariosTableAdapter = new PIM_IV.HERMESDataSetUsersTableAdapters.UsuariosTableAdapter();
-            this.empresasTableAdapter = new PIM_IV.HERMESDataSetTableAdapters.EmpresasTableAdapter();
-            this.cargosTableAdapter = new PIM_IV.HERMESDataSet1TableAdapters.CargosTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -127,12 +121,9 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -403,7 +394,7 @@
             this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Controls.Add(this.txtTransporte);
             this.groupBox5.Controls.Add(this.label24);
-            this.groupBox5.Controls.Add(this.txtSindical);
+            this.groupBox5.Controls.Add(this.txtDependentes);
             this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Controls.Add(this.txtNoturno);
             this.groupBox5.Controls.Add(this.label22);
@@ -507,16 +498,16 @@
             this.label24.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(543, 98);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(155, 18);
+            this.label24.Size = new System.Drawing.Size(215, 18);
             this.label24.TabIndex = 12;
-            this.label24.Text = "Desconto Sindical:";
+            this.label24.Text = "Número de Dependentes:";
             // 
-            // txtSindical
+            // txtDependentes
             // 
-            this.txtSindical.Location = new System.Drawing.Point(543, 114);
-            this.txtSindical.Name = "txtSindical";
-            this.txtSindical.Size = new System.Drawing.Size(146, 29);
-            this.txtSindical.TabIndex = 23;
+            this.txtDependentes.Location = new System.Drawing.Point(543, 114);
+            this.txtDependentes.Name = "txtDependentes";
+            this.txtDependentes.Size = new System.Drawing.Size(146, 29);
+            this.txtDependentes.TabIndex = 23;
             // 
             // label23
             // 
@@ -578,25 +569,16 @@
             // 
             // txtNomeEmpresa
             // 
-            this.txtNomeEmpresa.DataSource = this.empresasBindingSource;
-            this.txtNomeEmpresa.DisplayMember = "Nome";
             this.txtNomeEmpresa.FormattingEnabled = true;
             this.txtNomeEmpresa.Location = new System.Drawing.Point(85, 45);
             this.txtNomeEmpresa.Name = "txtNomeEmpresa";
             this.txtNomeEmpresa.Size = new System.Drawing.Size(336, 30);
             this.txtNomeEmpresa.TabIndex = 21;
-            this.txtNomeEmpresa.ValueMember = "Nome";
             this.txtNomeEmpresa.SelectedIndexChanged += new System.EventHandler(this.txtNomeEmpresa_SelectedIndexChanged);
             // 
             // empresasBindingSource
             // 
             this.empresasBindingSource.DataMember = "Empresas";
-            this.empresasBindingSource.DataSource = this.hERMESDataSet;
-            // 
-            // hERMESDataSet
-            // 
-            this.hERMESDataSet.DataSetName = "HERMESDataSet";
-            this.hERMESDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtNomeCargo
             // 
@@ -605,6 +587,7 @@
             this.txtNomeCargo.Name = "txtNomeCargo";
             this.txtNomeCargo.Size = new System.Drawing.Size(212, 29);
             this.txtNomeCargo.TabIndex = 20;
+            this.txtNomeCargo.TextChanged += new System.EventHandler(this.txtNomeCargo_TextChanged);
             // 
             // label12
             // 
@@ -943,39 +926,11 @@
             // cargosBindingSource
             // 
             this.cargosBindingSource.DataMember = "Cargos";
-            this.cargosBindingSource.DataSource = this.hERMESDataSet1;
-            // 
-            // hERMESDataSet1
-            // 
-            this.hERMESDataSet1.DataSetName = "HERMESDataSet1";
-            this.hERMESDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hERMESDataSetUsers
-            // 
-            this.hERMESDataSetUsers.DataSetName = "HERMESDataSetUsers";
-            this.hERMESDataSetUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hERMESDataSetUsersBindingSource
-            // 
-            this.hERMESDataSetUsersBindingSource.DataSource = this.hERMESDataSetUsers;
-            this.hERMESDataSetUsersBindingSource.Position = 0;
             // 
             // usuariosBindingSource
             // 
             this.usuariosBindingSource.DataMember = "Usuarios";
             this.usuariosBindingSource.DataSource = this.hERMESDataSetUsersBindingSource;
-            // 
-            // usuariosTableAdapter
-            // 
-            this.usuariosTableAdapter.ClearBeforeFill = true;
-            // 
-            // empresasTableAdapter
-            // 
-            this.empresasTableAdapter.ClearBeforeFill = true;
-            // 
-            // cargosTableAdapter
-            // 
-            this.cargosTableAdapter.ClearBeforeFill = true;
             // 
             // FormCRUDFuncionario
             // 
@@ -999,16 +954,11 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
+            
             this.ResumeLayout(false);
 
         }
@@ -1069,7 +1019,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtTransporte;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txtSindical;
+        private System.Windows.Forms.TextBox txtDependentes;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtNoturno;
         private System.Windows.Forms.Label label22;
@@ -1092,15 +1042,9 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ComboBox txtNivel;
         private System.Windows.Forms.BindingSource hERMESDataSetUsersBindingSource;
-        private HERMESDataSetUsers hERMESDataSetUsers;
         private System.Windows.Forms.BindingSource usuariosBindingSource;
-        private HERMESDataSetUsersTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
-        private HERMESDataSet hERMESDataSet;
         private System.Windows.Forms.BindingSource empresasBindingSource;
-        private HERMESDataSetTableAdapters.EmpresasTableAdapter empresasTableAdapter;
-        private HERMESDataSet1 hERMESDataSet1;
         private System.Windows.Forms.BindingSource cargosBindingSource;
-        private HERMESDataSet1TableAdapters.CargosTableAdapter cargosTableAdapter;
         private System.Windows.Forms.TextBox txtNomeCargo;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button btnExcluirFun;

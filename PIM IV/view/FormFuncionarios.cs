@@ -20,8 +20,7 @@ namespace PIM_IV
         string codFuncionario;
         private void FormFuncionarios_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet2.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.funcionariosTableAdapter.Fill(this.hERMESDataSet2.Funcionarios);
+         
 
         }
 
@@ -71,7 +70,6 @@ namespace PIM_IV
         {
             try
             {
-                this.funcionariosTableAdapter.FillBy(this.hERMESDataSet2.Funcionarios);
             }
             catch (System.Exception ex)
             {
@@ -131,7 +129,7 @@ namespace PIM_IV
             string cnpj = pesquisaFun.Cnpj;
             try
             {
-                this.funcionariosTableAdapter.FillBy1(this.hERMESDataSet2.Funcionarios, new System.Nullable<int>(((int)(System.Convert.ChangeType(cnpj, typeof(int))))));
+                //this.funcionariosTableAdapter.FillBy1(this.hERMESDataSet2.Funcionarios, new System.Nullable<int>(((int)(System.Convert.ChangeType(cnpj, typeof(int))))));
             }
             catch (System.Exception ex)
             {

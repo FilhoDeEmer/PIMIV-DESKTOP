@@ -40,8 +40,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSet3 = new PIM_IV.HERMESDataSet3();
-            this.cargosTableAdapter = new PIM_IV.HERMESDataSet3TableAdapters.CargosTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtEmpresas = new System.Windows.Forms.TextBox();
@@ -53,7 +51,6 @@
             this.panel1.SuspendLayout();
             this.byEmpresasToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet3)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,16 +154,12 @@
             // cargosBindingSource
             // 
             this.cargosBindingSource.DataMember = "Cargos";
-            this.cargosBindingSource.DataSource = this.hERMESDataSet3;
             // 
             // hERMESDataSet3
             // 
-            this.hERMESDataSet3.DataSetName = "HERMESDataSet3";
-            this.hERMESDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cargosTableAdapter
             // 
-            this.cargosTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox1
             // 
@@ -241,7 +234,6 @@
             this.byEmpresasToolStrip.ResumeLayout(false);
             this.byEmpresasToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -253,9 +245,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
-        private HERMESDataSet3 hERMESDataSet3;
         private System.Windows.Forms.BindingSource cargosBindingSource;
-        private HERMESDataSet3TableAdapters.CargosTableAdapter cargosTableAdapter;
         private System.Windows.Forms.ToolStrip byEmpresasToolStrip;
         private System.Windows.Forms.ToolStripLabel codEmpresaToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox codEmpresaToolStripTextBox;

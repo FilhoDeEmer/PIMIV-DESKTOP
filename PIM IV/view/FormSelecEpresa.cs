@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PIM_IV.control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,14 +16,10 @@ namespace PIM_IV.view
         public FormSelecEpresa()
         {
             InitializeComponent();
+            LoadEmpresa();
         }
        public string CodEmpresa { get; set; }
-        private void FoemSelecEpresa_Load(object sender, EventArgs e)
-        {
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
-            this.empresasTableAdapter.Fill(this.hERMESDataSet.Empresas);
-
-        }
+        
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
@@ -46,13 +43,24 @@ namespace PIM_IV.view
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
-        
+        public void LoadEmpresa() 
+        {
+            CrudEmpresas loadEmpresas = new CrudEmpresas();
+            comboBox1.DisplayMember = "NomeEmpresa";
+            comboBox1.ValueMember = "CodEmpresa";
+            comboBox1.DataSource = loadEmpresas.BuscarEmpresas();
+        }
     }
 }

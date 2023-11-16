@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCargos));
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSet = new PIM_IV.HERMESDataSet();
             this.comboCod = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -45,16 +41,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.empresasTableAdapter = new PIM_IV.HERMESDataSetTableAdapters.EmpresasTableAdapter();
-            this.hERMESDataSet1 = new PIM_IV.HERMESDataSet1();
-            this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cargosTableAdapter = new PIM_IV.HERMESDataSet1TableAdapters.CargosTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,41 +66,19 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.empresasBindingSource;
-            this.comboBox1.DisplayMember = "Nome";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(91, 107);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(277, 26);
             this.comboBox1.TabIndex = 14;
-            this.comboBox1.ValueMember = "codigo_empresa";
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "Empresas";
-            this.empresasBindingSource.DataSource = this.hERMESDataSetBindingSource;
-            // 
-            // hERMESDataSetBindingSource
-            // 
-            this.hERMESDataSetBindingSource.DataSource = this.hERMESDataSet;
-            this.hERMESDataSetBindingSource.Position = 0;
-            // 
-            // hERMESDataSet
-            // 
-            this.hERMESDataSet.DataSetName = "HERMESDataSet";
-            this.hERMESDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboCod
             // 
-            this.comboCod.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.empresasBindingSource, "codigo_empresa", true));
-            this.comboCod.DataSource = this.empresasBindingSource;
-            this.comboCod.DisplayMember = "codigo_empresa";
             this.comboCod.FormattingEnabled = true;
             this.comboCod.Location = new System.Drawing.Point(15, 107);
             this.comboCod.Name = "comboCod";
             this.comboCod.Size = new System.Drawing.Size(70, 26);
             this.comboCod.TabIndex = 13;
-            this.comboCod.ValueMember = "Nome";
             // 
             // label4
             // 
@@ -195,24 +160,6 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // empresasTableAdapter
-            // 
-            this.empresasTableAdapter.ClearBeforeFill = true;
-            // 
-            // hERMESDataSet1
-            // 
-            this.hERMESDataSet1.DataSetName = "HERMESDataSet1";
-            this.hERMESDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cargosBindingSource
-            // 
-            this.cargosBindingSource.DataMember = "Cargos";
-            this.cargosBindingSource.DataSource = this.hERMESDataSet1;
-            // 
-            // cargosTableAdapter
-            // 
-            this.cargosTableAdapter.ClearBeforeFill = true;
-            // 
             // FormCargos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,11 +173,6 @@
             this.Load += new System.EventHandler(this.FormCargos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,16 +187,9 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSalvar;
-        private HERMESDataSet hERMESDataSet;
-        private System.Windows.Forms.BindingSource hERMESDataSetBindingSource;
-        private System.Windows.Forms.BindingSource empresasBindingSource;
-        private HERMESDataSetTableAdapters.EmpresasTableAdapter empresasTableAdapter;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.ComboBox comboCod;
         private System.Windows.Forms.Label label4;
-        private HERMESDataSet1 hERMESDataSet1;
-        private System.Windows.Forms.BindingSource cargosBindingSource;
-        private HERMESDataSet1TableAdapters.CargosTableAdapter cargosTableAdapter;
         private System.Windows.Forms.ComboBox comboBox1;
     }
 }

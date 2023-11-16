@@ -24,7 +24,7 @@ namespace PIM_IV
             // Configurar a string de conexão de forma segura
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -96,7 +96,7 @@ namespace PIM_IV
 
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -104,7 +104,7 @@ namespace PIM_IV
                 {
                     connection.Open();
 
-                    string sqlLogin = "SELECT SenhaHash FROM Usuarios WHERE nome = @login";
+                    string sqlLogin = "SELECT SenhaHash FROM Usuarios WHERE login = @login";
                     using (SqlCommand command = new SqlCommand(sqlLogin, connection))
                     {
                         command.Parameters.AddWithValue("@login", login1);
@@ -139,7 +139,7 @@ namespace PIM_IV
 
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {

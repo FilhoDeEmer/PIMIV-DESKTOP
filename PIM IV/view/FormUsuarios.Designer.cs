@@ -42,9 +42,7 @@
             this.btnBuscaCNPJ = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.hERMESDataSetUsers = new PIM_IV.HERMESDataSetUsers();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuariosTableAdapter = new PIM_IV.HERMESDataSetUsersTableAdapters.UsuariosTableAdapter();
             this.codusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.senhaHashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +51,6 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,17 +197,13 @@
             // 
             // hERMESDataSetUsers
             // 
-            this.hERMESDataSetUsers.DataSetName = "HERMESDataSetUsers";
-            this.hERMESDataSetUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usuariosBindingSource
             // 
             this.usuariosBindingSource.DataMember = "Usuarios";
-            this.usuariosBindingSource.DataSource = this.hERMESDataSetUsers;
             // 
             // usuariosTableAdapter
             // 
-            this.usuariosTableAdapter.ClearBeforeFill = true;
             // 
             // codusuarioDataGridViewTextBoxColumn
             // 
@@ -270,7 +263,6 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -291,9 +283,7 @@
         private System.Windows.Forms.Button btnBuscaCNPJ;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private HERMESDataSetUsers hERMESDataSetUsers;
         private System.Windows.Forms.BindingSource usuariosBindingSource;
-        private HERMESDataSetUsersTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn codusuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn senhaHashDataGridViewTextBoxColumn;

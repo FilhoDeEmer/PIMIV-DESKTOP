@@ -58,7 +58,7 @@ namespace PIM_IV
                 txtInss.Text = alterarFuncionario.Inss;
                 txtPlanoSaude.Text = alterarFuncionario.PlanoSaude;
                 txtNoturno.Text = alterarFuncionario.AddNoturno;
-                txtSindical.Text = alterarFuncionario.DescontoSindical;
+                txtDependentes.Text = alterarFuncionario.NDependentes;
                 txtLogin.Text = alterarFuncionario.Login;
                 txtNivel.Text = alterarFuncionario.Nivel;
                 txtTelefone.Text = alterarFuncionario.Telefone;
@@ -106,7 +106,7 @@ namespace PIM_IV
             salvarFuncionario.PlanoSaude = txtPlanoSaude.Text;
             salvarFuncionario.AddPericulosidade = txtPericulosidae.Text;
             salvarFuncionario.AddNoturno = txtNoturno.Text;
-            salvarFuncionario.DescontoSindical = txtSindical.Text;
+            salvarFuncionario.NDependentes = txtDependentes.Text;
             salvarFuncionario.Cod_banco = txtCodBanco.Text;
             salvarFuncionario.NomeBanco = txtBanco.Text;
             salvarFuncionario.AgenciaBanco = txtAgencia.Text;
@@ -133,12 +133,7 @@ namespace PIM_IV
     
         private void FormCRUDFuncionario_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet1.Cargos'. Você pode movê-la ou removê-la conforme necessário.
-            this.cargosTableAdapter.Fill(this.hERMESDataSet1.Cargos);
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet.Empresas'. Você pode movê-la ou removê-la conforme necessário.
-            this.empresasTableAdapter.Fill(this.hERMESDataSet.Empresas);
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSetUsers.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuariosTableAdapter.Fill(this.hERMESDataSetUsers.Usuarios);
+            
 
         }
 
@@ -195,6 +190,11 @@ namespace PIM_IV
             boxCodCargo.DisplayMember = "CodCargo";
             boxCodCargo.ValueMember = "CodCargo";
             boxCodCargo.DataSource = pesquisaCargos.GetListCod(boxCodEmpresa.Text);
+        }
+
+        private void txtNomeCargo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

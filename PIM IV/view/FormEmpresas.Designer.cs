@@ -46,13 +46,10 @@
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeresponsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSet = new PIM_IV.HERMESDataSet();
-            this.empresasTableAdapter = new PIM_IV.HERMESDataSetTableAdapters.EmpresasTableAdapter();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCadastrarEmpresa
@@ -231,16 +228,12 @@
             // empresasBindingSource
             // 
             this.empresasBindingSource.DataMember = "Empresas";
-            this.empresasBindingSource.DataSource = this.hERMESDataSet;
             // 
             // hERMESDataSet
             // 
-            this.hERMESDataSet.DataSetName = "HERMESDataSet";
-            this.hERMESDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // empresasTableAdapter
             // 
-            this.empresasTableAdapter.ClearBeforeFill = true;
             // 
             // FormEmpresas
             // 
@@ -262,7 +255,6 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,9 +271,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnCargo;
-        private HERMESDataSet hERMESDataSet;
         private System.Windows.Forms.BindingSource empresasBindingSource;
-        private HERMESDataSetTableAdapters.EmpresasTableAdapter empresasTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNPJDataGridViewTextBoxColumn;

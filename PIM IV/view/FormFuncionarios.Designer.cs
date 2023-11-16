@@ -55,8 +55,6 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigousuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSet2 = new PIM_IV.HERMESDataSet2();
-            this.funcionariosTableAdapter = new PIM_IV.HERMESDataSet2TableAdapters.FuncionariosTableAdapter();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).BeginInit();
@@ -64,7 +62,6 @@
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -301,16 +298,12 @@
             // funcionariosBindingSource1
             // 
             this.funcionariosBindingSource1.DataMember = "Funcionarios";
-            this.funcionariosBindingSource1.DataSource = this.hERMESDataSet2;
             // 
             // hERMESDataSet2
             // 
-            this.hERMESDataSet2.DataSetName = "HERMESDataSet2";
-            this.hERMESDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // funcionariosTableAdapter
             // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
             // FormFuncionarios
             // 
@@ -336,7 +329,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,9 +347,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCpfBusca;
         private System.Windows.Forms.Button btnPesquisaFuncionario;
-        private HERMESDataSet2 hERMESDataSet2;
         private System.Windows.Forms.BindingSource funcionariosBindingSource1;
-        private HERMESDataSet2TableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

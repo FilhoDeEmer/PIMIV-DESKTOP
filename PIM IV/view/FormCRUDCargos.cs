@@ -19,16 +19,14 @@ namespace PIM_IV.view
         string codCargo;
         private void FormCRUDCargos_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'hERMESDataSet3.Cargos'. Você pode movê-la ou removê-la conforme necessário.
-            this.cargosTableAdapter.Fill(this.hERMESDataSet3.Cargos);
-
+        
         }
 
         private void byEmpresasToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this.cargosTableAdapter.ByEmpresas(this.hERMESDataSet3.Cargos, new System.Nullable<int>(((int)(System.Convert.ChangeType(codEmpresaToolStripTextBox.Text, typeof(int))))));
+               // this.cargosTableAdapter.ByEmpresas(this.hERMESDataSet3.Cargos, new System.Nullable<int>(((int)(System.Convert.ChangeType(codEmpresaToolStripTextBox.Text, typeof(int))))));
             }
             catch (System.Exception ex)
             {
@@ -52,7 +50,7 @@ namespace PIM_IV.view
         {
             try
             {
-                this.cargosTableAdapter.ByEmpresas(this.hERMESDataSet3.Cargos, new System.Nullable<int>(((int)(System.Convert.ChangeType(txtEmpresas.Text, typeof(int))))));
+                //this.cargosTableAdapter.ByEmpresas(this.hERMESDataSet3.Cargos, new System.Nullable<int>(((int)(System.Convert.ChangeType(txtEmpresas.Text, typeof(int))))));
             }
             catch (System.Exception ex)
             {

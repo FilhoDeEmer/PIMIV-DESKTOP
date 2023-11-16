@@ -28,7 +28,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" +nomeServidor+ "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"; 
+            string connectionString = "Data Source=" +nomeServidor+ ";Initial Catalog=master;Integrated Security=True"; 
             string nomeBancoDeDados = "HERMES";
             
             string createDatabaseSql = $"CREATE DATABASE {nomeBancoDeDados}";
@@ -71,7 +71,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=master;Integrated Security=True";
 
             // Nome do banco de dados que você deseja verificar
             string nomeBancoDeDados = "HERMES";
@@ -111,7 +111,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Funcionarios";
             string cmd = "(codigo_funcionario INT PRIMARY KEY NOT NULL IDENTITY(1, 1), "+
@@ -122,6 +122,7 @@ namespace PIM_IV.model
                          "rua VARCHAR(255)," +
                          "cep VARCHAR(9)," +
                          "numero INT," +
+                         "n_dependentes int," +
                          "estado CHAR(2)," +
                          "cidade VARCHAR(100)," +
                          "codigo_empresa INT," +
@@ -135,7 +136,6 @@ namespace PIM_IV.model
                          "add_notuno DECIMAL (5,2)," +
                          "add_perigo DECIMAL (5,2)," +
                          "INSS DECIMAL(5, 2)," +
-                         "DESCONTO_SINDICAL DECIMAL(5, 2)," +
                          "cod_banco INT," +
                          "nome_banco varchar(255)," +
                          "agencia INT," +
@@ -172,7 +172,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Empresas";
             string cmd = "  (codigo_empresa INT PRIMARY KEY IDENTITY(1,1),"+
@@ -213,7 +213,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Usuarios";
             string cmd = "(cod_usuario INT IDENTITY(1,1) PRIMARY KEY," +
@@ -251,7 +251,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Holerite";
             string cmd = @"(COD_FOLHA INT PRIMARY KEY NOT NULL IDENTITY(1,1),
@@ -289,7 +289,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "FolhaPagamentos";
             string cmd = "(codigo_folha INT PRIMARY KEY," +
@@ -324,7 +324,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Cargos";
             string cmd = "(codigo_cargo INT PRIMARY KEY IDENTITY(1,1)," +
@@ -362,7 +362,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             string nomeTabela = "Notificacao";
             string cmd = "(COD_FUNCIONARIO INT IDENTITY(1,1) PRIMARY KEY," +
@@ -401,7 +401,7 @@ namespace PIM_IV.model
 
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -409,7 +409,7 @@ namespace PIM_IV.model
                 {
                     connection.Open();
 
-                    string sqlInsert = "INSERT INTO Usuarios (nome, SenhaHash, Nivel) VALUES (@nome, @senhaHash, @Nivel)";
+                    string sqlInsert = "INSERT INTO Usuarios (login, SenhaHash, Nivel) VALUES (@nome, @senhaHash, @Nivel)";
                     using (SqlCommand command = new SqlCommand(sqlInsert, connection))
                     {
                         command.Parameters.AddWithValue("@nome", nome);
@@ -431,7 +431,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=master;Integrated Security=True";
             string nomeBancoDeDados = "HERMES";
 
 
@@ -469,7 +469,7 @@ namespace PIM_IV.model
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
             
             string ciar = @"IF OBJECT_ID ('Referencias', 'U') IS NULL CREATE TABLE[dbo].[Referencias] (
                             [codigo][varchar](4) NOT NULL,
@@ -516,7 +516,7 @@ namespace PIM_IV.model
                         using (SqlCommand cmd2 = new SqlCommand(inserir, connection))
                         {
                             cmd2.ExecuteNonQuery();
-                            MessageBox.Show("Tabela Criada");
+                            MessageBox.Show("Tabela Referencias Criada com sucesso!");
                         }
                     }
                 }

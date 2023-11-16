@@ -30,7 +30,7 @@ namespace PIM_IV.control
             {
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
                 string comando = "INSERT INTO Empresas (CNPJ,Inscricao_estadual,Nome,Rua,CEP,Numero,Cidade,Estado,Telefone,Email,Nome_responsavel)" +
                                 " VALUES (@CNPJ, @Inscricao,@Nome,@Rua,@Cep,@Numero,@Cidade,@Estado,@Telefone,@Email,@Responsavel);";
 
@@ -85,7 +85,7 @@ namespace PIM_IV.control
                     " WHERE codigo_empresa = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -132,7 +132,7 @@ namespace PIM_IV.control
                 string comando = "DELETE FROM Empresas WHERE codigo_empresa = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -179,7 +179,7 @@ namespace PIM_IV.control
                     " WHERE codigo_empresa = @Cod ;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -219,6 +219,47 @@ namespace PIM_IV.control
             }
         }
 
+        public class Empresas
+        {
+            public string NomeEmpresa { get; set; }
+            public string CodEmpresa { get; set; }
+        }
+
+        public List<Empresas> BuscarEmpresas()
+        {
+            List<Empresas> empresas = new List<Empresas>();
+
+
+            string comando = "SELECT Nome, codigo_empresa FROM Empresas; ";
+                   
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand(comando, connection))
+                {
+
+                    connection.Open();
+
+                    SqlDataReader data = cmd.ExecuteReader();
+                    while (data.Read())
+                    {
+                        Empresas empresa = new Empresas
+                        {
+                            NomeEmpresa = data["nome"].ToString(),
+                            CodEmpresa = data["codigo_empresa"].ToString()
+                        };
+                        empresas.Add(empresa);
+                    }
+                }
+            }
+            return empresas;
+        }
+
         public string BuscarEmpresaCnpj(string cnpj)
         {
             if (cnpj != null)
@@ -233,7 +274,7 @@ namespace PIM_IV.control
                 string comando = "SELECT codigo_empresa from Empresas WHERE CNPJ = @CNPJ ";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
                 try
                 {
@@ -276,7 +317,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Empresas where CNPJ = @Cnpj;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -313,7 +354,7 @@ namespace PIM_IV.control
                 string comando = "SELECT nome from Empresas ";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True;";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -353,7 +394,7 @@ namespace PIM_IV.control
             string comando = "SELECT nome,cnpj from Empresas where codigo_empresa = @cod";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
@@ -396,7 +437,7 @@ namespace PIM_IV.control
             string comando = "SELECT count(*) from Empresas ;";
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
-            string connectionString = "Data Source=" + nomeServidor + "\\SQLEXPRESS;Initial Catalog=HERMES;Integrated Security=True";
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
             try
             {
