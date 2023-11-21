@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCRUDEEmpresas));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExcluirEmpresa = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCidadeEmpresa = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtUfEmpresa = new System.Windows.Forms.TextBox();
             this.txtCepEmpresa = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.txtInscricao = new System.Windows.Forms.TextBox();
             this.txtResponsavel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnExcluirEmpresa = new System.Windows.Forms.Button();
+            this.txtUfEmpresa = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,12 +78,22 @@
             this.panel1.Size = new System.Drawing.Size(1041, 651);
             this.panel1.TabIndex = 0;
             // 
+            // btnExcluirEmpresa
+            // 
+            this.btnExcluirEmpresa.Location = new System.Drawing.Point(453, 548);
+            this.btnExcluirEmpresa.Name = "btnExcluirEmpresa";
+            this.btnExcluirEmpresa.Size = new System.Drawing.Size(103, 36);
+            this.btnExcluirEmpresa.TabIndex = 6;
+            this.btnExcluirEmpresa.Text = "Excluir";
+            this.btnExcluirEmpresa.UseVisualStyleBackColor = true;
+            this.btnExcluirEmpresa.Click += new System.EventHandler(this.btnExcluirEmpresa_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtUfEmpresa);
             this.groupBox2.Controls.Add(this.txtCidadeEmpresa);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtUfEmpresa);
             this.groupBox2.Controls.Add(this.txtCepEmpresa);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
@@ -124,13 +134,6 @@
             this.label10.Size = new System.Drawing.Size(35, 18);
             this.label10.TabIndex = 8;
             this.label10.Text = "UF:";
-            // 
-            // txtUfEmpresa
-            // 
-            this.txtUfEmpresa.Location = new System.Drawing.Point(162, 104);
-            this.txtUfEmpresa.Name = "txtUfEmpresa";
-            this.txtUfEmpresa.Size = new System.Drawing.Size(92, 29);
-            this.txtUfEmpresa.TabIndex = 4;
             // 
             // txtCepEmpresa
             // 
@@ -331,15 +334,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Inscrição Estadual";
             // 
-            // btnExcluirEmpresa
+            // txtUfEmpresa
             // 
-            this.btnExcluirEmpresa.Location = new System.Drawing.Point(453, 548);
-            this.btnExcluirEmpresa.Name = "btnExcluirEmpresa";
-            this.btnExcluirEmpresa.Size = new System.Drawing.Size(103, 36);
-            this.btnExcluirEmpresa.TabIndex = 6;
-            this.btnExcluirEmpresa.Text = "Excluir";
-            this.btnExcluirEmpresa.UseVisualStyleBackColor = true;
-            this.btnExcluirEmpresa.Click += new System.EventHandler(this.btnExcluirEmpresa_Click);
+            this.txtUfEmpresa.FormattingEnabled = true;
+            this.txtUfEmpresa.Location = new System.Drawing.Point(159, 104);
+            this.txtUfEmpresa.Name = "txtUfEmpresa";
+            this.txtUfEmpresa.Size = new System.Drawing.Size(102, 30);
+            this.txtUfEmpresa.TabIndex = 10;
             // 
             // FormCRUDEEmpresas
             // 
@@ -383,7 +384,6 @@
         private System.Windows.Forms.TextBox txtCidadeEmpresa;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtUfEmpresa;
         private System.Windows.Forms.TextBox txtCepEmpresa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -393,5 +393,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnExcluirEmpresa;
+        private System.Windows.Forms.ComboBox txtUfEmpresa;
     }
 }

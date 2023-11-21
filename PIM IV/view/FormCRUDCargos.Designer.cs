@@ -34,7 +34,8 @@
             this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtEmpresas = new System.Windows.Forms.TextBox();
+            this.txtEmpresas = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -68,7 +69,6 @@
             // cargosBindingSource
             // 
             this.cargosBindingSource.DataMember = "Cargos";
-            this.cargosBindingSource.CurrentChanged += new System.EventHandler(this.cargosBindingSource_CurrentChanged);
             // 
             // panel1
             // 
@@ -86,24 +86,35 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtEmpresas);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Location = new System.Drawing.Point(27, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(321, 100);
+            this.groupBox1.Size = new System.Drawing.Size(440, 100);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar Empresas";
             // 
             // txtEmpresas
             // 
-            this.txtEmpresas.Location = new System.Drawing.Point(6, 44);
+            this.txtEmpresas.FormattingEnabled = true;
+            this.txtEmpresas.Location = new System.Drawing.Point(9, 59);
             this.txtEmpresas.Name = "txtEmpresas";
-            this.txtEmpresas.Size = new System.Drawing.Size(169, 26);
-            this.txtEmpresas.TabIndex = 1;
+            this.txtEmpresas.Size = new System.Drawing.Size(292, 26);
+            this.txtEmpresas.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Código da Empresa:";
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(191, 38);
+            this.btnPesquisar.Location = new System.Drawing.Point(307, 53);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(107, 37);
             this.btnPesquisar.TabIndex = 0;
@@ -165,7 +176,6 @@
             this.codEmpresaToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.codEmpresaToolStripTextBox.Name = "codEmpresaToolStripTextBox";
             this.codEmpresaToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.codEmpresaToolStripTextBox.Click += new System.EventHandler(this.codEmpresaToolStripTextBox_Click);
             // 
             // byEmpresasToolStripButton
             // 
@@ -173,7 +183,6 @@
             this.byEmpresasToolStripButton.Name = "byEmpresasToolStripButton";
             this.byEmpresasToolStripButton.Size = new System.Drawing.Size(74, 22);
             this.byEmpresasToolStripButton.Text = "ByEmpresas";
-            this.byEmpresasToolStripButton.Click += new System.EventHandler(this.byEmpresasToolStripButton_Click);
             // 
             // FormCRUDCargos
             // 
@@ -212,11 +221,12 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtEmpresas;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cod_cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn salariobaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoempresaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox txtEmpresas;
     }
 }

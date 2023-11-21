@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PIM_IV
 {
@@ -19,12 +21,15 @@ namespace PIM_IV
         public FormCRUDFuncionario()
         {
             InitializeComponent();
+            PreencherComboBoxEstados();
+            LoadEmpresas();
         }
         public FormCRUDFuncionario(string cod)
         {
             InitializeComponent();
             if (cod != null)
             {
+                LoadEmpresas();
                 //txtCodFun.Enabled = true;
                 txtCodFun.Text = cod;
                 //txtSenha.Enabled = true;
@@ -112,10 +117,12 @@ namespace PIM_IV
             salvarFuncionario.AgenciaBanco = txtAgencia.Text;
             salvarFuncionario.NConta = txtConta.Text;
             salvarFuncionario.Nivel = txtNivel.Text;
+            salvarFuncionario.Login = txtLogin.Text;
+            salvarFuncionario.SSS = txtSenha.Text;
             if (cod == null)
             {
                 CrudUser criarUser = new CrudUser();
-                if (criarUser.CriarNovoUsuario(txtCPF.Text, txtCPF.Text, Convert.ToInt32(txtNivel.Text)))
+                if (criarUser.CriarNovoUsuario(txtCPF.Text, txtSenha.Text, Convert.ToInt32(txtNivel.Text)))
                 {
                     salvarFuncionario.Cod_User = criarUser.BuscarUser(txtCPF.Text);
                     salvarFuncionario.CadastrarFuncionario();
@@ -131,11 +138,7 @@ namespace PIM_IV
             }
         }
     
-        private void FormCRUDFuncionario_Load(object sender, EventArgs e)
-        {
-            
-
-        }
+        
 
         private void boxCodEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -144,11 +147,22 @@ namespace PIM_IV
 
         private void boxCodCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int config = boxCodCargo.SelectedIndex;
+
             CrudCargos pesquisaCargos = new CrudCargos();
             pesquisaCargos.BuscaCargo(boxCodCargo.Text);
             txtNomeCargo.Text = pesquisaCargos.NomeCargo;
             txtSalarioFun.Text = pesquisaCargos.SalarioBase;
         }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+        public void AtualizaComboCod(int indice)
+        {
+            
+        }
+
 
         private void txtCPF_TextChanged(object sender, EventArgs e)
         {
@@ -171,6 +185,7 @@ namespace PIM_IV
             }
             else { MessageBox.Show("Nenhum Funcionario Selecionado!"); }
         }
+
 
         private void txtNomeEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -195,6 +210,46 @@ namespace PIM_IV
         private void txtNomeCargo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void PreencherComboBoxEstados()
+        {
+            // Cria uma lista de estados brasileiros
+            List<string> estados = new List<string>
+            {
+                "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES",
+                "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR",
+                "PE", "PI", "RJ", "RN", "RS", "RO", "RR",
+                "SC", "SP", "SE", "TO"
+            };
+
+            // Associa a lista de estados ao ComboBox
+            txtUfFun.DataSource = estados;
+        }
+
+        public void LoadEmpresas()
+        {
+            CrudEmpresas loadEmpresas = new CrudEmpresas();
+            txtNomeEmpresa.DisplayMember = "NomeEmpresa";
+            txtNomeEmpresa.ValueMember = "CodEmpresa";
+            txtNomeEmpresa.DataSource = loadEmpresas.BuscarEmpresas();
+            boxCodEmpresa.DisplayMember = "CodEmpresa";
+            boxCodEmpresa.ValueMember = "CodEmpresa";
+            boxCodEmpresa.DataSource = loadEmpresas.BuscarEmpresas();
+        }
+
+        private void checkSenha_CheckedChanged(object sender, EventArgs e)
+        {
+
+            // Verifica o estado atual do CheckBox
+            if (checkSenha.Checked)
+            {
+                txtSenha.Enabled = true;
+            }
+            else
+            {
+                txtSenha.Enabled = false;
+            }
+            
         }
     }
 }

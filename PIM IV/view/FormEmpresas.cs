@@ -9,12 +9,30 @@ namespace PIM_IV.view
         public FormEmpresas()
         {
             InitializeComponent();
+            LoadEmpresas();
         }
+
+        private void LoadEmpresas()
+        {
+            CrudEmpresas carregar = new CrudEmpresas();
+            try
+            {
+                dataGridView2.AutoGenerateColumns = true;
+                dataGridView2.DataSource = carregar.BuscarEmpresas();
+                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
+        }
+
         string cod;
         private void btnCadastrarEmpresa_Click(object sender, EventArgs e)
         {
             FormCRUDEEmpresas crudEmpresa = new FormCRUDEEmpresas();   
             crudEmpresa.ShowDialog();
+            LoadEmpresas();
         }
 
         private void FormEmpresas_Load(object sender, EventArgs e)
@@ -31,6 +49,7 @@ namespace PIM_IV.view
                 crudEmpresa.ShowDialog();
             }
             else { MessageBox.Show("Selecione uma Empresa!"); }
+            LoadEmpresas();
 
         }
 
@@ -44,7 +63,7 @@ namespace PIM_IV.view
             }
             else
             {
-                cod = dataGridView2["codigo", e.RowIndex].Value.ToString();
+                cod = dataGridView2["codEmpresa", e.RowIndex].Value.ToString();
 
             }
         }
@@ -57,7 +76,7 @@ namespace PIM_IV.view
             }
             else
             {
-               cod = dataGridView2["codigo", e.RowIndex].Value.ToString();
+               cod = dataGridView2["codEmpresa", e.RowIndex].Value.ToString();
 
             }
         }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PIM_IV
 {
@@ -16,12 +17,28 @@ namespace PIM_IV
         public FormFuncionarios()
         {
             InitializeComponent();
+            LoadFuncionarios();
         }
         string codFuncionario;
         private void FormFuncionarios_Load(object sender, EventArgs e)
         {
          
 
+        }
+
+        private void LoadFuncionarios()
+        {
+            CrudFuncionario carregar = new CrudFuncionario();
+            try
+            {
+                dataGridView1.AutoGenerateColumns = true;
+                dataGridView1.DataSource = carregar.CarregarFuncionario();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
         }
 
         private void btnCadastrarFun_Click(object sender, EventArgs e)
@@ -46,6 +63,7 @@ namespace PIM_IV
             {
                 MessageBox.Show("Pelo menos uma empresa deve ser cadastrada!");
             }
+            LoadFuncionarios();
         }
 
         private void btnAlterarFun_Click(object sender, EventArgs e)
@@ -54,8 +72,12 @@ namespace PIM_IV
             {
                 FormCRUDFuncionario addFuncionario = new FormCRUDFuncionario(codFuncionario);
                 addFuncionario.Show();
-             }
+                dataGridView1.Refresh();
+
+            }
             else { MessageBox.Show("Nenhum Funcionario Selecionado!"); }
+
+            LoadFuncionarios();
         }
 
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -64,19 +86,6 @@ namespace PIM_IV
         }
 
        
-        
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
 
         private void btnPesquisaFuncionario_Click(object sender, EventArgs e)
         {
@@ -103,7 +112,7 @@ namespace PIM_IV
             }
             else
             {
-                codFuncionario = dataGridView1["codigo_funcionario", e.RowIndex].Value.ToString();
+                codFuncionario = dataGridView1["codigo", e.RowIndex].Value.ToString();
 
             }
         }
@@ -115,7 +124,7 @@ namespace PIM_IV
             }
             else
             {
-                codFuncionario = dataGridView1["codigo_funcionario", e.RowIndex].Value.ToString();
+                codFuncionario = dataGridView1["codigo", e.RowIndex].Value.ToString();
 
             }
         }
@@ -125,16 +134,26 @@ namespace PIM_IV
         private void btnBuscaCNPJ_Click(object sender, EventArgs e)
         {
             CrudEmpresas pesquisaFun = new CrudEmpresas();
-            pesquisaFun.BuscarEmpresaNomeById(txtCnpjBusca.Text);
-            string cnpj = pesquisaFun.Cnpj;
+            string cod = pesquisaFun.BuscaCod(txtCnpjBusca.Text);
+            
+            BuscaFuncionarios(cod);
+        }
+        public void BuscaFuncionarios(string codEmpresa)
+        {
+            CrudFuncionario loadFuncionario = new CrudFuncionario();
             try
             {
-                //this.funcionariosTableAdapter.FillBy1(this.hERMESDataSet2.Funcionarios, new System.Nullable<int>(((int)(System.Convert.ChangeType(cnpj, typeof(int))))));
+                dataGridView1.AutoGenerateColumns = true;
+                dataGridView1.DataSource = loadFuncionario.CarregarFuncionarioEmpresa(codEmpresa);
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Empresa não cadastrada ou não possui funcionario relacionado a ela!");
+                MessageBox.Show($"Erro: {ex.Message}");
             }
         }
+
+
+
     }
 }

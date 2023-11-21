@@ -74,7 +74,6 @@
             this.txtRefeicao = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtNomeEmpresa = new System.Windows.Forms.ComboBox();
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtNomeCargo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.boxCodCargo = new System.Windows.Forms.ComboBox();
@@ -89,10 +88,10 @@
             this.txtCnpjEmpresa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtUfFun = new System.Windows.Forms.ComboBox();
             this.txtCidadeFun = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtUfFun = new System.Windows.Forms.TextBox();
             this.txtCepFun = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -112,20 +111,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hERMESDataSetUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkSenha = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hERMESDataSetUsersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -205,6 +200,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.checkSenha);
             this.groupBox8.Controls.Add(this.label35);
             this.groupBox8.Controls.Add(this.txtNivel);
             this.groupBox8.Controls.Add(this.label34);
@@ -576,10 +572,6 @@
             this.txtNomeEmpresa.TabIndex = 21;
             this.txtNomeEmpresa.SelectedIndexChanged += new System.EventHandler(this.txtNomeEmpresa_SelectedIndexChanged);
             // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "Empresas";
-            // 
             // txtNomeCargo
             // 
             this.txtNomeCargo.Enabled = false;
@@ -702,10 +694,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtUfFun);
             this.groupBox3.Controls.Add(this.txtCidadeFun);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.txtUfFun);
             this.groupBox3.Controls.Add(this.txtCepFun);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
@@ -720,6 +712,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Endereço";
             // 
+            // txtUfFun
+            // 
+            this.txtUfFun.FormattingEnabled = true;
+            this.txtUfFun.Location = new System.Drawing.Point(112, 103);
+            this.txtUfFun.Name = "txtUfFun";
+            this.txtUfFun.Size = new System.Drawing.Size(117, 30);
+            this.txtUfFun.TabIndex = 10;
+            // 
             // txtCidadeFun
             // 
             this.txtCidadeFun.Location = new System.Drawing.Point(235, 104);
@@ -731,7 +731,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(232, 88);
+            this.label11.Location = new System.Drawing.Point(231, 82);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 18);
             this.label11.TabIndex = 9;
@@ -741,18 +741,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(124, 88);
+            this.label10.Location = new System.Drawing.Point(109, 83);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 18);
             this.label10.TabIndex = 8;
             this.label10.Text = "UF:";
-            // 
-            // txtUfFun
-            // 
-            this.txtUfFun.Location = new System.Drawing.Point(127, 104);
-            this.txtUfFun.Name = "txtUfFun";
-            this.txtUfFun.Size = new System.Drawing.Size(92, 29);
-            this.txtUfFun.TabIndex = 7;
             // 
             // txtCepFun
             // 
@@ -765,7 +758,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 88);
+            this.label9.Location = new System.Drawing.Point(6, 83);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 18);
             this.label9.TabIndex = 5;
@@ -927,10 +920,16 @@
             // 
             this.cargosBindingSource.DataMember = "Cargos";
             // 
-            // usuariosBindingSource
+            // checkSenha
             // 
-            this.usuariosBindingSource.DataMember = "Usuarios";
-            this.usuariosBindingSource.DataSource = this.hERMESDataSetUsersBindingSource;
+            this.checkSenha.AutoSize = true;
+            this.checkSenha.Location = new System.Drawing.Point(92, 115);
+            this.checkSenha.Name = "checkSenha";
+            this.checkSenha.Size = new System.Drawing.Size(171, 26);
+            this.checkSenha.TabIndex = 7;
+            this.checkSenha.Text = "Alterar Senha?";
+            this.checkSenha.UseVisualStyleBackColor = true;
+            this.checkSenha.CheckedChanged += new System.EventHandler(this.checkSenha_CheckedChanged);
             // 
             // FormCRUDFuncionario
             // 
@@ -941,7 +940,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCRUDFuncionario";
             this.Text = "Funcionario";
-            this.Load += new System.EventHandler(this.FormCRUDFuncionario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -953,12 +951,11 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            
+            ((System.ComponentModel.ISupportInitialize)(this.cargosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -991,7 +988,6 @@
         private System.Windows.Forms.TextBox txtCidadeFun;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtUfFun;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtSalarioFun;
         private System.Windows.Forms.Label label13;
@@ -1041,13 +1037,12 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ComboBox txtNivel;
-        private System.Windows.Forms.BindingSource hERMESDataSetUsersBindingSource;
-        private System.Windows.Forms.BindingSource usuariosBindingSource;
-        private System.Windows.Forms.BindingSource empresasBindingSource;
         private System.Windows.Forms.BindingSource cargosBindingSource;
         private System.Windows.Forms.TextBox txtNomeCargo;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button btnExcluirFun;
         private System.Windows.Forms.ComboBox txtNomeEmpresa;
+        private System.Windows.Forms.ComboBox txtUfFun;
+        private System.Windows.Forms.CheckBox checkSenha;
     }
 }

@@ -16,6 +16,7 @@ namespace PIM_IV.control
 {
     internal class CrudCargos
     {
+        public string CodCargo { get; set; }
         public string NomeCargo { get; set; }
         public string SalarioBase { get; set; }
         public string Codigo { get; set; }
@@ -26,43 +27,35 @@ namespace PIM_IV.control
         {
             int codConvertido = Convert.ToInt32(cod);
 
-            if (VerificarCargo(nome))
+            string comando = "INSERT into Cargos (nome,salario_base,codigo_empresa) values " +
+                                                  "(@Nome,@Salario,@CodEmpresa)";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+            try
             {
-
-                string comando = "INSERT into Cargos (nome,salario_base,codigo_empresa) values " +
-                                                      "(@Nome,@Salario,@CodEmpresa)";
-                PegaNome nomeServer = new PegaNome();
-                string nomeServidor = nomeServer.Pegar();
-                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
-
-                try
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
                     {
+                        connection.Open();
+                        cmd.Parameters.AddWithValue("@Nome", nome);
+                        cmd.Parameters.AddWithValue("@Salario", salario);
+                        cmd.Parameters.AddWithValue("@CodEmpresa", cod);
 
-                        using (SqlCommand cmd = new SqlCommand(comando, connection))
-                        {
-                            connection.Open();
-                            cmd.Parameters.AddWithValue("@Nome", nome);
-                            cmd.Parameters.AddWithValue("@Salario", salario);
-                            cmd.Parameters.AddWithValue("@CodEmpresa", cod);
-
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cadastro realizado com sucesso!");
-                        }
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Cadastro realizado com sucesso!");
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Erro: {ex.Message}");
-                }
-                finally
-                {
-                    SqlConnection con = new SqlConnection(connectionString);
-                    con.Close();
-                }
-
+                
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
+            
         }
         public bool VerificarCargo(string nome)
         {
@@ -137,45 +130,42 @@ namespace PIM_IV.control
         }
         public void AlteraCargo(string codCargo)
         {
-            if (VerificarCargo(NomeCargo))
+            if (codCargo != null)
             {
-                if (codCargo != null)
-                {
-                   
-                    string comando = "UPDATE  Cargos set cod = @CodCargo," +
-                        "Nome = @Nome," +
-                        "Salario_base=@Salario " +
-                        "codigo_empresa=@CodEmpresa " +
-                        " WHERE codigo_cargo = @CodCargo ;";
-                    PegaNome nomeServer = new PegaNome();
-                    string nomeServidor = nomeServer.Pegar();
-                    string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
-                    try
-                    {
-                        using (SqlConnection connection = new SqlConnection(connectionString))
-                        {
 
-                            using (SqlCommand cmd = new SqlCommand(comando, connection))
-                            {
-                                cmd.Parameters.AddWithValue("@Nome", NomeCargo);
-                                cmd.Parameters.AddWithValue("@Salario", SalarioBase);
-                                cmd.Parameters.AddWithValue("@CodEmpresa", CodEmpresa);
-                                cmd.Parameters.AddWithValue("@CodCargo", codCargo);
-                                connection.Open();
-                                cmd.ExecuteNonQuery();
-                                MessageBox.Show("Cargo alterada com sucesso!");
-                            }
+                string comando = "UPDATE  Cargos set " +
+                    "Nome = @Nome," +
+                    "Salario_base = @Salario, " +
+                    "codigo_empresa = @CodEmpresa " +
+                    " WHERE codigo_cargo = @CodCargo ;";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+
+                        using (SqlCommand cmd = new SqlCommand(comando, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@Nome", NomeCargo);
+                            cmd.Parameters.AddWithValue("@Salario",Convert.ToDecimal(SalarioBase));
+                            cmd.Parameters.AddWithValue("@CodEmpresa",CodEmpresa);
+                            cmd.Parameters.AddWithValue("@CodCargo", Convert.ToInt32(codCargo));
+                            connection.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Cargo alterada com sucesso!");
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Erro: {ex.Message}");
-                    }
-                    finally
-                    {
-                        SqlConnection con = new SqlConnection(connectionString);
-                        con.Close();
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro: {ex.Message}");
+                }
+                finally
+                {
+                    SqlConnection con = new SqlConnection(connectionString);
+                    con.Close();
                 }
             }
         }
@@ -296,17 +286,28 @@ namespace PIM_IV.control
         }
         public class Cargos
         {
+            public string Cod_Cargo { get; set; }
             public string  Nome { get; set; }
             public string Salario_Base { get; set; }
             public string Cod_Empresa { get; set; }
-            public string Cod_Cargo { get; set; }
+            public string NomeEmpresa { get; set; }
+            
+            
 
         }
         public List<Cargos> BuscaCargos()
         {
             List<Cargos> cargos = new List<Cargos>();
 
-            string comando = "SELECT nome, salario_base, codigo_empresa, codigo_cargo from Cargos ;";
+            string comando = @"select
+                             C.[codigo_cargo],
+                             C.[nome] as [Nome_Cargo],
+                             C.[salario_base],
+                             C.[codigo_empresa],
+                             E.[nome] as [Nome_Empresa]
+                             from [HERMES].[dbo].[Cargos] C
+                             INNER JOIN [HERMES].[dbo].[Empresas] E on E.[codigo_empresa] = C.[codigo_empresa]";
+
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
@@ -322,10 +323,12 @@ namespace PIM_IV.control
                         {
                             Cargos cargo = new Cargos
                             {
-                                Nome = Convert.ToString(data["nome"]),
+                                Cod_Cargo = Convert.ToString(data["codigo_cargo"]),
+                                Nome = Convert.ToString(data["nome_cargo"]),
                                 Salario_Base = Convert.ToString(data["salario_base"]),
                                 Cod_Empresa = Convert.ToString(data["codigo_empresa"]),
-                                Cod_Cargo = Convert.ToString(data["codigo_cargo"])
+                                NomeEmpresa = Convert.ToString(data["nome_empresa"])
+                                
 
                             };
                             cargos.Add(cargo);
@@ -337,6 +340,52 @@ namespace PIM_IV.control
                return cargos;
             
             
+        }
+        public List<Cargos> BuscaCargos(string cod)
+        {
+            List<Cargos> cargos = new List<Cargos>();
+
+            string comando = @"select
+                             C.[codigo_cargo],
+                             C.[nome] as [Nome_Cargo],
+                             C.[salario_base],
+                             C.[codigo_empresa],
+                             E.[nome] as [Nome_Empresa]
+                             from [HERMES].[dbo].[Cargos] C
+                             INNER JOIN [HERMES].[dbo].[Empresas] E on E.[codigo_empresa] = C.[codigo_empresa]
+                             where C.[codigo_empresa] = @Cod;";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand(comando, connection))
+                {
+                    cmd.Parameters.AddWithValue("@cod", cod);
+                    connection.Open();
+                    SqlDataReader data = cmd.ExecuteReader();
+                    while (data.Read())
+                    {
+                        Cargos cargo = new Cargos
+                        {
+                            Cod_Cargo = Convert.ToString(data["codigo_cargo"]),
+                            Nome = Convert.ToString(data["nome_cargo"]),
+                            Salario_Base = Convert.ToString(data["salario_base"]),
+                            Cod_Empresa = Convert.ToString(data["codigo_empresa"]),
+                            NomeEmpresa = Convert.ToString(data["nome_empresa"])
+
+                        };
+                        cargos.Add(cargo);
+                    }
+
+
+                }
+            }
+            return cargos;
+
+
         }
     }
 }

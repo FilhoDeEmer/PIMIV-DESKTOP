@@ -218,11 +218,51 @@ namespace PIM_IV.control
                
             }
         }
+        public void BuscarCodEmpresa(string nome)
+        {
+                string comando = "SELECT codigo_empresa FROM Empresas WHERE nome = @Nome ;";
+                PegaNome nomeServer = new PegaNome();
+                string nomeServidor = nomeServer.Pegar();
+                string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+
+                        cmd.Parameters.AddWithValue("@Nome", nome);
+                        connection.Open();
+
+                        SqlDataReader data = cmd.ExecuteReader();
+                        if (data.Read())
+                        {
+                            Codigo = Convert.ToString(data["codigo_empresa"]);
+                        }
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
+
+        }
 
         public class Empresas
         {
-            public string NomeEmpresa { get; set; }
             public string CodEmpresa { get; set; }
+            public string NomeEmpresa { get; set; }
+            
+            public string Cnpj { get; set; }
+            public string Telefone { get; set; }
+            public string InscricaoEstadual { get; set; }
+            public string Email { get; set; }
+            public string NomeResponsavel { get; set; }
         }
 
         public List<Empresas> BuscarEmpresas()
@@ -230,7 +270,14 @@ namespace PIM_IV.control
             List<Empresas> empresas = new List<Empresas>();
 
 
-            string comando = "SELECT Nome, codigo_empresa FROM Empresas; ";
+            string comando = "SELECT codigo_empresa," +
+                    "CNPJ," +
+                    "Inscricao_estadual," +
+                    "Nome," +
+                    "Telefone," +
+                    "Email," +
+                    "Nome_responsavel " +
+                    " FROM Empresas ";
                    
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
@@ -251,7 +298,12 @@ namespace PIM_IV.control
                         Empresas empresa = new Empresas
                         {
                             NomeEmpresa = data["nome"].ToString(),
-                            CodEmpresa = data["codigo_empresa"].ToString()
+                            CodEmpresa = data["codigo_empresa"].ToString(),
+                            Cnpj = data["CNPJ"].ToString(),
+                            InscricaoEstadual = data["Inscricao_estadual"].ToString(),
+                            Email = data["Email"].ToString(),
+                            NomeResponsavel = data["Nome_responsavel"].ToString(),
+                            Telefone = data["Telefone"].ToString()
                         };
                         empresas.Add(empresa);
                     }
@@ -429,6 +481,46 @@ namespace PIM_IV.control
                 con.Close();
             }
 
+        }
+
+        public string BuscaCod(string cnpj)
+        {
+            string comando = "SELECT codigo_empresa from empresas where CNPJ = @Cnpj";
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(comando, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Cnpj", cnpj);
+                        connection.Open();
+
+                        SqlDataReader data = cmd.ExecuteReader();
+                        if (data.Read())
+                        {
+                            Codigo = Convert.ToString(data["codigo_empresa"]);
+                            return Codigo;
+                        }
+                        else { return null; }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+                return null;
+            }
+            finally
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Close();
+            }
         }
 
 

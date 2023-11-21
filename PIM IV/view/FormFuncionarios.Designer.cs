@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.codigo_funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.funcionariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.fUNCIONARIOStesteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnAlterarFun = new System.Windows.Forms.Button();
@@ -42,26 +42,16 @@
             this.txtCpfBusca = new System.Windows.Forms.TextBox();
             this.btnPesquisaFuncionario = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.CNPJ = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtCnpjBusca = new System.Windows.Forms.TextBox();
             this.btnBuscaCNPJ = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigocargoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataadimicaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigousuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.funcionariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -79,19 +69,9 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigo_funcionario,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn1,
-            this.codigoempresaDataGridViewTextBoxColumn,
-            this.codigocargoDataGridViewTextBoxColumn,
-            this.salarioDataGridViewTextBoxColumn,
-            this.dataadimicaoDataGridViewTextBoxColumn,
-            this.telefoneDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.codigousuarioDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.funcionariosBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
@@ -103,12 +83,9 @@
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
-            // codigo_funcionario
+            // funcionariosBindingSource1
             // 
-            this.codigo_funcionario.DataPropertyName = "codigo_funcionario";
-            this.codigo_funcionario.HeaderText = "cod";
-            this.codigo_funcionario.Name = "codigo_funcionario";
-            this.codigo_funcionario.ReadOnly = true;
+            this.funcionariosBindingSource1.DataMember = "Funcionarios";
             // 
             // fUNCIONARIOStesteBindingSource
             // 
@@ -193,7 +170,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.CNPJ);
+            this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.txtCnpjBusca);
             this.groupBox4.Controls.Add(this.btnBuscaCNPJ);
             this.groupBox4.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,21 +181,21 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Empresa:";
             // 
-            // CNPJ
+            // label2
             // 
-            this.CNPJ.AutoSize = true;
-            this.CNPJ.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CNPJ.Location = new System.Drawing.Point(16, 24);
-            this.CNPJ.Name = "CNPJ";
-            this.CNPJ.Size = new System.Drawing.Size(67, 22);
-            this.CNPJ.TabIndex = 2;
-            this.CNPJ.Text = "CNPJ:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 22);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "CNPJ:";
             // 
             // txtCnpjBusca
             // 
-            this.txtCnpjBusca.Location = new System.Drawing.Point(20, 49);
+            this.txtCnpjBusca.Location = new System.Drawing.Point(6, 49);
             this.txtCnpjBusca.Name = "txtCnpjBusca";
-            this.txtCnpjBusca.Size = new System.Drawing.Size(208, 29);
+            this.txtCnpjBusca.Size = new System.Drawing.Size(196, 29);
             this.txtCnpjBusca.TabIndex = 1;
             // 
             // btnBuscaCNPJ
@@ -231,79 +208,6 @@
             this.btnBuscaCNPJ.Text = "Pesquisar";
             this.btnBuscaCNPJ.UseVisualStyleBackColor = true;
             this.btnBuscaCNPJ.Click += new System.EventHandler(this.btnBuscaCNPJ_Click);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "cpf";
-            this.dataGridViewTextBoxColumn2.HeaderText = "cpf";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "nome";
-            this.dataGridViewTextBoxColumn1.HeaderText = "nome";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // codigoempresaDataGridViewTextBoxColumn
-            // 
-            this.codigoempresaDataGridViewTextBoxColumn.DataPropertyName = "codigo_empresa";
-            this.codigoempresaDataGridViewTextBoxColumn.HeaderText = "codigo_empresa";
-            this.codigoempresaDataGridViewTextBoxColumn.Name = "codigoempresaDataGridViewTextBoxColumn";
-            this.codigoempresaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codigocargoDataGridViewTextBoxColumn
-            // 
-            this.codigocargoDataGridViewTextBoxColumn.DataPropertyName = "codigo_cargo";
-            this.codigocargoDataGridViewTextBoxColumn.HeaderText = "codigo_cargo";
-            this.codigocargoDataGridViewTextBoxColumn.Name = "codigocargoDataGridViewTextBoxColumn";
-            this.codigocargoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // salarioDataGridViewTextBoxColumn
-            // 
-            this.salarioDataGridViewTextBoxColumn.DataPropertyName = "salario";
-            this.salarioDataGridViewTextBoxColumn.HeaderText = "salario";
-            this.salarioDataGridViewTextBoxColumn.Name = "salarioDataGridViewTextBoxColumn";
-            this.salarioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataadimicaoDataGridViewTextBoxColumn
-            // 
-            this.dataadimicaoDataGridViewTextBoxColumn.DataPropertyName = "data_adimicao";
-            this.dataadimicaoDataGridViewTextBoxColumn.HeaderText = "data_adimicao";
-            this.dataadimicaoDataGridViewTextBoxColumn.Name = "dataadimicaoDataGridViewTextBoxColumn";
-            this.dataadimicaoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefoneDataGridViewTextBoxColumn
-            // 
-            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "telefone";
-            this.telefoneDataGridViewTextBoxColumn.HeaderText = "telefone";
-            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
-            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codigousuarioDataGridViewTextBoxColumn
-            // 
-            this.codigousuarioDataGridViewTextBoxColumn.DataPropertyName = "codigo_usuario";
-            this.codigousuarioDataGridViewTextBoxColumn.HeaderText = "codigo_usuario";
-            this.codigousuarioDataGridViewTextBoxColumn.Name = "codigousuarioDataGridViewTextBoxColumn";
-            this.codigousuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // funcionariosBindingSource1
-            // 
-            this.funcionariosBindingSource1.DataMember = "Funcionarios";
-            // 
-            // hERMESDataSet2
-            // 
-            // 
-            // funcionariosTableAdapter
-            // 
             // 
             // FormFuncionarios
             // 
@@ -318,17 +222,17 @@
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormFuncionarios";
-            this.Text = "FormFuncionarios";
+            this.Text = "s\\z,ol";
             this.Load += new System.EventHandler(this.FormFuncionarios_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOStesteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fUNCIONARIOSBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,7 +252,6 @@
         private System.Windows.Forms.TextBox txtCpfBusca;
         private System.Windows.Forms.Button btnPesquisaFuncionario;
         private System.Windows.Forms.BindingSource funcionariosBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoempresaDataGridViewTextBoxColumn;
@@ -359,8 +262,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigousuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label CNPJ;
-        private System.Windows.Forms.TextBox txtCnpjBusca;
         private System.Windows.Forms.Button btnBuscaCNPJ;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCnpjBusca;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnCadastrarEmpresa = new System.Windows.Forms.Button();
             this.btnAlterarEmpresa = new System.Windows.Forms.Button();
             this.btnVoltarUser = new System.Windows.Forms.Button();
@@ -39,17 +38,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnCargo = new System.Windows.Forms.Button();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNPJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeresponsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCadastrarEmpresa
@@ -140,16 +131,7 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigo,
-            this.nomeDataGridViewTextBoxColumn,
-            this.cNPJDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.telefoneDataGridViewTextBoxColumn,
-            this.nomeresponsavelDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.empresasBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(6, 28);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
@@ -171,70 +153,6 @@
             this.btnCargo.UseVisualStyleBackColor = true;
             this.btnCargo.Click += new System.EventHandler(this.btnCargo_Click);
             // 
-            // codigo
-            // 
-            this.codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.codigo.DataPropertyName = "codigo_empresa";
-            this.codigo.HeaderText = "Cod";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Width = 75;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomeDataGridViewTextBoxColumn.Width = 92;
-            // 
-            // cNPJDataGridViewTextBoxColumn
-            // 
-            this.cNPJDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cNPJDataGridViewTextBoxColumn.DataPropertyName = "CNPJ";
-            this.cNPJDataGridViewTextBoxColumn.HeaderText = "CNPJ";
-            this.cNPJDataGridViewTextBoxColumn.Name = "cNPJDataGridViewTextBoxColumn";
-            this.cNPJDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cNPJDataGridViewTextBoxColumn.Width = 87;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "E-mail";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 94;
-            // 
-            // telefoneDataGridViewTextBoxColumn
-            // 
-            this.telefoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "telefone";
-            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
-            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.telefoneDataGridViewTextBoxColumn.Width = 119;
-            // 
-            // nomeresponsavelDataGridViewTextBoxColumn
-            // 
-            this.nomeresponsavelDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nomeresponsavelDataGridViewTextBoxColumn.DataPropertyName = "Nome_responsavel";
-            this.nomeresponsavelDataGridViewTextBoxColumn.HeaderText = "Responsavel";
-            this.nomeresponsavelDataGridViewTextBoxColumn.Name = "nomeresponsavelDataGridViewTextBoxColumn";
-            this.nomeresponsavelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomeresponsavelDataGridViewTextBoxColumn.Width = 154;
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "Empresas";
-            // 
-            // hERMESDataSet
-            // 
-            // 
-            // empresasTableAdapter
-            // 
-            // 
             // FormEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +172,6 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,7 +188,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnCargo;
-        private System.Windows.Forms.BindingSource empresasBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNPJDataGridViewTextBoxColumn;

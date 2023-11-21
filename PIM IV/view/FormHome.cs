@@ -21,7 +21,9 @@ namespace PIM_IV
         {
             if (MessageBox.Show("Sair do programa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Application.Exit();
+                FormLogin login = new FormLogin();
+                this.Close();
+                login.Show();
             }
             else
             {

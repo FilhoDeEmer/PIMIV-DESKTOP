@@ -19,7 +19,7 @@ namespace PIM_IV.view
             InitializeComponent();
             LoadEmpresas();
         }
-        string cod;
+        string cod = null;
         public FormCargos(string cod)
         {
             this.cod = cod;
@@ -66,9 +66,10 @@ namespace PIM_IV.view
                         CrudCargos alterarCargo = new CrudCargos();
                         alterarCargo.NomeCargo = txtNome.Text;
                         alterarCargo.SalarioBase = txtSalarioBase.Text;
-                        alterarCargo.CodEmpresa = Convert.ToString(comboBox1.SelectedIndex);
+                        alterarCargo.CodEmpresa = Convert.ToString(comboCod.Text);
+                        alterarCargo.CodCargo = cod;
                         alterarCargo.AlteraCargo(cod);
-                        Close();
+                        this.Close();
                     }
                     else
                     {
@@ -91,7 +92,7 @@ namespace PIM_IV.view
                         string empresa = comboCod.Text;
                         CrudCargos novoCargo = new CrudCargos();
                         novoCargo.CadastrarCargo(cargoNome, salarioBase, empresa);
-                        Close();
+                        this.Close();
                     }
                     else
                     {
@@ -107,9 +108,16 @@ namespace PIM_IV.view
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            CrudCargos delete = new CrudCargos();
-            delete.DeletaCargo();
-            Close();
+            if (MessageBox.Show("Os dados serão perdidos. Deseja continuar?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CrudCargos delete = new CrudCargos();
+                delete.CodCargo = cod;
+                delete.DeletaCargo();
+                this.Close();
+
+            }
+            
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,17 +134,6 @@ namespace PIM_IV.view
         }
 
 
-        public void LoadEmpresas()
-        {
-            CrudEmpresas loadEmpresas = new CrudEmpresas();
-            comboBox1.DisplayMember = "NomeEmpresa";
-            comboBox1.ValueMember = "CodEmpresa";
-            comboBox1.DataSource = loadEmpresas.BuscarEmpresas();
-            comboCod.DisplayMember = "CodEmpresa";
-            comboCod.ValueMember = "CodEmpresa";
-            comboCod.DataSource = loadEmpresas.BuscarEmpresas();
-        }
-
         private void comboCod_SelectedIndexChanged(object sender, EventArgs e)
         {
             int config = comboCod.SelectedIndex;
@@ -149,5 +146,19 @@ namespace PIM_IV.view
                 comboBox1.SelectedItem = comboBox1.Items[indice];
             }
         }
+
+
+        public void LoadEmpresas()
+        {
+            CrudEmpresas loadEmpresas = new CrudEmpresas();
+            comboBox1.DisplayMember = "NomeEmpresa";
+            comboBox1.ValueMember = "CodEmpresa";
+            comboBox1.DataSource = loadEmpresas.BuscarEmpresas();
+            comboCod.DisplayMember = "CodEmpresa";
+            comboCod.ValueMember = "CodEmpresa";
+            comboCod.DataSource = loadEmpresas.BuscarEmpresas();
+        }
+
+        
     }
 }

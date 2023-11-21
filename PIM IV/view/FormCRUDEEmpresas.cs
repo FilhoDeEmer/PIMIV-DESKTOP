@@ -37,6 +37,7 @@ namespace PIM_IV.view
         public FormCRUDEEmpresas()
         {
             InitializeComponent();
+            PreencherComboBoxEstados();
         }
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -93,10 +94,26 @@ namespace PIM_IV.view
                 {
                     CrudEmpresas deletar = new CrudEmpresas();
                     deletar.DeletarEmpresa(cod);
+                    Close();
                 }
                 else { MessageBox.Show("Selecione uma Empresa!"); };
 
             }
+        }
+
+        private void PreencherComboBoxEstados()
+        {
+            // Cria uma lista de estados brasileiros
+            List<string> estados = new List<string>
+            {
+                "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES",
+                "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR",
+                "PE", "PI", "RJ", "RN", "RS", "RO", "RR",
+                "SC", "SP", "SE", "TO"
+            };
+
+            // Associa a lista de estados ao ComboBox
+            txtUfEmpresa.DataSource = estados;
         }
     }
 }

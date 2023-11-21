@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PIM_IV.control.CrudCargos;
+using static PIM_IV.control.CrudEmpresas;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PIM_IV.control
@@ -50,6 +51,8 @@ namespace PIM_IV.control
         public string NomeCargo { get; set; }
         public string SalarioHora { get; set; }
         public string CalculoInss { get; set; }
+
+        public string SSS { get; set; }
 
 
         public void CadastrarFuncionario()
@@ -243,11 +246,23 @@ namespace PIM_IV.control
                                  ,n_conta=@NumConta 
                                  ,telefone =@Telefone 
                                  ,email =@Email 
-                                 WHERE codigo_funcionario = @Cod;";
+                                 WHERE codigo_funcionario = @Cod;
+                                 
+                                 UPDATE U
+                                 SET 
+                                 [login] = @Login,
+                                 [SenhaHash] = @SenhaHash,
+                                 [Nivel] = @Nivel
+                                 FROM [HERMES].[dbo].[Usuarios] U
+                                 INNER JOIN [HERMES].[dbo].[Funcionarios] F ON U.[cod_usuario] = F.[codigo_usuario]
+                                 WHERE F.[codigo_funcionario] = @Cod;";
 
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+            string senhaHash = BCrypt.Net.BCrypt.HashPassword(SSS);
+
 
             try
             {
@@ -284,6 +299,9 @@ namespace PIM_IV.control
                         cmd.Parameters.AddWithValue("@NomeBanco", NomeBanco);
                         cmd.Parameters.AddWithValue("@Agencia", Convert.ToInt32(AgenciaBanco));
                         cmd.Parameters.AddWithValue("@NumConta", Convert.ToInt32(NConta));
+                        cmd.Parameters.AddWithValue("@Login",Login); 
+                        cmd.Parameters.AddWithValue("@Nivel",Nivel); 
+                        cmd.Parameters.AddWithValue("@SenhaHash", senhaHash);
                         cmd.Parameters.AddWithValue("@Cod", cod);
 
 
@@ -382,7 +400,7 @@ namespace PIM_IV.control
                                 F.[add_notuno],
                                 F.[add_perigo],
                                 F.[INSS],
-                                F.[n_ependentes],
+                                F.[n_dependentes],
                                 F.[cod_banco],
                                 F.[nome_banco],
                                 F.[agencia],
@@ -390,7 +408,7 @@ namespace PIM_IV.control
                                 F.[telefone],
                                 F.[email],
                                 F.[codigo_usuario],
-                                U.[nome] AS [nomeUsuario],
+                                U.[login],
                                 U.[Nivel],
 	                            C.[nome] as [nome_cargo]
                             FROM [HERMES].[dbo].[Funcionarios] F
@@ -439,14 +457,14 @@ namespace PIM_IV.control
                                 AddPericulosidade = Convert.ToString(data["add_perigo"]);
                                 AddNoturno = Convert.ToString(data["add_notuno"]);
                                 Inss = Convert.ToString(data["INSS"]);
-                                NDependentes = Convert.ToString(data["n_ependentes"]);
+                                NDependentes = Convert.ToString(data["n_dependentes"]);
                                 Cod_banco = Convert.ToString(data["cod_banco"]);
                                 NomeBanco = Convert.ToString(data["nome_banco"]);
                                 AgenciaBanco = Convert.ToString(data["agencia"]);
                                 NConta = Convert.ToString(data["n_conta"]);
                                 Nivel = Convert.ToString(data["Nivel"]);
                                 Cod_User = Convert.ToString(data["codigo_usuario"]);
-                                Login = Convert.ToString(data["nomeUsuario"]);
+                                Login = Convert.ToString(data["login"]);
                                 NomeCargo = Convert.ToString(data["nome_cargo"]);
 
 
@@ -522,7 +540,7 @@ namespace PIM_IV.control
             if (cod != null)
             {
                 string deleteFun = "DELETE FROM Funcionarios WHERE codigo_funcionario = @Cod ;";
-                string deleteUser = "DELETE FROM Usuarios WHERE nome = @Login;";
+                string deleteUser = "DELETE FROM Usuarios WHERE login = @Login;";
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
                 string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
@@ -613,13 +631,190 @@ namespace PIM_IV.control
                 return codigos;
             }
         }
-    
-       
-        
-    
-    
-    
-    
-    }
+        public class Func
+        {
+            public string Codigo { get; set; }
+            public string Nome { get; set; }
+            public string Cpf { get; set; }
+            public string RG { get; set; }
+            public string Cargo { get; set; }
+            public string Telefone { get; set; }
+            public string Email { get; set; }
+            public string Salario { get; set; }
+            public string Nivel { get; set; }
+        }
 
+        public List<Func> CarregarFuncionario()
+        {
+            List<Func> funcionarios = new List<Func>();
+
+            string comando = @"
+                                SELECT 
+                                F.[codigo_funcionario],
+                                F.[nome] AS [NomeFuncionario],
+                                F.[cpf],
+                                F.[rg],
+                                F.[salario],
+                                F.[telefone],
+                                F.[email],
+                                U.[Nivel],
+	                            C.[nome] as [nome_cargo]
+                            FROM [HERMES].[dbo].[Funcionarios] F
+                            INNER JOIN [HERMES].[dbo].[Usuarios] U ON F.[codigo_usuario] = U.[cod_usuario]
+                            INNER JOIN [HERMES].[dbo].[Cargos] C ON F.[codigo_cargo] = C.[codigo_cargo] ;";
+
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand(comando, connection))
+                {
+
+                    connection.Open();
+
+                    SqlDataReader data = cmd.ExecuteReader();
+                    while (data.Read())
+                    {
+                        Func func = new Func
+                        {
+                            Codigo = Convert.ToString(data["codigo_funcionario"]),
+                            Cpf = Convert.ToString(data["cpf"]),
+                            Nome = Convert.ToString(data["NomeFuncionario"]),
+                            RG = Convert.ToString(data["rg"]),
+                            Telefone = Convert.ToString(data["telefone"]),
+                            Email = Convert.ToString(data["email"]),
+                            Salario = Convert.ToString(data["salario"]),
+                            Nivel = Convert.ToString(data["Nivel"]),
+                            Cargo = Convert.ToString(data["nome_cargo"])
+                        };
+                        funcionarios.Add(func);
+                    }
+                }
+
+            }
+            return funcionarios;
+
+        }
+
+        public List<Func> CarregarFuncionario(string cpf)
+        {
+            List<Func> funcionarios = new List<Func>();
+
+            string comando = @"
+                                SELECT 
+                                F.[codigo_funcionario],
+                                F.[nome] AS [NomeFuncionario],
+                                F.[cpf],
+                                F.[rg],
+                                F.[salario],
+                                F.[telefone],
+                                F.[email],
+                                U.[Nivel],
+	                            C.[nome] as [nome_cargo]
+                            FROM [HERMES].[dbo].[Funcionarios] F
+                            INNER JOIN [HERMES].[dbo].[Usuarios] U ON F.[codigo_usuario] = U.[cod_usuario]
+                            INNER JOIN [HERMES].[dbo].[Cargos] C ON F.[codigo_cargo] = C.[codigo_cargo] 
+                            where cpf =@CPF;";
+
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand(comando, connection))
+                {
+
+                    connection.Open();
+                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    SqlDataReader data = cmd.ExecuteReader();
+                    while (data.Read())
+                    {
+                        Func func = new Func
+                        {
+                            Codigo = Convert.ToString(data["codigo_funcionario"]),
+                            Cpf = Convert.ToString(data["cpf"]),
+                            Nome = Convert.ToString(data["NomeFuncionario"]),
+                            RG = Convert.ToString(data["rg"]),
+                            Telefone = Convert.ToString(data["telefone"]),
+                            Email = Convert.ToString(data["email"]),
+                            Salario = Convert.ToString(data["salario"]),
+                            Nivel = Convert.ToString(data["Nivel"]),
+                            Cargo = Convert.ToString(data["nome_cargo"])
+                        };
+                        funcionarios.Add(func);
+                    }
+                }
+
+            }
+            return funcionarios;
+
+        }
+
+        public List<Func> CarregarFuncionarioEmpresa(string cod)
+        {
+            List<Func> funcionarios = new List<Func>();
+
+            string comando = @"
+                                SELECT 
+                                F.[codigo_funcionario],
+                                F.[nome] AS [NomeFuncionario],
+                                F.[cpf],
+                                F.[rg],
+                                F.[salario],
+                                F.[telefone],
+                                F.[email],
+                                U.[Nivel],
+	                            C.[nome] as [nome_cargo]
+                            FROM [HERMES].[dbo].[Funcionarios] F
+                            INNER JOIN [HERMES].[dbo].[Usuarios] U ON F.[codigo_usuario] = U.[cod_usuario]
+                            INNER JOIN [HERMES].[dbo].[Cargos] C ON F.[codigo_cargo] = C.[codigo_cargo] 
+                            where F.codigo_empresa = @Cod";
+
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand(comando, connection))
+                {
+
+                    connection.Open();
+                    cmd.Parameters.AddWithValue("@Cod", cod);
+                    SqlDataReader data = cmd.ExecuteReader();
+                    while (data.Read())
+                    {
+                        Func func = new Func
+                        {
+                            Codigo = Convert.ToString(data["codigo_funcionario"]),
+                            Cpf = Convert.ToString(data["cpf"]),
+                            Nome = Convert.ToString(data["NomeFuncionario"]),
+                            RG = Convert.ToString(data["rg"]),
+                            Telefone = Convert.ToString(data["telefone"]),
+                            Email = Convert.ToString(data["email"]),
+                            Salario = Convert.ToString(data["salario"]),
+                            Nivel = Convert.ToString(data["Nivel"]),
+                            Cargo = Convert.ToString(data["nome_cargo"])
+                        };
+                        funcionarios.Add(func);
+                    }
+                }
+
+            }
+            return funcionarios;
+
+        }
+
+
+    }
 }
+
