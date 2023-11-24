@@ -58,7 +58,7 @@ namespace PIM_IV.view
             folha.FaixaIrrf = labelIRRF.Text;
             folha.FgtsMes = labelFGTSMes.Text;
             folha.Mensagem = textBox1.Text;
-            //folha.SalvarFolha();
+            folha.SalvarFolha();
             //folha.GerarImg(nomeFun);
             try
             {

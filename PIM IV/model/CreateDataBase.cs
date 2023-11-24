@@ -508,7 +508,7 @@ namespace PIM_IV.model
                                 (2004, 'Desconto sindical'),
                                 (2005, 'Pensão alimenticia'),
                                 (2006, 'Pagamento de faltas justificadas'),
-                                (2007, 'Previdência')
+                                (2007, 'Previdência'),
                                 (2008, 'Adiantamento de Salario');";
             try
             {
