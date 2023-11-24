@@ -74,6 +74,7 @@
             this.btnVoltarUser.TabIndex = 15;
             this.btnVoltarUser.Text = "Voltar";
             this.btnVoltarUser.UseVisualStyleBackColor = true;
+            this.btnVoltarUser.Click += new System.EventHandler(this.btnVoltarUser_Click);
             // 
             // groupBox4
             // 

@@ -108,6 +108,9 @@ namespace PIM_IV.view
             
         }
 
-        
+        private void btnVoltarUser_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

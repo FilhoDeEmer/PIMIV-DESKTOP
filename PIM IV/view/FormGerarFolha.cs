@@ -35,7 +35,7 @@ namespace PIM_IV.view
 
             larguraImage = this.Width;
             alturaImage = this.Height;
-
+            label9.Text = Convert.ToString(dataHoraAtual);
             EditarEmpresa();
             Colocar();
             referencia1.KeyPress += referencia1_KeyPress;
@@ -71,7 +71,7 @@ namespace PIM_IV.view
                 // Salvar a imagem em um arquivo
                 minhaImagem.Save(Path.Combine(diretorioDeSalvamento, $"{nomeFun}{dataHoraAtual.Day}{dataHoraAtual.Month}{dataHoraAtual.Year}.png"), System.Drawing.Imaging.ImageFormat.Png);
 
-                Console.WriteLine("Imagem do formulário criada e salva com sucesso!");
+                MessageBox.Show("Folha de Pagamento criada e salva com sucesso!");
             }
             catch (Exception ex)
             {
@@ -498,7 +498,7 @@ namespace PIM_IV.view
             {
                 // Todas as conversões foram bem-sucedidas
                 resultadoP = provento1 + provento2 + provento3 + provento4 + provento5 + provento6 + provento7;
-                labelTotal.Text = resultadoP.ToString("C2");
+                labelTotal.Text = resultadoP.ToString("F2");
                 // Faça o que precisar com resultadoP
             }
             else
@@ -833,8 +833,28 @@ namespace PIM_IV.view
             }
         }
 
+        private void labelTotal_TabIndexChanged(object sender, EventArgs e)
+        {
+            SomaFinal();
+        }
 
+        private void labelTotalDesconto_TextChanged(object sender, EventArgs e)
+        {
+            SomaFinal();
+        }
+        public void SomaFinal()
+        {
+            double resultado, soma, descontos;
+            descontos = Convert.ToDouble(labelTotalDesconto.Text);
+            soma = Convert.ToDouble(labelTotal.Text);
 
+            resultado = soma - descontos;
+            labelTotalLiquido.Text = resultado.ToString("F2");
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

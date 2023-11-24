@@ -69,7 +69,7 @@ namespace PIM_IV
 
         private void FormDesativar(Form form)
         {
-            pictureLogo.Visible = false;
+            //pictureLogo.Visible = false;
             if (formAtivo != null)
                 formAtivo.Close();
         }

@@ -1,6 +1,8 @@
 ﻿using PIM_IV.model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing.Printing;
 using System.Linq;
@@ -8,6 +10,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 using static PIM_IV.control.CrudCargos;
 using static PIM_IV.control.CrudEmpresas;
@@ -55,81 +58,99 @@ namespace PIM_IV.control
         public string SSS { get; set; }
 
 
-        public void CadastrarFuncionario()
+        public bool CadastrarFuncionario()
         {
             if (VerificaFuncionarios())
             {
-                string comando = "INSERT into Funcionarios " +
-                                  "(nome" +
-                                  ",cpf " +
-                                  ",rg " +
-                                  ",data_nascimento " +
-                                  ",rua " +
-                                  ",cep " +
-                                  ",numero " +
-                                  ",estado " +
-                                  ",cidade " +
-                                  ",codigo_empresa " +
-                                  ",codigo_cargo " +
-                                  ",salario " +
-                                  ",data_adimicao " +
-                                  ",vale_transporte " +
-                                  ",vale_alimentacao " +
-                                  ",vale_refeicao " +
-                                  ",PLANO_DE_SAUDE " +
-                                  ",add_notuno " +
-                                  ",add_perigo " +
-                                  ",INSS " +
-                                  ",n_dependentes " +
-                                  ",cod_banco " +
-                                  ",nome_banco " +
-                                  ",agencia " +
-                                  ",n_conta " +
-                                  ",telefone " +
-                                  ",codigo_usuario" +
-                                  ",email )" +
-                                  "values " +
-                                  "(@Nome" +
-                                  ",@Cpf " +
-                                  ",@RG " +
-                                  ",@Aniversasrio " +
-                                  ",@Rua " +
-                                  ",@Cep " +
-                                  ",@Numero " +
-                                  ",@Estado " +
-                                  ",@Cidade " +
-                                  ",@CodEmpresa " +
-                                  ",@CodCargo " +
-                                  ",@Salario " +
-                                  ",@Adimicao " +
-                                  ",@Transporte " +
-                                  ",@Alimentacao " +
-                                  ",@Refeicao " +
-                                  ",@Saude " +
-                                  ",@Notuno " +
-                                  ",@Periculosidade " +
-                                  ",@INSS " +
-                                  ",@NDependentes " +
-                                  ",@CodBanco " +
-                                  ",@NomeBanco" +
-                                  ",@Agencia " +
-                                  ",@NumConta " +
-                                  ",@Telefone " +
-                                  ",@CodUser" +
-                                  ",@Email )";
-
+                // Gere o hash da senha usando BCrypt
+                string senhaHash = BCrypt.Net.BCrypt.HashPassword(SSS);
                 PegaNome nomeServer = new PegaNome();
                 string nomeServidor = nomeServer.Pegar();
                 string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
-                try
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    connection.Open();
+                    SqlTransaction transaction = connection.BeginTransaction();
+                    try
                     {
+                        //Primeiro Insert na tabela Usuários
+                        string comandoUsuario = "INSERT INTO Usuarios (login, SenhaHash, Nivel) VALUES (@nome, @senhaHash, @Nivel)";
+                        //Segundo Insert tabela funcionários
+                        string comandoFuncionario = "INSERT into Funcionarios " +
+                                 "(nome" +
+                                 ",cpf " +
+                                 ",rg " +
+                                 ",data_nascimento " +
+                                 ",rua " +
+                                 ",cep " +
+                                 ",numero " +
+                                 ",estado " +
+                                 ",cidade " +
+                                 ",codigo_empresa " +
+                                 ",codigo_cargo " +
+                                 ",salario " +
+                                 ",data_adimicao " +
+                                 ",vale_transporte " +
+                                 ",vale_alimentacao " +
+                                 ",vale_refeicao " +
+                                 ",PLANO_DE_SAUDE " +
+                                 ",add_notuno " +
+                                 ",add_perigo " +
+                                 ",INSS " +
+                                 ",n_dependentes " +
+                                 ",cod_banco " +
+                                 ",nome_banco " +
+                                 ",agencia " +
+                                 ",n_conta " +
+                                 ",telefone " +
+                                 ",codigo_usuario" +
+                                 ",email )" +
+                                 "values " +
+                                 "(@Nome" +
+                                 ",@Cpf " +
+                                 ",@RG " +
+                                 ",@Aniversasrio " +
+                                 ",@Rua " +
+                                 ",@Cep " +
+                                 ",@Numero " +
+                                 ",@Estado " +
+                                 ",@Cidade " +
+                                 ",@CodEmpresa " +
+                                 ",@CodCargo " +
+                                 ",@Salario " +
+                                 ",@Adimicao " +
+                                 ",@Transporte " +
+                                 ",@Alimentacao " +
+                                 ",@Refeicao " +
+                                 ",@Saude " +
+                                 ",@Notuno " +
+                                 ",@Periculosidade " +
+                                 ",@INSS " +
+                                 ",@NDependentes " +
+                                 ",@CodBanco " +
+                                 ",@NomeBanco" +
+                                 ",@Agencia " +
+                                 ",@NumConta " +
+                                 ",@Telefone " +
+                                 ",@CodUser" +
+                                 ",@Email )";
 
-                        using (SqlCommand cmd = new SqlCommand(comando, connection))
+                        //primeiro comando tabela usuarios
+                        using (SqlCommand comandoUser = new SqlCommand(comandoUsuario, connection, transaction))
                         {
-                            connection.Open();
+                            comandoUser.Parameters.AddWithValue("@nome", Login);
+                            comandoUser.Parameters.AddWithValue("@senhaHash", senhaHash);
+                            comandoUser.Parameters.AddWithValue("@Nivel", Nivel);
+
+                            comandoUser.ExecuteNonQuery();
+                            
+                        }
+                        
+                        //segundo comando insert na tabela funcionarios
+                        using (SqlCommand cmd = new SqlCommand(comandoFuncionario, connection, transaction))
+                        {
+                           
                             cmd.Parameters.AddWithValue("@Nome", Nome);
                             cmd.Parameters.AddWithValue("@Cpf", Cpf);
                             cmd.Parameters.AddWithValue("@RG", RG);
@@ -159,26 +180,29 @@ namespace PIM_IV.control
                             cmd.Parameters.AddWithValue("@NumConta", Convert.ToInt32(NConta));
                             cmd.Parameters.AddWithValue("@CodUser", Convert.ToInt32(Cod_User));
 
+                            
 
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cadastro realizado com sucesso!");
+                            
                         }
+
+                        transaction.Commit();
+                        MessageBox.Show("Cadastro realizado com sucesso!");
+                        return true;
                     }
-                    //CriarUsuario(Cpf, Cpf, Nivel);
+                    catch (Exception ex)
+                    {
+                        // Se ocorrer algum erro, reverte a transação
+                        MessageBox.Show("Erro linha 195 crud: " + ex.Message);
+                        transaction.Rollback();
+                        return false;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Erro: {ex.Message}");
-                }
-                finally
-                {
-                    SqlConnection con = new SqlConnection(connectionString);
-                    con.Close();
-                }
-
-
+               
             }
+            return true;
         }
+             
         public bool VerificaFuncionarios()
         {
             string comando = "SELECT count(*) from Funcionarios where CPF = @Cpf;";
@@ -216,7 +240,7 @@ namespace PIM_IV.control
                 con.Close();
             }
         }
-        public void AlterarFuncionario(string cod)
+        public void AlterarFuncionario(string cod)//altera somente o funcionario
         {
             string comando = @"UPDATE FUNCIONARIOS SET 
                                  nome = @Nome
@@ -246,22 +270,22 @@ namespace PIM_IV.control
                                  ,n_conta=@NumConta 
                                  ,telefone =@Telefone 
                                  ,email =@Email 
-                                 WHERE codigo_funcionario = @Cod;
-                                 
-                                 UPDATE U
-                                 SET 
-                                 [login] = @Login,
-                                 [SenhaHash] = @SenhaHash,
-                                 [Nivel] = @Nivel
-                                 FROM [HERMES].[dbo].[Usuarios] U
-                                 INNER JOIN [HERMES].[dbo].[Funcionarios] F ON U.[cod_usuario] = F.[codigo_usuario]
-                                 WHERE F.[codigo_funcionario] = @Cod;";
+                                 WHERE codigo_funcionario = @Cod;";
+            /*
+            UPDATE U
+            SET 
+            [login] = @Login,
+            [SenhaHash] = @SenhaHash,
+            [Nivel] = @Nivel
+            FROM [HERMES].[dbo].[Usuarios] U
+            INNER JOIN [HERMES].[dbo].[Funcionarios] F ON U.[cod_usuario] = F.[codigo_usuario]
+            WHERE F.[codigo_funcionario] = @Cod;"*/
 
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
             string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
 
-            string senhaHash = BCrypt.Net.BCrypt.HashPassword(SSS);
+            //string senhaHash = BCrypt.Net.BCrypt.HashPassword(SSS);
 
 
             try
@@ -299,9 +323,9 @@ namespace PIM_IV.control
                         cmd.Parameters.AddWithValue("@NomeBanco", NomeBanco);
                         cmd.Parameters.AddWithValue("@Agencia", Convert.ToInt32(AgenciaBanco));
                         cmd.Parameters.AddWithValue("@NumConta", Convert.ToInt32(NConta));
-                        cmd.Parameters.AddWithValue("@Login",Login); 
-                        cmd.Parameters.AddWithValue("@Nivel",Nivel); 
-                        cmd.Parameters.AddWithValue("@SenhaHash", senhaHash);
+                        //cmd.Parameters.AddWithValue("@Login",Login); 
+                        //cmd.Parameters.AddWithValue("@Nivel",Nivel); 
+                        //cmd.Parameters.AddWithValue("@SenhaHash", senhaHash);
                         cmd.Parameters.AddWithValue("@Cod", cod);
 
 
@@ -323,6 +347,7 @@ namespace PIM_IV.control
             init.CriarNovoUsuario(nome, senha, Convert.ToInt32(nivel));
 
         }
+
 
         public void BuscarUser(string cpf)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -157,6 +158,41 @@ namespace PIM_IV.control
             }
 
         }
+        public string BuscarCod()
+        {
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                
+                connection.Open();
+
+                // Consulta para obter o último registro
+                string query = "SELECT TOP 1 * FROM Usuarios ORDER BY cod_usuario DESC";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            
+                            int codigoInt = reader.GetInt32(reader.GetOrdinal("cod_usuario"));
+                            codigoInt += 1;
+                            string codigo = codigoInt.ToString();
+
+                            
+                            return codigo;
+                        }
+                        else
+                        {
+                            
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
         public void AlterarSenha(string nome, string novaSenha)
         {
             PegaNome nomeServer = new PegaNome();
@@ -170,7 +206,9 @@ namespace PIM_IV.control
                 string novoHashSenha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
 
                 // Comando SQL para atualizar a senha do usuário
-                string sql = "UPDATE Usuarios SET SenhaHash = @NovaSenha WHERE login = @Nome";
+                string sql = @"UPDATE Usuarios SET SenhaHash = @NovaSenha,
+                               login = @Nome                     
+                               WHERE login = @Nome";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
@@ -181,7 +219,7 @@ namespace PIM_IV.control
 
                     if (rowsAffected == 1)
                     {
-                        MessageBox.Show("Senha alterada com sucesso.");
+                        MessageBox.Show("Usuário alterada com sucesso.");
                     }
                     else
                     {

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,13 +19,15 @@ namespace PIM_IV
     {
         string cod = null;
         int codEmpresa;
-        public FormCRUDFuncionario()
+        public FormCRUDFuncionario()//criar novo funcionário
         {
             InitializeComponent();
             PreencherComboBoxEstados();
             LoadEmpresas();
+            
+            btnExcluirFun.Enabled = false;
         }
-        public FormCRUDFuncionario(string cod)
+        public FormCRUDFuncionario(string cod)//alterar funcionário
         {
             InitializeComponent();
             if (cod != null)
@@ -37,6 +40,7 @@ namespace PIM_IV
                 CrudFuncionario alterarFuncionario = new CrudFuncionario();
                 alterarFuncionario.BuscarFuncionario(this.cod);
                 codEmpresa = Convert.ToInt16(alterarFuncionario.Cod_empresa);
+                PreencherComboBoxEstados();
                 txtNomeFun.Text = alterarFuncionario.Nome;
                 txtCPF.Text = alterarFuncionario.Cpf;
                 txtRgFun.Text = alterarFuncionario.RG;
@@ -69,6 +73,7 @@ namespace PIM_IV
                 txtTelefone.Text = alterarFuncionario.Telefone;
                 txtEmail.Text = alterarFuncionario.Email;
                 txtSenha.Text = "";
+                
                 //txtSenha.Text = alterarFuncionario.Senha;
             }
         }
@@ -89,56 +94,47 @@ namespace PIM_IV
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            CrudFuncionario salvarFuncionario = new CrudFuncionario();
-            salvarFuncionario.Nome = txtNomeFun.Text;
-            salvarFuncionario.Cpf = txtCPF.Text;
-            salvarFuncionario.DataNascimento = txtDataNascimento.Text;
-            salvarFuncionario.DataAdimicao = txtDataAdmi.Text;
-            salvarFuncionario.RG = txtRgFun.Text;
-            salvarFuncionario.Rua = txtEndFun.Text;
-            salvarFuncionario.Cep = txtCepFun.Text;
-            salvarFuncionario.Numero = txtNumFun.Text;
-            salvarFuncionario.Cidade = txtCidadeFun.Text;
-            salvarFuncionario.Estado = txtUfFun.Text;
-            salvarFuncionario.Telefone = txtTelefone.Text;
-            salvarFuncionario.Email = txtEmail.Text;
-            salvarFuncionario.Cod_empresa = boxCodEmpresa.Text;
-            salvarFuncionario.Cod_cargo = boxCodCargo.Text;
-            salvarFuncionario.Salario = txtSalarioFun.Text;
-            salvarFuncionario.VTransporte = txtTransporte.Text;
-            salvarFuncionario.VAlimentacao = txtAlimentacao.Text;
-            salvarFuncionario.VRefeicao = txtRefeicao.Text;
-            salvarFuncionario.PlanoSaude = txtPlanoSaude.Text;
-            salvarFuncionario.AddPericulosidade = txtPericulosidae.Text;
-            salvarFuncionario.AddNoturno = txtNoturno.Text;
-            salvarFuncionario.NDependentes = txtDependentes.Text;
-            salvarFuncionario.Cod_banco = txtCodBanco.Text;
-            salvarFuncionario.NomeBanco = txtBanco.Text;
-            salvarFuncionario.AgenciaBanco = txtAgencia.Text;
-            salvarFuncionario.NConta = txtConta.Text;
-            salvarFuncionario.Nivel = txtNivel.Text;
-            salvarFuncionario.Login = txtLogin.Text;
-            salvarFuncionario.SSS = txtSenha.Text;
-            if (cod == null)
+            if(cod != null)//usuario carregado e será alterado
             {
-                CrudUser criarUser = new CrudUser();
-                if (criarUser.CriarNovoUsuario(txtCPF.Text, txtSenha.Text, Convert.ToInt32(txtNivel.Text)))
+                if (checkBox1.Checked)// vai alterar só o usuário
                 {
-                    salvarFuncionario.Cod_User = criarUser.BuscarUser(txtCPF.Text);
-                    salvarFuncionario.CadastrarFuncionario();
+                    alterarUsuario();
+                    
+                }
+                else// vai alterar só o funcionário
+                {
+                    SalvarTudo();
+                }
+            }
+            else// vai criar um novo funcionário/usuário
+            {
+                SalvarTudo();
+            }
+        }
+
+       
+
+        private void alterarUsuario()
+        {
+            if (txtLogin.Text.Length > 3) //verifica login
+            {
+                if (txtSenha.Text.Length > 5)//Verifica senha
+                {
+                    CrudUser alterar = new CrudUser();
+                    alterar.AlterarSenha(txtLogin.Text, txtSenha.Text);
                     Close();
+                }
+                else
+                {
+                    MessageBox.Show("Senha muito curta! ");
 
                 }
             }
             else
             {
-                salvarFuncionario.Codigo = this.cod;
-                salvarFuncionario.AlterarFuncionario(cod);
-                Close();
+                MessageBox.Show("Login deve ter mais de 3 caracteres! ");
             }
         }
-    
-        
 
         private void boxCodEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -236,20 +232,126 @@ namespace PIM_IV
             boxCodEmpresa.ValueMember = "CodEmpresa";
             boxCodEmpresa.DataSource = loadEmpresas.BuscarEmpresas();
         }
-
-        private void checkSenha_CheckedChanged(object sender, EventArgs e)
+        
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
-            // Verifica o estado atual do CheckBox
-            if (checkSenha.Checked)
+            if (cod != null)
             {
-                txtSenha.Enabled = true;
+                if (checkBox1.Checked)
+                {
+                    groupBox8.Enabled = true;
+                    txtLogin.Enabled = true;
+                    txtSenha.Enabled = true;
+                    txtNivel.Enabled = true;
+                    DesativarCampor();
+                    
+                }
+                else
+                {
+                    groupBox8.Enabled = false;
+                    txtLogin.Enabled = false;
+                    txtSenha.Enabled = false;
+                    txtNivel.Enabled = false;
+                    AtivarCampor();
+                }
             }
             else
             {
-                txtSenha.Enabled = false;
+                if (checkBox1.Checked)
+                {
+                    groupBox8.Enabled = true;
+                    txtLogin.Enabled = true;
+                    txtSenha.Enabled = true;
+                    txtNivel.Enabled = true;
+                    //DesativarCampor();
+                    
+                }
+                else
+                {
+                    groupBox8.Enabled = false;
+                    txtLogin.Enabled = false;
+                    txtSenha.Enabled = false;
+                    txtNivel.Enabled = false;
+                    //AtivarCampor();
+                }
             }
-            
         }
+
+        private void SalvarTudo()
+        {
+            CrudFuncionario salvarFuncionario = new CrudFuncionario();
+            salvarFuncionario.Nome = txtNomeFun.Text;
+            salvarFuncionario.Cpf = txtCPF.Text;
+            salvarFuncionario.DataNascimento = txtDataNascimento.Text;
+            salvarFuncionario.DataAdimicao = txtDataAdmi.Text;
+            salvarFuncionario.RG = txtRgFun.Text;
+            salvarFuncionario.Rua = txtEndFun.Text;
+            salvarFuncionario.Cep = txtCepFun.Text;
+            salvarFuncionario.Numero = txtNumFun.Text;
+            salvarFuncionario.Cidade = txtCidadeFun.Text;
+            salvarFuncionario.Estado = txtUfFun.Text;
+            salvarFuncionario.Telefone = txtTelefone.Text;
+            salvarFuncionario.Email = txtEmail.Text;
+            salvarFuncionario.Cod_empresa = boxCodEmpresa.Text;
+            salvarFuncionario.Cod_cargo = boxCodCargo.Text;
+            salvarFuncionario.Salario = txtSalarioFun.Text;
+            salvarFuncionario.VTransporte = txtTransporte.Text;
+            salvarFuncionario.VAlimentacao = txtAlimentacao.Text;
+            salvarFuncionario.VRefeicao = txtRefeicao.Text;
+            salvarFuncionario.PlanoSaude = txtPlanoSaude.Text;
+            salvarFuncionario.AddPericulosidade = txtPericulosidae.Text;
+            salvarFuncionario.AddNoturno = txtNoturno.Text;
+            salvarFuncionario.NDependentes = txtDependentes.Text;
+            salvarFuncionario.Cod_banco = txtCodBanco.Text;
+            salvarFuncionario.NomeBanco = txtBanco.Text;
+            salvarFuncionario.AgenciaBanco = txtAgencia.Text;
+            salvarFuncionario.NConta = txtConta.Text;
+            CrudUser check = new CrudUser();
+            salvarFuncionario.Cod_User = check.BuscarCod();
+            MessageBox.Show(salvarFuncionario.Cod_User);
+
+            if (cod == null)
+            {
+                salvarFuncionario.Nivel = txtNivel.Text;
+                salvarFuncionario.Login = txtLogin.Text;
+                salvarFuncionario.SSS = txtSenha.Text;
+                // CrudUser criarUser = new CrudUser();
+                //if (criarUser.CriarNovoUsuario(txtLogin.Text, txtSenha.Text, Convert.ToInt32(txtNivel.Text)))
+                //{
+                //salvarFuncionario.Cod_User = criarUser.BuscarUser(txtCPF.Text);
+                if (salvarFuncionario.CadastrarFuncionario())
+                {
+                    Close();
+                }
+
+                //}
+            }
+            else
+            {
+                salvarFuncionario.Codigo = this.cod;
+                salvarFuncionario.AlterarFuncionario(cod);
+                Close();
+            }
+        }
+
+        private void DesativarCampor()
+        {
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+            groupBox6.Enabled = false;
+            groupBox4.Enabled = false;
+            groupBox5.Enabled = false;
+            groupBox9.Enabled = false;
+        }
+        private void AtivarCampor()
+        {
+            groupBox2.Enabled = true;
+            groupBox3.Enabled = true;
+            groupBox6.Enabled = true;
+            groupBox4.Enabled = true;
+            groupBox5.Enabled = true;
+            groupBox9.Enabled = true;
+        }
+
     }
 }

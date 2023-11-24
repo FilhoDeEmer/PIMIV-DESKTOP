@@ -55,7 +55,7 @@
             this.btnGerenciarFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerenciarFuncionarios.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerenciarFuncionarios.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerenciarFuncionarios.Location = new System.Drawing.Point(0, 69);
+            this.btnGerenciarFuncionarios.Location = new System.Drawing.Point(0, 151);
             this.btnGerenciarFuncionarios.Name = "btnGerenciarFuncionarios";
             this.btnGerenciarFuncionarios.Size = new System.Drawing.Size(278, 63);
             this.btnGerenciarFuncionarios.TabIndex = 1;
@@ -70,12 +70,13 @@
             this.btnRelatoriosGerais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelatoriosGerais.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelatoriosGerais.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnRelatoriosGerais.Location = new System.Drawing.Point(0, 207);
+            this.btnRelatoriosGerais.Location = new System.Drawing.Point(0, 357);
             this.btnRelatoriosGerais.Name = "btnRelatoriosGerais";
             this.btnRelatoriosGerais.Size = new System.Drawing.Size(278, 63);
             this.btnRelatoriosGerais.TabIndex = 4;
             this.btnRelatoriosGerais.Text = "Relatórios Gerais";
             this.btnRelatoriosGerais.UseVisualStyleBackColor = false;
+            this.btnRelatoriosGerais.Visible = false;
             this.btnRelatoriosGerais.Click += new System.EventHandler(this.btnRelatoriosGerais_Click);
             // 
             // btnAjuda
@@ -86,12 +87,13 @@
             this.btnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAjuda.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnAjuda.Location = new System.Drawing.Point(6, 37);
+            this.btnAjuda.Location = new System.Drawing.Point(12, 582);
             this.btnAjuda.Name = "btnAjuda";
             this.btnAjuda.Size = new System.Drawing.Size(81, 41);
             this.btnAjuda.TabIndex = 5;
             this.btnAjuda.Text = "Ajuda";
             this.btnAjuda.UseVisualStyleBackColor = false;
+            this.btnAjuda.Visible = false;
             this.btnAjuda.Click += new System.EventHandler(this.btnAjuda_Click);
             // 
             // btnSair
@@ -102,9 +104,9 @@
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSair.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnSair.Location = new System.Drawing.Point(185, 37);
+            this.btnSair.Location = new System.Drawing.Point(6, 19);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(81, 41);
+            this.btnSair.Size = new System.Drawing.Size(266, 69);
             this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
@@ -120,7 +122,7 @@
             this.groupBox1.Controls.Add(this.btnRelatoriosGerais);
             this.groupBox1.Location = new System.Drawing.Point(0, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 339);
+            this.groupBox1.Size = new System.Drawing.Size(278, 495);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
@@ -131,12 +133,13 @@
             this.btnNotificacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotificacoes.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotificacoes.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnNotificacoes.Location = new System.Drawing.Point(0, 276);
+            this.btnNotificacoes.Location = new System.Drawing.Point(0, 426);
             this.btnNotificacoes.Name = "btnNotificacoes";
             this.btnNotificacoes.Size = new System.Drawing.Size(278, 63);
             this.btnNotificacoes.TabIndex = 11;
             this.btnNotificacoes.Text = "Notificações";
             this.btnNotificacoes.UseVisualStyleBackColor = false;
+            this.btnNotificacoes.Visible = false;
             // 
             // btnGerenciarEmpresas
             // 
@@ -145,7 +148,7 @@
             this.btnGerenciarEmpresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerenciarEmpresas.Font = new System.Drawing.Font("Quicksand Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerenciarEmpresas.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerenciarEmpresas.Location = new System.Drawing.Point(0, 138);
+            this.btnGerenciarEmpresas.Location = new System.Drawing.Point(0, 253);
             this.btnGerenciarEmpresas.Name = "btnGerenciarEmpresas";
             this.btnGerenciarEmpresas.Size = new System.Drawing.Size(278, 63);
             this.btnGerenciarEmpresas.TabIndex = 10;
@@ -160,7 +163,7 @@
             this.btnGerarFolha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerarFolha.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerarFolha.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnGerarFolha.Location = new System.Drawing.Point(0, 0);
+            this.btnGerarFolha.Location = new System.Drawing.Point(0, 53);
             this.btnGerarFolha.Name = "btnGerarFolha";
             this.btnGerarFolha.Size = new System.Drawing.Size(278, 63);
             this.btnGerarFolha.TabIndex = 0;
@@ -211,7 +214,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnAjuda);
             this.groupBox2.Controls.Add(this.btnSair);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(0, 629);
@@ -225,7 +227,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.btnAjuda);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelHome);
             this.Controls.Add(this.nomeUsuario);

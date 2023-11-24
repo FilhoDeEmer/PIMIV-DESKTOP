@@ -153,7 +153,9 @@ namespace PIM_IV
             }
         }
 
-
-
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
