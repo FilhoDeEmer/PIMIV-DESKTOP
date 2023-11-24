@@ -70,6 +70,7 @@
             this.linkSenha.TabIndex = 3;
             this.linkSenha.TabStop = true;
             this.linkSenha.Text = "Esqueceu sua senha?";
+            this.linkSenha.Visible = false;
             this.linkSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSenha_LinkClicked);
             // 
             // btnLogin

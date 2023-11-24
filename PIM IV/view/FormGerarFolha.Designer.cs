@@ -76,7 +76,7 @@
             this.referencia1Nome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.referenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.M = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.labelTotalLiquido = new System.Windows.Forms.Label();
@@ -101,13 +101,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.labelSalarioBase = new System.Windows.Forms.Label();
             this.labBases = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEmitir = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.c.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.referenciasBindingSource)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.M.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -214,6 +214,7 @@
             this.referencia7.Size = new System.Drawing.Size(73, 30);
             this.referencia7.TabIndex = 46;
             this.referencia7.SelectedIndexChanged += new System.EventHandler(this.referencia7_SelectedIndexChanged);
+            this.referencia7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // referencia6
             // 
@@ -223,6 +224,7 @@
             this.referencia6.Size = new System.Drawing.Size(73, 30);
             this.referencia6.TabIndex = 45;
             this.referencia6.SelectedIndexChanged += new System.EventHandler(this.referencia6_SelectedIndexChanged);
+            this.referencia6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // referencia5
             // 
@@ -232,6 +234,7 @@
             this.referencia5.Size = new System.Drawing.Size(73, 30);
             this.referencia5.TabIndex = 44;
             this.referencia5.SelectedIndexChanged += new System.EventHandler(this.referencia5_SelectedIndexChanged);
+            this.referencia5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // referencia4
             // 
@@ -241,6 +244,7 @@
             this.referencia4.Size = new System.Drawing.Size(73, 30);
             this.referencia4.TabIndex = 43;
             this.referencia4.SelectedIndexChanged += new System.EventHandler(this.referencia4_SelectedIndexChanged);
+            this.referencia4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // referencia3
             // 
@@ -250,6 +254,7 @@
             this.referencia3.Size = new System.Drawing.Size(73, 30);
             this.referencia3.TabIndex = 42;
             this.referencia3.SelectedIndexChanged += new System.EventHandler(this.referencia3_SelectedIndexChanged);
+            this.referencia3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // referencia2
             // 
@@ -259,6 +264,7 @@
             this.referencia2.Size = new System.Drawing.Size(73, 30);
             this.referencia2.TabIndex = 41;
             this.referencia2.SelectedIndexChanged += new System.EventHandler(this.referencia2_SelectedIndexChanged);
+            this.referencia2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // referencia1
             // 
@@ -268,6 +274,7 @@
             this.referencia1.Size = new System.Drawing.Size(73, 30);
             this.referencia1.TabIndex = 40;
             this.referencia1.SelectedIndexChanged += new System.EventHandler(this.referencia1_SelectedIndexChanged);
+            this.referencia1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // label9
             // 
@@ -325,6 +332,8 @@
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(197, 29);
             this.textBox30.TabIndex = 35;
+            this.textBox30.Text = "0";
+            this.textBox30.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox31
             // 
@@ -332,6 +341,8 @@
             this.textBox31.Name = "textBox31";
             this.textBox31.Size = new System.Drawing.Size(197, 29);
             this.textBox31.TabIndex = 34;
+            this.textBox31.Text = "0";
+            this.textBox31.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox32
             // 
@@ -339,6 +350,8 @@
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(197, 29);
             this.textBox32.TabIndex = 33;
+            this.textBox32.Text = "0";
+            this.textBox32.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox33
             // 
@@ -346,6 +359,8 @@
             this.textBox33.Name = "textBox33";
             this.textBox33.Size = new System.Drawing.Size(197, 29);
             this.textBox33.TabIndex = 32;
+            this.textBox33.Text = "0";
+            this.textBox33.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox34
             // 
@@ -353,6 +368,8 @@
             this.textBox34.Name = "textBox34";
             this.textBox34.Size = new System.Drawing.Size(197, 29);
             this.textBox34.TabIndex = 31;
+            this.textBox34.Text = "0";
+            this.textBox34.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox35
             // 
@@ -360,6 +377,8 @@
             this.textBox35.Name = "textBox35";
             this.textBox35.Size = new System.Drawing.Size(197, 29);
             this.textBox35.TabIndex = 30;
+            this.textBox35.Text = "0";
+            this.textBox35.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox36
             // 
@@ -367,6 +386,8 @@
             this.textBox36.Name = "textBox36";
             this.textBox36.Size = new System.Drawing.Size(197, 29);
             this.textBox36.TabIndex = 29;
+            this.textBox36.Text = "0";
+            this.textBox36.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox23
             // 
@@ -374,6 +395,9 @@
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(178, 29);
             this.textBox23.TabIndex = 28;
+            this.textBox23.Text = "0";
+            this.textBox23.TextChanged += new System.EventHandler(this.textBox23_TextChanged);
+            this.textBox23.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox24
             // 
@@ -381,6 +405,9 @@
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(178, 29);
             this.textBox24.TabIndex = 27;
+            this.textBox24.Text = "0";
+            this.textBox24.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
+            this.textBox24.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox25
             // 
@@ -388,6 +415,9 @@
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(178, 29);
             this.textBox25.TabIndex = 26;
+            this.textBox25.Text = "0";
+            this.textBox25.TextChanged += new System.EventHandler(this.textBox25_TextChanged);
+            this.textBox25.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox26
             // 
@@ -395,6 +425,9 @@
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new System.Drawing.Size(178, 29);
             this.textBox26.TabIndex = 25;
+            this.textBox26.Text = "0";
+            this.textBox26.TextChanged += new System.EventHandler(this.textBox26_TextChanged);
+            this.textBox26.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox27
             // 
@@ -402,6 +435,9 @@
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(178, 29);
             this.textBox27.TabIndex = 24;
+            this.textBox27.Text = "0";
+            this.textBox27.TextChanged += new System.EventHandler(this.textBox27_TextChanged);
+            this.textBox27.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox28
             // 
@@ -409,6 +445,9 @@
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(178, 29);
             this.textBox28.TabIndex = 23;
+            this.textBox28.Text = "0";
+            this.textBox28.TextChanged += new System.EventHandler(this.textBox28_TextChanged);
+            this.textBox28.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox29
             // 
@@ -416,6 +455,9 @@
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(178, 29);
             this.textBox29.TabIndex = 22;
+            this.textBox29.Text = "0";
+            this.textBox29.TextChanged += new System.EventHandler(this.textBox29_TextChanged);
+            this.textBox29.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox16
             // 
@@ -423,6 +465,8 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(85, 29);
             this.textBox16.TabIndex = 21;
+            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
+            this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox17
             // 
@@ -430,6 +474,8 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(85, 29);
             this.textBox17.TabIndex = 20;
+            this.textBox17.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
+            this.textBox17.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox18
             // 
@@ -437,6 +483,8 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(85, 29);
             this.textBox18.TabIndex = 19;
+            this.textBox18.TextChanged += new System.EventHandler(this.referencia5_TextChanged);
+            this.textBox18.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox19
             // 
@@ -444,6 +492,8 @@
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(85, 29);
             this.textBox19.TabIndex = 18;
+            this.textBox19.TextChanged += new System.EventHandler(this.textBox19_TextChanged);
+            this.textBox19.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox20
             // 
@@ -451,6 +501,8 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(85, 29);
             this.textBox20.TabIndex = 17;
+            this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
+            this.textBox20.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox21
             // 
@@ -458,6 +510,8 @@
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(85, 29);
             this.textBox21.TabIndex = 16;
+            this.textBox21.TextChanged += new System.EventHandler(this.textBox21_TextChanged);
+            this.textBox21.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox22
             // 
@@ -465,9 +519,12 @@
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(85, 29);
             this.textBox22.TabIndex = 15;
+            this.textBox22.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
+            this.textBox22.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // referencia7Nome
             // 
+            this.referencia7Nome.Enabled = false;
             this.referencia7Nome.Location = new System.Drawing.Point(91, 256);
             this.referencia7Nome.Name = "referencia7Nome";
             this.referencia7Nome.Size = new System.Drawing.Size(385, 29);
@@ -475,6 +532,7 @@
             // 
             // referencia6Nome
             // 
+            this.referencia6Nome.Enabled = false;
             this.referencia6Nome.Location = new System.Drawing.Point(92, 220);
             this.referencia6Nome.Name = "referencia6Nome";
             this.referencia6Nome.Size = new System.Drawing.Size(385, 29);
@@ -482,6 +540,7 @@
             // 
             // referencia5Nome
             // 
+            this.referencia5Nome.Enabled = false;
             this.referencia5Nome.Location = new System.Drawing.Point(92, 184);
             this.referencia5Nome.Name = "referencia5Nome";
             this.referencia5Nome.Size = new System.Drawing.Size(385, 29);
@@ -489,6 +548,7 @@
             // 
             // referencia4Nome
             // 
+            this.referencia4Nome.Enabled = false;
             this.referencia4Nome.Location = new System.Drawing.Point(92, 148);
             this.referencia4Nome.Name = "referencia4Nome";
             this.referencia4Nome.Size = new System.Drawing.Size(385, 29);
@@ -496,6 +556,7 @@
             // 
             // referencia3Nome
             // 
+            this.referencia3Nome.Enabled = false;
             this.referencia3Nome.Location = new System.Drawing.Point(91, 112);
             this.referencia3Nome.Name = "referencia3Nome";
             this.referencia3Nome.Size = new System.Drawing.Size(385, 29);
@@ -503,6 +564,7 @@
             // 
             // referencia2Nome
             // 
+            this.referencia2Nome.Enabled = false;
             this.referencia2Nome.Location = new System.Drawing.Point(91, 76);
             this.referencia2Nome.Name = "referencia2Nome";
             this.referencia2Nome.Size = new System.Drawing.Size(385, 29);
@@ -510,6 +572,7 @@
             // 
             // referencia1Nome
             // 
+            this.referencia1Nome.Enabled = false;
             this.referencia1Nome.Location = new System.Drawing.Point(92, 40);
             this.referencia1Nome.Name = "referencia1Nome";
             this.referencia1Nome.Size = new System.Drawing.Size(385, 29);
@@ -529,19 +592,17 @@
             // 
             this.referenciasBindingSource.DataMember = "Referencias";
             // 
-            // hERMESDataSet4
+            // M
             // 
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(13, 427);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(522, 112);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Mensagem";
+            this.M.Controls.Add(this.textBox1);
+            this.M.Enabled = false;
+            this.M.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M.Location = new System.Drawing.Point(13, 427);
+            this.M.Name = "M";
+            this.M.Size = new System.Drawing.Size(522, 112);
+            this.M.TabIndex = 3;
+            this.M.TabStop = false;
+            this.M.Text = "Mensagem";
             // 
             // textBox1
             // 
@@ -581,21 +642,21 @@
             // 
             this.labelTotalDesconto.AutoSize = true;
             this.labelTotalDesconto.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalDesconto.Location = new System.Drawing.Point(394, 29);
+            this.labelTotalDesconto.Location = new System.Drawing.Point(364, 29);
             this.labelTotalDesconto.Name = "labelTotalDesconto";
-            this.labelTotalDesconto.Size = new System.Drawing.Size(50, 18);
+            this.labelTotalDesconto.Size = new System.Drawing.Size(19, 18);
             this.labelTotalDesconto.TabIndex = 41;
-            this.labelTotalDesconto.Text = "DATA";
+            this.labelTotalDesconto.Text = "0";
             // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(175, 28);
+            this.labelTotal.Location = new System.Drawing.Point(137, 28);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(50, 18);
+            this.labelTotal.Size = new System.Drawing.Size(19, 18);
             this.labelTotal.TabIndex = 40;
-            this.labelTotal.Text = "DATA";
+            this.labelTotal.Text = "0";
             // 
             // label8
             // 
@@ -793,16 +854,17 @@
             this.labBases.TabIndex = 0;
             this.labBases.Text = "Salário Base";
             // 
-            // button1
+            // btnEmitir
             // 
-            this.button1.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(7, 651);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 33);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Emitir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnEmitir.Enabled = false;
+            this.btnEmitir.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmitir.Location = new System.Drawing.Point(7, 651);
+            this.btnEmitir.Name = "btnEmitir";
+            this.btnEmitir.Size = new System.Drawing.Size(98, 33);
+            this.btnEmitir.TabIndex = 6;
+            this.btnEmitir.Text = "Emitir";
+            this.btnEmitir.UseVisualStyleBackColor = true;
+            this.btnEmitir.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -814,18 +876,9 @@
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // hERMESDataSet2
-            // 
-            // 
             // funcionariosBindingSource
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
-            // 
-            // funcionariosTableAdapter
-            // 
-            // 
-            // referenciasTableAdapter
-            // 
             // 
             // FormGerarFolha
             // 
@@ -833,24 +886,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 690);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEmitir);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.M);
             this.Controls.Add(this.c);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGerarFolha";
-            this.Text = "FormGerarFolha";
+            this.Text = "spo";
             this.Load += new System.EventHandler(this.FormGerarFolha_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.c.ResumeLayout(false);
             this.c.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.referenciasBindingSource)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.M.ResumeLayout(false);
+            this.M.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -868,11 +921,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.GroupBox c;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox M;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEmitir;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label labDadosEmpresa;
         private System.Windows.Forms.Label label3;
@@ -921,7 +974,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label labelBaseIRRF;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label labelFGTSMes;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label labelBaseFGTS;
         private System.Windows.Forms.Label label13;
@@ -939,5 +991,6 @@
         private System.Windows.Forms.ComboBox referencia3;
         private System.Windows.Forms.ComboBox referencia2;
         private System.Windows.Forms.BindingSource referenciasBindingSource;
+        public System.Windows.Forms.Label labelFGTSMes;
     }
 }

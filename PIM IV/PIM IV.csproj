@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\CrudCargos.cs" />
+    <Compile Include="control\CrudFolha.cs" />
     <Compile Include="control\CrudEmpresas.cs" />
     <Compile Include="control\CrudFuncionario.cs" />
     <Compile Include="control\CRUDReferencias.cs" />

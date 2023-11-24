@@ -257,7 +257,12 @@ namespace PIM_IV.model
             string cmd = @"(COD_FOLHA INT PRIMARY KEY NOT NULL IDENTITY(1,1),
                             COD_EMPRESA INT NOT NULL,
                             COD_FUNCIONARIO INT NOT NULL,
-	                        REFERENCIA NVARCHAR(255),
+	                        SALARIO NVARCHAR(255),
+                            VALORPROVENTOS NVARCHAR(255),
+                            VALORDESCONTOS NVARCHAR(255),
+                            VALORLIQUIDO NVARCHAR(255),
+                            FAIXAIRRF NVARCHAR(255),
+                            FGTSMES NVARCHAR(255),
 	                        MENSAGEM NVARCHAR(255),
                             FOREIGN KEY (COD_EMPRESA) REFERENCES Empresas(codigo_empresa),
                             FOREIGN KEY (COD_FUNCIONARIO) REFERENCES FUNCIONARIOS(codigo_funcionario)
@@ -478,22 +483,22 @@ namespace PIM_IV.model
 
             string inserir = @"INSERT INTO Referencias(codigo, Descricao)
                                 VALUES
-                                (1001, 'Adiantamento de salário'),
-                                (1002, 'Salário mensalista'),
-                                (1003, 'Férias'),
-                                (1004, 'Décimo Terceiro '),
-                                (1005, 'Adiantamento_13º'),
-                                (1006, 'Aviso previo'),
-                                (1007, 'Insalubridade'),
-                                (1008, 'FGTS'),
-                                (1009, 'Vale transporte'),
-                                (1010, 'Vale alimentacao'),
-                                (1011, 'Adicional noturno'),
-                                (1012, 'Hora extra 50%'),
-                                (1013, 'Horaextra 100%'),
-                                (1014, 'Periculosidade'),
-                                (1015, 'Premiacao'),
-                                (1016, 'Participação nos lucros'),
+                                (1001, 'Adiantamento de salário (Em Real)'),
+                                (1002, 'Salário mensalista (Em dias)'),
+                                (1003, 'Férias (Em Meses)'),
+                                (1004, 'Décimo Terceiro'),
+                                (1005, 'Adiantamento_13º (1/2)'),
+                                (1006, 'Aviso previo (Em dias)'),
+                                (1007, 'Insalubridade (Porcentagem)'),
+                                (1008, 'FGTS (Porcentagem)'),
+                                (1009, 'Vale transporte (Valor)'),
+                                (1010, 'Vale alimentacao (Valor)'),
+                                (1011, 'Adicional noturno (porcentagem)'),
+                                (1012, 'Hora extra 50% (Em Horas)'),
+                                (1013, 'Horaextra 100% (Em Horas)'),
+                                (1014, 'Periculosidade (Porcentagem)'),
+                                (1015, 'Premiacao (Valor)'),
+                                (1016, 'Participação nos lucros (Valor)'),
                                 (1017, 'Abono salarial'),
                                 (1018, 'Antecipação salarial'),
                                 (1019, 'Plano de saúde'),
@@ -503,7 +508,8 @@ namespace PIM_IV.model
                                 (2004, 'Desconto sindical'),
                                 (2005, 'Pensão alimenticia'),
                                 (2006, 'Pagamento de faltas justificadas'),
-                                (2007, 'Previdência');";
+                                (2007, 'Previdência')
+                                (2008, 'Adiantamento de Salario');";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
