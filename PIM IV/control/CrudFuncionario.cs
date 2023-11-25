@@ -149,7 +149,7 @@ namespace PIM_IV.control
                         }
                         CrudUser check = new CrudUser();
                         Cod_User = check.BuscarCod(Login);
-                        MessageBox.Show(Cod_User);
+                        //MessageBox.Show(Cod_User);
                         //segundo comando insert na tabela funcionarios
                         using (SqlCommand cmd = new SqlCommand(comandoFuncionario, connection))
                         {
@@ -196,7 +196,7 @@ namespace PIM_IV.control
                     catch (Exception ex)
                     {
                         // Se ocorrer algum erro, reverte a transação
-                        MessageBox.Show("Erro linha 195 crud: " + ex.Message);
+                        MessageBox.Show("Erro : " + ex.Message);
                         string comandoUsuario = "DELETE FROM usuarios WHERE login = @Login;";
                         string comandoFuncionarios = "DELETE FROM FUNCIONARIOS WHERE CPF = @Cpf;";
 
