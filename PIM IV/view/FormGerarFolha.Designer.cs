@@ -104,6 +104,9 @@
             this.btnEmitir = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.c.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.referenciasBindingSource)).BeginInit();
@@ -333,6 +336,7 @@
             this.textBox30.Size = new System.Drawing.Size(197, 29);
             this.textBox30.TabIndex = 35;
             this.textBox30.Text = "0";
+            this.textBox30.TextChanged += new System.EventHandler(this.textBox30_TextChanged);
             this.textBox30.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox31
@@ -342,6 +346,7 @@
             this.textBox31.Size = new System.Drawing.Size(197, 29);
             this.textBox31.TabIndex = 34;
             this.textBox31.Text = "0";
+            this.textBox31.TextChanged += new System.EventHandler(this.textBox31_TextChanged);
             this.textBox31.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox32
@@ -351,6 +356,7 @@
             this.textBox32.Size = new System.Drawing.Size(197, 29);
             this.textBox32.TabIndex = 33;
             this.textBox32.Text = "0";
+            this.textBox32.TextChanged += new System.EventHandler(this.textBox32_TextChanged);
             this.textBox32.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox33
@@ -360,6 +366,7 @@
             this.textBox33.Size = new System.Drawing.Size(197, 29);
             this.textBox33.TabIndex = 32;
             this.textBox33.Text = "0";
+            this.textBox33.TextChanged += new System.EventHandler(this.textBox33_TextChanged);
             this.textBox33.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox34
@@ -369,6 +376,7 @@
             this.textBox34.Size = new System.Drawing.Size(197, 29);
             this.textBox34.TabIndex = 31;
             this.textBox34.Text = "0";
+            this.textBox34.TextChanged += new System.EventHandler(this.textBox34_TextChanged);
             this.textBox34.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox35
@@ -378,6 +386,7 @@
             this.textBox35.Size = new System.Drawing.Size(197, 29);
             this.textBox35.TabIndex = 30;
             this.textBox35.Text = "0";
+            this.textBox35.TextChanged += new System.EventHandler(this.textBox35_TextChanged);
             this.textBox35.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox36
@@ -387,6 +396,7 @@
             this.textBox36.Size = new System.Drawing.Size(197, 29);
             this.textBox36.TabIndex = 29;
             this.textBox36.Text = "0";
+            this.textBox36.TextChanged += new System.EventHandler(this.textBox36_TextChanged);
             this.textBox36.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.referencia1_KeyPress);
             // 
             // textBox23
@@ -659,6 +669,7 @@
             this.labelTotal.TabIndex = 40;
             this.labelTotal.Text = "0";
             this.labelTotal.TabIndexChanged += new System.EventHandler(this.labelTotal_TabIndexChanged);
+            this.labelTotal.TextChanged += new System.EventHandler(this.labelTotal_TabIndexChanged);
             // 
             // label8
             // 
@@ -883,11 +894,47 @@
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(283, 662);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(114, 22);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Assinatura:";
+            this.label10.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(403, 662);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(285, 22);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "_________________________";
+            this.label12.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(474, 688);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(114, 22);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Assinatura:";
+            this.label14.Visible = false;
+            // 
             // FormGerarFolha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 690);
+            this.ClientSize = new System.Drawing.Size(1056, 719);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnEmitir);
             this.Controls.Add(this.groupBox6);
@@ -915,6 +962,7 @@
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -995,5 +1043,8 @@
         private System.Windows.Forms.ComboBox referencia2;
         private System.Windows.Forms.BindingSource referenciasBindingSource;
         public System.Windows.Forms.Label labelFGTSMes;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
     }
 }

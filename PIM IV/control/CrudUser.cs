@@ -158,7 +158,7 @@ namespace PIM_IV.control
             }
 
         }
-        public string BuscarCod()
+        public string BuscarCod(string login)
         {
             PegaNome nomeServer = new PegaNome();
             string nomeServidor = nomeServer.Pegar();
@@ -169,16 +169,16 @@ namespace PIM_IV.control
                 connection.Open();
 
                 // Consulta para obter o último registro
-                string query = "SELECT TOP 1 * FROM Usuarios ORDER BY cod_usuario DESC";
+                string query = "SELECT cod_usuario FROM Usuarios where login =@Login;";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@Login", login);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             
                             int codigoInt = reader.GetInt32(reader.GetOrdinal("cod_usuario"));
-                            codigoInt += 1;
                             string codigo = codigoInt.ToString();
 
                             
@@ -225,6 +225,38 @@ namespace PIM_IV.control
                     {
                         MessageBox.Show("Falha ao alterar a senha.");
                     }
+                }
+            }
+        }
+
+        public int ChecarNivel(string user)
+        {
+            PegaNome nomeServer = new PegaNome();
+            string nomeServidor = nomeServer.Pegar();
+            string connectionString = "Data Source=" + nomeServidor + ";Initial Catalog=HERMES;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = @"SELECT Nivel FROM Usuarios WHERE login = @User";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@User", user);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        reader.Read();
+
+
+                        int codigoInt = Convert.ToInt32(reader["Nivel"]);
+
+
+                        return codigoInt;
+
+
+                    }
+
                 }
             }
         }

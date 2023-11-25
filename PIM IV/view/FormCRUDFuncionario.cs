@@ -306,9 +306,9 @@ namespace PIM_IV
             salvarFuncionario.NomeBanco = txtBanco.Text;
             salvarFuncionario.AgenciaBanco = txtAgencia.Text;
             salvarFuncionario.NConta = txtConta.Text;
-            CrudUser check = new CrudUser();
-            salvarFuncionario.Cod_User = check.BuscarCod();
-            MessageBox.Show(salvarFuncionario.Cod_User);
+            
+            
+            
 
             if (cod == null)
             {

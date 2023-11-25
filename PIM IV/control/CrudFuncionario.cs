@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using static PIM_IV.control.CrudCargos;
 using static PIM_IV.control.CrudEmpresas;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace PIM_IV.control
 {
@@ -71,7 +72,7 @@ namespace PIM_IV.control
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlTransaction transaction = connection.BeginTransaction();
+                    //SqlTransaction transaction = connection.BeginTransaction();
                     try
                     {
                         //Primeiro Insert na tabela Usuários
@@ -137,7 +138,7 @@ namespace PIM_IV.control
                                  ",@Email )";
 
                         //primeiro comando tabela usuarios
-                        using (SqlCommand comandoUser = new SqlCommand(comandoUsuario, connection, transaction))
+                        using (SqlCommand comandoUser = new SqlCommand(comandoUsuario, connection))
                         {
                             comandoUser.Parameters.AddWithValue("@nome", Login);
                             comandoUser.Parameters.AddWithValue("@senhaHash", senhaHash);
@@ -146,9 +147,11 @@ namespace PIM_IV.control
                             comandoUser.ExecuteNonQuery();
                             
                         }
-                        
+                        CrudUser check = new CrudUser();
+                        Cod_User = check.BuscarCod(Login);
+                        MessageBox.Show(Cod_User);
                         //segundo comando insert na tabela funcionarios
-                        using (SqlCommand cmd = new SqlCommand(comandoFuncionario, connection, transaction))
+                        using (SqlCommand cmd = new SqlCommand(comandoFuncionario, connection))
                         {
                            
                             cmd.Parameters.AddWithValue("@Nome", Nome);
@@ -186,7 +189,7 @@ namespace PIM_IV.control
                             
                         }
 
-                        transaction.Commit();
+                        //transaction.Commit();
                         MessageBox.Show("Cadastro realizado com sucesso!");
                         return true;
                     }
@@ -194,8 +197,26 @@ namespace PIM_IV.control
                     {
                         // Se ocorrer algum erro, reverte a transação
                         MessageBox.Show("Erro linha 195 crud: " + ex.Message);
-                        transaction.Rollback();
-                        return false;
+                        string comandoUsuario = "DELETE FROM usuarios WHERE login = @Login;";
+                        string comandoFuncionarios = "DELETE FROM FUNCIONARIOS WHERE CPF = @Cpf;";
+
+                        using (SqlConnection connectionExcluir = new SqlConnection(connectionString))
+                        {
+                            using (SqlCommand comandoExcluir1 = new SqlCommand(comandoUsuario,connectionExcluir))
+                            {
+                                comandoExcluir1.Parameters.AddWithValue("@Login", Login);
+                                connectionExcluir.Open();
+                                comandoExcluir1.ExecuteNonQuery();
+                            }
+                            using (SqlCommand comandoExcluir2 = new SqlCommand(comandoFuncionarios, connectionExcluir))
+                            {
+                                comandoExcluir2.Parameters.AddWithValue("@Cpf", Cpf);
+                                //connectionExcluir.Open();
+                                comandoExcluir2.ExecuteNonQuery();
+                            }
+                        }
+                        MessageBox.Show("Funcionário não foi criado!");
+                            return false;
                     }
                 }
                

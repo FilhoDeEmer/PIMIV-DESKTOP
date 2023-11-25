@@ -36,11 +36,20 @@ namespace PIM_IV
             comNome = txtBoxLogin.Text;
             comPassword = txtBoxPassword.Text;
             Login init = new Login();
+            CrudUser check = new CrudUser();
             if (init.CheckLogin3(comNome, comPassword))
             {
-                FormHome home = new FormHome(comNome);
-                home.Show();
-                Hide();
+
+                if(check.ChecarNivel(comNome) == 1)
+                {
+                    MessageBox.Show("O seu nível de usuário não consede acesso a plataforma, por vafor entre em contato com o setor responsavél!");
+                }
+                else 
+                {
+                    FormHome home = new FormHome(comNome);
+                    home.Show();
+                    Hide();
+                }
             }
          else { MessageBox.Show("Usuário ou senha inválido"); }
 

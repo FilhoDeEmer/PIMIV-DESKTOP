@@ -59,6 +59,13 @@ namespace PIM_IV.view
             folha.FgtsMes = labelFGTSMes.Text;
             folha.Mensagem = textBox1.Text;
             folha.SalvarFolha();
+            label10.Visible = true;
+            label12.Visible = true;
+            label14.Visible = true;
+            groupBox1.Visible = false;
+            btnEmitir.Visible = false;
+            button2.Visible = false;
+
             //folha.GerarImg(nomeFun);
             try
             {
@@ -116,6 +123,7 @@ namespace PIM_IV.view
                                                      "Admissão: {3}", funcionario.Nome, funcionario.Cpf, funcionario.NomeCargo, funcionario.DataAdimicao);
                 labelDadosFuncionarios.Text = textFormatado;
                 labelDadosFuncionarios.Visible = true;
+                label14.Text = funcionario.Nome;
                 if (funcionario.Nome.Length > 0)
                 {
                     codFuncionario = funcionario.Codigo;
@@ -513,6 +521,35 @@ namespace PIM_IV.view
 
             return resultadoP;
         }
+        public double CalculoDescontos()
+        {
+            double resultadoP, provento1, provento2, provento3, provento4, provento5, provento6, provento7;
+
+            if (double.TryParse(textBox30.Text, out provento1) &&
+                double.TryParse(textBox31.Text, out provento2) &&
+                double.TryParse(textBox32.Text, out provento3) &&
+                double.TryParse(textBox33.Text, out provento4) &&
+                double.TryParse(textBox34.Text, out provento5) &&
+                double.TryParse(textBox35.Text, out provento6) &&
+                double.TryParse(textBox36.Text, out provento7))
+            {
+                // Todas as conversões foram bem-sucedidas
+                resultadoP = provento1 + provento2 + provento3 + provento4 + provento5 + provento6 + provento7;
+                labelTotalDesconto.Text = resultadoP.ToString("F2");
+                // Faça o que precisar com resultadoP
+            }
+            else
+            {
+                // Tratar o caso em que a conversão falhou
+                // Por exemplo, exibir uma mensagem de erro ao usuário
+                //MessageBox.Show("Pelo menos um dos valores inseridos não é um número válido.");
+                resultadoP = 0;
+            }
+
+
+
+            return resultadoP;
+        }
 
         private void textBox22_TextChanged(object sender, EventArgs e)
         {
@@ -855,6 +892,41 @@ namespace PIM_IV.view
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox36_TextChanged(object sender, EventArgs e)
+        {
+            CalculoDescontos();
+        }
+
+        private void textBox35_TextChanged(object sender, EventArgs e)
+        {
+            CalculoDescontos();
+        }
+
+        private void textBox34_TextChanged(object sender, EventArgs e)
+        {
+            CalculoDescontos();
+        }
+
+        private void textBox33_TextChanged(object sender, EventArgs e)
+        {
+            CalculoDescontos();
+        }
+
+        private void textBox32_TextChanged(object sender, EventArgs e)
+        {
+            CalculoDescontos();
+        }
+
+        private void textBox31_TextChanged(object sender, EventArgs e)
+        {
+            CalculoDescontos();
+        }
+
+        private void textBox30_TextChanged(object sender, EventArgs e)
+        {
+            CalculoDescontos();
         }
     }
 }
