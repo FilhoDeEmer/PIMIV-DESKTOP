@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCRUDFuncionario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtNivel = new System.Windows.Forms.ComboBox();
             this.btnExcluirFun = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.txtNivel = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -145,6 +145,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label35.Location = new System.Drawing.Point(921, 226);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(103, 66);
+            this.label35.TabIndex = 6;
+            this.label35.Text = "1 - Padrão\r\n2- RH\r\n3- Gestor";
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -157,6 +167,20 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // txtNivel
+            // 
+            this.txtNivel.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.txtNivel.FormattingEnabled = true;
+            this.txtNivel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.txtNivel.Location = new System.Drawing.Point(826, 256);
+            this.txtNivel.Name = "txtNivel";
+            this.txtNivel.Size = new System.Drawing.Size(59, 30);
+            this.txtNivel.TabIndex = 4;
+            this.txtNivel.Text = "1";
+            // 
             // btnExcluirFun
             // 
             this.btnExcluirFun.Font = new System.Drawing.Font("Quicksand Bold", 12F, System.Drawing.FontStyle.Bold);
@@ -167,6 +191,16 @@
             this.btnExcluirFun.Text = "Excluir";
             this.btnExcluirFun.UseVisualStyleBackColor = true;
             this.btnExcluirFun.Click += new System.EventHandler(this.btnExcluirFun_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label34.Location = new System.Drawing.Point(827, 226);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(63, 22);
+            this.label34.TabIndex = 4;
+            this.label34.Text = "Nivel:";
             // 
             // groupBox9
             // 
@@ -228,40 +262,6 @@
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Dados de Login";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label35.Location = new System.Drawing.Point(921, 226);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(103, 66);
-            this.label35.TabIndex = 6;
-            this.label35.Text = "1 - Padrão\r\n2- RH\r\n3- Gestor";
-            // 
-            // txtNivel
-            // 
-            this.txtNivel.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.txtNivel.FormattingEnabled = true;
-            this.txtNivel.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.txtNivel.Location = new System.Drawing.Point(826, 256);
-            this.txtNivel.Name = "txtNivel";
-            this.txtNivel.Size = new System.Drawing.Size(59, 30);
-            this.txtNivel.TabIndex = 4;
-            this.txtNivel.Text = "1";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label34.Location = new System.Drawing.Point(827, 226);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(63, 22);
-            this.label34.TabIndex = 4;
-            this.label34.Text = "Nivel:";
             // 
             // txtSenha
             // 

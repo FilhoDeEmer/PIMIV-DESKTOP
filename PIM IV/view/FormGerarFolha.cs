@@ -24,6 +24,8 @@ namespace PIM_IV.view
         string nomeFun;
         int larguraImage;
         int alturaImage;
+        private string dependentes;
+        double VT, VA, VR, addNoturno;
         DateTime dataHoraAtual = DateTime.Now;
 
 
@@ -144,7 +146,11 @@ namespace PIM_IV.view
                     valorIRRF = Convert.ToString(CalculoIRRF(Convert.ToDecimal(funcionario.Salario, new CultureInfo("pt-BR")), Convert.ToInt32(funcionario.NDependentes)));
                     labelIRRF.Visible = true;
                     labelBaseIRRF.Visible = true;
-                    
+                    dependentes = funcionario.NDependentes;
+                    VT = Convert.ToDouble(funcionario.VTransporte);
+                    VR = Convert.ToDouble(funcionario.VRefeicao);
+                    VA = Convert.ToDouble(funcionario.VAlimentacao);
+                    addNoturno = Convert.ToDouble(funcionario.AddNoturno);
                     return true;
                 }
                 else
@@ -571,158 +577,98 @@ namespace PIM_IV.view
 
         private void textBox21_TextChanged(object sender, EventArgs e)
         {
-            if (referencia2.Text == "1002")
+            var resultado = CalculosFolha(referencia2.Text, textBox21.Text);
+            string campo1 = resultado.Item1;
+            string campo2 = resultado.Item2;
+            int verificador = resultado.Item3;
+            if (verificador == 1)
             {
-                double salarioB = Convert.ToDouble(salarioBruto);
-                double salarioH, salarioD, result;
-                int diasTrabalhados;
-                if (textBox21.Text.Length > 0)
-                {
-                    diasTrabalhados = Convert.ToInt32(textBox21.Text);
-                }
-                else
-                {
-                    diasTrabalhados = 0;
-                }
-                salarioD = salarioB / 30;
-
-                //salarioD = salarioH * 8;
-                result = diasTrabalhados * salarioD;
-                textBox28.Text = Convert.ToString(result);
-                CalculoProventos();
-                textBox28.Text = result.ToString("F2");
+                textBox28.Text = campo2;
             }
-            CalculoProventos();
+            else
+            {
+                textBox35.Text = campo2;
+            }
         }
 
         private void textBox20_TextChanged(object sender, EventArgs e)
         {
-            if (referencia3.Text == "1002")
+            var resultado = CalculosFolha(referencia3.Text, textBox20.Text);
+            string campo1 = resultado.Item1;
+            string campo2 = resultado.Item2;
+            int verificador = resultado.Item3;
+            if (verificador == 1)
             {
-                double salarioB = Convert.ToDouble(salarioBruto);
-                double salarioH, salarioD, result;
-                int diasTrabalhados;
-                if (textBox20.Text.Length > 0)
-                {
-                    diasTrabalhados = Convert.ToInt32(textBox20.Text);
-                }
-                else
-                {
-                    diasTrabalhados = 0;
-                }
-                salarioD = salarioB / 30;
-
-                //salarioD = salarioH * 8;
-                result = diasTrabalhados * salarioD;
-                textBox27.Text = Convert.ToString(result);
-                CalculoProventos();
-                textBox27.Text = result.ToString("F2");
+                textBox27.Text = campo2;
             }
-            CalculoProventos();
+            else
+            {
+                textBox34.Text = campo2;
+            }
         }
 
         private void textBox19_TextChanged(object sender, EventArgs e)
         {
-            if (referencia4.Text == "1002")
+            var resultado = CalculosFolha(referencia4.Text, textBox19.Text);
+            string campo1 = resultado.Item1;
+            string campo2 = resultado.Item2;
+            int verificador = resultado.Item3;
+            if (verificador == 1)
             {
-                double salarioB = Convert.ToDouble(salarioBruto);
-                double salarioH, salarioD, result;
-                int diasTrabalhados;
-                if (textBox19.Text.Length > 0)
-                {
-                    diasTrabalhados = Convert.ToInt32(textBox19.Text);
-                }
-                else
-                {
-                    diasTrabalhados = 0;
-                }
-                salarioD = salarioB / 30;
-
-                //salarioD = salarioH * 8;
-                result = diasTrabalhados * salarioD;
-                textBox26.Text = Convert.ToString(result);
-                CalculoProventos();
-                textBox26.Text = result.ToString("F2");
+                textBox26.Text = campo2;
             }
-            CalculoProventos();
+            else
+            {
+                textBox33.Text = campo2;
+            }
         }
 
         private void referencia5_TextChanged(object sender, EventArgs e)
         {
-            if (referencia5.Text == "1002")
+            var resultado = CalculosFolha(referencia5.Text, textBox18.Text);
+            string campo1 = resultado.Item1;
+            string campo2 = resultado.Item2;
+            int verificador = resultado.Item3;
+            if (verificador == 1)
             {
-                double salarioB = Convert.ToDouble(salarioBruto);
-                double salarioH, salarioD, result;
-                int diasTrabalhados;
-                if (textBox18.Text.Length > 0)
-                {
-                    diasTrabalhados = Convert.ToInt32(textBox18.Text);
-                }
-                else
-                {
-                    diasTrabalhados = 0;
-                }
-                salarioD = salarioB / 30;
-
-                //salarioD = salarioH * 8;
-                result = diasTrabalhados * salarioD;
-                textBox25.Text = Convert.ToString(result);
-                CalculoProventos();
-                textBox25.Text = result.ToString("F2");
+                textBox25.Text = campo2;
             }
-            CalculoProventos();
+            else
+            {
+                textBox32.Text = campo2;
+            }
         }
 
         private void textBox17_TextChanged(object sender, EventArgs e)
         {
-            if (referencia6.Text == "1002")
+            var resultado = CalculosFolha(referencia6.Text, textBox17.Text);
+            string campo1 = resultado.Item1;
+            string campo2 = resultado.Item2;
+            int verificador = resultado.Item3;
+            if (verificador == 1)
             {
-                double salarioB = Convert.ToDouble(salarioBruto);
-                double salarioH, salarioD, result;
-                int diasTrabalhados;
-                if (textBox17.Text.Length > 0)
-                {
-                    diasTrabalhados = Convert.ToInt32(textBox17.Text);
-                }
-                else
-                {
-                    diasTrabalhados = 0;
-                }
-                salarioD = salarioB / 30;
-
-                //salarioD = salarioH * 8;
-                result = diasTrabalhados * salarioD;
-                textBox24.Text = Convert.ToString(result);
-                CalculoProventos();
-                textBox24.Text = result.ToString("F2");
+                textBox24.Text = campo2;
             }
-            CalculoProventos();
+            else
+            {
+                textBox31.Text = campo2;
+            }
         }
 
         private void textBox16_TextChanged(object sender, EventArgs e)
         {
-            if (referencia7.Text == "1002")
+            var resultado = CalculosFolha(referencia7.Text, textBox16.Text);
+            string campo1 = resultado.Item1;
+            string campo2 = resultado.Item2;
+            int verificador = resultado.Item3;
+            if (verificador == 1)
             {
-                double salarioB = Convert.ToDouble(salarioBruto);
-                double salarioH, salarioD, result;
-                int diasTrabalhados;
-                if (textBox16.Text.Length > 0)
-                {
-                    diasTrabalhados = Convert.ToInt32(textBox16.Text);
-                }
-                else
-                {
-                    diasTrabalhados = 0;
-                }
-                salarioD = salarioB / 30;
-
-                //salarioD = salarioH * 8;
-                result = diasTrabalhados * salarioD;
-                textBox23.Text = Convert.ToString(result);
-                CalculoProventos();
-                textBox23.Text = result.ToString("F2");
+                textBox23.Text = campo2;
             }
-            CalculoProventos();
+            else
+            {
+                textBox30.Text = campo2;
+            }
         }
 
         private void textBox29_TextChanged(object sender, EventArgs e)
@@ -738,6 +684,7 @@ namespace PIM_IV.view
                 textBox29.Text = "0";
                 CalculoProventos();
             }
+            CalculoProventos();
         }
 
         private void textBox28_TextChanged(object sender, EventArgs e)
@@ -753,6 +700,7 @@ namespace PIM_IV.view
                 textBox28.Text = "0";
                 CalculoProventos();
             }
+            CalculoProventos();
         }
 
         private void textBox27_TextChanged(object sender, EventArgs e)
@@ -768,6 +716,7 @@ namespace PIM_IV.view
                 textBox27.Text = "0";
                 CalculoProventos();
             }
+            CalculoProventos();
         }
 
         private void textBox26_TextChanged(object sender, EventArgs e)
@@ -783,6 +732,7 @@ namespace PIM_IV.view
                 textBox26.Text = "0";
                 CalculoProventos();
             }
+            CalculoProventos();
         }
 
         private void textBox25_TextChanged(object sender, EventArgs e)
@@ -798,6 +748,7 @@ namespace PIM_IV.view
                 textBox25.Text = "0";
                 CalculoProventos();
             }
+            CalculoProventos();
         }
 
         private void textBox24_TextChanged(object sender, EventArgs e)
@@ -813,6 +764,7 @@ namespace PIM_IV.view
                 textBox24.Text = "0";
                 CalculoProventos();
             }
+            CalculoProventos();
         }
 
         private void textBox23_TextChanged(object sender, EventArgs e)
@@ -828,6 +780,7 @@ namespace PIM_IV.view
                 textBox23.Text = "0";
                 CalculoProventos();
             }
+            CalculoProventos();
         }
 
 
@@ -860,14 +813,146 @@ namespace PIM_IV.view
                 {
                     double feriasPorMes = salarioBruto / 12;
                     double ferias = referir * feriasPorMes;
+                    CalculoProventos();
                     return (null, Convert.ToString(ferias), 1);
                 }
-                return (null, null, 0);
+                else if (verificar == 1004)// decimo terceiro
+                {
+                    double feriasPorMes = salarioBruto / 12;
+                    double ferias = referir * feriasPorMes;
+                    return (null, Convert.ToString(ferias), 1);
+                }
+                else if (verificar == 1005)// adiantamento 13º
+                {
+                    double feriasPorMes = salarioBruto / 12;
+                    double ferias = referir * feriasPorMes;
+                    return (null, Convert.ToString(ferias), 1);
+                }
+                else if (verificar == 1006)// aviso previo
+                {
+                    return (null, null, 0);
+                }
+                else if (verificar == 1007)// insalubridade
+                {
+                    if (referir == 10 || referir == 20 || referir == 40)
+                    {
+                        if (referir == 10)
+                        {
+                            double valor = 1320 * (10 / 100);
+                            return (null, valor.ToString("F2"), 1);
+
+                        }
+                        else if (referir == 20)
+                        {
+                            double valor = 1320 * (20 / 100);
+                            return (null, valor.ToString("F2"), 1);
+                        }
+                        else
+                        {
+                            double valor = 1320 * (40 / 100);
+                            return (null, valor.ToString("F2"), 1);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("´Somente será aceito valores com 10, 20 ou 40 porcento!");
+                        return (null, null, 0);
+                    }
+
+                }
+                else if (verificar == 1008)// fgts
+                {
+                    double resultado = Convert.ToDouble(salarioBruto);
+                    resultado = resultado * 0.08;
+                    return (null, resultado.ToString("F2"), 1);
+                }
+                else if (verificar == 1009)// Vale transporte
+                {
+                    
+                    return (null, VT.ToString("F2"), 1);
+                }
+                else if (verificar == 1010)// Vale Alimentação
+                {
+                    
+                    return (null, VA.ToString("F2"), 1);
+                }
+                else if (verificar == 1011)// adicional noturno
+                {
+                    double valorH = salarioBruto / 190;
+                    double feriasPorMes = salarioBruto / 12;
+                    double ferias = referir * feriasPorMes;
+                    return (null, addNoturno.ToString("F2"), 1);
+                }
+                else if (verificar == 1012)// hora extra 50%
+                {
+                    double valorH = ((salarioBruto / 190) * 0.50) * referir;
+                    return (null, valorH.ToString("F2"), 1);
+                }
+                else if (verificar == 1013)// hora extra 100%
+                {
+                    double valorH = ((salarioBruto / 190) * 1) * referir;
+                    return (null, valorH.ToString("F2"), 1);
+                }
+                else if (verificar == 1014)// periculosidade
+                {
+                    double valorP = salarioBruto * 0.30;
+                    return (null, valorP.ToString("F2"), 1);
+                }
+                else if (verificar == 1015)// premiação
+                {
+                    return (null, null, 0);
+                }
+                else if (verificar == 1016)// participação de lucros
+                {
+                    return (null, null, 0);
+                }
+                else if (verificar == 1017)// abono salarial
+                {
+                    return (null, null, 0);
+                }
+                else if (verificar == 1018)// ferias
+                {
+                    return (null, null, 0);
+                }
+                else if (verificar == 1019)// ferias
+                {
+                    return (null, null, 0);
+                }
+                else if (verificar == 1001)// ferias
+                {
+                    return (null, null, 0);
+                }
+                else
+                {
+                    return (null, null, 0);
+                }
+                
             }
             else
             {
-                return (null, null, 0);
+                if (verificar == 2001)//irrf
+                {
+                    decimal valor =  CalculoIRRF(Convert.ToDecimal(salarioBruto), Convert.ToInt32(dependentes));
+
+                    return (null, valor.ToString("F2"),2 );
+
+                }
+                else if (verificar == 2002)// inss
+                {
+                    decimal valor = CalculoInss(Convert.ToDecimal(salarioBruto));
+                    return (null, valor.ToString("F2"), 2);
+                }
+                else if (verificar == 2003)// ferias
+                {
+                    return (null,null, 2);
+                }
+                
+                else
+                {
+                    return (null, null, 0);
+                }
             }
+
         }
 
         private void labelTotal_TabIndexChanged(object sender, EventArgs e)
@@ -896,37 +981,108 @@ namespace PIM_IV.view
 
         private void textBox36_TextChanged(object sender, EventArgs e)
         {
-            CalculoDescontos();
+            if (textBox36.Text.Length > 0)
+            {
+                usoGeral = Convert.ToDouble(textBox36.Text);
+                textBox36.Text = usoGeral.ToString("F2");
+                CalculoDescontos();
+            }
+            else
+            {
+                textBox36.Text = "0";
+                CalculoDescontos();
+            }
+           
         }
 
         private void textBox35_TextChanged(object sender, EventArgs e)
         {
-            CalculoDescontos();
+            if (textBox35.Text.Length > 0)
+            {
+                usoGeral = Convert.ToDouble(textBox35.Text);
+                textBox35.Text = usoGeral.ToString("F2");
+                CalculoDescontos();
+            }
+            else
+            {
+                textBox35.Text = "0";
+                CalculoDescontos();
+            }
         }
 
         private void textBox34_TextChanged(object sender, EventArgs e)
         {
-            CalculoDescontos();
+            if (textBox34.Text.Length > 0)
+            {
+                usoGeral = Convert.ToDouble(textBox34.Text);
+                textBox34.Text = usoGeral.ToString("F2");
+                CalculoDescontos();
+            }
+            else
+            {
+                textBox34.Text = "0";
+                CalculoDescontos();
+            }
         }
 
         private void textBox33_TextChanged(object sender, EventArgs e)
         {
-            CalculoDescontos();
+            if (textBox33.Text.Length > 0)
+            {
+                usoGeral = Convert.ToDouble(textBox33.Text);
+                textBox33.Text = usoGeral.ToString("F2");
+                CalculoDescontos();
+            }
+            else
+            {
+                textBox23.Text = "0";
+                CalculoDescontos();
+            }
         }
 
         private void textBox32_TextChanged(object sender, EventArgs e)
         {
-            CalculoDescontos();
+            if (textBox32.Text.Length > 0)
+            {
+                usoGeral = Convert.ToDouble(textBox32.Text);
+                textBox32.Text = usoGeral.ToString("F2");
+                CalculoDescontos();
+            }
+            else
+            {
+                textBox32.Text = "0";
+                CalculoDescontos();
+            }
         }
 
         private void textBox31_TextChanged(object sender, EventArgs e)
         {
-            CalculoDescontos();
+            if (textBox31.Text.Length > 0)
+            {
+                usoGeral = Convert.ToDouble(textBox31.Text);
+                textBox31.Text = usoGeral.ToString("F2");
+                CalculoDescontos();
+            }
+            else
+            {
+                textBox31.Text = "0";
+                CalculoDescontos();
+            }
         }
 
         private void textBox30_TextChanged(object sender, EventArgs e)
         {
-            CalculoDescontos();
+            if (textBox30.Text.Length > 0)
+            {
+                usoGeral = Convert.ToDouble(textBox30.Text);
+                textBox30.Text = usoGeral.ToString("F2");
+                CalculoDescontos();
+            }
+            else
+            {
+                textBox30.Text = "0";
+                CalculoDescontos();
+            }
         }
     }
 }

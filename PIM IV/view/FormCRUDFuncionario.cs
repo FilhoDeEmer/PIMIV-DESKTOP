@@ -85,7 +85,7 @@ namespace PIM_IV
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Os dados alteradso serão perdidos. Deseja continuar?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Os dados alterados serão perdidos. Deseja continuar?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
             }
@@ -177,7 +177,11 @@ namespace PIM_IV
                     MessageBox.Show("Funcionario deletado com Sucesso!");
                     Close();
                 }
-                MessageBox.Show("O Funcionario não foi deletado!");
+                else
+                {
+                    MessageBox.Show("O Funcionario não foi deletado!");
+
+                }
             }
             else { MessageBox.Show("Nenhum Funcionario Selecionado!"); }
         }

@@ -48,9 +48,9 @@ namespace PIM_IV.model
                         CrearTableCargos();
                         CrearTableUsuarios();
                         CrearTableFuncionarios();
-                        CrearTableFolha();
+                        //CrearTableFolha();
                         Referencias();
-                        CrearTableNotificacao();
+                        //CrearTableNotificacao();
                         CrearTableHolerite();
                         FormPrimeiroLogin init = new FormPrimeiroLogin();
                         init.ShowDialog();
@@ -265,7 +265,7 @@ namespace PIM_IV.model
                             FGTSMES NVARCHAR(255),
 	                        MENSAGEM NVARCHAR(255),
                             FOREIGN KEY (COD_EMPRESA) REFERENCES Empresas(codigo_empresa),
-                            FOREIGN KEY (COD_FUNCIONARIO) REFERENCES FUNCIONARIOS(codigo_funcionario)
+                            FOREIGN KEY (COD_FUNCIONARIO) REFERENCES FUNCIONARIOS(codigo_funcionario) ON DELETE CASCADE
 	                        );";
 
             string query = $"IF OBJECT_ID('{nomeTabela}', 'U') IS NULL CREATE TABLE {nomeTabela} {cmd}";
@@ -483,17 +483,17 @@ namespace PIM_IV.model
 
             string inserir = @"INSERT INTO Referencias(codigo, Descricao)
                                 VALUES
-                                (1001, 'Adiantamento de salário (Em Real)'),
+                                (1001, 'Adiantamento de salário (Em Reais)'),
                                 (1002, 'Salário mensalista (Em dias)'),
                                 (1003, 'Férias (Em Meses)'),
-                                (1004, 'Décimo Terceiro'),
-                                (1005, 'Adiantamento_13º (1/2)'),
+                                (1004, 'Décimo Terceiro (Em Reais) '),
+                                (1005, 'Adiantamento_13º (1/2 Em Reais)'),
                                 (1006, 'Aviso previo (Em dias)'),
-                                (1007, 'Insalubridade (Porcentagem)'),
+                                (1007, 'Insalubridade 10% 20% 40% (Porcentagem)'),
                                 (1008, 'FGTS (Porcentagem)'),
                                 (1009, 'Vale transporte (Valor)'),
                                 (1010, 'Vale alimentacao (Valor)'),
-                                (1011, 'Adicional noturno (porcentagem)'),
+                                (1011, 'Adicional noturno (Em Horas)'),
                                 (1012, 'Hora extra 50% (Em Horas)'),
                                 (1013, 'Horaextra 100% (Em Horas)'),
                                 (1014, 'Periculosidade (Porcentagem)'),
