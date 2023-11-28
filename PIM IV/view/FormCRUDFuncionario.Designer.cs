@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCRUDFuncionario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnExcluirFun = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -111,7 +112,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.cargosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -125,8 +125,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label35);
             this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.txtNivel);
             this.groupBox1.Controls.Add(this.btnExcluirFun);
+            this.groupBox1.Controls.Add(this.label34);
             this.groupBox1.Controls.Add(this.groupBox9);
             this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.btnSalvar);
@@ -141,6 +144,18 @@
             this.groupBox1.Size = new System.Drawing.Size(1147, 705);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.checkBox1.Location = new System.Drawing.Point(884, 19);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(182, 26);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "Alterar Usuário?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // btnExcluirFun
             // 
@@ -160,23 +175,23 @@
             this.groupBox9.Controls.Add(this.label32);
             this.groupBox9.Controls.Add(this.label33);
             this.groupBox9.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(807, 344);
+            this.groupBox9.Location = new System.Drawing.Point(807, 303);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(322, 192);
+            this.groupBox9.Size = new System.Drawing.Size(322, 145);
             this.groupBox9.TabIndex = 7;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Contatos:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(10, 149);
+            this.txtEmail.Location = new System.Drawing.Point(10, 107);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(195, 29);
             this.txtEmail.TabIndex = 2;
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(10, 68);
+            this.txtTelefone.Location = new System.Drawing.Point(10, 50);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(195, 29);
             this.txtTelefone.TabIndex = 1;
@@ -184,7 +199,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 115);
+            this.label32.Location = new System.Drawing.Point(6, 82);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(72, 22);
             this.label32.TabIndex = 1;
@@ -193,7 +208,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(6, 43);
+            this.label33.Location = new System.Drawing.Point(6, 25);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(99, 22);
             this.label33.TabIndex = 0;
@@ -201,18 +216,15 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.label35);
-            this.groupBox8.Controls.Add(this.txtNivel);
-            this.groupBox8.Controls.Add(this.label34);
             this.groupBox8.Controls.Add(this.txtSenha);
             this.groupBox8.Controls.Add(this.txtLogin);
             this.groupBox8.Controls.Add(this.label31);
             this.groupBox8.Controls.Add(this.label26);
             this.groupBox8.Enabled = false;
             this.groupBox8.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(807, 92);
+            this.groupBox8.Location = new System.Drawing.Point(807, 51);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(322, 247);
+            this.groupBox8.Size = new System.Drawing.Size(322, 168);
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Dados de Login";
@@ -220,7 +232,8 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(162, 171);
+            this.label35.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label35.Location = new System.Drawing.Point(921, 226);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(103, 66);
             this.label35.TabIndex = 6;
@@ -228,12 +241,13 @@
             // 
             // txtNivel
             // 
+            this.txtNivel.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
             this.txtNivel.FormattingEnabled = true;
             this.txtNivel.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.txtNivel.Location = new System.Drawing.Point(77, 191);
+            this.txtNivel.Location = new System.Drawing.Point(826, 256);
             this.txtNivel.Name = "txtNivel";
             this.txtNivel.Size = new System.Drawing.Size(59, 30);
             this.txtNivel.TabIndex = 4;
@@ -242,7 +256,8 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(73, 166);
+            this.label34.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label34.Location = new System.Drawing.Point(827, 226);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(63, 22);
             this.label34.TabIndex = 4;
@@ -920,18 +935,6 @@
             // cargosBindingSource
             // 
             this.cargosBindingSource.DataMember = "Cargos";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.checkBox1.Location = new System.Drawing.Point(875, 49);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(182, 26);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Alterar Usuário?";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // FormCRUDFuncionario
             // 
