@@ -93,7 +93,6 @@
             this.txtBoxPassword.PasswordChar = '*';
             this.txtBoxPassword.Size = new System.Drawing.Size(207, 29);
             this.txtBoxPassword.TabIndex = 2;
-            this.txtBoxPassword.Text = "123456";
             this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
             // txtBoxLogin
@@ -102,7 +101,6 @@
             this.txtBoxLogin.Name = "txtBoxLogin";
             this.txtBoxLogin.Size = new System.Drawing.Size(207, 29);
             this.txtBoxLogin.TabIndex = 1;
-            this.txtBoxLogin.Text = "Emerson";
             // 
             // label2
             // 
@@ -110,19 +108,19 @@
             this.label2.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(100, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 22);
+            this.label2.Size = new System.Drawing.Size(76, 22);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Senha";
+            this.label2.Text = "Senha:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(77, 81);
+            this.label1.Location = new System.Drawing.Point(100, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 22);
+            this.label1.Size = new System.Drawing.Size(68, 22);
             this.label1.TabIndex = 20;
-            this.label1.Text = "E-mail ou ID:";
+            this.label1.Text = "Login:";
             // 
             // imageList1
             // 
