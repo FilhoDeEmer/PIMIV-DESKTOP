@@ -116,11 +116,11 @@ namespace PIM_IV.model
             string nomeTabela = "Funcionarios";
             string cmd = "(codigo_funcionario INT PRIMARY KEY NOT NULL IDENTITY(1, 1), "+
                          "nome VARCHAR(255) NOT NULL," +
-                         "cpf VARCHAR(14) NOT NULL," +
-                         "rg VARCHAR(20)," +
-                         "data_nascimento varchar(10)," +
+                         "cpf VARCHAR(255) NOT NULL," +
+                         "rg VARCHAR(255)," +
+                         "data_nascimento varchar(255)," +
                          "rua VARCHAR(255)," +
-                         "cep VARCHAR(9)," +
+                         "cep VARCHAR(255)," +
                          "numero INT," +
                          "n_dependentes int," +
                          "estado CHAR(2)," +
@@ -128,7 +128,7 @@ namespace PIM_IV.model
                          "codigo_empresa INT," +
                          "codigo_cargo INT," +
                          "salario DECIMAL(10,2)," +
-                         "data_adimicao varchar(10)," +
+                         "data_adimicao varchar(255)," +
                          "vale_transporte DECIMAL(5, 2)," +
                          "vale_alimentacao DECIMAL(5, 2)," +
                          "vale_refeicao DECIMAL(5, 2)," +
@@ -176,16 +176,16 @@ namespace PIM_IV.model
 
             string nomeTabela = "Empresas";
             string cmd = "  (codigo_empresa INT PRIMARY KEY IDENTITY(1,1),"+
-                            "CNPJ VARCHAR(18) NOT NULL,"+
-                            "Inscricao_estadual VARCHAR(20),"+
+                            "CNPJ VARCHAR(255) NOT NULL,"+
+                            "Inscricao_estadual VARCHAR(255),"+
                             "Nome VARCHAR(255) NOT NULL,"+
                             "rua VARCHAR(255),"+
-                            "cep VARCHAR(9),"+
+                            "cep VARCHAR(255),"+
                             "cidade VARCHAR(100),"+
                             "numero INT,"+
                             "estado CHAR(2),"+
                             "email VARCHAR(255),"+
-                            "telefone VARCHAR(15),"+
+                            "telefone VARCHAR(255),"+
                             "Nome_responsavel VARCHAR(100)); ";
 
             string query = $"IF OBJECT_ID('{nomeTabela}', 'U') IS NULL CREATE TABLE {nomeTabela} {cmd}";
